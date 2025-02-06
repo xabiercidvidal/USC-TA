@@ -4,7 +4,7 @@ Autor: José Ángel Hernando Morata, Xabier Cid Vidal
 
 Institution: Physics Master, **Universidade de Santiago de Compostela**
 
-email: jose.hernando@usc.es, xabier.cid@usc.gal,
+email: jose.hernando@usc.es, [xabier.cid@usc.gal](mailto:xabier.cid@usc.gal)
 
 Version: February 2025
 
