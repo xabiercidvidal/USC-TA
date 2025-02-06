@@ -4,7 +4,7 @@ Autor: José Ángel Hernando Morata, Xabier Cid Vidal
 
 Institution: Physics Master, **Universidade de Santiago de Compostela**
 
-email: jose.hernando@usc.es, xabier.cid@usc.gal 
+email: jose.hernando@usc.es, xabier.cid@usc.gal,
 
 Version: February 2025
 
@@ -13,20 +13,20 @@ Version: February 2025
 
 These lectures are about statistical methods for rare event searches in Particle Physics using Python. 
 
-They cover Hypothesis Testing and Confidence Level Intervals. They are based on the excellent lectures on statistics by Prosper ([lectures](https://indico.cern.ch/event/358542) [pdf](https://arxiv.org/pdf/1504.00945.pdf)), Cowan ([lectures](http://indico.cern.ch/event/173726/)) and Cramer ([lectures](https://indico.cern.ch/event/48425/)) given at the CERN Academic Training.
+They cover Hypothesis Testing and Confidence Level Intervals. They are based on the excellent lectures on statistics by Prosper ([lectures](https://indico.cern.ch/event/358542) [pdf](https://arxiv.org/pdf/1504.00945.pdf)), Cowan ([lectures](http://indico.cern.ch/event/173726/)) and Cranmer ([lectures](https://indico.cern.ch/event/48425/)) given at the CERN Academic Training.
 
-Sometimes, we do an experiment to discover a new particle. If the particle exits in Nature we maybe find only few events. 
+Sometimes, we do an experiment to discover a new particle. If the particle exists in Nature we may only find few events. 
 Rare events usually follow poissonian distributions, but statistics are nicely and friendly in the "Gaussian domain".
 
-When we could clain that we have an **observation** or a **discovery** of the new particle? 
-And if not, what is the **limit** in a given observable (i.e. the half lifetime) that we could impose?
+When could we clain that we have an **observation** or a **discovery** of the new particle? 
+And if not, what is the **limit** on a given observable (i.e. the half lifetime) that we could impose?
 
 In fact, *what does it mean discovery, observation, a limit, a confidence level interval?* and, *how do we compute them from data?* These are the questions we try to answer in these lectures.
 
-The beginnig starts with a bifurcation: either we follow a **Bayes** or a **Frequentist** path.
-Be a Bayesian implies do **integration** (sometime complicated integrals!), and be a frequentist implies either do regression (fits!) or do **simulations**.  But thanks to the current computer power, we can play the **frequentist game**!
+The beginning starts with a bifurcation: either we follow a **Bayes** or a **Frequentist** path.
+Being a Bayesian implies doing **integration** (sometime complicated integrals!), and being a frequentist implies either doing regressions (fits!) or **simulations**.  But thanks to the current computing power, we can play the **frequentist game**!
 
-We will use the Python scientic toolkits, Matplotlib, Numpy, Scipy, that are distributed with Anaconda Python. 
+We will use Python scientic toolkits, Matplotlib, Numpy, Scipy, that are distributed with Anaconda Python. 
 
 ## Table of Contents
 
