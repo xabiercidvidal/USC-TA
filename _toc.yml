@@ -8,3 +8,4 @@ chapters:
 - file: ta_hypothesis_test.ipynb
 - file: ta_confidence_intervals.ipynb
 - file: ta_hypothesis_test_composite.ipynb
+- file: exercises.md

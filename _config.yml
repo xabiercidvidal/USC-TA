@@ -2,9 +2,9 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: Statistics for Particle Physics 
-author: José Ángel Hernando Morata
+author: José Ángel Hernando Morata, Xabier Cid Vidal
 logo: logo.png
-copyright: USC - J.A. Hernando - 2023
+copyright: USC - J.A. Hernando, X. Cid Vidal - 2025
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -47,7 +47,7 @@ bibtex_bibfiles:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/jahernando/USC-TA # Online location of your book
+  url: https://github.com/xabiercidvidal/USC-TA # Online location of your book
   path_to_book: docs  # Optional path to your book, relative to the repository root
   branch: master  # Which branch of the repository should be used when creating links (optional)
 
