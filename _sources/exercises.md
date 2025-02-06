@@ -1,6 +1,6 @@
+### Exercises
+**Do the following exercises.**
 ### Exercises 1: Hypothesis testing (simple case)
-
-**Prepare a total of 4 exercises.**
 
 #### Exercise 1a: 
 Consider the NEXT experiment as a counting experiment. 
