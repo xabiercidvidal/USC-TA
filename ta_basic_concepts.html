@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -232,24 +232,6 @@
     <i class="fas fa-rocket"></i>
   </button>
   <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://mybinder.org/v2/gh/xabiercidvidal/USC-TA/master?urlpath=tree/docs/ta_basic_concepts.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch on Binder"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img alt="Binder logo" src="_static/images/logo_binder.svg">
-  </span>
-<span class="btn__text-container">Binder</span>
-</a>
-</li>
-      
       
       
       
@@ -550,7 +532,7 @@ P(A|B) \, P(B) = P(B|A)\,P(A)
 \[
 \frac{2}{11} \,  \frac{11}{36} = \frac{2}{5} \, \frac{5}{36} = \frac{1}{18}
 \]</div>
-<p><strong>Exercise:</strong> In a low prevalence population, the probability of an individual to have HIV+ is 1 in 1000. Consider a medical test of HIV.</p>
+<p><strong>Class exercise:</strong> In a low prevalence population, the probability of an individual to have HIV+ is 1 in 1000. Consider a medical test of HIV.</p>
 <p>If the patient is HIV+, the test is positive in 99.8 % of the times (true-positive), but if the person is HIV-, the test can wrongly be positive 0.2 % of the times (false positive).</p>
 <p>After a test, a patient is diagnosed with HIV+, what is the probability that he has HIV +? Should the doctor repeat the test?</p>
 <div class="math notranslate nohighlight">
@@ -562,36 +544,15 @@ p(H+ | +) = \frac{p(+ | H+) p(H+)}{p(+)} =  \frac{p(+ | H+) p(H+)}{p(+ | H+) p (
 \[
 p(H+) = 10^{-3}, \; p(H-) = 1-10^{-3}, \; p(+ | H+) = 0.998, \; p(+ | H-) = 0.002 
 \]</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">pa = probability of being positive</span>
-<span class="sd">pxa = probability of being positive if the test came positive</span>
-<span class="sd">pxnoa = probability of being negative if the test came positive</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="k">def</span> <span class="nf">bayes_pax</span><span class="p">(</span><span class="n">pa</span><span class="p">,</span> <span class="n">pxa</span><span class="p">,</span> <span class="n">pxnoa</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">pxa</span> <span class="o">*</span> <span class="n">pa</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">pxa</span> <span class="o">*</span> <span class="n">pa</span> <span class="o">+</span> <span class="n">pxnoa</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">pa</span><span class="p">))</span>
-
-<span class="n">pax</span> <span class="o">=</span> <span class="n">bayes_pax</span><span class="p">(</span><span class="mf">1e-3</span><span class="p">,</span> <span class="mf">0.998</span><span class="p">,</span> <span class="mf">0.002</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pax</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3331108144192256
-</pre></div>
-</div>
-</div>
-</div>
 <p><strong>Exercise:</strong> A neutrino experiment has a problem with the DAQ, and 5% of the running time it does not observe interactions. The neutrinos are produced by a reactor nearby that operates 75% of the time. In this moment, the experiment does not observe neutrinos, what is the probability that the reactor is off?</p>
 </section>
 </section>
 <section id="probability-density-functions">
 <h2>Probability density functions<a class="headerlink" href="#probability-density-functions" title="Link to this heading">#</a></h2>
-<p>Measurements are of probabilistic nature, there are <strong>random variables</strong> (rv).</p>
+<p>Measurements are of probabilistic nature, we can define <strong>random variables</strong> (rv).</p>
 <p>The distribution probability, <span class="math notranslate nohighlight">\(g(x)\)</span>, that follows a rv is called <strong>probability density function</strong>, pdf.</p>
 <p>If <span class="math notranslate nohighlight">\(x\)</span> takes discrete values, it is called <strong>probability mass function</strong>, pmf.</p>
-<p>Here we will abuse the lenguage and call them both as ‘pdf’.</p>
+<p>Here we will abuse the language and call them both ‘pdf’.</p>
 <p>In most of the cases the pdfs depends on some parameters <span class="math notranslate nohighlight">\(\mu\)</span>, indicated as <span class="math notranslate nohighlight">\(g(x | \mu)\)</span>.</p>
 <p>From the probability axioms we have:</p>
 <div class="math notranslate nohighlight">
@@ -607,14 +568,14 @@ F(x) = \int_{-\infty}^{x} g(x) \, \mathrm{d}x
 <h3>Common probability density functions<a class="headerlink" href="#common-probability-density-functions" title="Link to this heading">#</a></h3>
 <p>The most common distributions in HEP are:</p>
 <ul class="simple">
-<li><p><strong>Binomial</strong>. A event can happen with probability <span class="math notranslate nohighlight">\(p\)</span>. The probability to get <span class="math notranslate nohighlight">\(n\)</span> events if we try <span class="math notranslate nohighlight">\(N\)</span> times is given by the binomial pdf.</p></li>
+<li><p><strong>Binomial</strong>. An event can happen with probability <span class="math notranslate nohighlight">\(p\)</span>. The probability to get <span class="math notranslate nohighlight">\(n\)</span> events if we try <span class="math notranslate nohighlight">\(N\)</span> times is given by:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[
 g(n|N,p) = \frac{N!}{n! (N-n)!} p^n (1-p)^{N-n}
 \]</div>
 <ul class="simple">
-<li><p><strong>Poisson</strong>. Number of events if we expect <span class="math notranslate nohighlight">\(\nu\)</span>, <em>i.e.</em> the number of interactions in a crossing of the LHC beams is modeled with a poisson. Nuclear decays are poisson distributed poisson too.</p></li>
+<li><p><strong>Poisson</strong>. Probability to observe <span class="math notranslate nohighlight">\(n\)</span> events if we expect <span class="math notranslate nohighlight">\(\nu\)</span>, <em>e.g.</em> the number of interactions in a crossing of the LHC beams is modeled by a Poisson distribution. Nuclear decays are Poisson distributed too.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[ 
@@ -642,14 +603,14 @@ g(x|\tau) = \frac{1}{\tau} e^{-x/\tau}
 g(x|\mu,\sigma) = \frac{1}{\sqrt{2\pi} \sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 \]</div>
 <ul class="simple">
-<li><p><strong><span class="math notranslate nohighlight">\(\chi^2_n\)</span></strong> with <span class="math notranslate nohighlight">\(n\)</span> degrees of freedom. Associated with goodness of fit.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\chi^2_n\)</span></strong> with <span class="math notranslate nohighlight">\(n\)</span> degrees of freedom. Associated with goodness of a fit.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[
 g(x|n) = \frac{1}{2^{n/2} \Gamma(n/2)} x^{n/2-1}e^{-x/2}
 \]</div>
 <ul class="simple">
-<li><p><strong>Breit-Wigner</strong>. Describes the distribution of masses in resonances.</p></li>
+<li><p><strong>Breit-Wigner</strong>. It describes the distribution of masses in resonances.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[
@@ -672,11 +633,15 @@ g(x | \alpha,\beta) = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} e^{-x \b
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(x, \alpha, \beta\)</span> are positive.</p>
 <p>Some of the pdfs are nicely related:</p>
-<p>In the case that an event is rare, has a small probability, <span class="math notranslate nohighlight">\(p\)</span>, but we do a large number of trials, <span class="math notranslate nohighlight">\(N\)</span>, the events distribution follows a binomial with <span class="math notranslate nohighlight">\(g(n | N, p)\)</span>, if <span class="math notranslate nohighlight">\( N \, p = \nu\)</span> is constant, and <span class="math notranslate nohighlight">\(N\)</span> is large enough and <span class="math notranslate nohighlight">\(p\)</span> small enough, the binomial is equivalent to a Poisson with mean <span class="math notranslate nohighlight">\(\nu\)</span>, <span class="math notranslate nohighlight">\(g(n | \nu)\)</span>.</p>
+<ul class="simple">
+<li><p>Let’s say an event is rare, with a small probability, <span class="math notranslate nohighlight">\(p\)</span>. If we do a large number of trials, <span class="math notranslate nohighlight">\(N\)</span>, the event’s distribution follows a binomial pdf with <span class="math notranslate nohighlight">\(g(n | N, p)\)</span>, if <span class="math notranslate nohighlight">\( N \, p = \nu\)</span> is constant, and <span class="math notranslate nohighlight">\(N\)</span> is large enough and <span class="math notranslate nohighlight">\(p\)</span> small enough, the binomial is equivalent to a Poisson with mean <span class="math notranslate nohighlight">\(\nu\)</span>, <span class="math notranslate nohighlight">\(g(n | \nu)\)</span>.</p></li>
+</ul>
 <p>For example nucleus decays follow this rule: large trials (<span class="math notranslate nohighlight">\(N\)</span>, number of nucleus) and small decay probability (<span class="math notranslate nohighlight">\(p\)</span>).</p>
-<p>When <span class="math notranslate nohighlight">\(\nu\)</span> is “large”, 12 is enough, the Poisson transforms into Gaussian with <span class="math notranslate nohighlight">\(\mu=\nu, \sigma = \sqrt{\mu}\)</span>.</p>
-<p>When we take n values of <span class="math notranslate nohighlight">\(x\)</span>, gaussian distributed, with mean <span class="math notranslate nohighlight">\(\mu\)</span> and sigma <span class="math notranslate nohighlight">\(\sigma\)</span>, and compute <span class="math notranslate nohighlight">\(\chi^2 = \sum_{i=1,n} \frac{(x_i -\mu)^2}{\sigma^2}\)</span>, it follows a chi-squared distribution with <span class="math notranslate nohighlight">\(n\)</span> degrees of freedom.</p>
-<p><strong>Exercise:</strong> Compare a poisson distribution, with <span class="math notranslate nohighlight">\(\nu=p \, N\)</span> with a binomial when <span class="math notranslate nohighlight">\(N\)</span> is large and <span class="math notranslate nohighlight">\(p\)</span> is small.</p>
+<ul class="simple">
+<li><p>When <span class="math notranslate nohighlight">\(\nu\)</span> is “large”, 12 is enough, the Poisson transforms into Gaussian with <span class="math notranslate nohighlight">\(\mu=\nu, \sigma = \sqrt{\mu}\)</span>.</p></li>
+<li><p>When we take n values of <span class="math notranslate nohighlight">\(x\)</span>, gaussianly distributed, with mean <span class="math notranslate nohighlight">\(\mu\)</span> and sigma <span class="math notranslate nohighlight">\(\sigma\)</span>, and compute <span class="math notranslate nohighlight">\(\chi^2 = \sum_{i=1,n} \frac{(x_i -\mu)^2}{\sigma^2}\)</span>, it follows a chi-squared distribution with <span class="math notranslate nohighlight">\(n\)</span> degrees of freedom.</p></li>
+</ul>
+<p><strong>Example:</strong> Compare a poisson distribution, with <span class="math notranslate nohighlight">\(\nu=p \, N\)</span> with a binomial when <span class="math notranslate nohighlight">\(N\)</span> is large and <span class="math notranslate nohighlight">\(p\)</span> is small.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="mf">0.002</span><span class="p">;</span> <span class="n">ns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -690,24 +655,10 @@ g(x | \alpha,\beta) = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} e^{-x \b
 <img alt="_images/b40f8e85daed9487e3955db5c2186668ee0507744f89908db0634a12828c3bd6.png" src="_images/b40f8e85daed9487e3955db5c2186668ee0507744f89908db0634a12828c3bd6.png" />
 </div>
 </div>
-<p><strong>Exercise:</strong> Compare a gaussian distribution, with <span class="math notranslate nohighlight">\(\mu=p \, N, \, \sigma = \sqrt{\mu}\)</span> with a binomial when <span class="math notranslate nohighlight">\(N\)</span> is large and <span class="math notranslate nohighlight">\(p\)</span> is small and <span class="math notranslate nohighlight">\(\mu = N p &gt; 50\)</span>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="mf">1e4</span><span class="p">,</span> <span class="mf">50.</span><span class="o">/</span><span class="mf">1e4</span><span class="p">;</span> <span class="n">ns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ns</span><span class="p">,</span> <span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">ns</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>            <span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span> <span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;binomial&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ns</span><span class="p">,</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">ns</span><span class="p">,</span> <span class="n">N</span><span class="o">*</span><span class="n">p</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="n">p</span><span class="p">)),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;gaussian&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;g(x)&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/95a2999bdbba937c7ab808cba916f06d5a497c80211ded1924c916b6b8e45aaf.png" src="_images/95a2999bdbba937c7ab808cba916f06d5a497c80211ded1924c916b6b8e45aaf.png" />
-</div>
-</div>
+<p><strong>Class exercise:</strong> Compare a gaussian distribution, with <span class="math notranslate nohighlight">\(\mu=p \, N, \, \sigma = \sqrt{\mu}\)</span> with a binomial when <span class="math notranslate nohighlight">\(N\)</span> is large and <span class="math notranslate nohighlight">\(p\)</span> is small and <span class="math notranslate nohighlight">\(\mu = N p &gt; 50\)</span>. You can use <span class="math notranslate nohighlight">\(stats.binom\)</span> and <span class="math notranslate nohighlight">\(stats.norm\)</span>.</p>
 <p><strong>Exercise:</strong> Check that from a “large” <span class="math notranslate nohighlight">\(\nu\)</span> the poisson distribution is equivalent to a gaussian distribution.</p>
-<p><strong>Exercise:</strong> Generate <span class="math notranslate nohighlight">\(m\)</span> datasets, each one with <span class="math notranslate nohighlight">\(n\)</span> data, <span class="math notranslate nohighlight">\(x_i\)</span> distributed random in <span class="math notranslate nohighlight">\([0, 1]\)</span> interval, sum the <span class="math notranslate nohighlight">\(n\)</span> numbers, <span class="math notranslate nohighlight">\(\sum_i^n x_i\)</span> and obtain the distribution of the <span class="math notranslate nohighlight">\(m\)</span> samples.</p>
-<p><strong>Exercise:</strong> Generate <span class="math notranslate nohighlight">\(m\)</span> datasets, each with <span class="math notranslate nohighlight">\(n\)</span> data, <span class="math notranslate nohighlight">\(x_i\)</span>, normal distributed, compute its distance squared <span class="math notranslate nohighlight">\(\chi^2 = \sum_{i=1}^n x^2_i\)</span>, what is the distribution of <span class="math notranslate nohighlight">\(\chi^2\)</span>?</p>
-<p><strong>Exercise:</strong> Generate <span class="math notranslate nohighlight">\(n\)</span> <span class="math notranslate nohighlight">\(x_i\)</span>-values, each one gaussian distributed with mean <span class="math notranslate nohighlight">\(\mu_i\)</span> and sigma <span class="math notranslate nohighlight">\(\sigma_i\)</span>, show that the sum <span class="math notranslate nohighlight">\(\sum_i x_i\)</span> is gaussian distributed with mean, <span class="math notranslate nohighlight">\(\mu = \sum_i \mu_i\)</span>, and sigma <span class="math notranslate nohighlight">\(\sigma^2 = \sum_i \sigma^2_i\)</span>.</p>
+<p><strong>Exercise:</strong> Generate <span class="math notranslate nohighlight">\(m\)</span> datasets, each with <span class="math notranslate nohighlight">\(n\)</span> data, <span class="math notranslate nohighlight">\(x_i\)</span>, normally distributed, compute its distance squared <span class="math notranslate nohighlight">\(\chi^2 = \sum_{i=1}^n x^2_i\)</span>, what is the distribution of <span class="math notranslate nohighlight">\(\chi^2\)</span>?</p>
+<p><strong>Exercise:</strong> Generate <span class="math notranslate nohighlight">\(n\)</span> <span class="math notranslate nohighlight">\(x_i\)</span>-values, each one gaussianly distributed with mean <span class="math notranslate nohighlight">\(\mu_i\)</span> and sigma <span class="math notranslate nohighlight">\(\sigma_i\)</span>, show that the sum <span class="math notranslate nohighlight">\(\sum_i x_i\)</span> is gaussian distributed with mean, <span class="math notranslate nohighlight">\(\mu = \sum_i \mu_i\)</span>, and sigma <span class="math notranslate nohighlight">\(\sigma^2 = \sum_i \sigma^2_i\)</span>.</p>
 </section>
 <section id="expectation-values">
 <h3>Expectation values<a class="headerlink" href="#expectation-values" title="Link to this heading">#</a></h3>
