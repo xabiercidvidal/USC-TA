@@ -520,19 +520,19 @@
 <section id="id1">
 <h3><a class="reference external" href="https://en.wikipedia.org/wiki/Thomas_Bayes">Bayes</a>’ theorem<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>The probability <span class="math notranslate nohighlight">\(P(A)\)</span> that an event happens is called <strong>marginal probability</strong>.</p>
-<p>For example, the probability to roll a dice and get 3.</p>
+<p>For example, the probability to roll a dice and get a 3.</p>
 <p>The probability that an event <span class="math notranslate nohighlight">\(A\)</span> happens if another one <span class="math notranslate nohighlight">\(B\)</span> has happened is called <strong>conditional probability</strong>, <span class="math notranslate nohighlight">\(P(A|B)\)</span>.</p>
-<p>For example, the probability that rolling your dice is 3 if you know that the number obtained was odd, in that case <span class="math notranslate nohighlight">\(P(3|\mathrm{odd})=1/3\)</span>.</p>
+<p>For example, the probability that rolling your dice you get a 3 if you know that the number obtained was odd, in that case <span class="math notranslate nohighlight">\(P(3|\mathrm{odd})=1/3\)</span>.</p>
 <p>The Bayes’ theorem states:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(P(A|B) \, P(B) = P(B|A) \, P(A)\)</span>.</p></li>
 </ul>
-<p>The conditional probabilities <span class="math notranslate nohighlight">\(P(A|B)\)</span> and <span class="math notranslate nohighlight">\(P(B|A)\)</span> are defined from the probabilities of both events A and B to happen and their marginal probabilities, this is:</p>
+<p>The conditional probabilities <span class="math notranslate nohighlight">\(P(A|B)\)</span> and <span class="math notranslate nohighlight">\(P(B|A)\)</span> are defined from the probabilities of both events (A and B) to happen and their marginal probabilities, this is:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(P(A \cup B) = P(A|B) \, P(B)\)</span> , with <span class="math notranslate nohighlight">\(P(B) \neq 0\)</span>,</p></li>
-<li><p><span class="math notranslate nohighlight">\(P(B \cup A) = P(B|A) \, P(A)\)</span> , with <span class="math notranslate nohighlight">\(P(A) \neq 0\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(P(A \cap B) = P(A|B) \, P(B)\)</span> , with <span class="math notranslate nohighlight">\(P(B) \neq 0\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(P(B \cap A) = P(B|A) \, P(A)\)</span> , with <span class="math notranslate nohighlight">\(P(A) \neq 0\)</span>,</p></li>
 </ul>
-<p>The intersection probabilities between A and B are commutative, <span class="math notranslate nohighlight">\(P(A \cup B) = P(B \cup A)\)</span>, hence, both expressions are equivalent:</p>
+<p>The intersection probabilities between A and B are commutative, <span class="math notranslate nohighlight">\(P(A \cap B) = P(B \cap A)\)</span>, hence, both expressions are equivalent:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(P(A|B) \, P(B) = P(B|A) \, P(A)\)</span>.</p></li>
 </ul>
@@ -541,17 +541,17 @@
 \[
 P(A|B) \, P(B) = P(B|A)\,P(A)
 \]</div>
-<p><strong>Example:</strong> consider the experiment of rolling two dices, <span class="math notranslate nohighlight">\(A\)</span> is the case when the sum of both dices is 6, and <span class="math notranslate nohighlight">\(B\)</span> when one of them is 4. Verify the Bayes’ theorem.</p>
+<p><strong>Example:</strong> consider an experiment, with the rolling  of two dices, <span class="math notranslate nohighlight">\(A\)</span> is the case when the sum of both dices is 6, and <span class="math notranslate nohighlight">\(B\)</span> when one of them is 4. Verify Bayes’ theorem.</p>
 <p>The probability to get six adding both dices is <span class="math notranslate nohighlight">\(P(A)= 5/36\)</span>, possible outcomes are <span class="math notranslate nohighlight">\(\{(1,5),(2,4),(3,3),(4,2),(5,1)\}\)</span>.</p>
-<p>The probability to get four when the addition is six is <span class="math notranslate nohighlight">\(P(B|A)=2/5\)</span>.</p>
-<p>The probability to get a dice with four is <span class="math notranslate nohighlight">\(P(B)=11/36\)</span>.</p>
-<p>The probability that both add six if one is four is <span class="math notranslate nohighlight">\(2/11\)</span>, therefore:</p>
+<p>The probability to get a four when the addition is six is <span class="math notranslate nohighlight">\(P(B|A)=2/5\)</span>.</p>
+<p>The probability to get either dice with a four is <span class="math notranslate nohighlight">\(P(B)=11/36\)</span>.</p>
+<p>The probability that both add six if one is a four is <span class="math notranslate nohighlight">\(P(A|B)=2/11\)</span>, therefore:</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{11}{36} \, \frac{2}{11} = \frac{2}{5} \, \frac{5}{36} = \frac{1}{18}
+\frac{2}{11} \,  \frac{11}{36} = \frac{2}{5} \, \frac{5}{36} = \frac{1}{18}
 \]</div>
 <p><strong>Exercise:</strong> In a low prevalence population, the probability of an individual to have HIV+ is 1 in 1000. Consider a medical test of HIV.</p>
-<p>If the patient is HIV+, the test is positive in 99.8 % of the times (true-positive), but if the person is HIV-, the test can wrongly be positive in 0.2 % of the times.</p>
+<p>If the patient is HIV+, the test is positive in 99.8 % of the times (true-positive), but if the person is HIV-, the test can wrongly be positive 0.2 % of the times (false positive).</p>
 <p>After a test, a patient is diagnosed with HIV+, what is the probability that he has HIV +? Should the doctor repeat the test?</p>
 <div class="math notranslate nohighlight">
 \[
@@ -564,7 +564,12 @@ p(H+) = 10^{-3}, \; p(H-) = 1-10^{-3}, \; p(+ | H+) = 0.998, \; p(+ | H-) = 0.00
 \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bayes_pax</span><span class="p">(</span><span class="n">pa</span><span class="p">,</span> <span class="n">pxa</span><span class="p">,</span> <span class="n">pxnoa</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">pa = probability of being positive</span>
+<span class="sd">pxa = probability of being positive if the test came positive</span>
+<span class="sd">pxnoa = probability of being negative if the test came positive</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="k">def</span> <span class="nf">bayes_pax</span><span class="p">(</span><span class="n">pa</span><span class="p">,</span> <span class="n">pxa</span><span class="p">,</span> <span class="n">pxnoa</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">pxa</span> <span class="o">*</span> <span class="n">pa</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">pxa</span> <span class="o">*</span> <span class="n">pa</span> <span class="o">+</span> <span class="n">pxnoa</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">pa</span><span class="p">))</span>
 
 <span class="n">pax</span> <span class="o">=</span> <span class="n">bayes_pax</span><span class="p">(</span><span class="mf">1e-3</span><span class="p">,</span> <span class="mf">0.998</span><span class="p">,</span> <span class="mf">0.002</span><span class="p">)</span>
