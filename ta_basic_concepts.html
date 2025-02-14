@@ -875,11 +875,12 @@ and a normal likelihood, <span class="math notranslate nohighlight">\(p(x |\mu, 
 \mu' = \sigma^2_{\mu'} \left( \frac{\mu_0}{\sigma^2_{\mu_0}} + \frac{\sum_i x_i}{\sigma^2} \right)
 \]</div>
 <p><strong>Exercise:</strong> There are several dices in a box, with 4, 6, 12 and 24 sides. We randomly pick one dice and we roll it four times. The outcomes are <span class="math notranslate nohighlight">\(\{1,4,5,2\}\)</span>. What is the posterior probability that the selected dice has 4, 6, 12 or 24 sides? What is the posterior probability if we roll it twice again and we get now 6 and 1?
-Use the posterior probability formula:
-$<span class="math notranslate nohighlight">\(
+Use the posterior probability formula:</p>
+<div class="math notranslate nohighlight">
+\[
 p(\mu|x) = \frac{p(x|\mu) \, \pi(\mu)}{\sum p(x|\mu) \pi(\mu)}
-\)</span><span class="math notranslate nohighlight">\(
-and bear in mind, for a dice with \)</span>\mu<span class="math notranslate nohighlight">\( faces \)</span>p(x|\mu)<span class="math notranslate nohighlight">\( will be 0 if \)</span>x&gt;\mu<span class="math notranslate nohighlight">\( or \)</span>1/\mu$ else.</p>
+\]</div>
+<p>and bear in mind, for a dice with <span class="math notranslate nohighlight">\(\mu\)</span> faces <span class="math notranslate nohighlight">\(p(x|\mu)\)</span> will be 0 if <span class="math notranslate nohighlight">\(x&gt;\mu\)</span> or <span class="math notranslate nohighlight">\(1/\mu\)</span> else.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; pseudo example code</span>
