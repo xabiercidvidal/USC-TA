@@ -12,16 +12,25 @@ import htplot    as htplot
 h0color, h1color, datacolor = 'orange', 'green', 'black'
 marker = 'o'
 
-def normal_likelihood(xs, ylog = False):
+def normal_likelihood(xs, isgaussll = False, ylog = False):
 
-    def ll(x, xs):
-        dx = (x-xs)
+    def ll(mu, xs):
+        dx = (mu-xs)
         return np.sum(dx*dx)
 
+    def gaussll(mu,xs):
+        probs = stats.norm.pdf(xs, mu, 1)   
+        return -2*np.sum(np.log(probs))
+        
     nsize = len(xs)
     mus = np.linspace(-3., 3., 100)
-    lls = np.array([ll(mu, xs) for mu in mus])
-
+    if isgaussll: 
+        lls = np.array([gaussll(mu, xs) for mu in mus])
+        lname = '\log {}_{Gauss}\mathcal{L}'
+    else:
+        lls = np.array([ll(mu, xs) for mu in mus])
+        lname = '\log \mathcal{L}'
+    
     print('mu mean :', np.mean(xs), ', mu std :', 1./np.sqrt(nsize))
 
     plt.hist(xs, bins=50, range=(-3., 3.),
@@ -29,11 +38,11 @@ def normal_likelihood(xs, ylog = False):
     plt.ylabel('events'); plt.xlabel('$x$')
     ax = plt.gca(); axb = ax.twinx()
     axb.plot(mus, lls, alpha=0.5, color='red', lw=2,
-             label = r'$-2 \, \log \mathcal{L}(x | \mu)$')
+             label = r'$-2 \, '+lname+'(x | \mu)$')
     deltaL = np.min(lls) +1
     axb.plot(mus, deltaL*np.ones(len(mus)), ls='--',
-             label = r'$\Delta \mathcal{L}(\mu) = 1$');
-    axb.set_ylabel('$-2 \, \log \mathcal{L}(x | \mu)$')
+             label = r'$\Delta '+lname+'(\mu) = 1$');
+    axb.set_ylabel('$-2 \, '+lname+'(x | \mu)$')
     if (ylog): axb.set_yscale('log');
     plt.legend(loc = 1);
 
@@ -43,37 +52,37 @@ def normal_likelihood(xs, ylog = False):
 def normal_posterior(xs):
 
     def posterior(x, xs):
-        """ the posterior of a gaussian likelihood with known sigma and mu mean,
+        """ the posterior of a gaussian likelihood with known sigma_prior and mu mean,
         and flat prior on mu
-        is a gaussian with mean the average of the n-measurements and sigma=  sigma/sqrt(n)
+        is a gaussian with mean the average of the n-measurements and sigma=sigma_prior/sqrt(n)
         """
-        mu = np.mean(xs)
+        xmean = np.mean(xs)
         msig = np.sqrt(1./(1.*len(xs)))
-        return stats.norm.pdf(x, mu, msig)
+        return stats.norm.pdf(x, xmean, msig)
 
     mus = np.linspace(-3., 3., 100)
-    dx  = mus[1]-mus[0]
     pos = np.array([posterior(mu, xs) for mu in mus])
 
     plt.hist(xs, bins=50, range=(-3., 3.), color= datacolor, histtype='step',
             label='data')
-    print('posterior integral {:5.3f}'.format(np.sum(pos)*dx))
     ax = plt.gca(); axb = ax.twinx();
-    axb.plot(mus, pos, color='red', lw=2, label="$\pi'(\mu)$");
-    ax.set_xlabel('$\mu$'); axb.set_ylabel(r"$\pi'(\mu)$");
+    axb.plot(mus, pos, color='red', lw=2, label="$p(\mu|x_0)$");
+    ax.set_xlabel('$\mu$'); axb.set_ylabel(r"$p(\mu|x_0)$");
     plt.legend()
 
     return
 
 def dice_posterior(xi, hpriors, faces = [4, 6, 12, 24]):
-
+    ## p(x|mu)
     def pxh(x, xface):
         if (x <= xface): return 1./(1.*xface)
         return 0.
 
+    ## p(x|mu)*p(mu)
     pxhs = np.array([pxh(xi, faces[i])*hpriors[i] for i in range(4)])
     px = np.sum(pxhs)
 
+    ## p(mu|x) = p(x|mu)*p(mu)/px
     hpos = pxhs/px
     print('!')
     #hpos = hpos/np.sum(hpos)

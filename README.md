@@ -1,6 +1,6 @@
 # Universidade de Santiago de Compostela
 ## Facultade de Física
-## Master de Física
+## Master en Física
 ## Técnicas de Analisis. Métodos Estadísticos
 ### author: J. A. Hernando, X. Cid Vidal
 ### date  : February 2025
