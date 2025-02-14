@@ -1,6 +1,6 @@
 # Introduction
 
-Autor: José Ángel Hernando Morata, Xabier Cid Vidal
+Author: José Ángel Hernando Morata, Xabier Cid Vidal
 
 Institution: Physics Master, **Universidade de Santiago de Compostela**
 
@@ -26,7 +26,7 @@ In fact, *what does it mean discovery, observation, a limit, a confidence level 
 The beginning starts with a bifurcation: either we follow a **Bayes** or a **Frequentist** path.
 Being a Bayesian implies doing **integration** (sometime complicated integrals!), and being a frequentist implies either doing regressions (fits!) or **simulations**.  But thanks to the current computing power, we can play the **frequentist game**!
 
-We will use Python scientic toolkits, Matplotlib, Numpy, Scipy, that are distributed with Anaconda Python. 
+We will use Python scientific toolkits, Matplotlib, Numpy, Scipy, that are distributed with Anaconda Python. 
 
 ## Table of Contents
 

@@ -439,7 +439,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Last Execution  Wed Feb 14 17:12:08 2024
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Last Execution  Fri Feb 14 14:55:52 2025
 </pre></div>
 </div>
 </div>
@@ -653,7 +653,7 @@ g(x | \alpha,\beta) = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} e^{-x \b
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b40f8e85daed9487e3955db5c2186668ee0507744f89908db0634a12828c3bd6.png" src="_images/b40f8e85daed9487e3955db5c2186668ee0507744f89908db0634a12828c3bd6.png" />
+<img alt="_images/172f6ae4d20844a567a25b778339704c70529ce0d539e2cd2b76135012a5ae26.png" src="_images/172f6ae4d20844a567a25b778339704c70529ce0d539e2cd2b76135012a5ae26.png" />
 </div>
 </div>
 <p><strong>Class exercise:</strong> Compare a gaussian distribution, with <span class="math notranslate nohighlight">\(\mu=p \, N, \, \sigma = \sqrt{\mu}\)</span> with a binomial when <span class="math notranslate nohighlight">\(N\)</span> is large and <span class="math notranslate nohighlight">\(p\)</span> is small and <span class="math notranslate nohighlight">\(\mu = N p &gt; 50\)</span>. You can use <span class="math notranslate nohighlight">\(stats.binom\)</span> and <span class="math notranslate nohighlight">\(stats.norm\)</span>.</p>
@@ -663,10 +663,10 @@ g(x | \alpha,\beta) = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} e^{-x \b
 </section>
 <section id="expectation-values">
 <h3>Expectation values<a class="headerlink" href="#expectation-values" title="Link to this heading">#</a></h3>
-<p>Given a <span class="math notranslate nohighlight">\(x\)</span> rv that follows a pdf, <span class="math notranslate nohighlight">\(\, g(x)\)</span>, and a function <span class="math notranslate nohighlight">\(f(x)\)</span> on <span class="math notranslate nohighlight">\(x\)</span>, we define the expected value of <span class="math notranslate nohighlight">\(g(x)\)</span> as:</p>
+<p>Given a <span class="math notranslate nohighlight">\(x\)</span> rv that follows a pdf, <span class="math notranslate nohighlight">\(\, g(x)\)</span>, and a function <span class="math notranslate nohighlight">\(f(x)\)</span> on <span class="math notranslate nohighlight">\(x\)</span>, we define the expected value of <span class="math notranslate nohighlight">\(f(x)\)</span> as:</p>
 <div class="math notranslate nohighlight">
 \[
-E[g(x)] \equiv \int f(x) \, g(x) \, \mathrm{d}x
+E[f(x)] \equiv \int f(x) \, g(x) \, \mathrm{d}x
 \]</div>
 <p>The <strong>mean</strong>, or average value, is the expected value of <span class="math notranslate nohighlight">\(x\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -676,77 +676,74 @@ E[x] = \mu \equiv  \int x \, g(x) \, \mathrm{d}x
 <p>The <strong>variance</strong> is the expected value of <span class="math notranslate nohighlight">\((x-\mu)^2\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
-V[x] = \sigma^2 = E[(x-\mu)^2]= E[x^2]-\mu^2 \equiv \int (x-\mu)^2 \, g(x) \, \mathrm{d}x
+V[x] = \sigma^2 = E[(x-\mu)^2]= \int (x-\mu)^2 \, g(x) \, \mathrm{d}x
 \]</div>
 <p>We call <strong>standard deviation</strong> to: <span class="math notranslate nohighlight">\(\sigma = \sqrt{V[x]}\)</span></p>
 <p>The <strong>expected value</strong> is the <span class="math notranslate nohighlight">\(x\)</span> value with the highest probability <span class="math notranslate nohighlight">\(g(x)\)</span>.</p>
 <p>The <strong>median</strong>, is the <span class="math notranslate nohighlight">\(x_{med}\)</span> value that divides the distribution in half,</p>
 <div class="math notranslate nohighlight">
 \[
-\int_0^{x_{med}} g(x) \, \mathrm{d}x = 0.5
+\int_{-\infty}^{x_{med}} g(x) \, \mathrm{d}x = 0.5
 \]</div>
 <p>For a symmetric pdf, the mean and median are the same.</p>
 <p>If <span class="math notranslate nohighlight">\({\bf x}\)</span> is a vector, the pdf is a n-dimensional function.
 We define the covariance element between <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> elements as:</p>
 <div class="math notranslate nohighlight">
 \[
-\mathrm{cov}[x_i,x_j] = \int x_i \, x_j \, g({\bf x}) \; \Pi_{i=1,n} \mathrm{d}x_i
+\mathrm{cov}[x_i,x_j] = \int (x_i-\mu_i) \, (x_j-\mu_j) \, g({\bf x}) \; \Pi_{i=1,n} \mathrm{d}x_i
 \]</div>
-<p>If the variables <span class="math notranslate nohighlight">\(x_i, \, x_j\)</span> variables are independent then the covariance is zero.
+<p>where <span class="math notranslate nohighlight">\(\mu_i = E[x_i]\)</span> and <span class="math notranslate nohighlight">\(\mu_j = E[x_j]\)</span>.
+If the <span class="math notranslate nohighlight">\(x_i, \, x_j\)</span> variables are independent then the covariance is zero.
 The contrary is not necessarily true.</p>
-<p>We call <strong>marginal</strong> pdf when one or more rvs are integrated out, for example if we integrate <span class="math notranslate nohighlight">\(x_n\)</span>:</p>
+<p>We define <strong>marginal</strong> pdf when one or more rvs are integrated out, for example if we integrate <span class="math notranslate nohighlight">\(x_n\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
 g(x_1,\dots,x_{n-1}) = \int g({\bf x}) \mathrm{d}x_n
 \]</div>
-<p>We can “project” the pdf in one axis, that is get the marginal pdf for each variable <span class="math notranslate nohighlight">\(x_i\)</span> individually:</p>
+<p>We can “project” the pdf in one axis, that is given by the marginal pdf for each variable <span class="math notranslate nohighlight">\(x_i\)</span> individually:</p>
 <div class="math notranslate nohighlight">
 \[
 g(x_j) = \int g({\bf x}) \, \Pi_{i=1,n; i \neq j} \, \mathrm{d}x_i
 \]</div>
-<p><strong>Exercise:</strong> Get the poisson distribution from a Gamma distribution.</p>
-<p><strong>Exercise:</strong> Get an exponential distribution from a Gamma distribution.</p>
-<p><strong>Exercise:</strong> Get the <span class="math notranslate nohighlight">\(\chi^2\)</span> distribution from a Gamma distribution.</p>
-<p><strong>Exercise:</strong> Study the Beta distribution for different parameters of <span class="math notranslate nohighlight">\(\alpha, \beta\)</span> (start <span class="math notranslate nohighlight">\(\alpha=\beta=1\)</span>).</p>
 </section>
 <section id="likelihood">
 <h3>Likelihood<a class="headerlink" href="#likelihood" title="Link to this heading">#</a></h3>
-<p>A frequentist evaluate the likelihood of its data.</p>
+<p>A frequentist will evaluate the likelihood of its data.</p>
 <p>The <strong>probability density function</strong>, <em>pdf</em>, <span class="math notranslate nohighlight">\(g(x | \mu)\)</span>is the probability to measure <span class="math notranslate nohighlight">\(x\)</span>, which depends on the parameters <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
-<p>A <strong>likelihood</strong> is the probability evaluted on a observation data, <span class="math notranslate nohighlight">\(x\)</span>, (on data!)</p>
+<p>A <strong>likelihood</strong> is the probability evaluted on an observed dataset, <span class="math notranslate nohighlight">\(x\)</span>, (on data!)</p>
 <p>For n, <span class="math notranslate nohighlight">\(x\)</span>, independent measurements that follow a pdf, <span class="math notranslate nohighlight">\(g(x | \mu)\)</span>, the likelihood is the product of the likelihood of each measurement <span class="math notranslate nohighlight">\(x_i\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
 \mathcal{L}(x | \mu) = \Pi_{i=1}^n g(x_i | \mu)
 \]</div>
-<p>The likelihood can be a very small number, for that reason, it is common to take the (Napierian!) logarithm, and called <strong>log likelihood</strong>:</p>
+<p>The likelihood can be a very small number, for that reason, it is common to take the (Napierian!) logarithm, called <strong>log likelihood</strong>:</p>
 <div class="math notranslate nohighlight">
 \[
 \log \mathcal{L}(x |\mu) = \sum_{i=1}^n \log \left(g(x_i |\mu) \right)
 \]</div>
-<p>If <span class="math notranslate nohighlight">\(\mu\)</span> is known, the likelihood is an real number, if not, <span class="math notranslate nohighlight">\(\mathcal{L}(x | \mu)\)</span> is a function of the <span class="math notranslate nohighlight">\(\mu\)</span> parameter(s).</p>
-<p>Given data <span class="math notranslate nohighlight">\(x\)</span>, with <span class="math notranslate nohighlight">\(\mu\)</span> unknown, the likelihood is a function that depends on the parameter(s) <span class="math notranslate nohighlight">\(\mu\)</span>, <span class="math notranslate nohighlight">\(\mathcal{L}(x | \mu)\)</span>.</p>
-<p>Frequentists usually estimate the best-parameters, <span class="math notranslate nohighlight">\(\hat{\mu}\)</span>, as the parameters that maximize the likelihood (<span class="math notranslate nohighlight">\(\mathcal{L}(x | \hat{\mu})\)</span> is maximum).</p>
+<p>If <span class="math notranslate nohighlight">\(\mu\)</span> is known, the likelihood is a real number, if not, <span class="math notranslate nohighlight">\(\mathcal{L}(x | \mu)\)</span> is a function of the <span class="math notranslate nohighlight">\(\mu\)</span> parameter(s).</p>
+<p>Given a dataset <span class="math notranslate nohighlight">\(x\)</span>, with <span class="math notranslate nohighlight">\(\mu\)</span> unknown, the likelihood is a function that depends on the parameter(s) <span class="math notranslate nohighlight">\(\mu\)</span>, <span class="math notranslate nohighlight">\(\mathcal{L}(x | \mu)\)</span>.</p>
+<p>Frequentists usually estimate the best-parameters, <span class="math notranslate nohighlight">\(\hat{\mu}\)</span>, as the parameters that maximize the likelihood (<span class="math notranslate nohighlight">\(\mu ~/~ \mathcal{L}(x | \hat{\mu})\)</span> is maximum).</p>
 <p>But for convenience, we use instead:</p>
 <div class="math notranslate nohighlight">
 \[
 -2 \log \mathcal{L}(x |\mu)
 \]</div>
-<p>And then <span class="math notranslate nohighlight">\(\hat{\mu}\)</span> minimize the log-likelihood.</p>
+<p>And then <span class="math notranslate nohighlight">\(\hat{\mu}\)</span> minimizes the log-likelihood.</p>
 </section>
 </section>
 <section id="frequentist-vs-bayesians">
 <h2>Frequentist vs Bayesians<a class="headerlink" href="#frequentist-vs-bayesians" title="Link to this heading">#</a></h2>
-<p>The is a great divide in statistics: frequentists vs Bayesians.</p>
-<p><strong>Frequentists are inductive</strong>. <em>They compute the probability of an observation by repeating the same experiment many times</em>. They test is the data is compatible with the theory.</p>
+<p>There are two approaches to statistics: frequentists vs Bayesians.</p>
+<p><strong>Frequentists are inductive</strong>. <em>They compute the probability of an observation by repeating the same experiment many times</em>. They test if the data is compatible with the theory.</p>
 <p><strong>Bayesians are deductive</strong>. <em>They compute the probability using the Bayes’ theorem.
-They measure the credibility of a theory based on the data, but they need to assign first a prior probability based in a ‘reasonable’ initial guess</em>.</p>
+They measure the credibility of a theory based on the data, but they first need to assign  a prior probability based on a ‘reasonable’ initial guess</em>.</p>
 <p>Frequentists measure a <strong>likelihood function</strong>:</p>
 <div class="math notranslate nohighlight">
 \[
 \mathcal{L} (x | \mu)
 \]</div>
-<p>Frequentists usually estimate the best-parameters, <span class="math notranslate nohighlight">\(\hat{\mu}\)</span>, as the parameters that maximize the likelihood (<span class="math notranslate nohighlight">\(\mathcal{L}(x | \hat{\mu})\)</span> is maximum).</p>
+<p>Frequentists usually estimate the best-parameters, <span class="math notranslate nohighlight">\(\hat{\mu}\)</span>, as the parameters that maximize the likelihood.</p>
 <p>Bayesians measure a <strong>posterior probability</strong>:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -765,28 +762,28 @@ p(\mu | x)
 </tbody>
 </table>
 </div>
-<p>Most of physicists we are bayesians, but we think of ourselves as frequentists.</p>
+<p>Most of physicists are bayesians, but we think of ourselves as frequentists.</p>
 <p>Consider the discovery of the Higgs.</p>
 <p>A frequentist claims: <em>LHC data strongly disagrees with the hypothesis of the SM without the Higgs and agrees with the existence of the Higgs.</em></p>
 <p>While a Bayesian claims: <em>We have discovered the Higgs!</em></p>
 <p>A joke in HEP (L. Lyons quotation?):</p>
-<p>Frequentists use implecable logic to answer questions that nobody cares about.</p>
+<p>Frequentists use impecable logic to answer questions that nobody cares about.</p>
 <p>Bayesians address the questions that everyone is interested on using assumptions that nobody believes.</p>
 <section id="likelihood-and-posterior-probability-an-example">
 <h3>Likelihood and posterior  probability - an example<a class="headerlink" href="#likelihood-and-posterior-probability-an-example" title="Link to this heading">#</a></h3>
-<p>Let’s consider the basic measurement case seen by a frequentist and by a bayesian.</p>
-<p>We just measure a quantity <span class="math notranslate nohighlight">\(\mu\)</span> using a set of data <span class="math notranslate nohighlight">\(x\)</span>. Data <span class="math notranslate nohighlight">\(x\)</span> are gaussian distributed with known sigma, <span class="math notranslate nohighlight">\(\sigma\)</span>. We want to estimate <span class="math notranslate nohighlight">\(\hat{\mu}\)</span>.</p>
+<p>Let’s consider a basic measurement case seen by a frequentist and by a bayesian.</p>
+<p>We just measure a quantity <span class="math notranslate nohighlight">\(\mu\)</span> using a dataset <span class="math notranslate nohighlight">\(x\)</span>. Data in <span class="math notranslate nohighlight">\(x\)</span> is gaussian distributed with a known sigma, <span class="math notranslate nohighlight">\(\sigma\)</span>. We want to estimate <span class="math notranslate nohighlight">\(\hat{\mu}\)</span>.</p>
 <p>For example, <span class="math notranslate nohighlight">\(x\)</span> is a set of values from a gaussian distribution with mean zero and sigma one. How to estimate <span class="math notranslate nohighlight">\(\hat{\mu}\)</span>?</p>
-<p>Obvious, it is the average! And the uncertanty in the average is <span class="math notranslate nohighlight">\(\sigma/\sqrt{n}\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> is the number of events in our sample!</p>
-<p><strong>Example</strong>: Generate a n-size sample with <span class="math notranslate nohighlight">\(x\)</span> values generated random from a normal gaussian. The likelihood function is drawn as a function of <span class="math notranslate nohighlight">\(\mu\)</span>. The best-estimate <span class="math notranslate nohighlight">\(\hat{\mu}\)</span> is the value where the likelihood is maximum.</p>
+<p>Seems obvious: it is the average! And the uncertanty on the average is <span class="math notranslate nohighlight">\(\sigma/\sqrt{n}\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> is the number of events in our sample! Alternatively, one can compute the actual gaussian probability.</p>
+<p><strong>Example</strong>: Generate a n-size sample with <span class="math notranslate nohighlight">\(x\)</span> values generated randomly from a normal gaussian. The likelihood function is drawn as a function of <span class="math notranslate nohighlight">\(\mu\)</span>. The best-estimate <span class="math notranslate nohighlight">\(\hat{\mu}\)</span> is the value where the likelihood is maximum.</p>
 <div class="math notranslate nohighlight">
 \[
 - 2 \log \mathcal{L}({\bf x} | \mu ) = - 2 \sum_{i=1}^n \log g(x_i | \mu)
 \]</div>
-<p><strong>Explore:</strong> Generate <span class="math notranslate nohighlight">\(n\)</span> samples of a normal. Compute the likelihood as function of the mean (fix sigma of the gaussian to 1).</p>
+<p>The following snippet computes the likelihood as function of the mean (fix sigma of the gaussian to 1).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nsize</span> <span class="o">=</span> <span class="mi">100</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nsize</span> <span class="o">=</span> <span class="mi">1000</span>
 <span class="n">xs</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">)</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">nsize</span><span class="p">)</span>
 <span class="n">htexam</span><span class="o">.</span><span class="n">normal_likelihood</span><span class="p">(</span><span class="n">xs</span><span class="p">);</span>
 <span class="c1">#plt.yscale(&#39;log&#39;);</span>
@@ -794,16 +791,32 @@ p(\mu | x)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mu mean : 0.005225524791819061 , mu std : 0.1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mu mean : -0.021036395280118827 , mu std : 0.03162277660168379
 </pre></div>
 </div>
-<img alt="_images/edea826625a83f8cb917a240d559baf682a01484774ad6da0ea720d7a4612f89.png" src="_images/edea826625a83f8cb917a240d559baf682a01484774ad6da0ea720d7a4612f89.png" />
+<img alt="_images/c617d9b31c610a0e5d2c6b21bd4232157b7869c6c4ccfe1c219ffb939169ba0f.png" src="_images/c617d9b31c610a0e5d2c6b21bd4232157b7869c6c4ccfe1c219ffb939169ba0f.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nsize</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">xs</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">)</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">nsize</span><span class="p">)</span>
+<span class="n">htexam</span><span class="o">.</span><span class="n">normal_likelihood</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span><span class="n">isgaussll</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+<span class="c1">#plt.yscale(&#39;log&#39;);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mu mean : -0.014499260128207039 , mu std : 0.03162277660168379
+</pre></div>
+</div>
+<img alt="_images/bc98bd9a72a8273cfb16055335d69d2e1aaa67aee9690c626c0d77a8055cf5e8.png" src="_images/bc98bd9a72a8273cfb16055335d69d2e1aaa67aee9690c626c0d77a8055cf5e8.png" />
 </div>
 </div>
 </section>
 <section id="posterior-probability-in-bayesian-statistics">
 <h3>Posterior probability in bayesian statistics<a class="headerlink" href="#posterior-probability-in-bayesian-statistics" title="Link to this heading">#</a></h3>
-<p>Bayesians improve a prior probability, “knowledge”, of an hypothesis using data.</p>
+<p>Bayesians improve a prior probability, “knowledge”, of a hypothesis using data.</p>
 <p>Suppose that we have an ensemble of possible hypotheses <span class="math notranslate nohighlight">\(\mu\)</span>, each one with a prior probability <span class="math notranslate nohighlight">\(\pi(\mu)\)</span>.</p>
 <p>Of course:</p>
 <div class="math notranslate nohighlight">
@@ -815,7 +828,7 @@ p(\mu | x)
 \[
 \sum \pi(\mu) = 1
 \]</div>
-<p>Given some data, <span class="math notranslate nohighlight">\(x\)</span>, Bayes’ theorem allow us to compute the <strong>posterior probability</strong>.</p>
+<p>Given some dataset, <span class="math notranslate nohighlight">\(x\)</span>, Bayes’ theorem allows us to compute the <strong>posterior probability</strong>.</p>
 <p>The posterior probability,  <span class="math notranslate nohighlight">\(p(\mu|x)\)</span>, of <span class="math notranslate nohighlight">\(\mu\)</span> given <span class="math notranslate nohighlight">\(x\)</span> is:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -831,15 +844,14 @@ p(\mu|x) = \frac{p(x|\mu) \, \pi(\mu)}{\int p(x|\mu) \pi(\mu) \, \mathrm{d}\mu}
 \[
 p(\mu|x) = \frac{p(x|\mu) \, \pi(\mu)}{\sum p(x|\mu) \pi(\mu)}
 \]</div>
-<p><strong>Example:</strong> Consider the example above. An sample of <span class="math notranslate nohighlight">\(n\)</span> measurements from a normal distribution. Obtain the posterior probability of the mean, if the sigma is know.</p>
-<p>Consider a unique data <span class="math notranslate nohighlight">\(x_0\)</span>, from a gaussian distribution <span class="math notranslate nohighlight">\(g(x | \mu, \sigma = 1)\)</span>, and a ‘reasonable’ uniform prior <span class="math notranslate nohighlight">\(\pi(\mu) = 1\)</span>.</p>
-<p>The posterior probability using bayes is:</p>
+<p><strong>Example:</strong> Consider the example above. A sample of <span class="math notranslate nohighlight">\(n\)</span> measurements from a normal distribution. Obtain the posterior probability of the mean, if  <span class="math notranslate nohighlight">\(\sigma\)</span> is known.</p>
+<p>Consider a unique data point <span class="math notranslate nohighlight">\(x_0\)</span>, from a gaussian distribution <span class="math notranslate nohighlight">\(g(x | \mu, \sigma = 1)\)</span>, and a ‘reasonable’ uniform prior <span class="math notranslate nohighlight">\(\pi(\mu) = 1\)</span>.</p>
+<p>The posterior probability using Bayes is:</p>
 <div class="math notranslate nohighlight">
 \[
 p(\mu | x_0) = \frac{g( x_0 | \mu, \sigma = 1) \, \pi(\mu)}{ \int g(x_0 | \mu, \sigma = 1)  \, \pi(\mu) \, \mathrm{d} \mu } = g(x_0 | \mu, \sigma = 1)
 \]</div>
 <p>that is, a gaussian with sigma unity and centered at <span class="math notranslate nohighlight">\(x_0\)</span>!</p>
-<p><strong>Exercise:</strong> Show that the posterior of n measurements, <span class="math notranslate nohighlight">\(x\)</span>, normal distributed, <span class="math notranslate nohighlight">\(g(x | \mu, \sigma)\)</span>, with a flat prior on <span class="math notranslate nohighlight">\(\mu\)</span>, and known <span class="math notranslate nohighlight">\(\sigma\)</span>, is a gaussian with mean <span class="math notranslate nohighlight">\(\mu = \bar{x}\)</span>, the average of the <span class="math notranslate nohighlight">\(n\)</span> <span class="math notranslate nohighlight">\(x\)</span> measurements, and the sigma <span class="math notranslate nohighlight">\(\sigma/\sqrt{n}\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nsize</span> <span class="o">=</span> <span class="mi">1</span>
@@ -850,29 +862,10 @@ p(\mu | x_0) = \frac{g( x_0 | \mu, \sigma = 1) \, \pi(\mu)}{ \int g(x_0 | \mu, \
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>posterior integral 0.995
-</pre></div>
-</div>
-<img alt="_images/9defe610ad2f81089940a033077dbb7d59fe0a29266b586c83c8305d59db0c92.png" src="_images/9defe610ad2f81089940a033077dbb7d59fe0a29266b586c83c8305d59db0c92.png" />
+<img alt="_images/e8c940918ed5639a026b2be949a176b9bc8fa8c5fc054122170ade9b3fd672d7.png" src="_images/e8c940918ed5639a026b2be949a176b9bc8fa8c5fc054122170ade9b3fd672d7.png" />
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nsize</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">xs</span>    <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">)</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">nsize</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="n">htexam</span><span class="o">.</span><span class="n">normal_likelihood</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="n">htexam</span><span class="o">.</span><span class="n">normal_posterior</span><span class="p">(</span><span class="n">xs</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mu mean : -0.027511730127815368 , mu std : 0.5
-posterior integral 1.000
-</pre></div>
-</div>
-<img alt="_images/01670c2ca306f610fb3fcbc43db21d00fa2349e010d98250e5dc02585f6eb910.png" src="_images/01670c2ca306f610fb3fcbc43db21d00fa2349e010d98250e5dc02585f6eb910.png" />
-</div>
-</div>
+<p><strong>Class exercise:</strong> Show that the posterior of n measurements, <span class="math notranslate nohighlight">\(x\)</span>, normally distributed, <span class="math notranslate nohighlight">\(g(x | \mu, \sigma)\)</span>, with a flat prior on <span class="math notranslate nohighlight">\(\mu\)</span>, and known <span class="math notranslate nohighlight">\(\sigma\)</span>, is a gaussian with mean <span class="math notranslate nohighlight">\(\mu = \bar{x}\)</span>, the average of the <span class="math notranslate nohighlight">\(n\)</span> <span class="math notranslate nohighlight">\(x\)</span> measurements, and the sigma <span class="math notranslate nohighlight">\(\sigma/\sqrt{n}\)</span></p>
 <p><strong>Exercise:</strong> Show that the posterior of a normal prior, <span class="math notranslate nohighlight">\(\pi(\mu | \mu_0, \sigma_{\mu_0})\)</span>,
 and a normal likelihood, <span class="math notranslate nohighlight">\(p(x |\mu, \sigma)\)</span>, for n-measurements, <span class="math notranslate nohighlight">\(x\)</span>, is a normal distribution with mean, <span class="math notranslate nohighlight">\(\mu'\)</span>, and sigma, <span class="math notranslate nohighlight">\(\sigma_{\mu'}\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -881,31 +874,27 @@ and a normal likelihood, <span class="math notranslate nohighlight">\(p(x |\mu, 
 \;\;\;
 \mu' = \sigma^2_{\mu'} \left( \frac{\mu_0}{\sigma^2_{\mu_0}} + \frac{\sum_i x_i}{\sigma^2} \right)
 \]</div>
-<p><strong>Exercise:</strong> There are several dices in a box, with 4, 6, 12 and 24 sides. We randomly pick one dice and we roll it four times. The outcomes are <span class="math notranslate nohighlight">\(\{1,4,5,2\}\)</span>. What is the posterior probability that the selected dice has 4, 6, 12 or 24 sides? What is the posterior probability if we roll it twice again and wet get now 6 and 1?</p>
+<p><strong>Exercise:</strong> There are several dices in a box, with 4, 6, 12 and 24 sides. We randomly pick one dice and we roll it four times. The outcomes are <span class="math notranslate nohighlight">\(\{1,4,5,2\}\)</span>. What is the posterior probability that the selected dice has 4, 6, 12 or 24 sides? What is the posterior probability if we roll it twice again and we get now 6 and 1?
+Use the posterior probability formula:
+$<span class="math notranslate nohighlight">\(
+p(\mu|x) = \frac{p(x|\mu) \, \pi(\mu)}{\sum p(x|\mu) \pi(\mu)}
+\)</span><span class="math notranslate nohighlight">\(
+and bear in mind, for a dice with \)</span>\mu<span class="math notranslate nohighlight">\( faces \)</span>p(x|\mu)<span class="math notranslate nohighlight">\( will be 0 if \)</span>x&gt;\mu<span class="math notranslate nohighlight">\( or \)</span>1/\mu$ else.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">measurements</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="n">hpriors</span>      <span class="o">=</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">meas</span> <span class="ow">in</span> <span class="n">measurements</span><span class="p">:</span>
-    <span class="n">hposteriors</span> <span class="o">=</span> <span class="n">htexam</span><span class="o">.</span><span class="n">dice_posterior</span><span class="p">(</span><span class="n">meas</span><span class="p">,</span> <span class="n">hpriors</span><span class="p">)</span> 
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;data :&#39;</span><span class="p">,</span> <span class="n">meas</span><span class="p">,</span> <span class="s1">&#39; posteriors: &#39;</span><span class="p">,</span> <span class="n">hposteriors</span><span class="p">)</span>
-    <span class="n">hpriors</span> <span class="o">=</span> <span class="n">hposteriors</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; pseudo example code</span>
+<span class="sd">measurements = [1, 4, 5, 2, 6, 1]</span>
+<span class="sd">hpriors      = [0.25, 0.25, 0.25, 0.25]</span>
+<span class="sd">for meas in measurements:</span>
+<span class="sd">    hposteriors = calculate_posterior(meas, hpriors) </span>
+<span class="sd">    print(&#39;data :&#39;, meas, &#39; posteriors: &#39;, hposteriors)</span>
+<span class="sd">    hpriors = hposteriors</span>
+<span class="sd">&quot;&quot;&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>!
-data : 1  posteriors:  [0.46153846 0.30769231 0.15384615 0.07692308]
-!
-data : 4  posteriors:  [0.63157895 0.28070175 0.07017544 0.01754386]
-!
-data : 5  posteriors:  [0.         0.87671233 0.10958904 0.01369863]
-!
-data : 2  posteriors:  [0.         0.93772894 0.05860806 0.003663  ]
-!
-data : 6  posteriors:  [0.00000000e+00 9.68779565e-01 3.02743614e-02 9.46073794e-04]
-!
-data : 1  posteriors:  [0.00000000e+00 9.84378755e-01 1.53809180e-02 2.40326845e-04]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot; pseudo example code\nmeasurements = [1, 4, 5, 2, 6, 1]\nhpriors      = [0.25, 0.25, 0.25, 0.25]\nfor meas in measurements:\n    hposteriors = calculate_posterior(meas, hpriors) \n    print(&#39;data :&#39;, meas, &#39; posteriors: &#39;, hposteriors)\n    hpriors = hposteriors\n&quot;
 </pre></div>
 </div>
 </div>
@@ -923,16 +912,16 @@ data : 1  posteriors:  [0.00000000e+00 9.84378755e-01 1.53809180e-02 2.40326845e
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "my-local-env"
         },
         kernelOptions: {
-            name: "python3",
+            name: "my-local-env",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'my-local-env'</script>
 
                 </article>
               

@@ -16,6 +16,24 @@ Generate $m$ datasets, each with $n$ data, $x_i$, normally distributed, compute 
 ##### Exercise 1d:
 Generate $n$ $x_i$-values, each one gaussianly distributed with mean $\mu_i$ and sigma $\sigma_i$, show that the sum $\sum_i x_i$ is gaussian distributed with mean, $\mu = \sum_i \mu_i$, and sigma $\sigma^2 = \sum_i \sigma^2_i$.
 
+**Choose at least 1 among:**
+##### Exercise 1e:
+Show that the posterior of a normal prior, $\pi(\mu | \mu_0, \sigma_{\mu_0})$,
+and a normal likelihood, $p(x |\mu, \sigma)$, for n-measurements, $x$, is a normal distribution with mean, $\mu'$, and sigma, $\sigma_{\mu'}$:
+
+$$
+\frac{1}{\sigma^2_{\mu'}} = \frac{n}{\sigma^2} + \frac{1}{\sigma^2_{\mu_0}}, 
+\;\;\;
+\mu' = \sigma^2_{\mu'} \left( \frac{\mu_0}{\sigma^2_{\mu_0}} + \frac{\sum_i x_i}{\sigma^2} \right)
+$$
+
+##### Exercise 1f:
+There are several dices in a box, with 4, 6, 12 and 24 sides. We randomly pick one dice and we roll it four times. The outcomes are $\{1,4,5,2\}$. What is the posterior probability that the selected dice has 4, 6, 12 or 24 sides? What is the posterior probability if we roll it twice again and we get now 6 and 1? 
+Use the posterior probability formula: 
+$$
+p(\mu|x) = \frac{p(x|\mu) \, \pi(\mu)}{\sum p(x|\mu) \pi(\mu)}
+$$
+and bear in mind, for a dice with $\mu$ faces $p(x|\mu)$ will be 0 if $x>\mu$ or $1/\mu$ else.
 
 #### Exercises 2: Hypothesis testing (simple case)
 
@@ -44,8 +62,6 @@ An experiment expects $(2, 1)$ background events in two bins, and a possible sig
 
 #### Exercises 3: Confidence intervals
 
-**Prepare a total of 3 exercises.**
-
 ##### Exercise 3a: 
 Construct the *confidence belt* CI at 90% and 68% CL considering a counting experiment with background $b$ and unknown signal $\mu$. In this case, the pdf is a poisson with mean $b + \mu$. We scan along $\mu$ and for each $\mu$ we obtain the interval $[x_l(\mu), x_u(\mu)]$ using the central interval at 90% contaiment. Then, we unify the border of the segments and we define the confident belt.
 - What is the CI at 90% CL? And for $b=3$ and $x_0 = 1$?
@@ -67,7 +83,7 @@ Compare the classical and frequentist interval, where do they differ? where are 
 ##### Exercise 4a: 
 Verify that the $q_0$ distribution is a 'half' $\chi^2$.
 
-**Choose at least one among:**
+**Choose at least 1 among:**
 
 ##### Exercise 4b:
  Consider the case of a poisson distribution with a unknown mean $\mu$ and the null hypothesis $\mu_0$. Check for which values of $\mu$, $g(t_\mu | \mu)$ follows a $\chi^2(1)$ distribution.
@@ -75,7 +91,7 @@ Verify that the $q_0$ distribution is a 'half' $\chi^2$.
 ##### Exercise 4c:
 Consider the case of an experiment that gets a sample of n-size poisson distributed values, $x$, with a unknown mean $\mu$. Check the values of $n$ for which $g(t_\mu | \mu)$ follows a $\chi^2(1)$ distribution.
 
-**Choose at least one among:**
+**Choose at least 1 among:**
 
 ##### Exercise 4d:
 Consider an experiment with a gaussian distribution with mean $\mu$ and sigma 1. Consider $\mu_{true} = \mu_0 = 0$. Obtain the distribution of the upper limits at 90 %CL.

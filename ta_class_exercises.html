@@ -401,6 +401,7 @@
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Basic concepts 1</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-concepts-2">Basic concepts 2:</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-concepts-3">Basic concepts 3</a></li>
 </ul>
 
             </nav>
@@ -486,6 +487,26 @@ p(H+) = 10^{-3}, \; p(H-) = 1-10^{-3}, \; p(+ | H+) = 0.998, \; p(+ | H-) = 0.00
 </div>
 </div>
 </section>
+<section id="basic-concepts-3">
+<h1>Basic concepts 3<a class="headerlink" href="#basic-concepts-3" title="Link to this heading">#</a></h1>
+<p>Show that the posterior of n measurements, <span class="math notranslate nohighlight">\(x\)</span>, normally distributed, <span class="math notranslate nohighlight">\(g(x | \mu, \sigma)\)</span>, with a flat prior on <span class="math notranslate nohighlight">\(\mu\)</span>, and known <span class="math notranslate nohighlight">\(\sigma\)</span>, is a gaussian with mean <span class="math notranslate nohighlight">\(\mu = \bar{x}\)</span>, the average of the <span class="math notranslate nohighlight">\(n\)</span> <span class="math notranslate nohighlight">\(x\)</span> measurements, and the sigma <span class="math notranslate nohighlight">\(\sigma/\sqrt{n}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nsize</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">xs</span>    <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">)</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">nsize</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="n">htexam</span><span class="o">.</span><span class="n">normal_likelihood</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="n">htexam</span><span class="o">.</span><span class="n">normal_posterior</span><span class="p">(</span><span class="n">xs</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mu mean : -0.29536977238848255 , mu std : 0.15811388300841897
+</pre></div>
+</div>
+<img alt="_images/766ee7be16f94f31a1abf951258011a00de9e94e0629d7d474a10523f2e2e489.png" src="_images/766ee7be16f94f31a1abf951258011a00de9e94e0629d7d474a10523f2e2e489.png" />
+</div>
+</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -536,6 +557,7 @@ p(H+) = 10^{-3}, \; p(H-) = 1-10^{-3}, \; p(+ | H+) = 0.998, \; p(+ | H-) = 0.00
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Basic concepts 1</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-concepts-2">Basic concepts 2:</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-concepts-3">Basic concepts 3</a></li>
 </ul>
 
   </nav></div>

@@ -372,6 +372,8 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1b">Exercise 1b:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1c">Exercise 1c:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1d">Exercise 1d:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1e">Exercise 1e:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1f">Exercise 1f:</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises-2-hypothesis-testing-simple-case">Exercises 2: Hypothesis testing (simple case)</a><ul class="nav section-nav flex-column">
@@ -428,6 +430,27 @@
 <section id="exercise-1d">
 <h3>Exercise 1d:<a class="headerlink" href="#exercise-1d" title="Link to this heading">#</a></h3>
 <p>Generate <span class="math notranslate nohighlight">\(n\)</span> <span class="math notranslate nohighlight">\(x_i\)</span>-values, each one gaussianly distributed with mean <span class="math notranslate nohighlight">\(\mu_i\)</span> and sigma <span class="math notranslate nohighlight">\(\sigma_i\)</span>, show that the sum <span class="math notranslate nohighlight">\(\sum_i x_i\)</span> is gaussian distributed with mean, <span class="math notranslate nohighlight">\(\mu = \sum_i \mu_i\)</span>, and sigma <span class="math notranslate nohighlight">\(\sigma^2 = \sum_i \sigma^2_i\)</span>.</p>
+<p><strong>Choose at least 1 among:</strong></p>
+</section>
+<section id="exercise-1e">
+<h3>Exercise 1e:<a class="headerlink" href="#exercise-1e" title="Link to this heading">#</a></h3>
+<p>Show that the posterior of a normal prior, <span class="math notranslate nohighlight">\(\pi(\mu | \mu_0, \sigma_{\mu_0})\)</span>,
+and a normal likelihood, <span class="math notranslate nohighlight">\(p(x |\mu, \sigma)\)</span>, for n-measurements, <span class="math notranslate nohighlight">\(x\)</span>, is a normal distribution with mean, <span class="math notranslate nohighlight">\(\mu'\)</span>, and sigma, <span class="math notranslate nohighlight">\(\sigma_{\mu'}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{\sigma^2_{\mu'}} = \frac{n}{\sigma^2} + \frac{1}{\sigma^2_{\mu_0}}, 
+\;\;\;
+\mu' = \sigma^2_{\mu'} \left( \frac{\mu_0}{\sigma^2_{\mu_0}} + \frac{\sum_i x_i}{\sigma^2} \right)
+\]</div>
+</section>
+<section id="exercise-1f">
+<h3>Exercise 1f:<a class="headerlink" href="#exercise-1f" title="Link to this heading">#</a></h3>
+<p>There are several dices in a box, with 4, 6, 12 and 24 sides. We randomly pick one dice and we roll it four times. The outcomes are <span class="math notranslate nohighlight">\(\{1,4,5,2\}\)</span>. What is the posterior probability that the selected dice has 4, 6, 12 or 24 sides? What is the posterior probability if we roll it twice again and we get now 6 and 1?
+Use the posterior probability formula:
+$<span class="math notranslate nohighlight">\(
+p(\mu|x) = \frac{p(x|\mu) \, \pi(\mu)}{\sum p(x|\mu) \pi(\mu)}
+\)</span><span class="math notranslate nohighlight">\(
+and bear in mind, for a dice with \)</span>\mu<span class="math notranslate nohighlight">\( faces \)</span>p(x|\mu)<span class="math notranslate nohighlight">\( will be 0 if \)</span>x&gt;\mu<span class="math notranslate nohighlight">\( or \)</span>1/\mu$ else.</p>
 </section>
 </section>
 <section id="exercises-2-hypothesis-testing-simple-case">
@@ -466,7 +489,6 @@
 </section>
 <section id="exercises-3-confidence-intervals">
 <h2>Exercises 3: Confidence intervals<a class="headerlink" href="#exercises-3-confidence-intervals" title="Link to this heading">#</a></h2>
-<p><strong>Prepare a total of 3 exercises.</strong></p>
 <section id="exercise-3a">
 <h3>Exercise 3a:<a class="headerlink" href="#exercise-3a" title="Link to this heading">#</a></h3>
 <p>Construct the <em>confidence belt</em> CI at 90% and 68% CL considering a counting experiment with background <span class="math notranslate nohighlight">\(b\)</span> and unknown signal <span class="math notranslate nohighlight">\(\mu\)</span>. In this case, the pdf is a poisson with mean <span class="math notranslate nohighlight">\(b + \mu\)</span>. We scan along <span class="math notranslate nohighlight">\(\mu\)</span> and for each <span class="math notranslate nohighlight">\(\mu\)</span> we obtain the interval <span class="math notranslate nohighlight">\([x_l(\mu), x_u(\mu)]\)</span> using the central interval at 90% contaiment. Then, we unify the border of the segments and we define the confident belt.</p>
@@ -494,7 +516,7 @@
 <section id="exercise-4a">
 <h3>Exercise 4a:<a class="headerlink" href="#exercise-4a" title="Link to this heading">#</a></h3>
 <p>Verify that the <span class="math notranslate nohighlight">\(q_0\)</span> distribution is a ‘half’ <span class="math notranslate nohighlight">\(\chi^2\)</span>.</p>
-<p><strong>Choose at least one among:</strong></p>
+<p><strong>Choose at least 1 among:</strong></p>
 </section>
 <section id="exercise-4b">
 <h3>Exercise 4b:<a class="headerlink" href="#exercise-4b" title="Link to this heading">#</a></h3>
@@ -503,7 +525,7 @@
 <section id="exercise-4c">
 <h3>Exercise 4c:<a class="headerlink" href="#exercise-4c" title="Link to this heading">#</a></h3>
 <p>Consider the case of an experiment that gets a sample of n-size poisson distributed values, <span class="math notranslate nohighlight">\(x\)</span>, with a unknown mean <span class="math notranslate nohighlight">\(\mu\)</span>. Check the values of <span class="math notranslate nohighlight">\(n\)</span> for which <span class="math notranslate nohighlight">\(g(t_\mu | \mu)\)</span> follows a <span class="math notranslate nohighlight">\(\chi^2(1)\)</span> distribution.</p>
-<p><strong>Choose at least one among:</strong></p>
+<p><strong>Choose at least 1 among:</strong></p>
 </section>
 <section id="exercise-4d">
 <h3>Exercise 4d:<a class="headerlink" href="#exercise-4d" title="Link to this heading">#</a></h3>
@@ -577,6 +599,8 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1b">Exercise 1b:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1c">Exercise 1c:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1d">Exercise 1d:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1e">Exercise 1e:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1f">Exercise 1f:</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises-2-hypothesis-testing-simple-case">Exercises 2: Hypothesis testing (simple case)</a><ul class="nav section-nav flex-column">
