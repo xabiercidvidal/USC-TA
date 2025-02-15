@@ -58,3 +58,5 @@ We will use Python scientific toolkits, Matplotlib, Numpy, Scipy, that are distr
 [11] "Lectures on Statistics in Theory: Prelude to Statistics in Practice" B. Cousins, [ArXiv:1807.05006](https://arxiv.org/abs/1807.05996)
 
 [12] "Statistics for physics". D. Tonelli. Invisible School 2019, Canfranc.
+
+[13] The Monty Hall Problem Using Bayes’ Theorem https://blogs.cornell.edu/info2040/2022/11/10/the-monty-hall-problem-using-bayes-theorem/
