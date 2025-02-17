@@ -2,7 +2,7 @@ name: USC-TA3
 channels:
   - conda-forge
 dependencies:
-  - python=3.12
+  - python
   - jupyter
   - jupyterlab_rise
   - numpy
