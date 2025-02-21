@@ -400,8 +400,8 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-statistic">Test statistic</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-as-an-example">Gaussian as an example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-statistics">Test statistics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-pdf-as-an-example">Gaussian pdf as an example</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-counting-experiment">A counting experiment</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#n-poisson-case">N-poisson case</a></li>
 </ul>
@@ -409,7 +409,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#significance-and-power">Significance and power</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discovery-and-rejection">Discovery and rejection</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-cls-method">The CLs method</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nuissance-parameters">Nuissance parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nuisance-parameters">Nuisance parameters</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intro-to-composite-hypothesis">Intro to composite hypothesis</a></li>
 </ul>
             </nav>
@@ -465,14 +465,14 @@
 </div>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
-<p>The simple hypothesis testing involves a null hypothesis <span class="math notranslate nohighlight">\(H_0\)</span> (i.e the SM) and al alternative hypothesis <span class="math notranslate nohighlight">\(H_1\)</span> (i.e BSM Physics).</p>
-<p>Given data, <span class="math notranslate nohighlight">\(x\)</span>, which of both hypothesis agree better with data?</p>
+<p>The simple hypothesis testing involves a null hypothesis <span class="math notranslate nohighlight">\(H_0\)</span> (i.e the SM) and an alternative hypothesis <span class="math notranslate nohighlight">\(H_1\)</span> (i.e BSM Physics).</p>
+<p>Given a dataset, <span class="math notranslate nohighlight">\(x\)</span>, which of both hypotheses agrees better with data?</p>
 <p>Can we exclude <span class="math notranslate nohighlight">\(H_1\)</span>? At what level?</p>
-<p>Can claim an <em>observation</em> or a <em>discovery</em> of New Physics?</p>
+<p>Can we claim an <em>observation</em> or a <em>discovery</em> of New Physics?</p>
 <p>We will try to solve these questions in this lecture.</p>
 <p>Look at the following simple example, <span class="math notranslate nohighlight">\(H_0, H_1\)</span> are both gaussians with sigma one, <span class="math notranslate nohighlight">\(H_0\)</span> has mean zero and <span class="math notranslate nohighlight">\(H_1\)</span> has mean <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
-<p>Given an observation, <span class="math notranslate nohighlight">\(x_0\)</span>, data agrees more <span class="math notranslate nohighlight">\(H_0\)</span> or with <span class="math notranslate nohighlight">\(H_1\)</span>?</p>
-<p><em>Explore</em> In the next Python cell, execute few events, See where the data, <span class="math notranslate nohighlight">\(x_0\)</span>, falls along the axis. Move the gaussians appart, change their widths.</p>
+<p>Given an observation, <span class="math notranslate nohighlight">\(x_0\)</span>, data agrees more with <span class="math notranslate nohighlight">\(H_0\)</span> or with <span class="math notranslate nohighlight">\(H_1\)</span>?</p>
+<p><em>Explore</em> In the next Python cell, execute few events, see where the data, <span class="math notranslate nohighlight">\(x_0\)</span>, falls along the axis. Move the gaussians appart, change their widths.</p>
 <p>(Forget for the moment the printed values, except for the observed data)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -491,51 +491,50 @@ CLs           : 0.00000002
 <img alt="_images/7bab6c36efb5c420feb0359464038c88de28dbe456295dabbbd621b821db9f7c.png" src="_images/7bab6c36efb5c420feb0359464038c88de28dbe456295dabbbd621b821db9f7c.png" />
 </div>
 </div>
-<p><strong>questions</strong>:</p>
+<p>The <span class="math notranslate nohighlight">\(x\)</span> axis in this case allows us to quantify the “distance” between hypotheses. To the left it is more <span class="math notranslate nohighlight">\(H_0\)</span>-like, to the right more <span class="math notranslate nohighlight">\(H_1\)</span>-like.</p>
+<p><strong>Questions</strong>:</p>
 <ul class="simple">
-<li><p>That the <span class="math notranslate nohighlight">\(x\)</span> axis in the case allow us to quatify the “distance” between hypotheses. To the left is more <span class="math notranslate nohighlight">\(H_0\)</span>, to the right more <span class="math notranslate nohighlight">\(H_1\)</span>.</p></li>
-<li><p><span class="math notranslate nohighlight">\(H_0\)</span> is on the left. There is a colored area behind the curve of <span class="math notranslate nohighlight">\(H_0\)</span> and on the right of the data, <span class="math notranslate nohighlight">\(x_0\)</span>. What corresponds that area to?</p></li>
-<li><p><span class="math notranslate nohighlight">\(H_1\)</span> is on the right. There is a colored area behind the curve of <span class="math notranslate nohighlight">\(H_1\)</span> and on the left of the data, <span class="math notranslate nohighlight">\(x_0\)</span>. Now, what corresponds that area to?</p></li>
+<li><p><span class="math notranslate nohighlight">\(H_0\)</span> is on the left. There is a colored area behind the curve of <span class="math notranslate nohighlight">\(H_0\)</span> and on the right of the data, <span class="math notranslate nohighlight">\(x_0\)</span>. What does that area corresponds to?</p></li>
+<li><p><span class="math notranslate nohighlight">\(H_1\)</span> is on the right. There is a colored area behind the curve of <span class="math notranslate nohighlight">\(H_1\)</span> and on the left of the data, <span class="math notranslate nohighlight">\(x_0\)</span>. Now, what does that area correspond to?</p></li>
 </ul>
 </section>
-<hr class="docutils" />
-<section id="test-statistic">
-<h2>Test statistic<a class="headerlink" href="#test-statistic" title="Link to this heading">#</a></h2>
-<p>We need to <strong>order</strong> data, <span class="math notranslate nohighlight">\(x\)</span>, along the axis from <span class="math notranslate nohighlight">\(H_0\)</span> to <span class="math notranslate nohighlight">\(H_1\)</span>, to the left is more <span class="math notranslate nohighlight">\(H_0\)</span>, to the right, more <span class="math notranslate nohighlight">\(H_1\)</span>.</p>
-<p>The <strong>test estatistics</strong>, <span class="math notranslate nohighlight">\(q(x)\)</span>, is a real scalar quantity that quantifies how compatible is our data, <span class="math notranslate nohighlight">\(x\)</span>, with the null, <span class="math notranslate nohighlight">\(H_0\)</span>, and the alternative, <span class="math notranslate nohighlight">\(H_1\)</span>, hypotheses.</p>
-<p>As convention, we consider that as <span class="math notranslate nohighlight">\(q(x)\)</span> values increases, they indicate a better agreement with <span class="math notranslate nohighlight">\(H_1\)</span> than with <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
+<section id="test-statistics">
+<h2>Test statistics<a class="headerlink" href="#test-statistics" title="Link to this heading">#</a></h2>
+<p>We need to <strong>order</strong> data, <span class="math notranslate nohighlight">\(x\)</span>, along the axis from <span class="math notranslate nohighlight">\(H_0\)</span> to <span class="math notranslate nohighlight">\(H_1\)</span>, to the left it is more <span class="math notranslate nohighlight">\(H_0\)</span>-like, to the right, more <span class="math notranslate nohighlight">\(H_1\)</span>-like.</p>
+<p>The <strong>test statistics</strong>, <span class="math notranslate nohighlight">\(q(x)\)</span>, is a real scalar quantity that quantifies how compatible is our data, <span class="math notranslate nohighlight">\(x\)</span>, with the null, <span class="math notranslate nohighlight">\(H_0\)</span>, and the alternative, <span class="math notranslate nohighlight">\(H_1\)</span>, hypotheses.</p>
+<p>As a convention, we consider that as <span class="math notranslate nohighlight">\(q(x)\)</span> values increase, they indicate a better agreement with <span class="math notranslate nohighlight">\(H_1\)</span> than with <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
 <p>The <em>optimal</em> test-stats is the likelihood ratio.</p>
 <p>For convenience we use (-2 log-like-ratio):</p>
 <div class="math notranslate nohighlight">
 \[
 q(x) = -2 \log \, \frac{ \mathcal{L}(x \, | \, H_0)}{ \mathcal{L}(x \, | \, H_1)}
 \]</div>
-<p>optimal: better efficicieny for <span class="math notranslate nohighlight">\(H_1\)</span> for the same fraction of <span class="math notranslate nohighlight">\(H_0\)</span> contamination (see later).</p>
-<p><em>Note</em>: En many cases, we do not know how to compute <span class="math notranslate nohighlight">\(q(x)\)</span> and then we use <em>multivariate methods</em> as <strong>Neural Networks</strong> (NN) or <strong>Boosted Decision Trees</strong> (BDTs). They provide a test-statistics!</p>
-<p>Now, we need to compute the pdf of <span class="math notranslate nohighlight">\(q\)</span> for both hypothesis, <span class="math notranslate nohighlight">\(g(q| H_0)\)</span> and <span class="math notranslate nohighlight">\(g(q | H_1)\)</span>.</p>
-<p>In some cases we can do it analytically, but in others is almost impossible.</p>
+<p>optimal: better efficiciency for <span class="math notranslate nohighlight">\(H_1\)</span> for the same fraction of <span class="math notranslate nohighlight">\(H_0\)</span> contamination (see later).</p>
+<p><em>Note</em>: In many cases, we do not know how to compute <span class="math notranslate nohighlight">\(q(x)\)</span> and then we use <em>multivariate methods</em> as <strong>Neural Networks</strong> (NN) or <strong>Boosted Decision Trees</strong> (BDTs). They provide a test-statistics!</p>
+<p>Now, we need to compute the pdf of <span class="math notranslate nohighlight">\(q\)</span> for both hypotheses, <span class="math notranslate nohighlight">\(g(q| H_0)\)</span> and <span class="math notranslate nohighlight">\(g(q | H_1)\)</span>.</p>
+<p>In some cases we can do it analytically, but in others it is almost impossible.</p>
 <p>Nevertheless, we can do <strong>simulations</strong> and compute the <span class="math notranslate nohighlight">\(q\)</span> values and obtain its distribution for <em>all possible events</em> of the <span class="math notranslate nohighlight">\(H_0\)</span> type, <span class="math notranslate nohighlight">\(\{ x \}_0\)</span>, and <span class="math notranslate nohighlight">\(H_1\)</span>, <span class="math notranslate nohighlight">\(\{ x \}_1\)</span>.</p>
-<section id="gaussian-as-an-example">
-<h3>Gaussian as an example<a class="headerlink" href="#gaussian-as-an-example" title="Link to this heading">#</a></h3>
+<section id="gaussian-pdf-as-an-example">
+<h3>Gaussian pdf as an example<a class="headerlink" href="#gaussian-pdf-as-an-example" title="Link to this heading">#</a></h3>
 <p><strong>Example:</strong> Consider as <span class="math notranslate nohighlight">\(H_0\)</span> a gaussian distribution with mean <span class="math notranslate nohighlight">\(\mu_0\)</span> and <span class="math notranslate nohighlight">\(\sigma_0\)</span>;
 and <span class="math notranslate nohighlight">\(H_1\)</span> again a gaussian distribution with <span class="math notranslate nohighlight">\(\mu_1\)</span> and <span class="math notranslate nohighlight">\(\sigma_1\)</span>. Obtain the pdfs,  <span class="math notranslate nohighlight">\(g(q |H_0)\)</span> and <span class="math notranslate nohighlight">\(g(q|H_1)\)</span> for <span class="math notranslate nohighlight">\(\mu_0 = 0, \, \sigma_0 = 1, \, \mu_1 = 4, \, \sigma_1 = 2\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">two_gaussian</span><span class="p">(</span><span class="n">mu0</span><span class="p">,</span> <span class="n">sigma0</span><span class="p">,</span> <span class="n">mu1</span><span class="p">,</span> <span class="n">sigma1</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">):</span>
 
-    <span class="c1"># the test-statistic function</span>
+    <span class="c1"># the test-statistics function: note we&#39;re doing log(exp(-(x-mu)**2/(2*sigma**2)))</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">q</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m1</span><span class="o">=</span><span class="n">mu1</span><span class="p">,</span> <span class="n">s1</span><span class="o">=</span><span class="n">sigma1</span><span class="p">,</span> <span class="n">m0</span><span class="o">=</span><span class="n">mu0</span><span class="p">,</span> <span class="n">s0</span><span class="o">=</span><span class="n">sigma0</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">m0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">m0</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">s0</span><span class="o">*</span><span class="n">s0</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">m1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">m1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">s1</span><span class="o">*</span><span class="n">s1</span><span class="p">)</span>
 
-    <span class="c1"># hipothesis</span>
+    <span class="c1"># hypotheses</span>
     <span class="n">h0</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">mu0</span><span class="p">,</span> <span class="n">sigma0</span><span class="p">)</span>
     <span class="n">h1</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">mu1</span><span class="p">,</span> <span class="n">sigma1</span><span class="p">)</span>
 
-    <span class="c1"># m-experiments for both hypothesis</span>
+    <span class="c1"># m-experiments for both hypotheses</span>
     <span class="n">x0s</span> <span class="o">=</span> <span class="n">h0</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">size</span><span class="p">))</span>
     <span class="n">x1s</span> <span class="o">=</span> <span class="n">h1</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">size</span><span class="p">))</span>
 
-    <span class="c1"># the q-values for the m-experiments of both hypothesis</span>
+    <span class="c1"># the q-values for the m-experiments of both hypotheses</span>
     <span class="n">q0s</span> <span class="o">=</span> <span class="n">q</span><span class="p">(</span><span class="n">x0s</span><span class="p">)</span> 
     <span class="n">q1s</span> <span class="o">=</span> <span class="n">q</span><span class="p">(</span><span class="n">x1s</span><span class="p">)</span>
 
@@ -571,13 +570,12 @@ and <span class="math notranslate nohighlight">\(H_1\)</span> again a gaussian d
 </div>
 <p><strong>Question:</strong> Consider that we measure <span class="math notranslate nohighlight">\(q(x) = -10\)</span>, what can you say about <span class="math notranslate nohighlight">\(H_1\)</span>? And if we measure <span class="math notranslate nohighlight">\(q(x) = 30\)</span>?</p>
 <p><strong>Question:</strong> Discuss what happens when the distributions overlap and when they do not.</p>
-<p><strong>Note:</strong> why using <span class="math notranslate nohighlight">\(-2 \ln\)</span> is convenient!</p>
 </section>
 <section id="a-counting-experiment">
 <h3>A counting experiment<a class="headerlink" href="#a-counting-experiment" title="Link to this heading">#</a></h3>
-<p>Several experiments are called <strong>counting experiments</strong>, they search for a signal, expecting a given number of events <span class="math notranslate nohighlight">\(s\)</span>, over a background level, <span class="math notranslate nohighlight">\(b\)</span>. This is a first approximation for a Rare Event Search.</p>
-<p>The distribution of the data follows a poisson distribution with mean, <span class="math notranslate nohighlight">\(b\)</span>, in the case of only background and a poission distribution with mean <span class="math notranslate nohighlight">\(b+s\)</span> in the presence of signal.</p>
-<p><strong>Explore</strong> in the following cell how the distributions changes with <span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(s\)</span>, and how the result of the experiment changes depending on <span class="math notranslate nohighlight">\(data\)</span>.</p>
+<p>Experiments are sometimes called <strong>counting experiments</strong>, they search for a signal, expecting a given number of events <span class="math notranslate nohighlight">\(s\)</span>, over a background level, <span class="math notranslate nohighlight">\(b\)</span>. This is a first approximation for a Rare Event Search.</p>
+<p>The distribution of the data follows a poisson distribution with mean, <span class="math notranslate nohighlight">\(b\)</span>, in case only background is present; and a poission distribution with mean <span class="math notranslate nohighlight">\(b+s\)</span> in the presence of signal.</p>
+<p><strong>Explore</strong> in the following cell how the distributions change with <span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(s\)</span>, and how the result of the experiment changes depending on <span class="math notranslate nohighlight">\(data\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu0</span><span class="p">,</span> <span class="n">mu1</span><span class="p">,</span> <span class="n">mutrue</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">10.</span><span class="p">,</span> <span class="kc">True</span>
@@ -595,48 +593,20 @@ CLs           : 0.13465346
 <img alt="_images/8c557e971acb04cfdb5a20fcdd248fef2de6409c500e0ae1855bd6df3f3c52a2.png" src="_images/8c557e971acb04cfdb5a20fcdd248fef2de6409c500e0ae1855bd6df3f3c52a2.png" />
 </div>
 </div>
-<p><strong>Exercise</strong>: Consider now a poisson distribution with <span class="math notranslate nohighlight">\(\mu_0 = b\)</span> for <span class="math notranslate nohighlight">\(H_0\)</span> and <span class="math notranslate nohighlight">\(H_1\)</span> another poisson distribution with <span class="math notranslate nohighlight">\(\mu_1 = b + s\)</span> for <span class="math notranslate nohighlight">\(H_1\)</span>, consider <span class="math notranslate nohighlight">\(b=3, s=2\)</span>. Obtain the pdfs of the test-stadistics, <span class="math notranslate nohighlight">\(g(q| H_0), \; g(q | H_1)\)</span>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">two_poisson</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">1000000</span><span class="p">):</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">q</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span><span class="n">n</span> <span class="o">*</span> <span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">b</span><span class="o">+</span><span class="n">s</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">b</span><span class="p">))</span> 
-    
-    <span class="c1"># hipothesis</span>
-    <span class="n">h0</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-    <span class="n">h1</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="n">s</span><span class="p">)</span> 
-
-    <span class="c1"># m-experiments for both hypothesis</span>
-    <span class="n">x0s</span> <span class="o">=</span> <span class="n">h0</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">size</span><span class="p">))</span>
-    <span class="n">x1s</span> <span class="o">=</span> <span class="n">h1</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">size</span><span class="p">))</span>
-
-    <span class="c1"># the q-values for the m-experiments of both hypothesis</span>
-    <span class="n">q0s</span> <span class="o">=</span> <span class="n">q</span><span class="p">(</span><span class="n">x0s</span><span class="p">)</span> 
-    <span class="n">q1s</span> <span class="o">=</span> <span class="n">q</span><span class="p">(</span><span class="n">x1s</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">q0s</span><span class="p">,</span> <span class="n">q1s</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q0s</span><span class="p">,</span> <span class="n">q1s</span> <span class="o">=</span> <span class="n">two_poisson</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
-<span class="n">plt_test_stats</span><span class="p">(</span><span class="n">q0s</span><span class="p">,</span> <span class="n">q1s</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">80</span><span class="p">,</span> <span class="nb">range</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">));</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/a9d868e0a6decdcef7834493068c2dc051466a893103e6d3a1917c1e3d5e2926.png" src="_images/a9d868e0a6decdcef7834493068c2dc051466a893103e6d3a1917c1e3d5e2926.png" />
-</div>
-</div>
-<p><strong>Exercise</strong> Consider now NEXT experiment as a counting experiment. Compute now the number of possible <span class="math notranslate nohighlight">\(\beta\beta0\nu\)</span> events in 100 kg of Xenon if the half-lifetime is <span class="math notranslate nohighlight">\(10^{-25}\)</span> y. Compute also the number of expected background events, if the background index is <span class="math notranslate nohighlight">\(4 \times 10^{-4}\)</span> counts/(keV kg y) and with 1% energy resolution at <span class="math notranslate nohighlight">\(Q_{\beta\beta} = 2.458\)</span> MeV. Obtain the pdfs of the test statistics. Consider that the signal is gaussian distributed and take 3 sigmas as Region of Interest (RoI).</p>
-<p><strong>Explore</strong>: Modify now the background index, the resolution, the Xe mass and the half-lifetime.</p>
+<p><strong>Class exercise</strong>: Consider now a poisson distribution with <span class="math notranslate nohighlight">\(\mu_0 = b\)</span> for <span class="math notranslate nohighlight">\(H_0\)</span> and  another poisson distribution with <span class="math notranslate nohighlight">\(\mu_1 = b + s\)</span> for <span class="math notranslate nohighlight">\(H_1\)</span>, consider <span class="math notranslate nohighlight">\(b=3, s=2\)</span>. Obtain the pdfs of the test-statistics, <span class="math notranslate nohighlight">\(g(q| H_0), \; g(q | H_1)\)</span>.</p>
+<p><strong>Exercise</strong>:
+Consider a <strong>hypothetical search for a new particle</strong> at the <strong>LHC</strong>. Assume we are looking for a <strong>new resonance (X) decaying into two photons (<span class="math notranslate nohighlight">\(\gamma\gamma\)</span>)</strong> in a <strong>100 fb<span class="math notranslate nohighlight">\(^{-1}\)</span></strong> dataset at <strong><span class="math notranslate nohighlight">\((\sqrt{s} = 13\)</span>) TeV</strong>.
+<strong>Determine</strong></p>
+<ul class="simple">
+<li><p><strong>Signal Yield</strong>: The predicted cross-section for <span class="math notranslate nohighlight">\(( pp \to X \to \gamma\gamma \)</span>) is <strong>1 fb</strong>, and the detector <strong>acceptance times efficiency</strong> is <strong>50%</strong>. Compute the expected number of signal events.</p></li>
+<li><p><strong>Background Yield</strong>: The main background comes from the <strong>Standard Model diphoton production</strong>, with a <strong>background index of <span class="math notranslate nohighlight">\((5 \times 10^{-3}\)</span>) events/(GeV fb<span class="math notranslate nohighlight">\(^{-1}\)</span>)</strong> at <strong>125 GeV</strong>. Assume an <strong>energy resolution of 1%</strong> at 125 GeV and define the <strong>Region of Interest (RoI) as <span class="math notranslate nohighlight">\((\pm 3\sigma\)</span>)</strong>. Compute the expected number of background events.</p></li>
+<li><p><strong>Test Statistics PDFs</strong>: Assume that the <strong>signal is normally distributed</strong>. Compute the <strong>expected distributions of the test statistics</strong> under the <strong>signal-plus-background (S+B)</strong> and <strong>background-only (B) hypotheses</strong>.</p></li>
+</ul>
+<p><strong>Explore:</strong> Analyze how changing the cross-section, background index or energy resolution affect the <strong>signal-to-background ratio</strong> and the <strong>test statistics distributions</strong>.</p>
 </section>
 <section id="n-poisson-case">
 <h3>N-poisson case<a class="headerlink" href="#n-poisson-case" title="Link to this heading">#</a></h3>
-<p>Another case very common is a n-bin counting experiments. For example the first <span class="math notranslate nohighlight">\(B_s \to \mu^+ \mu^-\)</span> very rare <a class="reference external" href="https://arxiv.org/pdf/1110.2411">decay search</a> at LHCb. In every bin there is an expectation for the background and for the signal. If the bins are independent, each one is like a single-counting experiment.</p>
+<p>Another case very common is a n-bin counting experiment. For example the first <span class="math notranslate nohighlight">\(B_s \to \mu^+ \mu^-\)</span> very rare <a class="reference external" href="https://arxiv.org/pdf/1110.2411">decay search</a> at LHCb. In every bin there is an expectation for the background and for the signal. If the bins are independent, each one is like a single-counting experiment.</p>
 <p><strong>Explore</strong>: In the following cell we are simulating one event for a n-bin counting experiment. Play with the background and the signal, and the number of bins.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -649,7 +619,7 @@ CLs           : 0.13465346
 <img alt="_images/663ac51e4e7a5fc288fff8826e6150c0784447544f52b1c3b8d56c2ad966bfb3.png" src="_images/663ac51e4e7a5fc288fff8826e6150c0784447544f52b1c3b8d56c2ad966bfb3.png" />
 </div>
 </div>
-<p><strong>Exercise</strong>: Consider a counting experiment with four independent bins. The background for <span class="math notranslate nohighlight">\(H_0\)</span> is poisson distributed in each bin with <span class="math notranslate nohighlight">\({\bf b} = (2, 1.5, 1, 0.5)\)</span> and <span class="math notranslate nohighlight">\(H_1\)</span> a signal, is also poisson distributed on top of the background <span class="math notranslate nohighlight">\({\bf b} + {\bf s}\)</span> with <span class="math notranslate nohighlight">\({\bf s} = (1, 2, 2, 1)\)</span>. Obtain the pdfs of the test-statistics <span class="math notranslate nohighlight">\(g(q|H_0), \; g(q |H_1)\)</span>.</p>
+<p><strong>Class exercise</strong>: Consider a counting experiment with four independent bins. The background for <span class="math notranslate nohighlight">\(H_0\)</span> is poisson distributed in each bin with <span class="math notranslate nohighlight">\({\bf b} = (2, 1.5, 1, 0.5)\)</span> and <span class="math notranslate nohighlight">\(H_1\)</span> a signal, is also poisson distributed on top of the background <span class="math notranslate nohighlight">\({\bf b} + {\bf s}\)</span> with <span class="math notranslate nohighlight">\({\bf s} = (1, 3, 3, 1)\)</span>. Obtain the pdfs of the test-statistics <span class="math notranslate nohighlight">\(g(q|H_0), \; g(q |H_1)\)</span>.</p>
 <p>Tip: simulate many experiments for each hypothesis and obtain the pdfs of the test-statistics, <span class="math notranslate nohighlight">\(g(q|H_0), \, g(q|H_1)\)</span>.</p>
 <p><em>Guide</em>:</p>
 <ul class="simple">
@@ -666,41 +636,14 @@ CLs           : 0.13465346
 \[
 -2 \log \frac{\mathcal{L}({\bf n} | {\bf b})}{\mathcal{L}({\bf n} | {\bf b} + {\bf s})} = 2 \sum_i^m n_i \,( \, \log(b_i + s_i) - \log(b_i) \,)
 \]</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]),</span> <span class="mi">10000</span>
-<span class="c1"># generators of n-poisson for b and b+s</span>
-<span class="n">h0</span><span class="p">,</span> <span class="n">h1</span> <span class="o">=</span> <span class="n">htcata</span><span class="o">.</span><span class="n">poisson_ncounter</span><span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="n">htcata</span><span class="o">.</span><span class="n">poisson_ncounter</span><span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="n">s</span><span class="p">)</span>
-<span class="c1"># test of simple hypothesis - generate events and compute test-statistic</span>
-<span class="n">ht</span>  <span class="o">=</span> <span class="n">htcore</span><span class="o">.</span><span class="n">htsimple</span><span class="p">(</span><span class="n">h0</span><span class="p">,</span> <span class="n">h1</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
-<span class="c1"># plot test-statistic distribution (plot x0 if provided as argument)</span>
-<span class="n">htplot</span><span class="o">.</span><span class="n">plt_htsimple</span><span class="p">(</span><span class="n">ht</span><span class="p">,</span> <span class="n">nbins</span> <span class="o">=</span> <span class="mi">100</span><span class="p">);</span>
-<span class="c1">#plt_test_stats(ht.q0s, ht.q1s, range = ht.qrange())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/1fef5ae687ee8c34804e886eaacbc1e453b1a6ffebdddac5fa7d729297ce002c.png" src="_images/1fef5ae687ee8c34804e886eaacbc1e453b1a6ffebdddac5fa7d729297ce002c.png" />
-</div>
-</div>
-<p><strong>Exercise</strong>: Consider the expected bacground events and signal events in bins of energy in the RoI of the KamLAND-Zen experiment in Fig 2-b) <a class="reference external" href="https://arxiv.org/abs/1605.02889">PRL-117</a>. And compute now the pdfs of <span class="math notranslate nohighlight">\(q\)</span> for only background and 10 times the signal.</p>
+<p><strong>Exercise</strong>: Consider the expected background events and signal events in bins of energy in the RoI of the KamLAND-Zen experiment in Fig 2-b) <a class="reference external" href="https://arxiv.org/abs/1605.02889">PRL-117</a>. And compute now the pdfs of <span class="math notranslate nohighlight">\(q\)</span> for only background and 10 times the signal.</p>
 <p><em>Guide:</em></p>
 <p>From Fig 2-b) Period II we can extract the following number of background, signal and observed events.</p>
 <p><em>b</em> = [4.0, 2.0, 1.6, 1.0, 0.8, 0.7, 0.6, 0.5, 0.5, 0.5, 0.6, 0.6, 0.8, 1.1]</p>
 <p><em>s</em> = [0.2, 0.4, 0.5, 0.6, 0.5, 0.4, 0.2, 0.1, 0.1, 0.1, 0.0, 0.0, 0.0, 0.0]</p>
 <p><em>x</em> = [4.0, 0.0, 2.0, 4.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 2.0, 2.0, 1.0, 0.0]</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">]</span>
-<span class="n">s</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
-<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 </section>
-<hr class="docutils" />
 <section id="significance-and-power">
 <h2>Significance and power<a class="headerlink" href="#significance-and-power" title="Link to this heading">#</a></h2>
 <p>We can classify events into <span class="math notranslate nohighlight">\(H_0\)</span> or <span class="math notranslate nohighlight">\(H_1\)</span> hypothesis using a threshold, <span class="math notranslate nohighlight">\(k\)</span>, on the test statistics:</p>
@@ -708,15 +651,15 @@ CLs           : 0.13465346
 \[
 q(x) &lt; k
 \]</div>
-<p>An observation data, <span class="math notranslate nohighlight">\(x_0\)</span>, with a test-statistics, <span class="math notranslate nohighlight">\(q_0 = q(x_0)\)</span>, is classified as <span class="math notranslate nohighlight">\(H_0\)</span> if <span class="math notranslate nohighlight">\(q_0  &lt; k \)</span> and as <span class="math notranslate nohighlight">\(H_1\)</span> if <span class="math notranslate nohighlight">\(q_0 \ge k\)</span>. This is known as the Neyman’s approach.</p>
-<p>What is the value of <span class="math notranslate nohighlight">\(k\)</span>? It depends of the case: if not the same to separate <span class="math notranslate nohighlight">\(b/c\)</span> jets than to search for a new SUSY particle or a Majorana neutrino!</p>
+<p>An observed data instance, <span class="math notranslate nohighlight">\(x_0\)</span>, with a test-statistics, <span class="math notranslate nohighlight">\(q_0 = q(x_0)\)</span>, is classified as <span class="math notranslate nohighlight">\(H_0\)</span> if <span class="math notranslate nohighlight">\(q_0  &lt; k \)</span> and as <span class="math notranslate nohighlight">\(H_1\)</span> if <span class="math notranslate nohighlight">\(q_0 \ge k\)</span>. This is known as the Neyman’s approach.</p>
+<p>What is the value of <span class="math notranslate nohighlight">\(k\)</span>? It depends on the case: it is not the same to separate <span class="math notranslate nohighlight">\(b/c\)</span> jets than to search for a new SUSY particle or a Majorana neutrino!</p>
 <p>We define the <strong>significance</strong>, also called <em>size of the test</em>, <span class="math notranslate nohighlight">\(\alpha\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
 \alpha = \int_{k}^{\infty} g(q({\bf x}) \, | \, H_0) \, \mathrm{d}x
 \]</div>
-<p>the significance, <span class="math notranslate nohighlight">\(\alpha\)</span>, is also called <em>error of 1st kind</em> and <strong>p-value</strong> of <span class="math notranslate nohighlight">\(H_0\)</span>. Its the probability of claim <span class="math notranslate nohighlight">\(H_1\)</span> when in fact it is <span class="math notranslate nohighlight">\(H_0\)</span>. The <em>false positives</em>! The <em>contamination</em>!</p>
-<p>The <strong>p-value</strong> is the probability that we get a event with equal or less <em>compatibility with a given hypothesis</em> than for the observed data. To get an event as <em>extreme or more extreme</em> than the one observed.</p>
+<p>the significance, <span class="math notranslate nohighlight">\(\alpha\)</span>, is also called <em>error of 1st kind</em> and <strong>p-value</strong> of <span class="math notranslate nohighlight">\(H_0\)</span>. It is the probability to claim <span class="math notranslate nohighlight">\(H_1\)</span> when in reality <span class="math notranslate nohighlight">\(H_0\)</span> is the right hypothesis. The <em>false positive</em> or <em>contamination</em>!</p>
+<p>The <strong>p-value</strong> is the probability that we get an event with equal or less <em>compatibility with a given hypothesis</em> than for the observed data. To get an event as <em>extreme or more extreme</em> than the one observed.</p>
 <p>Finally,</p>
 <div class="math notranslate nohighlight">
 \[
@@ -724,7 +667,7 @@ q(x) &lt; k
 \]</div>
 <p>It is the <em>error of 2nd kind</em> or the <strong>p-value of <span class="math notranslate nohighlight">\(H_1\)</span></strong>.</p>
 <p>The <strong>power</strong> of the test (or efficiency) is <span class="math notranslate nohighlight">\(1-\beta\)</span>, the fraction of events classified as <span class="math notranslate nohighlight">\(H_1\)</span> when <span class="math notranslate nohighlight">\(H_1\)</span> is true. The true positives! The <em>efficiency</em>!</p>
-<p>The <strong>Neyman-Person lemma</strong> stablishes that the <em>optimal</em> test statistic is the <strong>likelihood ratio</strong>. Optimal indicates that we obtain the maximum power (efficiency) for a fix significance (contamination) of the test.</p>
+<p>The <strong>Neyman-Person lemma</strong> stablishes that the <em>optimal</em> test statistics is the <strong>likelihood ratio</strong>. Optimal indicates that we obtain the maximum power (efficiency) for a fixed significance (contamination) of the test.</p>
 <p><strong>Example</strong> In the case of the two gaussians, the p-values, <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span>, are the integrals of the colored areas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -744,7 +687,7 @@ CLs           : 0.01365381
 </div>
 </div>
 <p>We call the RoC curve the efficiency (or power or <span class="math notranslate nohighlight">\(1 - \beta\)</span>), vs rejection (or 1-<span class="math notranslate nohighlight">\(\alpha\)</span>) of the background. This is usually the plot that shows the discrimination power of the test-statistics.</p>
-<p>As mentioned before the cut <span class="math notranslate nohighlight">\(k\)</span> to classify an event as <span class="math notranslate nohighlight">\(H_0\)</span> or <span class="math notranslate nohighlight">\(H_1\)</span> depends on the case. It is not the same to identify the tag of a jet than to identify the Higgs boson.</p>
+<p>As mentioned before, the cut <span class="math notranslate nohighlight">\(k\)</span> to classify an event as <span class="math notranslate nohighlight">\(H_0\)</span> or <span class="math notranslate nohighlight">\(H_1\)</span> depends on the case. It is not the same to identify the tag of a jet than to identify the Higgs boson.</p>
 <p><strong>Exercise</strong>: In the previous case, compute the RoC curve, the <span class="math notranslate nohighlight">\(H_1\)</span> efficiency vs <span class="math notranslate nohighlight">\(H_0\)</span> rejection.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -765,16 +708,16 @@ CLs           : 0.01365381
 <h2>Discovery and rejection<a class="headerlink" href="#discovery-and-rejection" title="Link to this heading">#</a></h2>
 <p>We claim:</p>
 <ul class="simple">
-<li><p><strong>discovery</strong> or <strong>observation</strong> of <span class="math notranslate nohighlight">\(H_1\)</span> if the <span class="math notranslate nohighlight">\(H_0\)</span> p-value (<span class="math notranslate nohighlight">\(\alpha\)</span>) is lower that <span class="math notranslate nohighlight">\(2.87 \times 10^{-7}\)</span>, that corresponds to <span class="math notranslate nohighlight">\(Z = 5\)</span>.</p></li>
+<li><p><strong>discovery</strong> or <strong>observation</strong> of <span class="math notranslate nohighlight">\(H_1\)</span> if the <span class="math notranslate nohighlight">\(H_0\)</span> p-value (<span class="math notranslate nohighlight">\(\alpha\)</span>) is lower that <span class="math notranslate nohighlight">\(2.87 \times 10^{-7}\)</span>, which corresponds to <span class="math notranslate nohighlight">\(Z = 5\)</span>.</p></li>
 </ul>
 <p>Z-value is the p-value in terms of ‘sigmas’ of a Gaussian distribution!</p>
 <ul class="simple">
-<li><p><strong>evidence</strong> of <span class="math notranslate nohighlight">\(H_1\)</span> if the <span class="math notranslate nohighlight">\(H_0\)</span> p-value (<span class="math notranslate nohighlight">\(\alpha\)</span>) is lower than <span class="math notranslate nohighlight">\(0.0027\)</span>, that is <span class="math notranslate nohighlight">\(Z=3\)</span>.</p></li>
+<li><p><strong>evidence</strong> of <span class="math notranslate nohighlight">\(H_1\)</span> if the <span class="math notranslate nohighlight">\(H_0\)</span> p-value (<span class="math notranslate nohighlight">\(\alpha\)</span>) is lower than <span class="math notranslate nohighlight">\(0.0027\)</span>, which is <span class="math notranslate nohighlight">\(Z=3\)</span>.</p></li>
 </ul>
 <p><strong>This is a convention!</strong> And statisticians like to discuss about it!</p>
-<p>Note that <em>discovery</em> means that we <em>false</em> a hypothesis, <span class="math notranslate nohighlight">\(H_0\)</span> (à la Popper)</p>
-<p><strong>Example</strong> Consider the gaussians in the next cell, move the alternative to <span class="math notranslate nohighlight">\(\mu = 5\)</span> and generate some events for <span class="math notranslate nohighlight">\(H_1\)</span> true. Have you discover <span class="math notranslate nohighlight">\(H_1\)</span>?</p>
-<p><strong>Question</strong> What is the fraction of the events in whose you could claim discovery?</p>
+<p>Note that <em>discovery</em> means that we <em>falsify</em> a hypothesis, <span class="math notranslate nohighlight">\(H_0\)</span></p>
+<p><strong>Example</strong> Consider the gaussians in the next cell, move the alternative to <span class="math notranslate nohighlight">\(\mu = 5\)</span> and generate some events for <span class="math notranslate nohighlight">\(H_1\)</span> true. Have you discovered <span class="math notranslate nohighlight">\(H_1\)</span>?</p>
+<p><strong>Question</strong> What is the fraction of the events for which you could claim discovery? (depends on <span class="math notranslate nohighlight">\(\beta\)</span> value for which <span class="math notranslate nohighlight">\(\alpha\)</span> provides 5<span class="math notranslate nohighlight">\(\sigma\)</span>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu0</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">mutrue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="kc">True</span>
@@ -792,12 +735,15 @@ CLs           : 0.96863631
 <img alt="_images/ea7efb387b66a6ad6996fd5b50c3fb387cdd6c329e8f9082d31d7a18ac3d89e3.png" src="_images/ea7efb387b66a6ad6996fd5b50c3fb387cdd6c329e8f9082d31d7a18ac3d89e3.png" />
 </div>
 </div>
+<ul class="simple">
+<li><p>For x=5, one could claim discovery (since H0 is excluded at 5<span class="math notranslate nohighlight">\(\sigma\)</span>). <span class="math notranslate nohighlight">\(\beta\)</span> in this case is 0.5, so we could claim a discovery 50% of the times</p></li>
+</ul>
 <p>We set:</p>
 <ul class="simple">
-<li><p>an <strong>exclusion</strong> limit on <span class="math notranslate nohighlight">\(H_1\)</span> at a <span class="math notranslate nohighlight">\(\beta\)</span> (i.e. 90) confidence level, CL, if <span class="math notranslate nohighlight">\(H_1\)</span> p-value, is <span class="math notranslate nohighlight">\(\le 1-\beta\)</span>.</p></li>
+<li><p>an <strong>exclusion</strong> limit on <span class="math notranslate nohighlight">\(H_1\)</span> at a <span class="math notranslate nohighlight">\(\beta\)</span> (i.e. 90%) confidence level, CL, if <span class="math notranslate nohighlight">\(H_1\)</span> p-value, is <span class="math notranslate nohighlight">\(\le 1-\beta\)</span>.</p></li>
 </ul>
-<p>That is the probability to get an event with lower compatibility with <span class="math notranslate nohighlight">\(H_1\)</span> than the observed event is smaller than 10% for 90 % CL.</p>
-<p><strong>Example</strong>: In the case of the gaussians, move <span class="math notranslate nohighlight">\(\mu_1 = 2.5\)</span> and generate events if <span class="math notranslate nohighlight">\(H_1\)</span> is false.
+<p>This is: the probability to get an event with lower compatibility with <span class="math notranslate nohighlight">\(H_1\)</span> than the observed event is smaller than 10% (for 90 % CL).</p>
+<p><strong>Example</strong>: In the case of the gaussians, do <span class="math notranslate nohighlight">\(\mu_1 = 2.5\)</span> and generate events if <span class="math notranslate nohighlight">\(H_1\)</span> is false.
 Can you exclude <span class="math notranslate nohighlight">\(H_1\)</span> at 90% CL? In what fraction of the events you will exclude <span class="math notranslate nohighlight">\(H_1\)</span>?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -816,15 +762,16 @@ CLs           : 0.10992831
 <img alt="_images/64b14db27e6bebc26e99fa306e31b1321e7b6b907823626bf5e6ebd9ecc86d58.png" src="_images/64b14db27e6bebc26e99fa306e31b1321e7b6b907823626bf5e6ebd9ecc86d58.png" />
 </div>
 </div>
+<p>The x for which <span class="math notranslate nohighlight">\(\beta\)</span>=0.1 is x=1.218. The <span class="math notranslate nohighlight">\(1-\alpha\)</span> corresponding to 1.218 is 0.888. This means in 88.8% of the cases we can reject <span class="math notranslate nohighlight">\(H_1\)</span> at 90% CL</p>
 <p>We define:</p>
 <ul class="simple">
 <li><p>the <strong>reach</strong> or <strong>sensitivity</strong> of an experiment as the expected exclusion of <span class="math notranslate nohighlight">\(H_1\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span>, for the median of the <span class="math notranslate nohighlight">\(g(q | H_0)\)</span> pdf.</p></li>
 </ul>
-<p>That is, in the case there is no signal, and we observe data in the median of the <span class="math notranslate nohighlight">\(H_0\)</span> distribution, the reach is the limit we impose in <span class="math notranslate nohighlight">\(H_1\)</span>, its p-value.</p>
+<p>That is, in case there is no signal, and we observe data in the median of the <span class="math notranslate nohighlight">\(H_0\)</span> distribution, the reach is the limit we impose on <span class="math notranslate nohighlight">\(H_1\)</span>, its p-value.</p>
 <ul class="simple">
 <li><p>the <strong>discovery potential</strong> of an experiment is the <span class="math notranslate nohighlight">\(H_0\)</span> p-value for the median of the <span class="math notranslate nohighlight">\(g(q | H_1)\)</span> pdf.</p></li>
 </ul>
-<p>That is, in the case that <span class="math notranslate nohighlight">\(H_1\)</span> is true, and we observe data in the median of the <span class="math notranslate nohighlight">\(H_1\)</span> distribution. The potential is the p-value of <span class="math notranslate nohighlight">\(H_0\)</span> (the falseability!).</p>
+<p>That is, in case <span class="math notranslate nohighlight">\(H_1\)</span> is true, and we observe data in the median of the <span class="math notranslate nohighlight">\(H_1\)</span> distribution. The potential is the p-value of <span class="math notranslate nohighlight">\(H_0\)</span> (the falseability!).</p>
 <p><strong>Example</strong> Consider the gaussian again, with <span class="math notranslate nohighlight">\(\mu = 5, \sigma = 2.5\)</span>, in the next cells we compute the sensitivity and the discovery potencial for this case.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -843,6 +790,7 @@ CLs           : 0.13445943
 <img alt="_images/5a2d528834e8bde76b03fc669263dccbbe6a2804403f9bb0dfae4018365e29c5.png" src="_images/5a2d528834e8bde76b03fc669263dccbbe6a2804403f9bb0dfae4018365e29c5.png" />
 </div>
 </div>
+<p>In this case the reach would be given by <span class="math notranslate nohighlight">\(\beta\)</span> at x=0, which provides the median of <span class="math notranslate nohighlight">\(H_0\)</span>. This is 0.02275</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu0</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma1</span><span class="p">,</span> <span class="n">mutrue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="kc">True</span>
@@ -861,11 +809,10 @@ CLs           : 0.50000014
 </div>
 </div>
 <p><strong>Exercise:</strong> An experiment expects <span class="math notranslate nohighlight">\((2, 1)\)</span> background events in two bins, and a possible signal <span class="math notranslate nohighlight">\((8, 9)\)</span> on top. It observes <span class="math notranslate nohighlight">\((9, 9)\)</span>, can claim observation?</p>
-<p><strong>Exercise:</strong> In the case it observes <span class="math notranslate nohighlight">\((1, 1)\)</span>, can reject the signal at 95 % CL?</p>
+<p><strong>Exercise:</strong> In case it observes <span class="math notranslate nohighlight">\((1, 1)\)</span>, can reject the signal at 95 % CL?</p>
 <p><strong>Exercise:</strong> Consider an experiment with several independent channels that expects as background <span class="math notranslate nohighlight">\({\bf b} = (2, 1.5, 1, 0.5) \)</span> and as signal <span class="math notranslate nohighlight">\({\bf s} = (1, 3, 3, 1)\)</span>. It finally measures <span class="math notranslate nohighlight">\((2, 1, 1, 0)\)</span>. Compute the p-value of <span class="math notranslate nohighlight">\(H_1\)</span>.</p>
 <p><strong>Exercise:</strong> Consider the above case of KamLAND-Zen, compute the p-value of <span class="math notranslate nohighlight">\(H_0\)</span>!</p>
 </section>
-<hr class="docutils" />
 <section id="the-cls-method">
 <h2>The CLs method<a class="headerlink" href="#the-cls-method" title="Link to this heading">#</a></h2>
 <p>In some cases the <span class="math notranslate nohighlight">\(H_1\)</span> hypothesis is ‘weak’ compared with <span class="math notranslate nohighlight">\(H_0\)</span> and the distributions of the test statistic <span class="math notranslate nohighlight">\(g(q \, | H_0)\)</span> and <span class="math notranslate nohighlight">\(g(q \, | \,H_1) \)</span> overlap.</p>
@@ -966,8 +913,8 @@ CL_s \equiv \frac{CL_{s+b}}{CL_b} = \frac{\beta}{1-\alpha}
 </div>
 </section>
 <hr class="docutils" />
-<section id="nuissance-parameters">
-<h2>Nuissance parameters<a class="headerlink" href="#nuissance-parameters" title="Link to this heading">#</a></h2>
+<section id="nuisance-parameters">
+<h2>Nuisance parameters<a class="headerlink" href="#nuisance-parameters" title="Link to this heading">#</a></h2>
 <p>Sometime the pdf depends also not only on <span class="math notranslate nohighlight">\(\mu\)</span> but on other parameters, <span class="math notranslate nohighlight">\(\nu\)</span> of no “physical interest”. There are called <strong>nuissance parameters</strong>.</p>
 <p>The pdf <span class="math notranslate nohighlight">\(g(x \, | \, \mu, \nu)\)</span>, were <span class="math notranslate nohighlight">\(\mu\)</span> is the parameter of interest, and <span class="math notranslate nohighlight">\(\nu\)</span> the nuisance parameter.</p>
 <p>In some cases, we can marginalize the nuissance parameters. One possibility is use <a class="reference external" href="http://www.sciencedirect.com/science/article/pii/0168900292907945">the Cousins-Highland method</a> also known as a bayesian-frequentist hybrid method.</p>
@@ -1059,8 +1006,8 @@ g(x \, | \, \mu) = \int g( x \, | \, \mu, \nu) \, \pi(\nu) \, \mathrm{d}\nu
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-statistic">Test statistic</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-as-an-example">Gaussian as an example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-statistics">Test statistics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-pdf-as-an-example">Gaussian pdf as an example</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-counting-experiment">A counting experiment</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#n-poisson-case">N-poisson case</a></li>
 </ul>
@@ -1068,7 +1015,7 @@ g(x \, | \, \mu) = \int g( x \, | \, \mu, \nu) \, \pi(\nu) \, \mathrm{d}\nu
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#significance-and-power">Significance and power</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discovery-and-rejection">Discovery and rejection</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-cls-method">The CLs method</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nuissance-parameters">Nuissance parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nuisance-parameters">Nuisance parameters</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intro-to-composite-hypothesis">Intro to composite hypothesis</a></li>
 </ul>
   </nav></div>
