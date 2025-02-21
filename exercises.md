@@ -1,3 +1,4 @@
+<!-- #region -->
 ### Exercises
 **Do the following exercises.**
 
@@ -33,20 +34,25 @@ Use the posterior probability formula:
 $$
 p(\mu|x) = \frac{p(x|\mu) \, \pi(\mu)}{\sum p(x|\mu) \pi(\mu)}
 $$
+
 and bear in mind, for a dice with $\mu$ faces $p(x|\mu)$ will be 0 if $x>\mu$ or $1/\mu$ else.
 
 #### Exercises 2: Hypothesis testing (simple case)
 
 ##### Exercise 2a:
-Consider an experiment with several independent channels that expects as background ${\bf b} = (2, 1.5, 1, 0.5)$ and as signal ${\bf s} = (1, 3, 3, 1)$. It measures $(2, 1, 1, 0)$. Compute the p-value of $H_1$.
+Consider an experiment with several independent channels that expects as background ${\bf b} = (2, 1.5, 1, 0.5)$ and as signal ${\bf s} = (1, 3, 3, 1)$. The measurement is $(2, 1, 1, 0)$. Compute the p-value of $H_1$.
+
+##### Exercise 2b: 
+Consider a **hypothetical search for a new particle** at the **LHC**. Assume we are looking for a **new resonance (X) decaying into two photons ($\gamma\gamma$)** in a **100 fb$^{-1}$** dataset at **$(\sqrt{s} = 13$) TeV**. 
+**Determine**
+- **Signal Yield**: The predicted cross-section for $( pp \to X \to \gamma\gamma $) is **1 fb**, and the detector **acceptance times efficiency** is **50%**. Compute the expected number of signal events.
+- **Background Yield**: The main background comes from the **Standard Model diphoton production**, with a **background index of $(5 \times 10^{-3}$) events/(GeV fb$^{-1}$)** at **125 GeV**. Assume an **energy resolution of 1%** at 125 GeV and define the **Region of Interest (RoI) as $(\pm 3\sigma$)**. Compute the expected number of background events.
+- **Test Statistics PDFs**: Assume that the **signal is normally distributed**. Compute the **expected distributions of the test statistics** under the **signal-plus-background (S+B)** and **background-only (B) hypotheses**.
+
+Analyze how changing the cross-section, background index or energy resolution affect the **signal-to-background ratio** and the **test statistics distributions**.
+
 
 **Choose at least 1 among:**
-##### Exercise 2b: 
-Consider the NEXT experiment as a counting experiment. 
-- Compute the number of possible $\beta{\beta}0\nu$ events in 100 kg of Xenon if the half-lifetime is $10^{-25}$ y. 
-- Compute also the number of expected background events, if the background index is $4 \times 10^{-4}$ counts/(keV kg y) and with 1% energy resolution at $Q_{\beta\beta} = 2.458$ MeV. 
-- Obtain the pdfs of the test statistics. Consider that the signal is gaussian distributed and take 3 sigmas as Region of Interest (RoI).
-- Now modify the background index, the resolution, the Xe mass and the half-lifetime.
 
 ##### Exercise 2c:
 Consider the expected background events and signal events in bins of energy in the RoI of the KamLAND-Zen experiment in Fig 2-b) [PRL-117](https://arxiv.org/abs/1605.02889). 
@@ -55,10 +61,10 @@ Consider the expected background events and signal events in bins of energy in t
 
 ##### Exercise 2d:
 An experiment expects $(2, 1)$ background events in two bins, and a possible signal $(8, 9)$ on top. 
-- It observes $(9, 9)$, can we claim an observation?
-- In case it observes $(1, 1)$, can reject the signal at 95 % CL?
+- If it observes $(9, 9)$, can we claim an observation?
+- In case it observes $(1, 1)$, can we reject the signal at 95 % CL?
 
-
+<!-- #endregion -->
 
 #### Exercises 3: Confidence intervals
 
