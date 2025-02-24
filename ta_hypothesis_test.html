@@ -30,7 +30,7 @@
   <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -429,13 +429,13 @@
 <p><a class="reference external" href="https://mybinder.org/v2/gh/xabiercidvidal/USC-TA/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 <span class="nb">print</span><span class="p">(</span> <span class="s1">&#39; Last Execution &#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">asctime</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Last Execution  Mon Feb  5 18:04:11 2024
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Last Execution  Mon Feb 24 14:13:28 2025
 </pre></div>
 </div>
 </div>
@@ -448,15 +448,15 @@
 <span class="o">%</span><span class="k">autoreload</span> 2
  
 <span class="c1"># numpy and matplotlib</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">httoys</span><span class="w">    </span><span class="k">as</span><span class="w"> </span><span class="nn">httoys</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">htcore</span><span class="w">    </span><span class="k">as</span><span class="w"> </span><span class="nn">htcore</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">htcatalog</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">htcata</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">htplot</span><span class="w">    </span><span class="k">as</span><span class="w"> </span><span class="nn">htplot</span>
+<span class="kn">import</span> <span class="nn">httoys</span>    <span class="k">as</span> <span class="nn">httoys</span>
+<span class="kn">import</span> <span class="nn">htcore</span>    <span class="k">as</span> <span class="nn">htcore</span>
+<span class="kn">import</span> <span class="nn">htcatalog</span> <span class="k">as</span> <span class="nn">htcata</span>
+<span class="kn">import</span> <span class="nn">htplot</span>    <span class="k">as</span> <span class="nn">htplot</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">context</span><span class="p">(</span><span class="s1">&#39;seaborn-colorblind&#39;</span><span class="p">);</span>
 </pre></div>
@@ -482,13 +482,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>observed data : [-0.73917088]
-H0 p-value    : 0.77009838
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>observed data : [-1.48539694]
+H0 p-value    : 0.93128065
 H1 p-value    : 0.00000000
-CLs           : 0.00000002 
+CLs           : 0.00000000 
 </pre></div>
 </div>
-<img alt="_images/7bab6c36efb5c420feb0359464038c88de28dbe456295dabbbd621b821db9f7c.png" src="_images/7bab6c36efb5c420feb0359464038c88de28dbe456295dabbbd621b821db9f7c.png" />
+<img alt="_images/d62dced446b886bbd4487e907299f312145566ca26f0748849c68891f2f2d2b0.png" src="_images/d62dced446b886bbd4487e907299f312145566ca26f0748849c68891f2f2d2b0.png" />
 </div>
 </div>
 <p>The <span class="math notranslate nohighlight">\(x\)</span> axis in this case allows us to quantify the “distance” between hypotheses. To the left it is more <span class="math notranslate nohighlight">\(H_0\)</span>-like, to the right more <span class="math notranslate nohighlight">\(H_1\)</span>-like.</p>
@@ -520,10 +520,10 @@ q(x) = -2 \log \, \frac{ \mathcal{L}(x \, | \, H_0)}{ \mathcal{L}(x \, | \, H_1)
 and <span class="math notranslate nohighlight">\(H_1\)</span> again a gaussian distribution with <span class="math notranslate nohighlight">\(\mu_1\)</span> and <span class="math notranslate nohighlight">\(\sigma_1\)</span>. Obtain the pdfs,  <span class="math notranslate nohighlight">\(g(q |H_0)\)</span> and <span class="math notranslate nohighlight">\(g(q|H_1)\)</span> for <span class="math notranslate nohighlight">\(\mu_0 = 0, \, \sigma_0 = 1, \, \mu_1 = 4, \, \sigma_1 = 2\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">two_gaussian</span><span class="p">(</span><span class="n">mu0</span><span class="p">,</span> <span class="n">sigma0</span><span class="p">,</span> <span class="n">mu1</span><span class="p">,</span> <span class="n">sigma1</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">two_gaussian</span><span class="p">(</span><span class="n">mu0</span><span class="p">,</span> <span class="n">sigma0</span><span class="p">,</span> <span class="n">mu1</span><span class="p">,</span> <span class="n">sigma1</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">):</span>
 
     <span class="c1"># the test-statistics function: note we&#39;re doing log(exp(-(x-mu)**2/(2*sigma**2)))</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">q</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m1</span><span class="o">=</span><span class="n">mu1</span><span class="p">,</span> <span class="n">s1</span><span class="o">=</span><span class="n">sigma1</span><span class="p">,</span> <span class="n">m0</span><span class="o">=</span><span class="n">mu0</span><span class="p">,</span> <span class="n">s0</span><span class="o">=</span><span class="n">sigma0</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">q</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m1</span><span class="o">=</span><span class="n">mu1</span><span class="p">,</span> <span class="n">s1</span><span class="o">=</span><span class="n">sigma1</span><span class="p">,</span> <span class="n">m0</span><span class="o">=</span><span class="n">mu0</span><span class="p">,</span> <span class="n">s0</span><span class="o">=</span><span class="n">sigma0</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">m0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">m0</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">s0</span><span class="o">*</span><span class="n">s0</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">m1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">m1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">s1</span><span class="o">*</span><span class="n">s1</span><span class="p">)</span>
 
     <span class="c1"># hypotheses</span>
@@ -545,7 +545,7 @@ and <span class="math notranslate nohighlight">\(H_1\)</span> again a gaussian d
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plt_test_stats</span><span class="p">(</span><span class="n">q0s</span><span class="p">,</span> <span class="n">q1s</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="nb">range</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plt_test_stats</span><span class="p">(</span><span class="n">q0s</span><span class="p">,</span> <span class="n">q1s</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="nb">range</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
     <span class="nb">range</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">q0s</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">q1s</span><span class="p">))</span> <span class="k">if</span> <span class="nb">range</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="nb">range</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">q0s</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="nb">range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> 
              <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;$q(x|H_0)$&#39;</span><span class="p">,</span> <span class="n">histtype</span> <span class="o">=</span> <span class="s1">&#39;step&#39;</span><span class="p">);</span>
@@ -565,7 +565,7 @@ and <span class="math notranslate nohighlight">\(H_1\)</span> again a gaussian d
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/484a4335da4f06e501f89e4977bff69dd08579e823b715d747b1ecaafe65af4b.png" src="_images/484a4335da4f06e501f89e4977bff69dd08579e823b715d747b1ecaafe65af4b.png" />
+<img alt="_images/834beb84ab04b9b235c387862ed1516b48f88063f1efc6a848a86ac3ca372be7.png" src="_images/834beb84ab04b9b235c387862ed1516b48f88063f1efc6a848a86ac3ca372be7.png" />
 </div>
 </div>
 <p><strong>Question:</strong> Consider that we measure <span class="math notranslate nohighlight">\(q(x) = -10\)</span>, what can you say about <span class="math notranslate nohighlight">\(H_1\)</span>? And if we measure <span class="math notranslate nohighlight">\(q(x) = 30\)</span>?</p>
@@ -584,13 +584,13 @@ and <span class="math notranslate nohighlight">\(H_1\)</span> again a gaussian d
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>observed data : 6
-H0 p-value    : 0.08391794
-H1 p-value    : 0.13014142
-CLs           : 0.13465346 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>observed data : 18
+H0 p-value    : 0.00000000
+H1 p-value    : 0.99281350
+CLs           : 0.99281350 
 </pre></div>
 </div>
-<img alt="_images/8c557e971acb04cfdb5a20fcdd248fef2de6409c500e0ae1855bd6df3f3c52a2.png" src="_images/8c557e971acb04cfdb5a20fcdd248fef2de6409c500e0ae1855bd6df3f3c52a2.png" />
+<img alt="_images/230d0245fee6142a1d23e274cfa29b749eae007a18b8299453b253840201f7fb.png" src="_images/230d0245fee6142a1d23e274cfa29b749eae007a18b8299453b253840201f7fb.png" />
 </div>
 </div>
 <p><strong>Class exercise</strong>: Consider now a poisson distribution with <span class="math notranslate nohighlight">\(\mu_0 = b\)</span> for <span class="math notranslate nohighlight">\(H_0\)</span> and  another poisson distribution with <span class="math notranslate nohighlight">\(\mu_1 = b + s\)</span> for <span class="math notranslate nohighlight">\(H_1\)</span>, consider <span class="math notranslate nohighlight">\(b=3, s=2\)</span>. Obtain the pdfs of the test-statistics, <span class="math notranslate nohighlight">\(g(q| H_0), \; g(q | H_1)\)</span>.</p>
@@ -616,7 +616,7 @@ Consider a <strong>hypothetical search for a new particle</strong> at the <stron
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/663ac51e4e7a5fc288fff8826e6150c0784447544f52b1c3b8d56c2ad966bfb3.png" src="_images/663ac51e4e7a5fc288fff8826e6150c0784447544f52b1c3b8d56c2ad966bfb3.png" />
+<img alt="_images/ed03b267770b41a67702dde2953c8694e5fc1d151479374296ccf8118e8ab35c.png" src="_images/ed03b267770b41a67702dde2953c8694e5fc1d151479374296ccf8118e8ab35c.png" />
 </div>
 </div>
 <p><strong>Class exercise</strong>: Consider a counting experiment with four independent bins. The background for <span class="math notranslate nohighlight">\(H_0\)</span> is poisson distributed in each bin with <span class="math notranslate nohighlight">\({\bf b} = (2, 1.5, 1, 0.5)\)</span> and <span class="math notranslate nohighlight">\(H_1\)</span> a signal, is also poisson distributed on top of the background <span class="math notranslate nohighlight">\({\bf b} + {\bf s}\)</span> with <span class="math notranslate nohighlight">\({\bf s} = (1, 3, 3, 1)\)</span>. Obtain the pdfs of the test-statistics <span class="math notranslate nohighlight">\(g(q|H_0), \; g(q |H_1)\)</span>.</p>
@@ -646,7 +646,7 @@ Consider a <strong>hypothetical search for a new particle</strong> at the <stron
 </section>
 <section id="significance-and-power">
 <h2>Significance and power<a class="headerlink" href="#significance-and-power" title="Link to this heading">#</a></h2>
-<p>We can classify events into <span class="math notranslate nohighlight">\(H_0\)</span> or <span class="math notranslate nohighlight">\(H_1\)</span> hypothesis using a threshold, <span class="math notranslate nohighlight">\(k\)</span>, on the test statistics:</p>
+<p>We can classify events into <span class="math notranslate nohighlight">\(H_0\)</span> or <span class="math notranslate nohighlight">\(H_1\)</span> hypotheses using a threshold, <span class="math notranslate nohighlight">\(k\)</span>, on the test statistics:</p>
 <div class="math notranslate nohighlight">
 \[
 q(x) &lt; k
@@ -677,13 +677,13 @@ q(x) &lt; k
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>observed data : [0.68410232]
-H0 p-value    : 0.24695528
-H1 p-value    : 0.01028193
-CLs           : 0.01365381 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>observed data : [1.04436036]
+H0 p-value    : 0.14815935
+H1 p-value    : 0.02525381
+CLs           : 0.02964617 
 </pre></div>
 </div>
-<img alt="_images/1fc454ed3da0ac38f25f8dd2815c29d33ca43ebf3a3a8c1300eb9e881c7da199.png" src="_images/1fc454ed3da0ac38f25f8dd2815c29d33ca43ebf3a3a8c1300eb9e881c7da199.png" />
+<img alt="_images/2b4f85d3846e7c58b60c147580a9b4f89d8214d13491da979ed82c67c4fef4a1.png" src="_images/2b4f85d3846e7c58b60c147580a9b4f89d8214d13491da979ed82c67c4fef4a1.png" />
 </div>
 </div>
 <p>We call the RoC curve the efficiency (or power or <span class="math notranslate nohighlight">\(1 - \beta\)</span>), vs rejection (or 1-<span class="math notranslate nohighlight">\(\alpha\)</span>) of the background. This is usually the plot that shows the discrimination power of the test-statistics.</p>
@@ -691,7 +691,12 @@ CLs           : 0.01365381
 <p><strong>Exercise</strong>: In the previous case, compute the RoC curve, the <span class="math notranslate nohighlight">\(H_1\)</span> efficiency vs <span class="math notranslate nohighlight">\(H_0\)</span> rejection.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qrange</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">*</span><span class="n">ht</span><span class="o">.</span><span class="n">qrange</span><span class="p">(),</span> <span class="mi">100</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]),</span> <span class="mi">10000</span>
+<span class="c1"># generators of n-poisson for b and b+s</span>
+<span class="n">h0</span><span class="p">,</span> <span class="n">h1</span> <span class="o">=</span> <span class="n">htcata</span><span class="o">.</span><span class="n">poisson_ncounter</span><span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="n">htcata</span><span class="o">.</span><span class="n">poisson_ncounter</span><span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="n">s</span><span class="p">)</span>
+<span class="c1"># test of simple hypothesis - generate events and compute test-statistic</span>
+<span class="n">ht</span>  <span class="o">=</span> <span class="n">htcore</span><span class="o">.</span><span class="n">htsimple</span><span class="p">(</span><span class="n">h0</span><span class="p">,</span> <span class="n">h1</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+<span class="n">qrange</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">*</span><span class="n">ht</span><span class="o">.</span><span class="n">qrange</span><span class="p">(),</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">rej</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">ht</span><span class="o">.</span><span class="n">p0value</span><span class="p">(</span><span class="n">qi</span><span class="p">)</span> <span class="k">for</span> <span class="n">qi</span> <span class="ow">in</span> <span class="n">qrange</span><span class="p">]</span>
 <span class="n">eff</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">ht</span><span class="o">.</span><span class="n">p1value</span><span class="p">(</span><span class="n">qi</span><span class="p">)</span> <span class="k">for</span> <span class="n">qi</span> <span class="ow">in</span> <span class="n">qrange</span><span class="p">]</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rej</span><span class="p">,</span> <span class="n">eff</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">);</span>
@@ -700,7 +705,7 @@ CLs           : 0.01365381
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/30a65deb9babbcb03c04c3b516100c53ab33235add0086703f838b56397a8c84.png" src="_images/30a65deb9babbcb03c04c3b516100c53ab33235add0086703f838b56397a8c84.png" />
+<img alt="_images/2ff305bf403f94b14215450b41975fbc2cdb19def1c7be5e9619fda993e475ea.png" src="_images/2ff305bf403f94b14215450b41975fbc2cdb19def1c7be5e9619fda993e475ea.png" />
 </div>
 </div>
 </section>
@@ -721,18 +726,18 @@ CLs           : 0.01365381
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu0</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">mutrue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="kc">True</span>
-<span class="n">httoys</span><span class="o">.</span><span class="n">gaussian</span><span class="p">(</span><span class="n">mu0</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">mutrue</span> <span class="o">=</span> <span class="n">mutrue</span><span class="p">);</span>
+<span class="n">httoys</span><span class="o">.</span><span class="n">gaussian</span><span class="p">(</span><span class="n">mu0</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>observed data : [6.86111895]
-H0 p-value    : 0.00000000
-H1 p-value    : 0.96863631
-CLs           : 0.96863631 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>observed data : 5
+H0 p-value    : 0.00000029
+H1 p-value    : 0.50000000
+CLs           : 0.50000014 
 </pre></div>
 </div>
-<img alt="_images/ea7efb387b66a6ad6996fd5b50c3fb387cdd6c329e8f9082d31d7a18ac3d89e3.png" src="_images/ea7efb387b66a6ad6996fd5b50c3fb387cdd6c329e8f9082d31d7a18ac3d89e3.png" />
+<img alt="_images/ce3c340d98e4ede1ce910b569fa223cc2e33ae36b51ab43d5e35a5b23573e76a.png" src="_images/ce3c340d98e4ede1ce910b569fa223cc2e33ae36b51ab43d5e35a5b23573e76a.png" />
 </div>
 </div>
 <ul class="simple">
@@ -748,18 +753,18 @@ Can you exclude <span class="math notranslate nohighlight">\(H_1\)</span> at 90%
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu0</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">mutrue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="kc">False</span>
-<span class="n">httoys</span><span class="o">.</span><span class="n">gaussian</span><span class="p">(</span><span class="n">mu0</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">mutrue</span> <span class="o">=</span> <span class="n">mutrue</span><span class="p">);</span>
+<span class="n">httoys</span><span class="o">.</span><span class="n">gaussian</span><span class="p">(</span><span class="n">mu0</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mf">1.218</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>observed data : [1.20318058]
-H0 p-value    : 0.11445322
-H1 p-value    : 0.09734666
-CLs           : 0.10992831 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>observed data : 1.218
+H0 p-value    : 0.11161199
+H1 p-value    : 0.09992132
+CLs           : 0.11247487 
 </pre></div>
 </div>
-<img alt="_images/64b14db27e6bebc26e99fa306e31b1321e7b6b907823626bf5e6ebd9ecc86d58.png" src="_images/64b14db27e6bebc26e99fa306e31b1321e7b6b907823626bf5e6ebd9ecc86d58.png" />
+<img alt="_images/0a526cb8003d7f90c7916df4b6f915cd90f63c7e3df618a1b7d290efb9380d74.png" src="_images/0a526cb8003d7f90c7916df4b6f915cd90f63c7e3df618a1b7d290efb9380d74.png" />
 </div>
 </div>
 <p>The x for which <span class="math notranslate nohighlight">\(\beta\)</span>=0.1 is x=1.218. The <span class="math notranslate nohighlight">\(1-\alpha\)</span> corresponding to 1.218 is 0.888. This means in 88.8% of the cases we can reject <span class="math notranslate nohighlight">\(H_1\)</span> at 90% CL</p>
@@ -776,24 +781,25 @@ CLs           : 0.10992831
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu0</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma1</span><span class="p">,</span> <span class="n">mutrue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="kc">False</span>
-<span class="n">httoys</span><span class="o">.</span><span class="n">gaussian</span><span class="p">(</span><span class="n">mu0</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">mutrue</span> <span class="o">=</span> <span class="n">mutrue</span><span class="p">,</span> <span class="n">sigma1</span> <span class="o">=</span> <span class="n">sigma1</span><span class="p">);</span>
+<span class="n">httoys</span><span class="o">.</span><span class="n">gaussian</span><span class="p">(</span><span class="n">mu0</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sigma1</span> <span class="o">=</span> <span class="n">sigma1</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>observed data : [2.21525579]
-H0 p-value    : 0.01337126
-H1 p-value    : 0.13266154
-CLs           : 0.13445943 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>observed data : 0
+H0 p-value    : 0.50000000
+H1 p-value    : 0.02275013
+CLs           : 0.04550026 
 </pre></div>
 </div>
-<img alt="_images/5a2d528834e8bde76b03fc669263dccbbe6a2804403f9bb0dfae4018365e29c5.png" src="_images/5a2d528834e8bde76b03fc669263dccbbe6a2804403f9bb0dfae4018365e29c5.png" />
+<img alt="_images/1603032243a86fa6dee866adf73af70115081ef6b20bbaf61b2d7e183ee877a6.png" src="_images/1603032243a86fa6dee866adf73af70115081ef6b20bbaf61b2d7e183ee877a6.png" />
 </div>
 </div>
-<p>In this case the reach would be given by <span class="math notranslate nohighlight">\(\beta\)</span> at x=0, which provides the median of <span class="math notranslate nohighlight">\(H_0\)</span>. This is 0.02275</p>
+<p>In this case the reach would be given by <span class="math notranslate nohighlight">\(\beta\)</span> at x=0, which provides the median of <span class="math notranslate nohighlight">\(H_0\)</span>. This is 0.02275
+How about the discovery potential?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu0</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma1</span><span class="p">,</span> <span class="n">mutrue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="kc">True</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu0</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma1</span><span class="p">,</span> <span class="n">mutrue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="kc">True</span>
 <span class="n">httoys</span><span class="o">.</span><span class="n">gaussian</span><span class="p">(</span><span class="n">mu0</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">x0</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">mutrue</span> <span class="o">=</span> <span class="n">mutrue</span><span class="p">,</span> <span class="n">sigma1</span> <span class="o">=</span> <span class="n">sigma1</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -805,7 +811,7 @@ H1 p-value    : 0.50000000
 CLs           : 0.50000014 
 </pre></div>
 </div>
-<img alt="_images/53bf8d9f1451736e5c9ae9e55d699155ec7f7e1334f5976d877ce62574ac7f9b.png" src="_images/53bf8d9f1451736e5c9ae9e55d699155ec7f7e1334f5976d877ce62574ac7f9b.png" />
+<img alt="_images/1672853ebc8a56e4505e08b70ec5160140c611fc27fb19bd0266f6a210d1905a.png" src="_images/1672853ebc8a56e4505e08b70ec5160140c611fc27fb19bd0266f6a210d1905a.png" />
 </div>
 </div>
 <p><strong>Exercise:</strong> An experiment expects <span class="math notranslate nohighlight">\((2, 1)\)</span> background events in two bins, and a possible signal <span class="math notranslate nohighlight">\((8, 9)\)</span> on top. It observes <span class="math notranslate nohighlight">\((9, 9)\)</span>, can claim observation?</p>
@@ -815,9 +821,9 @@ CLs           : 0.50000014
 </section>
 <section id="the-cls-method">
 <h2>The CLs method<a class="headerlink" href="#the-cls-method" title="Link to this heading">#</a></h2>
-<p>In some cases the <span class="math notranslate nohighlight">\(H_1\)</span> hypothesis is ‘weak’ compared with <span class="math notranslate nohighlight">\(H_0\)</span> and the distributions of the test statistic <span class="math notranslate nohighlight">\(g(q \, | H_0)\)</span> and <span class="math notranslate nohighlight">\(g(q \, | \,H_1) \)</span> overlap.</p>
+<p>In some cases the <span class="math notranslate nohighlight">\(H_1\)</span> hypothesis is ‘weak’ compared with <span class="math notranslate nohighlight">\(H_0\)</span> and the distributions of the test statistics <span class="math notranslate nohighlight">\(g(q \, | H_0)\)</span> and <span class="math notranslate nohighlight">\(g(q \, | \,H_1) \)</span> overlap.</p>
 <p><strong>Example</strong>: Consider <span class="math notranslate nohighlight">\(H_0\)</span> as a poisson of <span class="math notranslate nohighlight">\(b\)</span> expected events, <span class="math notranslate nohighlight">\(b=4\)</span>, and the signal <span class="math notranslate nohighlight">\(s=0.5\)</span> events.</p>
-<p><strong>Question</strong>: If we measure <span class="math notranslate nohighlight">\(n \, = \,1\)</span>, the p-value for <span class="math notranslate nohighlight">\(H_1\)</span> is <span class="math notranslate nohighlight">\(0.061\)</span>, bellow 10%. Do we exclude the signal at 90% CL?</p>
+<p><strong>Question</strong>: If we measure <span class="math notranslate nohighlight">\(n \, = \,1\)</span>, the p-value for <span class="math notranslate nohighlight">\(H_1\)</span> is <span class="math notranslate nohighlight">\(0.061\)</span>, below 10%. Do we exclude the signal at 90% CL?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">x0</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span>
@@ -832,25 +838,38 @@ H1 p-value    : 0.06109948
 CLs           : 0.66718373 
 </pre></div>
 </div>
-<img alt="_images/3fb09c4424b89ba3e23a7950bb58c3d33142f52d5b4b58dcd12c318ba7933956.png" src="_images/3fb09c4424b89ba3e23a7950bb58c3d33142f52d5b4b58dcd12c318ba7933956.png" />
+<img alt="_images/3aef8cfec12208ec997f7aa2e3f2bdf416164e5de9da366d78ec07acec67f347.png" src="_images/3aef8cfec12208ec997f7aa2e3f2bdf416164e5de9da366d78ec07acec67f347.png" />
 </div>
 </div>
 <p>The pdfs of the test statistics, <span class="math notranslate nohighlight">\(g(q | H_0), \, g(q | H_1)\)</span>, for <span class="math notranslate nohighlight">\(b=4, \, s+b=4.5\)</span> mostly overlap!</p>
 <p>In principle we reject <span class="math notranslate nohighlight">\(H_1\)</span> at 90% CL. But the probability to accept <span class="math notranslate nohighlight">\(H_0\)</span> is very small, <span class="math notranslate nohighlight">\(1-\alpha\)</span>!</p>
-<p>It will be more prudent to not reject <span class="math notranslate nohighlight">\(H_1\)</span> and conclude that <em>the experiment has no enough reach</em>.</p>
-<p>One solution to this problem is to use the CLs method.</p>
+<p>It may be more prudent to not reject <span class="math notranslate nohighlight">\(H_1\)</span> and conclude that <em>the experiment has no enough reach</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h0</span><span class="p">,</span> <span class="n">h1</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="mf">4.5</span><span class="p">),</span> <span class="mi">10000</span>
 <span class="n">ht</span> <span class="o">=</span> <span class="n">htcore</span><span class="o">.</span><span class="n">htsimple</span><span class="p">(</span><span class="n">h0</span><span class="p">,</span> <span class="n">h1</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
 <span class="n">htplot</span><span class="o">.</span><span class="n">plt_htsimple</span><span class="p">(</span><span class="n">ht</span><span class="p">);</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;test statistics q-value 1&quot;</span><span class="p">,</span><span class="n">ht</span><span class="o">.</span><span class="n">q</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;test statistics p-value 1&quot;</span><span class="p">,</span><span class="n">ht</span><span class="o">.</span><span class="n">p1value</span><span class="p">(</span><span class="n">ht</span><span class="o">.</span><span class="n">q</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2e1e5a5d839f066a7332cf241599b12e71cf0361f3478d756f3b88f90a87fd2d.png" src="_images/2e1e5a5d839f066a7332cf241599b12e71cf0361f3478d756f3b88f90a87fd2d.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>test statistics q-value 1 -0.7644339286872333
+test statistics p-value 1 0.06
+</pre></div>
+</div>
+<img alt="_images/dd83f1836bf0d4a51e0ba2357107531f701c66565301bf0bedb03c3f9cf4429f.png" src="_images/dd83f1836bf0d4a51e0ba2357107531f701c66565301bf0bedb03c3f9cf4429f.png" />
 </div>
 </div>
+<p>The <a class="reference external" href="https://arxiv.org/abs/hep-ex/9902006">CLs method</a> was developed to prevent these cases.</p>
+<p>Instead of using the <span class="math notranslate nohighlight">\(H_1\)</span> p-value, <span class="math notranslate nohighlight">\(\beta\)</span>, to reject <span class="math notranslate nohighlight">\(H_1\)</span>, it uses the value:</p>
+<div class="math notranslate nohighlight">
+\[
+CL_s \equiv \frac{CL_{s+b}}{CL_b} = \frac{\beta}{1-\alpha}
+\]</div>
+<p>That is, a ratio of fractions. Given an observation, the fraction of possible equal or worse events if we consider the <span class="math notranslate nohighlight">\(H_1\)</span> hypothesis, with respect the fraction of possible equal or better events if we do the same with <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
+<p>Notice that <span class="math notranslate nohighlight">\(CLs\)</span> is conservative, <span class="math notranslate nohighlight">\(CLs \ge \beta\)</span>. And that <span class="math notranslate nohighlight">\(1-\alpha \ge \beta\)</span>, the probability to accept <span class="math notranslate nohighlight">\(H_0\)</span> is always greater than to reject <span class="math notranslate nohighlight">\(H_1\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ns</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
@@ -865,6 +884,8 @@ CLs           : 0.66718373
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$q(x)$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$g(q|x)$&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">ht</span><span class="o">.</span><span class="n">q0s</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="nb">range</span> <span class="o">=</span> <span class="n">ht</span><span class="o">.</span><span class="n">qrange</span><span class="p">(),</span> <span class="n">histtype</span> <span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;$q(x|H_0)$&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">ht</span><span class="o">.</span><span class="n">q1s</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="nb">range</span> <span class="o">=</span> <span class="n">ht</span><span class="o">.</span><span class="n">qrange</span><span class="p">(),</span> <span class="n">histtype</span> <span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;$q(x|H_1)$&#39;</span><span class="p">)</span>
 <span class="n">axb</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
@@ -877,20 +898,12 @@ CLs           : 0.66718373
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3b542a3971ddfd93cb81bf3187299e9602dc3d56aa1a01ab830791423c81e23a.png" src="_images/3b542a3971ddfd93cb81bf3187299e9602dc3d56aa1a01ab830791423c81e23a.png" />
+<img alt="_images/a3275f1037757428cccb362b955527689d0a6d7f2b1c3a9638505209dc2a7a5b.png" src="_images/a3275f1037757428cccb362b955527689d0a6d7f2b1c3a9638505209dc2a7a5b.png" />
 </div>
 </div>
-<p>The <a class="reference external" href="https://arxiv.org/abs/hep-ex/9902006">CLs method</a> was developed to prevent these cases.</p>
-<p>Instead of using the <span class="math notranslate nohighlight">\(H_1\)</span> p-value, <span class="math notranslate nohighlight">\(\beta\)</span>, to reject <span class="math notranslate nohighlight">\(H_1\)</span>, it uses the value:</p>
-<div class="math notranslate nohighlight">
-\[
-CL_s \equiv \frac{CL_{s+b}}{CL_b} = \frac{\beta}{1-\alpha}
-\]</div>
-<p>That is, a ratio of fractions. Given an observation, the fraction of possible equal or worse events if we consider the <span class="math notranslate nohighlight">\(H_1\)</span> hypothesis, with respect the fraction of possible equal or better events if we do the same with <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
-<p>Notice that <span class="math notranslate nohighlight">\(CLs\)</span> is conservative, <span class="math notranslate nohighlight">\(CLs \ge \beta\)</span>. And that <span class="math notranslate nohighlight">\(1-\alpha \ge \beta\)</span>, the probability to accept <span class="math notranslate nohighlight">\(H_0\)</span> is always greater than to reject <span class="math notranslate nohighlight">\(H_1\)</span>.</p>
 <p>In the previous example, the <span class="math notranslate nohighlight">\(H_1\)</span> p-value was 0.06, but CLs value is 0.66! Therefore, we do not exclude <span class="math notranslate nohighlight">\(H_1\)</span>.</p>
-<p>The CLs has prevent us to do an exclusion when the experiment has not enough sensitivity!</p>
-<p>In the case that <span class="math notranslate nohighlight">\(H_1\)</span> is well separated compared with <span class="math notranslate nohighlight">\(H_0\)</span> a cut on <span class="math notranslate nohighlight">\(CL_s\)</span> is equivalent to a cut on <span class="math notranslate nohighlight">\(\beta\)</span>.</p>
+<p>The CLs has prevented us from doing an exclusion when the experiment has not enough sensitivity!</p>
+<p>In case <span class="math notranslate nohighlight">\(H_1\)</span> is well separated to <span class="math notranslate nohighlight">\(H_0\)</span> a cut on <span class="math notranslate nohighlight">\(CL_s\)</span> is equivalent to a cut on <span class="math notranslate nohighlight">\(\beta\)</span>.</p>
 <p>The CLs method has been criticized as conservative, but has been and is frequenly used in HEP.</p>
 <p><strong>Example</strong> In the previous examples we have impossed <span class="math notranslate nohighlight">\(H_1\)</span> p-value and <span class="math notranslate nohighlight">\(CL_s\)</span>, if we observe <span class="math notranslate nohighlight">\(n=1\)</span>, we will not reject <span class="math notranslate nohighlight">\(H_1\)</span> using the CLs method.</p>
 <div class="cell docutils container">
@@ -908,7 +921,7 @@ CL_s \equiv \frac{CL_{s+b}}{CL_b} = \frac{\beta}{1-\alpha}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/cd016a7d4fe848aad9c2507082cf54c43fa13ccd6b51c3c1dee057e1c5af0bfe.png" src="_images/cd016a7d4fe848aad9c2507082cf54c43fa13ccd6b51c3c1dee057e1c5af0bfe.png" />
+<img alt="_images/83ff36860d9d69ba4691dc4a3da2ad530ccce6a1979f9e2b23fb2b98b7b49214.png" src="_images/83ff36860d9d69ba4691dc4a3da2ad530ccce6a1979f9e2b23fb2b98b7b49214.png" />
 </div>
 </div>
 </section>
@@ -949,16 +962,16 @@ g(x \, | \, \mu) = \int g( x \, | \, \mu, \nu) \, \pi(\nu) \, \mathrm{d}\nu
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "my-local-env"
         },
         kernelOptions: {
-            name: "python3",
+            name: "my-local-env",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'my-local-env'</script>
 
                 </article>
               

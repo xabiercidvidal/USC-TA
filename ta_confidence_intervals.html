@@ -30,7 +30,7 @@
   <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -428,7 +428,7 @@
 <p><a class="reference external" href="https://mybinder.org/v2/gh/xabiercidvidal/USC-TA/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 
 <span class="nb">print</span><span class="p">(</span> <span class="s1">&#39; Last Execution &#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">asctime</span><span class="p">())</span>
 </pre></div>
@@ -448,22 +448,22 @@
 <span class="o">%</span><span class="k">autoreload</span> 2
 
 <span class="c1"># numpy and matplotlib</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
 
 <span class="c1"># possible styles: ggplot (simplicity), bmh (scientify data), </span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">context</span><span class="p">(</span><span class="s1">&#39;seaborn-colorblind&#39;</span><span class="p">)</span> 
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">htcore</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">htcore</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">httoys</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">httoys</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">htcint</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">htcint</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">htcint_examples</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">htexam</span>
+<span class="kn">import</span> <span class="nn">htcore</span> <span class="k">as</span> <span class="nn">htcore</span>
+<span class="kn">import</span> <span class="nn">httoys</span> <span class="k">as</span> <span class="nn">httoys</span>
+<span class="kn">import</span> <span class="nn">htcint</span> <span class="k">as</span> <span class="nn">htcint</span>
+<span class="kn">import</span> <span class="nn">htcint_examples</span> <span class="k">as</span> <span class="nn">htexam</span>
 
 <span class="c1"># ploting images</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Image</span>
 </pre></div>
 </div>
 </div>
@@ -592,7 +592,7 @@ coverage  96.95136243577515 %
 <p><strong>Exercise</strong>: Consider a poisson distribution with <span class="math notranslate nohighlight">\(b=3\)</span> background events and a value of possible signal, <span class="math notranslate nohighlight">\(\mu=0.5\)</span>. Give the 90% lower, upper and central interval.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plt_rmu_classical</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="mf">0.90</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plt_rmu_classical</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="mf">0.90</span><span class="p">):</span>
     <span class="n">alpha</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">beta</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
     <span class="n">rmu</span><span class="p">,</span> <span class="n">xs</span> <span class="o">=</span> <span class="n">htcint</span><span class="o">.</span><span class="n">rmu</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;classical&#39;</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Rmu segment for b &#39;</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s1">&#39;and mu &#39;</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="s1">&#39; = &#39;</span><span class="p">,</span> <span class="n">rmu</span><span class="p">);</span>
@@ -634,7 +634,7 @@ coverage  96.95136243577515 %
 <p><strong>Exercise</strong>: What is the CI at 90% CL? And for <span class="math notranslate nohighlight">\(b=3\)</span> and <span class="math notranslate nohighlight">\(x_0 = 1\)</span>?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plt_confbelt</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">beta1</span> <span class="o">=</span> <span class="mf">0.90</span><span class="p">,</span> <span class="n">beta2</span> <span class="o">=</span> <span class="mf">0.68</span><span class="p">,</span> <span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;classical&#39;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plt_confbelt</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">beta1</span> <span class="o">=</span> <span class="mf">0.90</span><span class="p">,</span> <span class="n">beta2</span> <span class="o">=</span> <span class="mf">0.68</span><span class="p">,</span> <span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;classical&#39;</span><span class="p">,</span>
                  <span class="n">mumax</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span> <span class="n">musize</span><span class="o">=</span><span class="mi">200</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; draws the CI confident belt for beta1 and beta2 CL of type = (&#39;classical&#39;, &#39;fc&#39;)</span>
 <span class="sd">        draws a line in the confident belt plane for x0 and print the ci for beta1 and beta2</span>
@@ -725,7 +725,7 @@ t_\mu(n) = \frac{g(n | b + \mu)}{ g( n | b + \hat{\mu}(n))}
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="p">,</span> <span class="n">mu</span>  <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span>
 <span class="n">ns</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
 <span class="n">muhats</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ni</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">ni</span> <span class="ow">in</span> <span class="n">ns</span><span class="p">])</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">tmu</span><span class="p">(</span><span class="n">ni</span><span class="p">,</span> <span class="n">muhat</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">mu</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">tmu</span><span class="p">(</span><span class="n">ni</span><span class="p">,</span> <span class="n">muhat</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">mu</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">ni</span><span class="p">,</span>  <span class="n">b</span> <span class="o">+</span> <span class="n">mu</span><span class="p">)</span> <span class="o">/</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">ni</span><span class="p">,</span> <span class="n">b</span> <span class="o">+</span> <span class="n">muhat</span><span class="p">)</span>
 <span class="n">gmus</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span> <span class="n">ni</span><span class="p">,</span> <span class="n">b</span> <span class="o">+</span> <span class="n">mu</span><span class="p">)</span> <span class="k">for</span> <span class="n">ni</span> <span class="ow">in</span> <span class="n">ns</span><span class="p">])</span>
 <span class="n">gmuhats</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span> <span class="n">ni</span><span class="p">,</span> <span class="n">b</span> <span class="o">+</span> <span class="n">muh</span><span class="p">)</span> <span class="k">for</span> <span class="n">ni</span><span class="p">,</span> <span class="n">muh</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ns</span><span class="p">,</span> <span class="n">muhats</span><span class="p">)])</span>
@@ -898,7 +898,7 @@ t_\mu(n) = \frac{g(n | b + \mu)}{ g( n | b + \hat{\mu}(n))}
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plt_rmu_fc</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="mf">0.9</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plt_rmu_fc</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="mf">0.9</span><span class="p">):</span>
     <span class="n">rmu</span><span class="p">,</span> <span class="n">xs</span> <span class="o">=</span> <span class="n">htcint</span><span class="o">.</span><span class="n">rmu</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;fc&#39;</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Rmu segment for b &#39;</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s1">&#39;and mu &#39;</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="s1">&#39; = &#39;</span><span class="p">,</span> <span class="n">rmu</span><span class="p">);</span>
     <span class="n">tms</span><span class="p">,</span> <span class="n">cps</span><span class="p">,</span> <span class="n">ns</span> <span class="o">=</span> <span class="p">[</span><span class="n">xi</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">xi</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">],</span> <span class="p">[</span><span class="n">xi</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">xi</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">],</span> <span class="p">[</span><span class="n">xi</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">xi</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">]</span>
