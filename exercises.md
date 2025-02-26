@@ -69,9 +69,8 @@ An experiment expects $(2, 1)$ background events in two bins, and a possible sig
 #### Exercises 3: Confidence intervals
 
 ##### Exercise 3a: 
-Construct the *confidence belt* CI at 90% and 68% CL considering a counting experiment with background $b$ and unknown signal $\mu$. In this case, the pdf is a poisson with mean $b + \mu$. We scan along $\mu$ and for each $\mu$ we obtain the interval $[x_l(\mu), x_u(\mu)]$ using the central interval at 90% contaiment. Then, we unify the border of the segments and we define the confident belt.
-- What is the CI at 90% CL? And for $b=3$ and $x_0 = 1$?
-- Test the coverage of the CI at 90% CL in this example. Consider $b=2$ and $\mu_{true} = 2$.
+Use the classical construction of CI for the case of a gaussian with $\sigma= 1$ and $\beta = 68$ % CL.
+
 
 **Choose at least 2 among:**
 
