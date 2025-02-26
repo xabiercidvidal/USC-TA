@@ -30,7 +30,7 @@
   <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -429,7 +429,7 @@
 <p><a class="reference external" href="https://mybinder.org/v2/gh/xabiercidvidal/USC-TA/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 <span class="nb">print</span><span class="p">(</span> <span class="s1">&#39; Last Execution &#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">asctime</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -448,15 +448,15 @@
 <span class="o">%</span><span class="k">autoreload</span> 2
  
 <span class="c1"># numpy and matplotlib</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">httoys</span><span class="w">    </span><span class="k">as</span><span class="w"> </span><span class="nn">httoys</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">htcore</span><span class="w">    </span><span class="k">as</span><span class="w"> </span><span class="nn">htcore</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">htcatalog</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">htcata</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">htplot</span><span class="w">    </span><span class="k">as</span><span class="w"> </span><span class="nn">htplot</span>
+<span class="kn">import</span> <span class="nn">httoys</span>    <span class="k">as</span> <span class="nn">httoys</span>
+<span class="kn">import</span> <span class="nn">htcore</span>    <span class="k">as</span> <span class="nn">htcore</span>
+<span class="kn">import</span> <span class="nn">htcatalog</span> <span class="k">as</span> <span class="nn">htcata</span>
+<span class="kn">import</span> <span class="nn">htplot</span>    <span class="k">as</span> <span class="nn">htplot</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">context</span><span class="p">(</span><span class="s1">&#39;seaborn-colorblind&#39;</span><span class="p">);</span>
 </pre></div>
@@ -520,10 +520,10 @@ q(x) = -2 \log \, \frac{ \mathcal{L}(x \, | \, H_0)}{ \mathcal{L}(x \, | \, H_1)
 and <span class="math notranslate nohighlight">\(H_1\)</span> again a gaussian distribution with <span class="math notranslate nohighlight">\(\mu_1\)</span> and <span class="math notranslate nohighlight">\(\sigma_1\)</span>. Obtain the pdfs,  <span class="math notranslate nohighlight">\(g(q |H_0)\)</span> and <span class="math notranslate nohighlight">\(g(q|H_1)\)</span> for <span class="math notranslate nohighlight">\(\mu_0 = 0, \, \sigma_0 = 1, \, \mu_1 = 4, \, \sigma_1 = 2\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">two_gaussian</span><span class="p">(</span><span class="n">mu0</span><span class="p">,</span> <span class="n">sigma0</span><span class="p">,</span> <span class="n">mu1</span><span class="p">,</span> <span class="n">sigma1</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">two_gaussian</span><span class="p">(</span><span class="n">mu0</span><span class="p">,</span> <span class="n">sigma0</span><span class="p">,</span> <span class="n">mu1</span><span class="p">,</span> <span class="n">sigma1</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">):</span>
 
     <span class="c1"># the test-statistics function: note we&#39;re doing log(exp(-(x-mu)**2/(2*sigma**2)))</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">q</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m1</span><span class="o">=</span><span class="n">mu1</span><span class="p">,</span> <span class="n">s1</span><span class="o">=</span><span class="n">sigma1</span><span class="p">,</span> <span class="n">m0</span><span class="o">=</span><span class="n">mu0</span><span class="p">,</span> <span class="n">s0</span><span class="o">=</span><span class="n">sigma0</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">q</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m1</span><span class="o">=</span><span class="n">mu1</span><span class="p">,</span> <span class="n">s1</span><span class="o">=</span><span class="n">sigma1</span><span class="p">,</span> <span class="n">m0</span><span class="o">=</span><span class="n">mu0</span><span class="p">,</span> <span class="n">s0</span><span class="o">=</span><span class="n">sigma0</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">m0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">m0</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">s0</span><span class="o">*</span><span class="n">s0</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">m1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">m1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">s1</span><span class="o">*</span><span class="n">s1</span><span class="p">)</span>
 
     <span class="c1"># hypotheses</span>
@@ -545,7 +545,7 @@ and <span class="math notranslate nohighlight">\(H_1\)</span> again a gaussian d
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plt_test_stats</span><span class="p">(</span><span class="n">q0s</span><span class="p">,</span> <span class="n">q1s</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="nb">range</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plt_test_stats</span><span class="p">(</span><span class="n">q0s</span><span class="p">,</span> <span class="n">q1s</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="nb">range</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
     <span class="nb">range</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">q0s</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">q1s</span><span class="p">))</span> <span class="k">if</span> <span class="nb">range</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="nb">range</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">q0s</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="nb">range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> 
              <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;$q(x|H_0)$&#39;</span><span class="p">,</span> <span class="n">histtype</span> <span class="o">=</span> <span class="s1">&#39;step&#39;</span><span class="p">);</span>

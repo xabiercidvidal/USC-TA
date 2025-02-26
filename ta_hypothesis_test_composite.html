@@ -30,7 +30,7 @@
   <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -428,7 +428,7 @@
 <p><a class="reference external" href="https://mybinder.org/v2/gh/xabiercidvidal/USC-TA/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 
 <span class="nb">print</span><span class="p">(</span> <span class="s1">&#39; Last Execution &#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">asctime</span><span class="p">())</span>
 </pre></div>
@@ -448,25 +448,25 @@
 <span class="o">%</span><span class="k">autoreload</span> 2
 
 <span class="c1"># numpy and matplotlib</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">optimize</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span> <span class="k">as</span> <span class="nn">optimize</span>
 
 <span class="c1"># possible styles: ggplot (simplicity), bmh (scientify data), </span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">context</span><span class="p">(</span><span class="s1">&#39;seaborn-colorblind&#39;</span><span class="p">)</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">htcore</span><span class="w">     </span><span class="k">as</span><span class="w"> </span><span class="nn">htcore</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">httoys</span><span class="w">     </span><span class="k">as</span><span class="w"> </span><span class="nn">httoys</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">htcatalog</span><span class="w">  </span><span class="k">as</span><span class="w"> </span><span class="nn">htcata</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">htplot</span><span class="w">     </span><span class="k">as</span><span class="w"> </span><span class="nn">htplot</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">htcomposite_examples</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">htexam</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">htintro_examples</span><span class="w">  </span><span class="k">as</span><span class="w"> </span><span class="nn">htexam0</span>
+<span class="kn">import</span> <span class="nn">htcore</span>     <span class="k">as</span> <span class="nn">htcore</span>
+<span class="kn">import</span> <span class="nn">httoys</span>     <span class="k">as</span> <span class="nn">httoys</span>
+<span class="kn">import</span> <span class="nn">htcatalog</span>  <span class="k">as</span> <span class="nn">htcata</span>
+<span class="kn">import</span> <span class="nn">htplot</span>     <span class="k">as</span> <span class="nn">htplot</span>
+<span class="kn">import</span> <span class="nn">htcomposite_examples</span> <span class="k">as</span> <span class="nn">htexam</span>
+<span class="kn">import</span> <span class="nn">htintro_examples</span>  <span class="k">as</span> <span class="nn">htexam0</span>
 
 <span class="c1"># ploting images</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Image</span>
 </pre></div>
 </div>
 </div>
@@ -488,7 +488,7 @@
 <p>Let’s consider first a simple example. The measurement follows a normal gaussian distribution with true <span class="math notranslate nohighlight">\(\mu=0\)</span> and sigma unity.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plt_ci_interval_gaussian</span><span class="p">(</span><span class="n">mu_true</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">nsigma</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plt_ci_interval_gaussian</span><span class="p">(</span><span class="n">mu_true</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">nsigma</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
     <span class="n">x0</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="n">mu_true</span><span class="p">)</span>
     <span class="n">mu_lower</span> <span class="o">=</span> <span class="n">x0</span> <span class="o">-</span> <span class="n">nsigma</span>
     <span class="n">mu_upper</span> <span class="o">=</span> <span class="n">x0</span> <span class="o">+</span> <span class="n">nsigma</span>
