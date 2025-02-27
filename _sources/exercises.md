@@ -75,13 +75,14 @@ Use the classical construction of CI for the case of a gaussian with $\sigma= 1$
 **Choose at least 2 among:**
 
 ##### Exercise 3b:
-Verify that the flip-flop problem has not the proper coverage.
+Verify that the flip-flop problem has not the proper coverage. For this, set the flip-flop construction and test the coverture for $\mu_{true} = 3$.
+Why the case $b=3$ and $x_0 = 0$ has no classical CI at 90% CL?
 
 ##### Exercise 3c: 
-FC is a frequentist method. Verify now that the FC contruction guarantees **coverage** for some examples $b = 3, \mu_{true} = 0.5$
+FC is a frequentist method. Verify now that the FC construction guarantees **coverage** for some examples $b = 3, \mu_{true} = 0.5$
 
 ##### Exercise 3d: 
-Compare the classical and frequentist interval, where do they differ? where are they are equal? Use the case for example $b=3$.
+Compare the classical and frequentist intervals, where do they differ? Where are they are equal? Use as example the case $b=3$.
 
 #### Exercises 4: Hypothesis testing (composite case)
 
@@ -103,3 +104,7 @@ Consider an experiment with a gaussian distribution with mean $\mu$ and sigma 1.
 
 ##### Exercise 4e:
 Consider an experiment with a $n$ sample of gaussian distributed values with $\mu$ and sigma 1. Consider $\mu_{true} = \mu = 3.5$, verify that $q_\mu$ follows a "half" $\chi^2$ distribution with one dof.
+
+```python
+
+```
