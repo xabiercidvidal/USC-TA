@@ -20,7 +20,7 @@ def plt_tmus(x0, rv, mu, mu0, size):
     tmu0 = ht.tmu(x0, mu, mu0)
     xs   = rv.rvs(mu, size = size)
     tmus = [ht.tmu(xi, mu, mu0) for xi in xs]
-    plt.hist(tmus, 100, alpha = 0.5, label = r'$g(t_\mu$ | \mu)', density = True);
+    plt.hist(tmus, 100, alpha = 0.5, label = r'$g(t_\mu | \mu)$', density = True);
     plt.plot((tmu0, tmu0), (0., 1.), color = 'green', label = r'$t_\mu(x_0)$');
     plt.xlabel(r'$t_\mu$'); plt.legend(); plt.grid();
     print('p-value t0 :', np.sum(tmus >= tmu0)/(1.*size))
