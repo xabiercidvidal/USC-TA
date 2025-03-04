@@ -519,12 +519,14 @@
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(P(A|B) \, P(B) = P(B|A) \, P(A)\)</span>.</p></li>
 </ul>
-<p>The <strong>Bayes’ theorem</strong> relates both conditional probabilities: if <span class="math notranslate nohighlight">\(A,B\)</span> are two events with marginal probabilities <span class="math notranslate nohighlight">\(P(A),\, P(B)\)</span>, the conditional probabilities <span class="math notranslate nohighlight">\(P(A|B), \, P(B|A)\)</span> are:</p>
-<div class="math notranslate nohighlight">
-\[
+<table style="border: 1px solid black; border-collapse: collapse;">
+    <tr>
+        <td style="border: 1px solid black; padding: 8px;">The <b>Bayes' theorem</b> relates both conditional probabilities: if $A,B$ are two events with marginal probabilities $P(A),\, P(B)$, the conditional probabilities $P(A|B), \, P(B|A)$ are:
+<p>$<span class="math notranslate nohighlight">\(
 P(A|B) \, P(B) = P(B|A)\,P(A)
-\]</div>
-<p><strong>Example:</strong> consider an experiment, with the rolling  of two dices, <span class="math notranslate nohighlight">\(A\)</span> is the case when the sum of both dices is 6, and <span class="math notranslate nohighlight">\(B\)</span> when one of them is 4. Verify Bayes’ theorem.</p>
+\)</span>$</td>
+</tr></p>
+</table><p><strong>Example:</strong> consider an experiment, with the rolling  of two dices, <span class="math notranslate nohighlight">\(A\)</span> is the case when the sum of both dices is 6, and <span class="math notranslate nohighlight">\(B\)</span> when one of them is 4. Verify Bayes’ theorem.</p>
 <p>The probability to get six adding both dices is <span class="math notranslate nohighlight">\(P(A)= 5/36\)</span>, possible outcomes are <span class="math notranslate nohighlight">\(\{(1,5),(2,4),(3,3),(4,2),(5,1)\}\)</span>.</p>
 <p>The probability to get a four when the addition is six is <span class="math notranslate nohighlight">\(P(B|A)=2/5\)</span>.</p>
 <p>The probability to get either dice with a four is <span class="math notranslate nohighlight">\(P(B)=11/36\)</span>.</p>
@@ -735,9 +737,15 @@ g(x_j) = \int g({\bf x}) \, \Pi_{i=1,n; i \neq j} \, \mathrm{d}x_i
 <section id="frequentist-vs-bayesians">
 <h2>Frequentist vs Bayesians<a class="headerlink" href="#frequentist-vs-bayesians" title="Link to this heading">#</a></h2>
 <p>There are two approaches to statistics: frequentists vs Bayesians.</p>
-<p><strong>Frequentists are inductive</strong>. <em>They compute the probability of an observation by repeating the same experiment many times</em>. They test if the data is compatible with the theory.</p>
-<p><strong>Bayesians are deductive</strong>. <em>They compute the probability using the Bayes’ theorem.
-They measure the credibility of a theory based on the data, but they first need to assign  a prior probability based on a ‘reasonable’ initial guess</em>.</p>
+<table style="border: 1px solid black; border-collapse: collapse;">
+    <tr>
+        <td style="border: 1px solid black; padding: 8px;font-size: 14px;">
+           <b>Frequentists are inductive.</b> <i>They compute the probability of an observation by repeating the same experiment many times</i>. They test if the data is compatible with the theory. 
+<p style="margin-top: 10px;"><b>Bayesians are deductive</b>. <i>They compute the probability using the Bayes' theorem. 
+They measure the credibility of a theory based on the data, but they first need to assign  a prior probability based on a 'reasonable' initial guess</i>.  </p>
+        </td>
+    </tr>
+</table>
 <p>Frequentists measure a <strong>likelihood function</strong>:</p>
 <div class="math notranslate nohighlight">
 \[

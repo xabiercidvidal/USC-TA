@@ -409,7 +409,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-the-alternative-hypothesis">Testing the alternative hypothesis</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nuissance-parameters">Nuissance parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nuisance-parameters">Nuisance parameters</a></li>
 </ul>
             </nav>
         </div>
@@ -435,7 +435,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Last Execution  Thu Feb 15 18:16:40 2024
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Last Execution  Tue Mar  4 15:52:43 2025
 </pre></div>
 </div>
 </div>
@@ -474,18 +474,17 @@
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p>In this chapter we will discuss two related issues.</p>
-<p>How extreme is a measurement <span class="math notranslate nohighlight">\(x\)</span> respect a given parameter <span class="math notranslate nohighlight">\(\mu\)</span>, known <span class="math notranslate nohighlight">\(g(x |\mu)\)</span>?</p>
+<p>How extreme is a measurement <span class="math notranslate nohighlight">\(x\)</span> with respect to a given parameter <span class="math notranslate nohighlight">\(\mu\)</span>, assuming we know <span class="math notranslate nohighlight">\(g(x |\mu)\)</span>?</p>
 <p><em>The response was given by FC!</em></p>
-<p>In the case there is a null hypothesis, <span class="math notranslate nohighlight">\(H_0\)</span>, and a continuous alternative hypotehesis <span class="math notranslate nohighlight">\(H_\mu\)</span>, that dependes on <span class="math notranslate nohighlight">\(\mu\)</span>, ususally if <span class="math notranslate nohighlight">\(\mu = 0\)</span> then we get back <span class="math notranslate nohighlight">\(H_0\)</span>. When we decide we discover <span class="math notranslate nohighlight">\(H_\mu\)</span>, what is the CI that we set or exclude for <span class="math notranslate nohighlight">\(H_\mu\)</span>?</p>
-<p><em>Again the answer to this question is based on FC variable!</em></p>
-<p>We know that FC provides the method to compute the CI, but it sometimes requires <strong>large computation simulations</strong>.</p>
-<p>But we will see that there are cases where the Wilk’s theorem allow us to treat the problem with <strong>an analitic approximation.</strong></p>
+<p>In case there is a null hypothesis, <span class="math notranslate nohighlight">\(H_0\)</span>, and a continuous alternative hypotehesis <span class="math notranslate nohighlight">\(H_\mu\)</span>, which dependes on <span class="math notranslate nohighlight">\(\mu\)</span>, ususally if <span class="math notranslate nohighlight">\(\mu = 0\)</span> then we recover <span class="math notranslate nohighlight">\(H_0\)</span>. When we decide if we discover <span class="math notranslate nohighlight">\(H_\mu\)</span>, which is the CI that we set or exclude for <span class="math notranslate nohighlight">\(H_\mu\)</span>?</p>
+<p><em>Again the answer to this question is based on the FC formulation!</em></p>
+<p>We know that FC provides the method to compute the CI, but sometimes it requires <strong>large computation simulations</strong>.</p>
+<p>But we will see that there are cases where Wilk’s theorem allows us to treat the problem with <strong>an analitic approximation.</strong></p>
 </section>
-<hr class="docutils" />
 <section id="profile-likelihood-scan">
 <h2>Profile likelihood scan<a class="headerlink" href="#profile-likelihood-scan" title="Link to this heading">#</a></h2>
-<p>We try to solve the question: Givean a measurement <span class="math notranslate nohighlight">\(x\)</span>, what is the CI that we set on a parameter <span class="math notranslate nohighlight">\(\mu\)</span>, knowing the pdg <span class="math notranslate nohighlight">\(g(x|\mu)\)</span>?</p>
-<p>Let’s consider first a simple example. The measurement follows a normal gaussian distribution with true <span class="math notranslate nohighlight">\(\mu=0\)</span> and sigma unity.</p>
+<p>We try to solve the question: Given a measurement <span class="math notranslate nohighlight">\(x\)</span>, which is the CI that we set on a parameter <span class="math notranslate nohighlight">\(\mu\)</span>, knowing the pdf <span class="math notranslate nohighlight">\(g(x|\mu)\)</span>?</p>
+<p>Let’s first consider a simple example. The measurement follows a normal gaussian distribution with true <span class="math notranslate nohighlight">\(\mu=0\)</span> and sigma unity.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plt_ci_interval_gaussian</span><span class="p">(</span><span class="n">mu_true</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">nsigma</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
@@ -505,7 +504,7 @@
     <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">xs</span><span class="p">[</span><span class="n">sel</span><span class="p">],</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">hupper</span><span class="p">[</span><span class="n">sel</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">);</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="mf">0.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xs</span><span class="p">)),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="n">x0</span><span class="p">,</span> <span class="n">x0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="n">mu_lower</span><span class="p">)),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">);</span> 
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="n">x0</span><span class="p">,</span> <span class="n">x0</span><span class="p">),</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">]),</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="n">mu_lower</span><span class="p">)),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">);</span> 
     <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">mu_lower</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s2">&quot;&lt;&quot;</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">mu_upper</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\mu$ or $x$&#39;</span><span class="p">)</span>
@@ -516,9 +515,9 @@
 </div>
 </div>
 </div>
-<p>The following figure shows the measurement, <span class="math notranslate nohighlight">\(x\)</span>, in the horizontal axis, (the star) and the gaussian pdf associated to the true.</p>
-<p>In addition there are two other gaussian associated to normal gaussian with mean <span class="math notranslate nohighlight">\(\mu = x\pm \sigma\)</span>.</p>
-<p>Notice that these are the two possible gaussian that we can locate farther away with respect our measurment that fullfill that this one is still in the 68% center contaiment of the gaussian.</p>
+<p>The figure shows the measurement, <span class="math notranslate nohighlight">\(x\)</span>, in the horizontal axis, (the star) and the gaussian pdf associated to the true mean.</p>
+<p>In addition there are two other gaussian associated to normal pdfs with means <span class="math notranslate nohighlight">\(\mu = x\pm \sigma\)</span>.</p>
+<p>Note that these are the two possible gaussians that we can locate farther away with respect our measurement that fulfill the condition that <span class="math notranslate nohighlight">\(x_0\)</span> is still in the 68% center contaiment of the gaussian.</p>
 <p>In one case, for <span class="math notranslate nohighlight">\(\mu = x + \sigma\)</span>, in the left border, and in the other, with <span class="math notranslate nohighlight">\(\mu = x-\mu\)</span> in the right border.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -527,28 +526,32 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/63ce75a0062a432fd2abc68e6b7dc0d1b8fe9d179d469827287ab15e51b79aec.png" src="_images/63ce75a0062a432fd2abc68e6b7dc0d1b8fe9d179d469827287ab15e51b79aec.png" />
+<img alt="_images/3070cd33e35524d6125e34fafed26dc29d2596fd36c5f7115aabb5e2dd20b4af.png" src="_images/3070cd33e35524d6125e34fafed26dc29d2596fd36c5f7115aabb5e2dd20b4af.png" />
 </div>
 </div>
 <p>Therefore, given a unique measurement, the best-estimate <span class="math notranslate nohighlight">\(\hat{\mu} = x\)</span>, and the CI at 68% CL is <span class="math notranslate nohighlight">\([x-\sigma, x+\sigma]\)</span></p>
 <p>Let’s recuperate the question in a general way:</p>
-<p><strong>How extreme</strong> a data <span class="math notranslate nohighlight">\(x\)</span> is respect a given hypothesis <span class="math notranslate nohighlight">\(\mu\)</span>?</p>
-<p>FC have already quatified that answer: We need to compute the distance:</p>
+<p><strong>How extreme</strong> a data point <span class="math notranslate nohighlight">\(x\)</span> is with respect to a given hypothesis <span class="math notranslate nohighlight">\(\mu\)</span>?</p>
+<p>FC have already quantified that answer: We need to compute the distance:</p>
 <div class="math notranslate nohighlight">
 \[
 t_\mu( x) = -2 \ln \, \frac{ \mathcal{L}( x \, | \mu)}{ \mathcal{L}( x \, | \, \hat{\mu}( x))}
 \]</div>
-<p>Low values, close to zero, of <span class="math notranslate nohighlight">\(t_\mu(x)\)</span> indicates “good” data. Large values of <span class="math notranslate nohighlight">\(t_\mu(x)\)</span> indicate extreme data.</p>
+<p>Low values, close to zero, of <span class="math notranslate nohighlight">\(t_\mu(x)\)</span> indicate “good” data. Large values of <span class="math notranslate nohighlight">\(t_\mu(x)\)</span> indicate extreme data.</p>
 <p>But we need to know the pdf of the distance <span class="math notranslate nohighlight">\(t_\mu\)</span>, that is <span class="math notranslate nohighlight">\(g(t_\mu | \mu)\)</span>, in order to compute the p-value of a given measurement <span class="math notranslate nohighlight">\(x\)</span>, which has an associated distance <span class="math notranslate nohighlight">\(t_\mu(x)\)</span>.</p>
-<p>Let’s note that:</p>
+<p>Note that:</p>
 <div class="math notranslate nohighlight">
 \[
 t_\mu(x) = -2 \log \mathcal{L}(x | \mu) + 2 \log \mathcal{L}(x | \hat{\mu}(x))
 \]</div>
-<p>It is a function of <span class="math notranslate nohighlight">\(\mu\)</span>, and it corresponds to the diference between the <em>minimum</em> <span class="math notranslate nohighlight">\(-2\log \mathcal{L}(x|\hat{\mu}(x))\)</span> and <span class="math notranslate nohighlight">\(-2\log\mathcal{L}(x|\mu)\)</span> at <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
-<p>Now given a measurment <span class="math notranslate nohighlight">\(x\)</span> we estimate <span class="math notranslate nohighlight">\(\hat{\mu}(x)\)</span> as the maximum of the <span class="math notranslate nohighlight">\(\mathcal{L}(x | \hat{\mu})\)</span>.</p>
-<p>And the values of <span class="math notranslate nohighlight">\(t_\mu(x)\)</span>, scaning along <span class="math notranslate nohighlight">\(\mu\)</span>, is the <strong>profile likelihood scan</strong>.</p>
-<p>See the example of the likelihood in the introduction chapter!</p>
+<p>is a function of <span class="math notranslate nohighlight">\(\mu\)</span>, and it corresponds to the diference between the <em>minimum</em> <span class="math notranslate nohighlight">\(-2\log \mathcal{L}(x|\hat{\mu}(x))\)</span> and <span class="math notranslate nohighlight">\(-2\log\mathcal{L}(x|\mu)\)</span> at <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+<p>Now, given a measurement <span class="math notranslate nohighlight">\(x\)</span> we estimate <span class="math notranslate nohighlight">\(\hat{\mu}(x)\)</span> as the maximum of the <span class="math notranslate nohighlight">\(\mathcal{L}(x | \hat{\mu})\)</span>.</p>
+<table style="border: 1px solid black; border-collapse: collapse;">
+    <tr>
+        <td style="border: 1px solid black; padding: 8px;font-size: 14px;">And the values of $t_\mu(x)$, scanning along $\mu$, is the <b>profile likelihood scan</b>.</td>
+    </tr>
+</table>
+<p>Remember the example of the likelihood in the introduction chapter!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nsize</span> <span class="o">=</span> <span class="mi">1</span>
@@ -559,37 +562,41 @@ t_\mu(x) = -2 \log \mathcal{L}(x | \mu) + 2 \log \mathcal{L}(x | \hat{\mu}(x))
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mu mean : -0.5488785243891281 , mu std : 1.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mu mean : -0.49291716371921607 , mu std : 1.0
 </pre></div>
 </div>
-<img alt="_images/f48a7eb0b286435cc1762a39784012032ccc50dcee4e86947066c04ce8a1d107.png" src="_images/f48a7eb0b286435cc1762a39784012032ccc50dcee4e86947066c04ce8a1d107.png" />
+<img alt="_images/4a7650bd191d958fb587ff8ea7b1555139d0a6dab0be364c55c8525abd1d6437.png" src="_images/4a7650bd191d958fb587ff8ea7b1555139d0a6dab0be364c55c8525abd1d6437.png" />
 </div>
 </div>
 <p>In the example of the gaussian above:</p>
-<p>We measure one value <span class="math notranslate nohighlight">\(x\)</span> obtained as a random value from normal gaussian, then <span class="math notranslate nohighlight">\(\hat{\mu}(x) = x\)</span>.</p>
+<p>We measure one value <span class="math notranslate nohighlight">\(x\)</span> obtained as a random value from a normal gaussian, then <span class="math notranslate nohighlight">\(\hat{\mu}(x) = x\)</span>.</p>
 <p>As there is only one data value, the likelihood is just the gaussian and we have:</p>
 <div class="math notranslate nohighlight">
 \[
 t_\mu (x) = -2 \log \mathcal{L}(x | \mu) + 2 \log \mathcal{L}(x | \hat{\mu}(x)) = \frac{(x-\mu)^2}{\sigma^2}
 \]</div>
 <p>For a given <span class="math notranslate nohighlight">\(\mu\)</span>, this expresión is, by construction, the <span class="math notranslate nohighlight">\(\chi^2(n = 1)\)</span>, for 1 dof (the degrees of <span class="math notranslate nohighlight">\(\mu\)</span>).</p>
-<p>Notice that the values of <span class="math notranslate nohighlight">\(x\)</span> are gaussiand distributed with mean <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\sigma\)</span>, therefore its normalized squared distance to the mean, <span class="math notranslate nohighlight">\((x-\mu)^2/\sigma^2\)</span>, follows a <span class="math notranslate nohighlight">\(\chi^2(1)\)</span> distribution!</p>
-<p>Therefore the pdf of the <span class="math notranslate nohighlight">\(t_\mu(x)\)</span> is the <span class="math notranslate nohighlight">\(\chi^2(1)\)</span>, a function which has tabulated p-values for each <span class="math notranslate nohighlight">\(t_\mu(x)\)</span></p>
-<p>For example for 68 % contaiment, the values of <span class="math notranslate nohighlight">\(x\)</span> should be at a distance equal or less than sigma, therefore <span class="math notranslate nohighlight">\(t_\mu \le 1\)</span>. Thas is, the values of the 68 %CL CI are obtained when <span class="math notranslate nohighlight">\(t_\mu(x) = 1\)</span></p>
-<p>In fact, if <span class="math notranslate nohighlight">\(x = \mu + \sigma\)</span>, the value <span class="math notranslate nohighlight">\((x-\mu)^2/\sigma^2 = 1\)</span></p>
-<p>Given <span class="math notranslate nohighlight">\(\mu\)</span>, the value of <span class="math notranslate nohighlight">\(x' \to t'_\mu\)</span> that limits the 68% contaiment if</p>
+<p>Notice that the values of <span class="math notranslate nohighlight">\(x\)</span> are gaussianly distributed with mean <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\sigma\)</span>, therefore its normalized squared distance to the mean, <span class="math notranslate nohighlight">\((x-\mu)^2/\sigma^2\)</span>, follows a <span class="math notranslate nohighlight">\(\chi^2(1)\)</span> distribution!</p>
+<p>Therefore the pdf of <span class="math notranslate nohighlight">\(t_\mu(x)\)</span> is the <span class="math notranslate nohighlight">\(\chi^2(1)\)</span>, a function which has tabulated p-values for each <span class="math notranslate nohighlight">\(t_\mu(x)\)</span></p>
+<p>For example, for 68 % containment, the values of <span class="math notranslate nohighlight">\(x\)</span> should be at a distance equal or less than one sigma, therefore <span class="math notranslate nohighlight">\(t_\mu \le 1\)</span>. This is, the values of the 68% CL CI are obtained when <span class="math notranslate nohighlight">\(t_\mu(x) = 1\)</span></p>
+<p>In fact, if <span class="math notranslate nohighlight">\(x = \mu \pm \sigma\)</span>, the value <span class="math notranslate nohighlight">\((x-\mu)^2/\sigma^2 = 1\)</span></p>
+<p>Given <span class="math notranslate nohighlight">\(\mu\)</span>, the value of <span class="math notranslate nohighlight">\(x' \to t'_\mu\)</span> that limits the 68% containment if</p>
 <div class="math notranslate nohighlight">
 \[
 \int_0^{t'_\mu} g(t_\mu | \mu) \, \mathrm{d} t_\mu = \int_0^{1} \chi^2(t | n = 1) \, \mathrm{d}t = 0.68 \, \Rightarrow \, t_\mu = 1
 \]</div>
-<p>In this example of the gaussian, given a measurement <span class="math notranslate nohighlight">\(x\)</span> to get the 68% cover interval we scan <span class="math notranslate nohighlight">\(\mu\)</span> till we get <span class="math notranslate nohighlight">\(t_\mu = 1\)</span>!</p>
-<p>There is a theorem, The Wilk’s theorem, which tell us that if our data “follows a gaussian statistics”, then the <span class="math notranslate nohighlight">\(t_\mu(x)\)</span> FC variable is distributed as a <span class="math notranslate nohighlight">\(\chi^2(n)\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> is the dof of <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
-<p>In this case, there is a direct connection between the <span class="math notranslate nohighlight">\(t_\mu(x)\)</span> that we compute from data <span class="math notranslate nohighlight">\(x\)</span>, that is the <em>log likelihood scan</em> in <span class="math notranslate nohighlight">\(\mu\)</span>, with a p-value.</p>
-<p>In some (many) cases, the approximation that <span class="math notranslate nohighlight">\(g(t_\mu | \mu)\)</span> follows a <span class="math notranslate nohighlight">\(\chi^2\)</span> can be good enought.</p>
-<p>We had used this property in <em>regresion</em>, when we obtain errors of <span class="math notranslate nohighlight">\(\hat{\mu}\)</span> with the MLE!</p>
-<p>WE defined the errors, that is the CI at 68% CL, doing the log likelihood scan, and setting the values of the interval when <span class="math notranslate nohighlight">\(-2\Delta\log \mathcal{L}\)</span> = 1, that is, the increase of <span class="math notranslate nohighlight">\(-2\log\mathcal{L}\)</span> respect to the minimum value is 1.</p>
-<p>In the next example, we are going to test the Wilks theorem with the case which with we started this section, the experiment of measurement <span class="math notranslate nohighlight">\(x\)</span>, one value, from a normal guassian distribution.</p>
-<p>We fix a value of the mean value of the gaussian, <span class="math notranslate nohighlight">\(\mu\)</span>, and generate <span class="math notranslate nohighlight">\(n\)</span> experiments, for each one we compute <span class="math notranslate nohighlight">\(hat{\mu}\)</span> and <span class="math notranslate nohighlight">\(t_\mu(x)\)</span>. We obtain the pdf of <span class="math notranslate nohighlight">\(t_\mu(x)\)</span> that is the normalized distribution of the <span class="math notranslate nohighlight">\(t_\mu(x)\)</span> values of the <span class="math notranslate nohighlight">\(n\)</span> experiment, and check that that pdf is the <span class="math notranslate nohighlight">\(\chi^2(1)\)</span>.</p>
+<p>In this example of the gaussian, given a measurement <span class="math notranslate nohighlight">\(x\)</span>, to get the 68% cover interval we scan <span class="math notranslate nohighlight">\(\mu\)</span> till we get <span class="math notranslate nohighlight">\(t_\mu = 1\)</span>!</p>
+<table style="border: 1px solid black; border-collapse: collapse;">
+    <tr>
+        <td style="border: 1px solid black; padding: 8px;font-size: 14px;">There is a theorem, <b>Wilks' theorem</b>, which tell us that if our data "follows gaussian statistics", then the $t_\mu(x)$ FC variable is distributed as a $\chi^2(n)$, where $n$ is the number of degrees of freedom of $\mu$.</td>
+    </tr>
+</table>
+<p>In this case, there is a direct connection between the <span class="math notranslate nohighlight">\(t_\mu(x)\)</span> that we compute from data <span class="math notranslate nohighlight">\(x\)</span>, which is the <em>log likelihood scan</em> in <span class="math notranslate nohighlight">\(\mu\)</span>, with a p-value.</p>
+<p>In some (many) cases, the approximation that <span class="math notranslate nohighlight">\(g(t_\mu | \mu)\)</span> follows a <span class="math notranslate nohighlight">\(\chi^2\)</span> can be good enough.</p>
+<p>We had used this property in <em>regresion</em>, when we obtained errors of <span class="math notranslate nohighlight">\(\hat{\mu}\)</span> with the maximum likelihood estimation!</p>
+<p>We defined the errors, i.e. the CI at 68% CL, doing the log likelihood scan, and setting the values of the interval when <span class="math notranslate nohighlight">\(-2\Delta\log \mathcal{L}\)</span> = 1, that is, the increase of <span class="math notranslate nohighlight">\(-2\log\mathcal{L}\)</span> with respect to the minimum value is 1.</p>
+<p>In the next example, we are going to test Wilks’ theorem with the case with which we started this section, an experiment of measurement <span class="math notranslate nohighlight">\(x\)</span>, one value, from a normal guassian distribution.</p>
+<p>We fix a value of the mean value of the gaussian, <span class="math notranslate nohighlight">\(\mu\)</span>, and generate <span class="math notranslate nohighlight">\(n\)</span> experiments, for each one we compute <span class="math notranslate nohighlight">\(\hat{\mu}\)</span> and <span class="math notranslate nohighlight">\(t_\mu(x)\)</span>. We obtain the pdf of <span class="math notranslate nohighlight">\(t_\mu(x)\)</span>, i.e. is the normalized distribution of the <span class="math notranslate nohighlight">\(t_\mu(x)\)</span> values of the <span class="math notranslate nohighlight">\(n\)</span> experiments, and check if that pdf is the <span class="math notranslate nohighlight">\(\chi^2(1)\)</span>.</p>
 <p><strong>Example</strong>: Consider a gaussian distribution with mean <span class="math notranslate nohighlight">\(\mu=1\)</span> and sigma one. Verify that <span class="math notranslate nohighlight">\(t_\mu\)</span> is distributed with a <span class="math notranslate nohighlight">\(\chi^2(1)\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -598,7 +605,7 @@ t_\mu (x) = -2 \log \mathcal{L}(x | \mu) + 2 \log \mathcal{L}(x | \hat{\mu}(x)) 
 <span class="n">rv</span>        <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span>
 <span class="n">xs</span>        <span class="o">=</span> <span class="n">rv</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">size</span><span class="p">)</span>
 <span class="n">ht</span>        <span class="o">=</span> <span class="n">htcore</span><span class="o">.</span><span class="n">htcomposite</span><span class="p">(</span><span class="n">rv</span><span class="p">,</span> <span class="n">par</span><span class="p">,</span> <span class="n">mask</span> <span class="o">=</span> <span class="n">mask</span><span class="p">)</span>
-<span class="n">muhats</span>    <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">ht</span><span class="o">.</span><span class="n">mubest</span><span class="p">(</span><span class="n">xi</span><span class="p">))</span>  <span class="k">for</span> <span class="n">xi</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">]</span>
+<span class="n">muhats</span>    <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">ht</span><span class="o">.</span><span class="n">mubest</span><span class="p">(</span><span class="n">xi</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>  <span class="k">for</span> <span class="n">xi</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">]</span>
 <span class="n">tmus</span>      <span class="o">=</span> <span class="p">[</span><span class="n">ht</span><span class="o">.</span><span class="n">tmu</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">mu</span><span class="p">)</span>        <span class="k">for</span> <span class="n">xi</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;mean muhat : &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">muhats</span><span class="p">),</span> <span class="s1">&#39;, std&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">muhats</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">muhats</span><span class="p">,</span> <span class="mi">60</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\hat{\mu}$&#39;</span><span class="p">);</span>
@@ -606,10 +613,10 @@ t_\mu (x) = -2 \log \mathcal{L}(x | \mu) + 2 \log \mathcal{L}(x | \hat{\mu}(x)) 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean muhat :  0.028432125000000055 , std 0.9545259156558356
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean muhat :  0.043992750000000067 , std 1.0047932534632447
 </pre></div>
 </div>
-<img alt="_images/26dbcfcc39ecc75380d3295ff559db757452d560554948aab89f3742e1b97bb3.png" src="_images/26dbcfcc39ecc75380d3295ff559db757452d560554948aab89f3742e1b97bb3.png" />
+<img alt="_images/b17dbf3b4e44f44a7d702340c308131adc115336695e62b1f07a1d62dbb5df8f.png" src="_images/b17dbf3b4e44f44a7d702340c308131adc115336695e62b1f07a1d62dbb5df8f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -619,35 +626,34 @@ t_\mu (x) = -2 \log \mathcal{L}(x | \mu) + 2 \log \mathcal{L}(x | \hat{\mu}(x)) 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>chi2  0.9119274817381763
-p-value mean : 0.4789629717013388 ; std * sqrt(12.) : 0.9995777875665925
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>chi2  1.0143112045170777
+p-value mean : 0.5050538046072487 ; std * sqrt(12.) : 1.0161414002538056
 </pre></div>
 </div>
-<img alt="_images/877bc66e94bf3f05d4d303c49631db28f819013223fa10358c2b227c9d1885fd.png" src="_images/877bc66e94bf3f05d4d303c49631db28f819013223fa10358c2b227c9d1885fd.png" />
+<img alt="_images/bcfe00e494463a9df7207cb7b5dd040be5dcf09676f2a54cf65fbc99a6e6dadc.png" src="_images/bcfe00e494463a9df7207cb7b5dd040be5dcf09676f2a54cf65fbc99a6e6dadc.png" />
 </div>
 </div>
-<p><strong>Exercise</strong>: Consider the case of a poisson distribution with a unknown mean <span class="math notranslate nohighlight">\(\mu\)</span> and the null hypothesis <span class="math notranslate nohighlight">\(\mu_0\)</span>. Check for what values of <span class="math notranslate nohighlight">\(\mu\)</span>, <span class="math notranslate nohighlight">\(g(t_\mu | \mu)\)</span> follows a <span class="math notranslate nohighlight">\(\chi^2(1)\)</span> distribution.</p>
-<p><strong>Exercise</strong>: Consider the case of an experiment that get a sample of n-size poisson disbruted values, <span class="math notranslate nohighlight">\(x\)</span>, with a unknown mean <span class="math notranslate nohighlight">\(\mu\)</span>. Find the values of <span class="math notranslate nohighlight">\(n\)</span> for whose <span class="math notranslate nohighlight">\(g(t_\mu | \mu)\)</span> follows, or approximates to, a <span class="math notranslate nohighlight">\(\chi^2(1)\)</span> distribution.</p>
+<p><strong>Exercise</strong>: Consider the case of a poisson distribution with an unknown mean <span class="math notranslate nohighlight">\(\mu\)</span> and the null hypothesis <span class="math notranslate nohighlight">\(\mu_0\)</span>. Check for which values of <span class="math notranslate nohighlight">\(\mu\)</span>, <span class="math notranslate nohighlight">\(g(t_\mu | \mu)\)</span> follows a <span class="math notranslate nohighlight">\(\chi^2(1)\)</span> distribution.</p>
 <section id="the-p-value">
 <h3>the p-value<a class="headerlink" href="#the-p-value" title="Link to this heading">#</a></h3>
-<p>We are back to the construct a CI of <span class="math notranslate nohighlight">\(\mu\)</span> at <span class="math notranslate nohighlight">\(\beta\)</span> CL given data <span class="math notranslate nohighlight">\(x_0\)</span>.</p>
-<p>In the “gaussian” regime, when the Wilk’s theorem applies, we can use the relation between <span class="math notranslate nohighlight">\(t_\mu(x)\)</span> and its p-value, <span class="math notranslate nohighlight">\(p_\mu\)</span>, via the <span class="math notranslate nohighlight">\(\chi^2(1)\)</span> distribution:</p>
+<p>We are back to the construction of a CI of <span class="math notranslate nohighlight">\(\mu\)</span> at <span class="math notranslate nohighlight">\(\beta\)</span> CL given data <span class="math notranslate nohighlight">\(x_0\)</span>.</p>
+<p>In the “gaussian” regime, when Wilks’ theorem applies, we can use the relation between <span class="math notranslate nohighlight">\(t_\mu(x)\)</span> and its p-value, <span class="math notranslate nohighlight">\(p_\mu\)</span>, via the <span class="math notranslate nohighlight">\(\chi^2(1)\)</span> distribution:</p>
 <div class="math notranslate nohighlight">
 \[
-p_\mu = 2 \, (1 - \Phi(\sqrt{t_\mu(x)}))
+p_\mu = 2 \, [1 - \Phi(\sqrt{t_\mu(x)})]~~{\rm(Eq.~1)}
 \]</div>
 <p>Where <span class="math notranslate nohighlight">\(\Phi(x)\)</span> is the cumulative function of a normal gaussian.</p>
 <p>We can now:</p>
 <ul class="simple">
-<li><p>define a CI of <span class="math notranslate nohighlight">\(\mu\)</span> at <span class="math notranslate nohighlight">\(\beta\)</span> CL, for those values wich <span class="math notranslate nohighlight">\(p_\mu &gt;= 1-\beta\)</span>.</p></li>
+<li><p>define a CI of <span class="math notranslate nohighlight">\(\mu\)</span> at <span class="math notranslate nohighlight">\(\beta\)</span> CL, for those values for which <span class="math notranslate nohighlight">\(p_\mu &gt;= 1-\beta\)</span>.</p></li>
 <li><p>clain discovery of <span class="math notranslate nohighlight">\(H_1(\mu_0)\)</span> when <span class="math notranslate nohighlight">\(p_0\)</span> has a Z-value <span class="math notranslate nohighlight">\(\ge 5\)</span>.</p></li>
 </ul>
 <p><strong>Example</strong>: Consider a gaussian distribution with fix sigma and unknown <span class="math notranslate nohighlight">\(\mu\)</span>, and the null hypothesis is <span class="math notranslate nohighlight">\(\mu_0\)</span>. Generate an observation data, <span class="math notranslate nohighlight">\(x\)</span>, and compute the CI of <span class="math notranslate nohighlight">\(\mu\)</span> at <span class="math notranslate nohighlight">\(\beta\)</span> CL using the <span class="math notranslate nohighlight">\(t_\mu(x_0)\)</span> variable. Consider <span class="math notranslate nohighlight">\(\mu=3\)</span> and <span class="math notranslate nohighlight">\(\beta = 0.68\)</span>.</p>
 <p>In this example, we generate an experiment, where the data <span class="math notranslate nohighlight">\(x\)</span> is the value obtained from a gaussian, in that case <span class="math notranslate nohighlight">\(\hat{\mu} = x\)</span>, we can do the scan likelihood, and obtain <span class="math notranslate nohighlight">\(t_\mu(x)\)</span> scanning along <span class="math notranslate nohighlight">\(\mu\)</span>, and use the <span class="math notranslate nohighlight">\(t_\mu(x) \to \)</span> p-value association, to get the function of the p-value depending on <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
-<p><strong>Explore</strong>: Change the size of the data.</p>
+<p><strong>Explore</strong>: Change the size of the dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mi">1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mi">1</span>
 <span class="n">par</span><span class="p">,</span> <span class="n">mask</span>       <span class="o">=</span> <span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">),</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
 <span class="n">rv</span>              <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span>
 <span class="n">ht</span>              <span class="o">=</span> <span class="n">htcore</span><span class="o">.</span><span class="n">htcomposite</span><span class="p">(</span><span class="n">rv</span><span class="p">,</span> <span class="n">par</span><span class="p">,</span> <span class="n">mask</span> <span class="o">=</span> <span class="n">mask</span><span class="p">)</span>
@@ -658,30 +664,30 @@ p_\mu = 2 \, (1 - \Phi(\sqrt{t_\mu(x)}))
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>observed data  [0.64378654] , best par  [0.6438125 1.       ]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>observed data  [1.71591956] , best par  [1.71591797 1.        ]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">htexam0</span><span class="o">.</span><span class="n">normal_likelihood</span><span class="p">(</span><span class="n">x0</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">htexam0</span><span class="o">.</span><span class="n">normal_likelihood</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">mus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">,</span> <span class="mi">100</span><span class="p">));</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mu mean : 0.6437865353419141 , mu std : 1.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mu mean : 1.7159195595943042 , mu std : 1.0
 </pre></div>
 </div>
-<img alt="_images/226578c122ec3b43e9b29577f090a7b1f5d8406edbbf6d173c2f032a93a7cf05.png" src="_images/226578c122ec3b43e9b29577f090a7b1f5d8406edbbf6d173c2f032a93a7cf05.png" />
+<img alt="_images/1d036813b86b8b7c8d05f2ebe060a6efc721255456f28a7f14bb0ec5b484c9d4.png" src="_images/1d036813b86b8b7c8d05f2ebe060a6efc721255456f28a7f14bb0ec5b484c9d4.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu0</span><span class="p">,</span> <span class="n">mu1</span><span class="p">,</span> <span class="n">nmus</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="n">mu</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="n">mu</span><span class="o">+</span><span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mf">0.68</span>
 <span class="n">mus</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">mu0</span><span class="p">,</span> <span class="n">mu1</span><span class="p">,</span> <span class="n">nmus</span><span class="p">)</span>
-<span class="n">tmus</span>  <span class="o">=</span> <span class="p">[</span><span class="n">ht</span>    <span class="o">.</span><span class="n">tmu</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">mui</span><span class="p">,</span> <span class="n">parbest</span> <span class="o">=</span> <span class="n">parbest</span><span class="p">)</span> <span class="k">for</span> <span class="n">mui</span>  <span class="ow">in</span> <span class="n">mus</span><span class="p">]</span>
-<span class="n">ptmus</span> <span class="o">=</span> <span class="p">[</span><span class="n">htcore</span><span class="o">.</span><span class="n">tmu_pvalue</span><span class="p">(</span><span class="n">tmui</span><span class="p">)</span>                <span class="k">for</span> <span class="n">tmui</span> <span class="ow">in</span> <span class="n">tmus</span><span class="p">]</span>
+<span class="n">tmus</span>  <span class="o">=</span> <span class="p">[</span><span class="n">ht</span>    <span class="o">.</span><span class="n">tmu</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">mui</span><span class="p">,</span> <span class="n">parbest</span> <span class="o">=</span> <span class="n">parbest</span><span class="p">)</span> <span class="k">for</span> <span class="n">mui</span>  <span class="ow">in</span> <span class="n">mus</span><span class="p">]</span> <span class="c1">## follow the formula for tmu</span>
+<span class="n">ptmus</span> <span class="o">=</span> <span class="p">[</span><span class="n">htcore</span><span class="o">.</span><span class="n">tmu_pvalue</span><span class="p">(</span><span class="n">tmui</span><span class="p">)</span>                <span class="k">for</span> <span class="n">tmui</span> <span class="ow">in</span> <span class="n">tmus</span><span class="p">]</span> <span class="c1">## follow Eq (1)</span>
 <span class="n">ci</span>     <span class="o">=</span> <span class="n">ht</span><span class="o">.</span><span class="n">tmu_cint</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="n">beta</span><span class="p">)</span>
  
 <span class="n">htplot</span><span class="o">.</span><span class="n">prt_wilks_pvalues</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">ci_central</span> <span class="o">=</span> <span class="n">ci</span><span class="p">)</span>
@@ -690,19 +696,19 @@ p_\mu = 2 \, (1 - \Phi(\sqrt{t_\mu(x)}))
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>central CI  : [-0.35067135  1.63824442] at  68 % CL
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>central CI  : [0.72146168 2.71037744] at  68 % CL
 </pre></div>
 </div>
-<img alt="_images/6e252334baa6c50fbac577c28c30457bf21393fa33c12725c370d28bfde73241.png" src="_images/6e252334baa6c50fbac577c28c30457bf21393fa33c12725c370d28bfde73241.png" />
+<img alt="_images/62f880720f8cad035123ca93e189d5d14a8d81c571cb4d385f4326f6c84ae956.png" src="_images/62f880720f8cad035123ca93e189d5d14a8d81c571cb4d385f4326f6c84ae956.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="composite-testing">
 <h2>Composite testing<a class="headerlink" href="#composite-testing" title="Link to this heading">#</a></h2>
-<p>Let’s return to our initial problem, how to test an alternative hypothesis (a composite one) that depends continuously in a parameter <span class="math notranslate nohighlight">\(\mu\)</span>, that is <span class="math notranslate nohighlight">\(H_\mu\)</span>, with respect the default hypothesis <span class="math notranslate nohighlight">\(H_0\)</span>, where usually <span class="math notranslate nohighlight">\(\mu = 0\)</span> implies <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
-<p>See the folowing figure, it consider that <span class="math notranslate nohighlight">\(H_0\)</span> is a normal guassian, and <span class="math notranslate nohighlight">\(H_\mu\)</span> a guassian centered at <span class="math notranslate nohighlight">\(\mu\)</span> with sigma 1.</p>
-<p>You can explore and chnage <span class="math notranslate nohighlight">\(\mu\)</span>, get an experiment, a data <span class="math notranslate nohighlight">\(x\)</span>, and compute the p-values respect both hypothesis <span class="math notranslate nohighlight">\(H_0\)</span> and <span class="math notranslate nohighlight">\(H_\mu\)</span></p>
+<p>Let’s return to our initial problem, how to test an alternative hypothesis (a composite one) that depends continuously on a parameter <span class="math notranslate nohighlight">\(\mu\)</span>, i.e. <span class="math notranslate nohighlight">\(H_\mu\)</span>, with respect to the default hypothesis <span class="math notranslate nohighlight">\(H_0\)</span>, where usually <span class="math notranslate nohighlight">\(\mu = 0\)</span> implies <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
+<p>See the folowing figure, it considers that <span class="math notranslate nohighlight">\(H_0\)</span> is a normal guassian, and <span class="math notranslate nohighlight">\(H_\mu\)</span> a guassian centered at <span class="math notranslate nohighlight">\(\mu\)</span> with sigma 1.</p>
+<p>You can explore and chaage <span class="math notranslate nohighlight">\(\mu\)</span>, get an experiment, a data <span class="math notranslate nohighlight">\(x\)</span>, and compute the p-values with respect to both hypotheses <span class="math notranslate nohighlight">\(H_0\)</span> and <span class="math notranslate nohighlight">\(H_\mu\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu</span> <span class="o">=</span> <span class="mf">3.</span>
@@ -711,16 +717,16 @@ p_\mu = 2 \, (1 - \Phi(\sqrt{t_\mu(x)}))
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>observed data : [1.04470554]
-H0 p-value    : 0.14807954
-H1 p-value    : 0.02527416
-CLs           : 0.02966728 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>observed data : [-0.38380109]
+H0 p-value    : 0.64943706
+H1 p-value    : 0.00035745
+CLs           : 0.00101964 
 </pre></div>
 </div>
-<img alt="_images/2e5544e0d86330746850a0f3662b4ecba702c3bd7672cad5969f1e9ac86cf853.png" src="_images/2e5544e0d86330746850a0f3662b4ecba702c3bd7672cad5969f1e9ac86cf853.png" />
+<img alt="_images/284139000fa43cdc19ae97e58397d9a6e0c4015418496eac027df8a8ac99054a.png" src="_images/284139000fa43cdc19ae97e58397d9a6e0c4015418496eac027df8a8ac99054a.png" />
 </div>
 </div>
-<p>In this case, if the true is <span class="math notranslate nohighlight">\(\mu = 5\)</span>, you expect to clain discovery in 50% of the experiment!</p>
+<p>In this case, if the true is <span class="math notranslate nohighlight">\(\mu = 5\)</span>, you expect to claim discovery in 50% of the experiments!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu</span> <span class="o">=</span> <span class="mf">5.</span>
@@ -729,25 +735,25 @@ CLs           : 0.02966728
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>observed data : [5.54175155]
-H0 p-value    : 0.00000001
-H1 p-value    : 0.70600516
-CLs           : 0.70600518 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>observed data : [5.09082662]
+H0 p-value    : 0.00000018
+H1 p-value    : 0.53618482
+CLs           : 0.53618492 
 </pre></div>
 </div>
-<img alt="_images/5d23fc717016a83c95e185d76f7b6fc6175503122b85aa2a5ed4518dd9549871.png" src="_images/5d23fc717016a83c95e185d76f7b6fc6175503122b85aa2a5ed4518dd9549871.png" />
+<img alt="_images/c6da59e4c658ee254845e9b2eec03da72023696981376dedc640941364b385a4.png" src="_images/c6da59e4c658ee254845e9b2eec03da72023696981376dedc640941364b385a4.png" />
 </div>
 </div>
 <p>As we did with the simple hypothesis we consider two different situations:</p>
 <ul class="simple">
-<li><p>Test the null hypothesis, <span class="math notranslate nohighlight">\(H_0\)</span>, we clain observation if p-value is equal of smaller thatn <span class="math notranslate nohighlight">\(5Z\)</span></p></li>
-<li><p>Test the altyernative hypothesis. Set a CI to exclude or to cover <span class="math notranslate nohighlight">\(\mu\)</span> with <span class="math notranslate nohighlight">\(\beta\)</span> usually 90-95% CL. The limit of the interval corresponde to the p-value of <span class="math notranslate nohighlight">\(H_\mu\)</span> equal or smaller than <span class="math notranslate nohighlight">\(1-\beta\)</span>.</p></li>
+<li><p>Test the null hypothesis, <span class="math notranslate nohighlight">\(H_0\)</span>, we claim observation if the p-value is equal or smaller than <span class="math notranslate nohighlight">\(5Z\)</span></p></li>
+<li><p>Test the alternative hypothesis. Set a CI to exclude or to cover <span class="math notranslate nohighlight">\(\mu\)</span> with <span class="math notranslate nohighlight">\(\beta\)</span> usually 90-95% CL. The limit of the interval corresponds to the p-value of <span class="math notranslate nohighlight">\(H_\mu\)</span> equal or smaller than <span class="math notranslate nohighlight">\(1-\beta\)</span>.</p></li>
 </ul>
-<p>We define here the common test-statistic used in HEP to clain discovery or set CI for the strength parameter <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+<p>We define here the common test-statistics used in HEP to claim discovery or set CI for the strength parameter <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
 <section id="testing-the-null-hypothesis">
 <h3>Testing the null-hypothesis<a class="headerlink" href="#testing-the-null-hypothesis" title="Link to this heading">#</a></h3>
-<p>In same cases the strength parameter <span class="math notranslate nohighlight">\(\mu \ge \mu_0\)</span>, therefore the values of <span class="math notranslate nohighlight">\(\hat{\mu}(x) \lt \mu_0\)</span> do not challenge <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
-<p>We consider than data which prefers <span class="math notranslate nohighlight">\(\mu \le \mu_0\)</span> are by definition compatible with <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
+<p>In same cases the strength parameter fulfills <span class="math notranslate nohighlight">\(\mu \ge \mu_0\)</span>. In consequence, we could say that the values of <span class="math notranslate nohighlight">\(\hat{\mu}(x) \lt \mu_0\)</span> do not challenge <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
+<p>We consider that data which prefers <span class="math notranslate nohighlight">\(\mu \le \mu_0\)</span> are by definition compatible with <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
 <p>If we define:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -761,10 +767,10 @@ q_0 = \left\{ \begin{array}{ll}
 0 &amp; \mbox{if $\hat{\mu}(x) \le \mu_0$}
 \end{array} \right. 
 \end{split}\]</div>
-<p>Por example, in a counting experiment, if a background is <span class="math notranslate nohighlight">\(b\)</span> counts, and the strength is <span class="math notranslate nohighlight">\(\mu\)</span>, that is, our possible signal is <span class="math notranslate nohighlight">\(b+s\)</span>.</p>
+<p>For example, in a counting experiment, if a background is <span class="math notranslate nohighlight">\(b\)</span> counts, and the strength is <span class="math notranslate nohighlight">\(\mu\)</span>, that is, our possible signal is <span class="math notranslate nohighlight">\(b+\mu\)</span>.</p>
 <p>If we observe <span class="math notranslate nohighlight">\(n \le b\)</span>, we consider that the experiment is compatible with <span class="math notranslate nohighlight">\(H_0\)</span> by definition. Our experiment did not challenge the <span class="math notranslate nohighlight">\(H_0\)</span> hypothesis</p>
-<p>Now the pdf, <span class="math notranslate nohighlight">\(g(q_0 \, | \mu_0)\)</span>, will be now a “half” <span class="math notranslate nohighlight">\(\chi^2\)</span> distribution.</p>
-<p>In this case there is even a simple relation with the <span class="math notranslate nohighlight">\(p\)</span>-value of <span class="math notranslate nohighlight">\(H_0\)</span>, the <em>goodness-of-fit</em> of <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
+<p>Now the pdf, <span class="math notranslate nohighlight">\(g(q_0 \, | \mu_0)\)</span>, will be a “half” <span class="math notranslate nohighlight">\(\chi^2\)</span> distribution.</p>
+<p>In this case there is even a simpler relation with the <span class="math notranslate nohighlight">\(p\)</span>-value of <span class="math notranslate nohighlight">\(H_0\)</span>, the <em>goodness-of-fit</em> of <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[
 p_0 = 1-\Phi(\sqrt{q_0})
@@ -791,7 +797,7 @@ Z = \sqrt{q_0}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x0  [3.14983659] parhat  [3.14985352 1.        ]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x0  [3.84210592] parhat  [3.84213867 1.        ]
 </pre></div>
 </div>
 </div>
@@ -805,23 +811,23 @@ Z = \sqrt{q_0}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x0  [3.14983659] parhat  [3.14985352 1.        ]
-q0  9.921470541954166 p-value 0.0008168090409083062 Z-value 3.1498365897224203
-observed data : [3.14983659]
-H0 p-value    : 0.00081681
-H1 p-value    : 0.03214500
-CLs           : 0.03217128 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x0  [3.84210592] parhat  [3.84213867 1.        ]
+q0  14.76177792680348 p-value 6.0991584498570894e-05 Z-value 3.8421059234231794
+observed data : [3.84210592]
+H0 p-value    : 0.00006099
+H1 p-value    : 0.12345363
+CLs           : 0.12346116 
 </pre></div>
 </div>
-<img alt="_images/9f00187827df0032a743c0dba888129b469ec0246a0441825babc8db40dbaa0b.png" src="_images/9f00187827df0032a743c0dba888129b469ec0246a0441825babc8db40dbaa0b.png" />
+<img alt="_images/0e9a8566a67fdf5cd26a57c841c77e40dffc6f4e0e52797e972ed48d052ff448.png" src="_images/0e9a8566a67fdf5cd26a57c841c77e40dffc6f4e0e52797e972ed48d052ff448.png" />
 </div>
 </div>
 <p><strong>Exercise</strong> Verify that the <span class="math notranslate nohighlight">\(q_0\)</span> distribution is a ‘half’-<span class="math notranslate nohighlight">\(\chi^2\)</span>.</p>
 </section>
 <section id="testing-the-alternative-hypothesis">
 <h3>Testing the alternative hypothesis<a class="headerlink" href="#testing-the-alternative-hypothesis" title="Link to this heading">#</a></h3>
-<p>To set a <strong>upper</strong> limit on the value of <span class="math notranslate nohighlight">\(\mu\)</span>, the <span class="math notranslate nohighlight">\(\hat{\mu}\)</span> above <span class="math notranslate nohighlight">\(\mu\)</span> do not challege the alternative hypothesis.</p>
-<p>That means, that our data <span class="math notranslate nohighlight">\(x\)</span>, implies that <span class="math notranslate nohighlight">\(\hat{\mu}(x) \gt \mu\)</span>, we accept as valid the alternative hypothesis.</p>
+<p>To set an <strong>upper</strong> limit on the value of <span class="math notranslate nohighlight">\(\mu\)</span>, a <span class="math notranslate nohighlight">\(\mu\)</span> above <span class="math notranslate nohighlight">\(\hat{\mu}\)</span>  does not challege the alternative hypothesis.</p>
+<p>Given our data <span class="math notranslate nohighlight">\(x\)</span>, this implies that if <span class="math notranslate nohighlight">\(\mu \gt \hat{\mu}(x)\)</span>, we accept as valid the alternative hypothesis.</p>
 <p>With the likelihood-ratio:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -841,9 +847,9 @@ q_\mu = \left\{ \begin{array}{ll}
 \[
 p_\mu = 1 - \Phi(\sqrt{q_\mu})
 \]</div>
-<p>This <span class="math notranslate nohighlight">\(p_\mu\)</span>-value allow us to compute the upper limit on <span class="math notranslate nohighlight">\(\mu\)</span> at a given <span class="math notranslate nohighlight">\(\beta\)</span> CL.</p>
-<p>We will set a upper limit if <span class="math notranslate nohighlight">\(H_0\)</span> is not nullified (there is no observation), at the value of <span class="math notranslate nohighlight">\(\mu\)</span> such that the p-value of <span class="math notranslate nohighlight">\(q_\mu\)</span> is smaller than <span class="math notranslate nohighlight">\(\beta = 5, 10\)</span> $.</p>
-<p>If we can clain discovery, We can set a CI, with the best estimate <span class="math notranslate nohighlight">\(\hat{\mu}(x)\)</span> and the interval values given by the value of <span class="math notranslate nohighlight">\(\mu\)</span> at whose the p-value associated with <span class="math notranslate nohighlight">\(q_\mu\)</span> is <span class="math notranslate nohighlight">\(\beta\)</span>.</p>
+<p>This <span class="math notranslate nohighlight">\(p_\mu\)</span>-value allows us to compute the upper limit on <span class="math notranslate nohighlight">\(\mu\)</span> at a given <span class="math notranslate nohighlight">\(\beta\)</span> CL.</p>
+<p>We will set an upper limit if <span class="math notranslate nohighlight">\(H_0\)</span> is not nullified (there is no observation), at the value of <span class="math notranslate nohighlight">\(\mu\)</span> such that the p-value of <span class="math notranslate nohighlight">\(q_\mu\)</span> is smaller than <span class="math notranslate nohighlight">\(\beta = 5, 10\)</span>.</p>
+<p>If we can claim discovery, we can set a CI, with the best estimate <span class="math notranslate nohighlight">\(\hat{\mu}(x)\)</span> and the interval values given by the value of <span class="math notranslate nohighlight">\(\mu\)</span> at which the p-value associated with <span class="math notranslate nohighlight">\(q_\mu\)</span> is <span class="math notranslate nohighlight">\(\beta\)</span>.</p>
 <p><strong>Example</strong> Consider a gaussian distributed with mean <span class="math notranslate nohighlight">\(\mu_0 = 0\)</span> and sigma 1. Generate an experiment, compute <span class="math notranslate nohighlight">\(q_\mu\)</span> for <span class="math notranslate nohighlight">\(\mu = 3\)</span>. Set the upper limit on <span class="math notranslate nohighlight">\(\mu\)</span> at 90% CL.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -862,7 +868,7 @@ p_\mu = 1 - \Phi(\sqrt{q_\mu})
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x0   [0.04529308] parbest  [0.0453125 1.       ]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x0   [0.66546953] parbest  [0.6655 1.    ]
 </pre></div>
 </div>
 </div>
@@ -878,16 +884,16 @@ p_\mu = 1 - \Phi(\sqrt{q_\mu})
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x0   [0.04529308] parbest  [0.0453125 1.       ]
-qmu  8.730292953918363 p-value  0.0015648310414633215  at mu  3.0
-upper limit : [1.32684465] at  90 % CL
-observed data : [0.04529308]
-H0 p-value    : 0.48193685
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x0   [0.66546953] parbest  [0.6655 1.    ]
+qmu  5.450032526295416 p-value  0.009783981191973545  at mu  3.0
+upper limit : [1.94702109] at  90 % CL
+observed data : [0.66546953]
+H0 p-value    : 0.25287511
 H1 p-value    : 0.10000000
-CLs           : 0.19302666 
+CLs           : 0.13384643 
 </pre></div>
 </div>
-<img alt="_images/64413c1cade16e8d21c1d071a02c6486a1d958883f5e2b13f6569212a9f58ca0.png" src="_images/64413c1cade16e8d21c1d071a02c6486a1d958883f5e2b13f6569212a9f58ca0.png" />
+<img alt="_images/f4804373c4d93d1058aff80e9ed07ff4da9007892abc6c78556822033aa6de9b.png" src="_images/f4804373c4d93d1058aff80e9ed07ff4da9007892abc6c78556822033aa6de9b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -901,19 +907,17 @@ CLs           : 0.19302666
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5e49c687c497c59986dd5ede281e55036be2c8c9a31c6bce7af7d69b5f562000.png" src="_images/5e49c687c497c59986dd5ede281e55036be2c8c9a31c6bce7af7d69b5f562000.png" />
+<img alt="_images/a66f61b97ccaf10cc8189f270d13c73d50af69a80e7cb31850e45c2fa032a9d8.png" src="_images/a66f61b97ccaf10cc8189f270d13c73d50af69a80e7cb31850e45c2fa032a9d8.png" />
 </div>
 </div>
 <p><strong>Exercise</strong>: Consider an experiment with a gaussian distribution with mean <span class="math notranslate nohighlight">\(\mu\)</span> and sigma 1. Consider <span class="math notranslate nohighlight">\(\mu_{true} = \mu_0 = 0\)</span>. Obtain the distribution of the upper limits at 90 %CL.</p>
-<p><strong>Exercise</strong> Consider a experiment with a <span class="math notranslate nohighlight">\(n\)</span> sample of gaussian distributed values with <span class="math notranslate nohighlight">\(\mu\)</span> and sigma 1. Consider <span class="math notranslate nohighlight">\(\mu_{true} = \mu = 3.5\)</span>, verify that <span class="math notranslate nohighlight">\(q_\mu\)</span> follows a half-<span class="math notranslate nohighlight">\(\chi^2\)</span> distribution with one dof.</p>
 </section>
 </section>
-<hr class="docutils" />
-<section id="nuissance-parameters">
-<h2>Nuissance parameters<a class="headerlink" href="#nuissance-parameters" title="Link to this heading">#</a></h2>
-<p>Consider a counting experiment with a control region that is <span class="math notranslate nohighlight">\(\tau\)</span> times larger than the signal region. In both regions the expected background events is <span class="math notranslate nohighlight">\(\nu\)</span>, while in the signal region <span class="math notranslate nohighlight">\(\nu + \mu\)</span>.</p>
+<section id="nuisance-parameters">
+<h2>Nuisance parameters<a class="headerlink" href="#nuisance-parameters" title="Link to this heading">#</a></h2>
+<p>Consider a counting experiment with a control region that is <span class="math notranslate nohighlight">\(\tau\)</span> times larger than the signal region. In both regions the expected background events is <span class="math notranslate nohighlight">\(\nu\)</span>, while in the signal region we expect <span class="math notranslate nohighlight">\(\nu + \mu\)</span> events.</p>
 <p><strong>Explore</strong> in the following toy the generation of some events, with different values of <span class="math notranslate nohighlight">\(\nu\)</span>, <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
-<p>We are interested on measuring <span class="math notranslate nohighlight">\(\mu\)</span> and estimating <span class="math notranslate nohighlight">\(\nu\)</span> from the control sample. <span class="math notranslate nohighlight">\(\nu\)</span> is a nuisance parameter, how we can treat it?</p>
+<p>We are interested on measuring <span class="math notranslate nohighlight">\(\mu\)</span> and estimating <span class="math notranslate nohighlight">\(\nu\)</span> from the control sample. <span class="math notranslate nohighlight">\(\nu\)</span> is a nuisance parameter, how can we treat it?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu</span><span class="p">,</span> <span class="n">nu</span><span class="p">,</span> <span class="n">tau</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">20</span>
@@ -922,10 +926,10 @@ CLs           : 0.19302666
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bkg events : 47 signal events : 8
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bkg events : 46 signal events : 5
 </pre></div>
 </div>
-<img alt="_images/af76481b7cced42f84ba12ccab8cbedd5f7e31106e9a3d0804cd87ff5f796164.png" src="_images/af76481b7cced42f84ba12ccab8cbedd5f7e31106e9a3d0804cd87ff5f796164.png" />
+<img alt="_images/80e63160f9c63a812120f9db4bfacb3f8e1706290ea32e86a29765f35fef03bc.png" src="_images/80e63160f9c63a812120f9db4bfacb3f8e1706290ea32e86a29765f35fef03bc.png" />
 </div>
 </div>
 <p>We can extend the likelihood to estimate the nuisance parameter, <span class="math notranslate nohighlight">\(\nu\)</span>, and use:</p>
@@ -934,7 +938,7 @@ CLs           : 0.19302666
 t_\mu = -2 \ln \frac{\mathcal{L}(x \, | \mu, \, \hat{\nu}(\mu, x))}{ \mathcal{L}(x \, | \, \hat{\mu}(x), \hat{\nu} (x))}
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(\hat{\nu}(x)\)</span> is the best estimate given <span class="math notranslate nohighlight">\(x\)</span>, and <span class="math notranslate nohighlight">\(\hat{\nu}(\mu, x)\)</span> is the best estimate when fixing <span class="math notranslate nohighlight">\(\mu\)</span> and given <span class="math notranslate nohighlight">\(x\)</span>.</p>
-<p>And use the test statistics <span class="math notranslate nohighlight">\(q_0\)</span> and <span class="math notranslate nohighlight">\(q_\mu\)</span> to test the null and the composite hypothesis and set a CI for <span class="math notranslate nohighlight">\(\mu\)</span> using <span class="math notranslate nohighlight">\(t_\mu\)</span>.</p>
+<p>And use the test statistics <span class="math notranslate nohighlight">\(q_0\)</span> and <span class="math notranslate nohighlight">\(q_\mu\)</span> to test the null and the composite hypotheses and set a CI for <span class="math notranslate nohighlight">\(\mu\)</span> using <span class="math notranslate nohighlight">\(t_\mu\)</span>.</p>
 <p><strong>Example:</strong> Consider an experiment that search for a signal <span class="math notranslate nohighlight">\(\nu+\mu\)</span>. The background, <span class="math notranslate nohighlight">\(\nu\)</span>, is measured in a independent region, called <em>control</em> region, where there is no signal, and an expected background <span class="math notranslate nohighlight">\(\tau \nu\)</span>, where <span class="math notranslate nohighlight">\(\tau\)</span> is known. Consider <span class="math notranslate nohighlight">\(\nu\)</span> as the nuisance parameter. The experiment observes <span class="math notranslate nohighlight">\(k\)</span> events in the control and signal region. Consider an experiment with <span class="math notranslate nohighlight">\(k=4\)</span>, <span class="math notranslate nohighlight">\(\tau = 40\)</span>, <span class="math notranslate nohighlight">\(\nu = 2\)</span> and <span class="math notranslate nohighlight">\(\mu = 10\)</span>. What is the range of <span class="math notranslate nohighlight">\(\mu\)</span> excluded at 90 %CL. Compute <span class="math notranslate nohighlight">\(q_0\)</span>, is there a discovery, and observation?</p>
 <p>This is a prototype of a search. The pdf is:</p>
 <div class="math notranslate nohighlight">
@@ -971,10 +975,10 @@ g(n, \, m \, | \, \mu, \, \nu) = \frac{(\nu+\mu )^m \, e^{-(\nu + \mu)}}{m!} \, 
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mu, nu true   : 6.0 2.0
-events in control, signal region : 48.0 9.0
-events in control region/tau     : 2.4
-par best : [ 6.60002272  2.3999946  20.        ]
-par best : [ 6.          2.40849609 20.        ]  fix mu at  6.0
+events in control, signal region : 37.0 8.0
+events in control region/tau     : 1.85
+par best : [ 6.14995131  1.85000585 20.        ]
+par best : [ 6.          1.85175781 20.        ]  fix mu at  6.0
 </pre></div>
 </div>
 </div>
@@ -1000,7 +1004,7 @@ par best : [ 6.          2.40849609 20.        ]  fix mu at  6.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8e401acf454e5d6cb0909287a1c184d187ba5856bacbadf3e7dbc2967ed9dfab.png" src="_images/8e401acf454e5d6cb0909287a1c184d187ba5856bacbadf3e7dbc2967ed9dfab.png" />
+<img alt="_images/d120ebc13370ac5f90d0323f4ea1ae2d6f8f5b089267c410d47992d66644fdf1.png" src="_images/d120ebc13370ac5f90d0323f4ea1ae2d6f8f5b089267c410d47992d66644fdf1.png" />
 </div>
 </div>
 <p>Compute p-values for <span class="math notranslate nohighlight">\(q_0(x_0)\)</span>, <span class="math notranslate nohighlight">\(t_\mu(x_0)\)</span> and <span class="math notranslate nohighlight">\(q_\mu(x_0)\)</span> as set a upper limit and a CI.</p>
@@ -1025,12 +1029,12 @@ par best : [ 6.          2.40849609 20.        ]  fix mu at  6.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>H0 p-value  0.000890414435726905 Z-value  3.1245406944228495
-upper limit : [11.03001496] at  90 % CL
-central CI  : [ 2.47247899 12.49807861] at  90 % CL
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>H0 p-value  0.0007013670865270161 Z-value  3.1940878630121694
+upper limit : [10.35739686] at  90 % CL
+central CI  : [ 2.30968551 11.76340839] at  90 % CL
 </pre></div>
 </div>
-<img alt="_images/36d8e95e76c0d6a874c36804a2ec027bdbfd8117be12300c352039b3d8b9fb8b.png" src="_images/36d8e95e76c0d6a874c36804a2ec027bdbfd8117be12300c352039b3d8b9fb8b.png" />
+<img alt="_images/f45bb7e003518ba0c949c8255c05cd59bba031531005475521435581d37e2d08.png" src="_images/f45bb7e003518ba0c949c8255c05cd59bba031531005475521435581d37e2d08.png" />
 </div>
 </div>
 <p><strong>Example</strong>: Generate now <span class="math notranslate nohighlight">\(m\)</span> experiments, and obtain the <span class="math notranslate nohighlight">\(\hat{\mu}, \hat{\nu}\)</span> distributions.</p>
@@ -1042,7 +1046,7 @@ central CI  : [ 2.47247899 12.49807861] at  90 % CL
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/76dbe44a9549cdec0a79e115ec4e28ed38a9a09433a3fbd655d679a0d94e9699.png" src="_images/76dbe44a9549cdec0a79e115ec4e28ed38a9a09433a3fbd655d679a0d94e9699.png" />
+<img alt="_images/5c5d1da7f6a55ed5895c6d2307f4922420016dedcdc4ab92ebf56df1eb95e677.png" src="_images/5c5d1da7f6a55ed5895c6d2307f4922420016dedcdc4ab92ebf56df1eb95e677.png" />
 </div>
 </div>
 <p><strong>Example</strong> In the following plot we show the p-value of the an observed data <span class="math notranslate nohighlight">\(x_0\)</span> in the plane <span class="math notranslate nohighlight">\((\mu, \nu)\)</span>. They are computed assuming that <span class="math notranslate nohighlight">\(t_\mu(x)\)</span> follows a <span class="math notranslate nohighlight">\(\chi^2\)</span> pdf with 2 dof. The * in the plot is best-estimate point, <span class="math notranslate nohighlight">\((\hat{\mu}(x_0), \hat{\nu}(x_0))\)</span>, and the line the best nuisance parameter <span class="math notranslate nohighlight">\(\hat{\nu}(\mu, x_0)\)</span> as a funcion of <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
@@ -1054,12 +1058,12 @@ central CI  : [ 2.47247899 12.49807861] at  90 % CL
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data     : (40.0, 27.0)
-best par : [22.99997005  4.00000645]
-central CI : [15.24923185 32.52252449]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data     : (38.0, 17.0)
+best par : [13.2  3.8]
+central CI : [ 7.18476856 20.97012882]
 </pre></div>
 </div>
-<img alt="_images/375f1d961471453b600e18e52980deff02b532fc4d0abe838c2e589e4b61c435.png" src="_images/375f1d961471453b600e18e52980deff02b532fc4d0abe838c2e589e4b61c435.png" />
+<img alt="_images/f97ccf75fc6fb653623139f0b432d442941a5e1a6ad9e206cefc85e7c9e30ff2.png" src="_images/f97ccf75fc6fb653623139f0b432d442941a5e1a6ad9e206cefc85e7c9e30ff2.png" />
 </div>
 </div>
 <p>Notice that at p-value 0.1 corresponde the CI region of 90% CL and the proyection onto the <span class="math notranslate nohighlight">\(\mu\)</span> axis in the 90% CL for the <span class="math notranslate nohighlight">\(\mu\)</span> parameter when <span class="math notranslate nohighlight">\(\nu\)</span> is considered a nuisance.</p>
@@ -1076,16 +1080,16 @@ central CI : [15.24923185 32.52252449]
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "my-local-env"
         },
         kernelOptions: {
-            name: "python3",
+            name: "my-local-env",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'my-local-env'</script>
 
                 </article>
               
@@ -1142,7 +1146,7 @@ central CI : [15.24923185 32.52252449]
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-the-alternative-hypothesis">Testing the alternative hypothesis</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nuissance-parameters">Nuissance parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nuisance-parameters">Nuisance parameters</a></li>
 </ul>
   </nav></div>
 

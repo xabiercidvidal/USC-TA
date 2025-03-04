@@ -501,7 +501,11 @@ CLs           : 0.00000039
 <section id="test-statistics">
 <h2>Test statistics<a class="headerlink" href="#test-statistics" title="Link to this heading">#</a></h2>
 <p>We need to <strong>order</strong> data, <span class="math notranslate nohighlight">\(x\)</span>, along the axis from <span class="math notranslate nohighlight">\(H_0\)</span> to <span class="math notranslate nohighlight">\(H_1\)</span>, to the left it is more <span class="math notranslate nohighlight">\(H_0\)</span>-like, to the right, more <span class="math notranslate nohighlight">\(H_1\)</span>-like.</p>
-<p>The <strong>test statistics</strong>, <span class="math notranslate nohighlight">\(q(x)\)</span>, is a real scalar quantity that quantifies how compatible is our data, <span class="math notranslate nohighlight">\(x\)</span>, with the null, <span class="math notranslate nohighlight">\(H_0\)</span>, and the alternative, <span class="math notranslate nohighlight">\(H_1\)</span>, hypotheses.</p>
+<table style="border: 1px solid black; border-collapse: collapse;">
+    <tr>
+        <td style="border: 1px solid black; padding: 8px;font-size: 14px;">The <b>test statistics</b>, $q(x)$, is a real scalar quantity that quantifies how compatible is our data, $x$, with the null, $H_0$, and the alternative, $H_1$, hypotheses.</td>
+    </tr>
+</table>
 <p>As a convention, we consider that as <span class="math notranslate nohighlight">\(q(x)\)</span> values increase, they indicate a better agreement with <span class="math notranslate nohighlight">\(H_1\)</span> than with <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
 <p>The <em>optimal</em> test-stats is the likelihood ratio.</p>
 <p>For convenience we use (-2 log-like-ratio):</p>
@@ -941,16 +945,16 @@ g(x \, | \, \mu) = \int g( x \, | \, \mu, \nu) \, \pi(\nu) \, \mathrm{d}\nu
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "my-local-env"
         },
         kernelOptions: {
-            name: "python3",
+            name: "my-local-env",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'my-local-env'</script>
 
                 </article>
               

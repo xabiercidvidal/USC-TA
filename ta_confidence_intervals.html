@@ -587,7 +587,11 @@ coverage  96.95136243577515 %
 </div>
 </div>
 <p><strong>Class exercise</strong>: Consider a poisson distribution with <span class="math notranslate nohighlight">\(b=3\)</span> background events and a value of possible signal, <span class="math notranslate nohighlight">\(\mu=4\)</span>. Give the 90% lower, upper and central interval.</p>
-<p>We define the <strong>confidence belt</strong> scaning along the <span class="math notranslate nohighlight">\(\mu\)</span> values and, for each one, knowing the pdf <span class="math notranslate nohighlight">\(g(x | \mu)\)</span>, computing the interval <span class="math notranslate nohighlight">\([x_l(\mu), x_u(\mu)]\)</span> that provides a <span class="math notranslate nohighlight">\(\beta\)</span> % containment.</p>
+<table style="border: 1px solid black; border-collapse: collapse;">
+    <tr>
+        <td style="border: 1px solid black; padding: 8px;font-size: 14px;">We define the <b>confidence belt</b> scanning along the $\mu$ values and, for each one, knowing the pdf $g(x | \mu)$, computing the interval $[x_l(\mu), x_u(\mu)]$ that provides a $\beta$ % containment.</td>
+    </tr>
+</table>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span>
@@ -924,7 +928,7 @@ t_\mu(n) = \frac{g(n | b + \mu)}{ g( n | b + \hat{\mu}(n))};{\rm~and~} q_\mu (x)
 </div>
 </div>
 <p>In the next cell we plot in order of better <span class="math notranslate nohighlight">\(t_\mu(n)\)</span>, with its correspondent <span class="math notranslate nohighlight">\(g(n | b+\mu), \; t_\mu(n)\)</span> and the cumulative function, <span class="math notranslate nohighlight">\(\mathrm{cdf}(n | b+\mu)\)</span>.</p>
-<p>The interval <span class="math notranslate nohighlight">\([n_l(\mu), n_u(\mu)]\)</span> is defined by the range of <span class="math notranslate nohighlight">\(n\)</span> values till the cdf surpassses a given <span class="math notranslate nohighlight">\(\beta\)</span> contaiment (the dashed line in the plot).</p>
+<p>The interval <span class="math notranslate nohighlight">\([n_l(\mu), n_u(\mu)]\)</span> is defined by the range of <span class="math notranslate nohighlight">\(n\)</span> values till the cdf surpassses a given <span class="math notranslate nohighlight">\(\beta\)</span> containment (the dashed line in the plot).</p>
 <p>For this case <span class="math notranslate nohighlight">\(b = 3, \, \mu = 0.5, \; \beta = 90\)</span> %.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
