@@ -12,7 +12,7 @@ import htplot    as htplot
 h0color, h1color, datacolor = 'orange', 'green', 'black'
 marker = 'o'
 
-def normal_likelihood(xs, isgaussll = False, ylog = False):
+def normal_likelihood(xs, isgaussll = False, ylog = False,mus = np.linspace(-3., 3., 100)):
 
     def ll(mu, xs):
         dx = (mu-xs)
@@ -23,7 +23,7 @@ def normal_likelihood(xs, isgaussll = False, ylog = False):
         return -2*np.sum(np.log(probs))
         
     nsize = len(xs)
-    mus = np.linspace(-3., 3., 100)
+    
     if isgaussll: 
         lls = np.array([gaussll(mu, xs) for mu in mus])
         lname = '\log {}_{Gauss}\mathcal{L}'
@@ -33,7 +33,7 @@ def normal_likelihood(xs, isgaussll = False, ylog = False):
     
     print('mu mean :', np.mean(xs), ', mu std :', 1./np.sqrt(nsize))
 
-    plt.hist(xs, bins=50, range=(-3., 3.),
+    plt.hist(xs, bins=50, range=(min(mus), max(mus)),
             color = datacolor, histtype = 'step', label = 'data');
     plt.ylabel('events'); plt.xlabel('$x$')
     ax = plt.gca(); axb = ax.twinx()

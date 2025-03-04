@@ -92,18 +92,11 @@ Verify that the $q_0$ distribution is a 'half' $\chi^2$.
 **Choose at least 1 among:**
 
 ##### Exercise 4b:
- Consider the case of a poisson distribution with a unknown mean $\mu$ and the null hypothesis $\mu_0$. Check for which values of $\mu$, $g(t_\mu | \mu)$ follows a $\chi^2(1)$ distribution.
+ Consider the case of a poisson distribution with an unknown mean $\mu$ and the null hypothesis $\mu_0$. Check for which values of $\mu$, $g(t_\mu | \mu)$ follows a $\chi^2(1)$ distribution.
 
 ##### Exercise 4c:
-Consider the case of an experiment that gets a sample of n-size poisson distributed values, $x$, with a unknown mean $\mu$. Check the values of $n$ for which $g(t_\mu | \mu)$ follows a $\chi^2(1)$ distribution.
-
-**Choose at least 1 among:**
-
-##### Exercise 4d:
 Consider an experiment with a gaussian distribution with mean $\mu$ and sigma 1. Consider $\mu_{true} = \mu_0 = 0$. Obtain the distribution of the upper limits at 90 %CL.
 
-##### Exercise 4e:
-Consider an experiment with a $n$ sample of gaussian distributed values with $\mu$ and sigma 1. Consider $\mu_{true} = \mu = 3.5$, verify that $q_\mu$ follows a "half" $\chi^2$ distribution with one dof.
 
 ```python
 
