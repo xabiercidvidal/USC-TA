@@ -637,12 +637,13 @@ p-value mean : 0.5050538046072487 ; std * sqrt(12.) : 1.0161414002538056
 <section id="the-p-value">
 <h3>the p-value<a class="headerlink" href="#the-p-value" title="Link to this heading">#</a></h3>
 <p>We are back to the construction of a CI of <span class="math notranslate nohighlight">\(\mu\)</span> at <span class="math notranslate nohighlight">\(\beta\)</span> CL given data <span class="math notranslate nohighlight">\(x_0\)</span>.</p>
-<p>In the “gaussian” regime, when Wilks’ theorem applies, we can use the relation between <span class="math notranslate nohighlight">\(t_\mu(x)\)</span> and its p-value, <span class="math notranslate nohighlight">\(p_\mu\)</span>, via the <span class="math notranslate nohighlight">\(\chi^2(1)\)</span> distribution:</p>
+<p>In the “gaussian” regime, when Wilks’ theorem applies, we can use the relation between <span class="math notranslate nohighlight">\(t_\mu(x)\)</span> and its p-value, <span class="math notranslate nohighlight">\(p_\mu\)</span>, via the <span class="math notranslate nohighlight">\(\chi^2(1)\)</span> distribution. Since the <span class="math notranslate nohighlight">\(\chi^2(1)\)</span> distribution with 1 degree of freedom behaves like a squared normal variable
+<span class="math notranslate nohighlight">\(( Z^2 \sim \chi^2_1 )\)</span>, we can approximate <span class="math notranslate nohighlight">\(\sqrt{t_\mu(x)} \approx Z\)</span>, where <span class="math notranslate nohighlight">\(Z\)</span> follows a standard normal distribution. With this, the <span class="math notranslate nohighlight">\(p-\)</span>value becomes:</p>
 <div class="math notranslate nohighlight">
 \[
 p_\mu = 2 \, [1 - \Phi(\sqrt{t_\mu(x)})]~~{\rm(Eq.~1)}
 \]</div>
-<p>Where <span class="math notranslate nohighlight">\(\Phi(x)\)</span> is the cumulative function of a normal gaussian.</p>
+<p>Where <span class="math notranslate nohighlight">\(\Phi(x)\)</span> is the cumulative function of a normal gaussian, and the factor of 2 accounts for a two-sided (or two-tailed) hypothesis test.</p>
 <p>We can now:</p>
 <ul class="simple">
 <li><p>define a CI of <span class="math notranslate nohighlight">\(\mu\)</span> at <span class="math notranslate nohighlight">\(\beta\)</span> CL, for those values for which <span class="math notranslate nohighlight">\(p_\mu &gt;= 1-\beta\)</span>.</p></li>
@@ -939,20 +940,19 @@ t_\mu = -2 \ln \frac{\mathcal{L}(x \, | \mu, \, \hat{\nu}(\mu, x))}{ \mathcal{L}
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(\hat{\nu}(x)\)</span> is the best estimate given <span class="math notranslate nohighlight">\(x\)</span>, and <span class="math notranslate nohighlight">\(\hat{\nu}(\mu, x)\)</span> is the best estimate when fixing <span class="math notranslate nohighlight">\(\mu\)</span> and given <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <p>And use the test statistics <span class="math notranslate nohighlight">\(q_0\)</span> and <span class="math notranslate nohighlight">\(q_\mu\)</span> to test the null and the composite hypotheses and set a CI for <span class="math notranslate nohighlight">\(\mu\)</span> using <span class="math notranslate nohighlight">\(t_\mu\)</span>.</p>
-<p><strong>Example:</strong> Consider an experiment that search for a signal <span class="math notranslate nohighlight">\(\nu+\mu\)</span>. The background, <span class="math notranslate nohighlight">\(\nu\)</span>, is measured in a independent region, called <em>control</em> region, where there is no signal, and an expected background <span class="math notranslate nohighlight">\(\tau \nu\)</span>, where <span class="math notranslate nohighlight">\(\tau\)</span> is known. Consider <span class="math notranslate nohighlight">\(\nu\)</span> as the nuisance parameter. The experiment observes <span class="math notranslate nohighlight">\(k\)</span> events in the control and signal region. Consider an experiment with <span class="math notranslate nohighlight">\(k=4\)</span>, <span class="math notranslate nohighlight">\(\tau = 40\)</span>, <span class="math notranslate nohighlight">\(\nu = 2\)</span> and <span class="math notranslate nohighlight">\(\mu = 10\)</span>. What is the range of <span class="math notranslate nohighlight">\(\mu\)</span> excluded at 90 %CL. Compute <span class="math notranslate nohighlight">\(q_0\)</span>, is there a discovery, and observation?</p>
+<p><strong>Example:</strong> Consider an experiment that searches for a signal <span class="math notranslate nohighlight">\(\nu+\mu\)</span>. The background, <span class="math notranslate nohighlight">\(\nu\)</span>, is measured in a independent region, called <em>control</em> region, where there is no signal, and an expected background <span class="math notranslate nohighlight">\(\tau \times \nu\)</span>, where <span class="math notranslate nohighlight">\(\tau\)</span> is known. Consider <span class="math notranslate nohighlight">\(\nu\)</span> as the nuisance parameter. The experiment observes <span class="math notranslate nohighlight">\(k\)</span> events in the control and signal regions. Consider an experiment with <span class="math notranslate nohighlight">\(k=4\)</span>, <span class="math notranslate nohighlight">\(\tau = 20\)</span>, <span class="math notranslate nohighlight">\(\nu = 2\)</span> and <span class="math notranslate nohighlight">\(\mu = 6\)</span>. What is the range of <span class="math notranslate nohighlight">\(\mu\)</span> excluded at 90 %CL. Compute <span class="math notranslate nohighlight">\(q_0\)</span>, is there a discovery, and observation?</p>
 <p>This is a prototype of a search. The pdf is:</p>
 <div class="math notranslate nohighlight">
 \[
 g(n, \, m \, | \, \mu, \, \nu) = \frac{(\nu+\mu )^m \, e^{-(\nu + \mu)}}{m!} \, \frac{(\tau \nu)^n \, e^{-\tau \nu}}{n!}
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(m\)</span> are the events in the signal region and <span class="math notranslate nohighlight">\(n\)</span> are the events in the control region.</p>
-<p><strong>Exercise</strong>: First, we check that the pdf, <span class="math notranslate nohighlight">\(g( t_\mu | \mu, \nu)\)</span> is a <span class="math notranslate nohighlight">\(\chi^2(2)\)</span> with two dof, and <span class="math notranslate nohighlight">\(g(t_\mu | \mu, \hat{\nu}(\mu))\)</span> a <span class="math notranslate nohighlight">\(\chi^2(1)\)</span> with one dof.</p>
 <p><strong>Example</strong>: Generate an observed data, <span class="math notranslate nohighlight">\(x_0\)</span>, for an experiment with a control and a signal region. The control region follows a poisson with <span class="math notranslate nohighlight">\(\tau \nu\)</span>, and the signal <span class="math notranslate nohighlight">\(\nu + \mu\)</span>. Consider the case <span class="math notranslate nohighlight">\(\tau = 20\)</span>, <span class="math notranslate nohighlight">\(\nu = 2\)</span> and <span class="math notranslate nohighlight">\(\mu = 6\)</span>.</p>
 <p>Compute:</p>
 <p>a) The p-value with the null hypothesis <span class="math notranslate nohighlight">\(\mu=0\)</span>.</p>
 <p>b) The lower value of the upper CI at 90% using <span class="math notranslate nohighlight">\(q_\mu\)</span></p>
 <p>c) the central CI at 90% CL using <span class="math notranslate nohighlight">\(t_\mu\)</span></p>
-<p>Generate an experiment, <span class="math notranslate nohighlight">\(x_0\)</span>, compute <span class="math notranslate nohighlight">\(\hat{\mu}(x_0), \, \hat{\nu}(x_0)\)</span>, and <span class="math notranslate nohighlight">\(\hat{\nu}(\mu, x_0)\)</span> for fix <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+<p>Generate an experiment, <span class="math notranslate nohighlight">\(x_0\)</span>, compute <span class="math notranslate nohighlight">\(\hat{\mu}(x_0), \, \hat{\nu}(x_0)\)</span>, and <span class="math notranslate nohighlight">\(\hat{\nu}(\mu, x_0)\)</span> for a fixed <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu</span><span class="p">,</span> <span class="n">nu</span><span class="p">,</span> <span class="n">tau</span> <span class="o">=</span> <span class="mf">6.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">20.</span>
@@ -969,16 +969,16 @@ g(n, \, m \, | \, \mu, \, \nu) = \frac{(\nu+\mu )^m \, e^{-(\nu + \mu)}}{m!} \, 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;events in control, signal region :&#39;</span><span class="p">,</span> <span class="n">x0</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x0</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;events in control region/tau     :&#39;</span><span class="p">,</span> <span class="n">x0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">tau</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;par best :&#39;</span><span class="p">,</span> <span class="n">parbest</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;par best :&#39;</span><span class="p">,</span> <span class="n">nubest</span><span class="p">,</span> <span class="s1">&#39; fix mu at &#39;</span><span class="p">,</span> <span class="n">mu</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;par best :&#39;</span><span class="p">,</span> <span class="n">nubest</span><span class="p">,</span> <span class="s1">&#39; fixed mu at &#39;</span><span class="p">,</span> <span class="n">mu</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mu, nu true   : 6.0 2.0
-events in control, signal region : 37.0 8.0
-events in control region/tau     : 1.85
-par best : [ 6.14995131  1.85000585 20.        ]
-par best : [ 6.          1.85175781 20.        ]  fix mu at  6.0
+events in control, signal region : 46.0 7.0
+events in control region/tau     : 2.3
+par best : [ 4.69997309  2.29999659 20.        ]
+par best : [ 6.          2.28232422 20.        ]  fixed mu at  6.0
 </pre></div>
 </div>
 </div>
@@ -1007,7 +1007,7 @@ par best : [ 6.          1.85175781 20.        ]  fix mu at  6.0
 <img alt="_images/d120ebc13370ac5f90d0323f4ea1ae2d6f8f5b089267c410d47992d66644fdf1.png" src="_images/d120ebc13370ac5f90d0323f4ea1ae2d6f8f5b089267c410d47992d66644fdf1.png" />
 </div>
 </div>
-<p>Compute p-values for <span class="math notranslate nohighlight">\(q_0(x_0)\)</span>, <span class="math notranslate nohighlight">\(t_\mu(x_0)\)</span> and <span class="math notranslate nohighlight">\(q_\mu(x_0)\)</span> as set a upper limit and a CI.</p>
+<p>Compute p-values for <span class="math notranslate nohighlight">\(q_0(x_0)\)</span>, <span class="math notranslate nohighlight">\(t_\mu(x_0)\)</span> and <span class="math notranslate nohighlight">\(q_\mu(x_0)\)</span> and set a upper limit and a CI.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># compute the CI using tmu, and upper limit using qmu</span>
@@ -1049,7 +1049,7 @@ central CI  : [ 2.30968551 11.76340839] at  90 % CL
 <img alt="_images/5c5d1da7f6a55ed5895c6d2307f4922420016dedcdc4ab92ebf56df1eb95e677.png" src="_images/5c5d1da7f6a55ed5895c6d2307f4922420016dedcdc4ab92ebf56df1eb95e677.png" />
 </div>
 </div>
-<p><strong>Example</strong> In the following plot we show the p-value of the an observed data <span class="math notranslate nohighlight">\(x_0\)</span> in the plane <span class="math notranslate nohighlight">\((\mu, \nu)\)</span>. They are computed assuming that <span class="math notranslate nohighlight">\(t_\mu(x)\)</span> follows a <span class="math notranslate nohighlight">\(\chi^2\)</span> pdf with 2 dof. The * in the plot is best-estimate point, <span class="math notranslate nohighlight">\((\hat{\mu}(x_0), \hat{\nu}(x_0))\)</span>, and the line the best nuisance parameter <span class="math notranslate nohighlight">\(\hat{\nu}(\mu, x_0)\)</span> as a funcion of <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+<p><strong>Example</strong> In the following plot we show the p-value of the an observed data instance <span class="math notranslate nohighlight">\(x_0\)</span> in the plane <span class="math notranslate nohighlight">\((\mu, \nu)\)</span>. They are computed assuming that <span class="math notranslate nohighlight">\(t_\mu(x)\)</span> follows a <span class="math notranslate nohighlight">\(\chi^2\)</span> pdf with 2 dof. The * in the plot is the best-estimate point, <span class="math notranslate nohighlight">\((\hat{\mu}(x_0), \hat{\nu}(x_0))\)</span>, and the line the best nuisance parameter <span class="math notranslate nohighlight">\(\hat{\nu}(\mu, x_0)\)</span> as a funcion of <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu</span><span class="p">,</span> <span class="n">nu</span><span class="p">,</span> <span class="n">tau</span> <span class="o">=</span> <span class="mf">12.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">10.</span>
@@ -1066,8 +1066,7 @@ central CI : [ 7.18476856 20.97012882]
 <img alt="_images/f97ccf75fc6fb653623139f0b432d442941a5e1a6ad9e206cefc85e7c9e30ff2.png" src="_images/f97ccf75fc6fb653623139f0b432d442941a5e1a6ad9e206cefc85e7c9e30ff2.png" />
 </div>
 </div>
-<p>Notice that at p-value 0.1 corresponde the CI region of 90% CL and the proyection onto the <span class="math notranslate nohighlight">\(\mu\)</span> axis in the 90% CL for the <span class="math notranslate nohighlight">\(\mu\)</span> parameter when <span class="math notranslate nohighlight">\(\nu\)</span> is considered a nuisance.</p>
-<hr class="docutils" />
+<p>Notice that a p-value 0.1 corresponds to the CI region of 90% CL and the projection onto the <span class="math notranslate nohighlight">\(\mu\)</span> axis in the 90% CL for the <span class="math notranslate nohighlight">\(\mu\)</span> parameter when <span class="math notranslate nohighlight">\(\nu\)</span> is considered a nuisance parameter.</p>
 </section>
 </section>
 
