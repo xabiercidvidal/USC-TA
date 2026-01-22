@@ -6,7 +6,7 @@ Institution: Physics Master, **Universidade de Santiago de Compostela**
 
 email: jose.hernando@usc.es, [xabier.cid@usc.gal](mailto:xabier.cid@usc.gal)
 
-Version: February 2025
+Version: January 2026
 
 
 ## About these lectures
