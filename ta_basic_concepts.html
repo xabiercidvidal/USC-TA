@@ -172,6 +172,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Revisiting the basic concepts</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="ta_hypothesis_test.html">Hypothesis testing, simple case</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ta_confidence_intervals.html">Confidence Intervals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ta_hypothesis_test_composite.html">Hypothesis testing, composite case</a></li>
@@ -399,6 +400,10 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Revisiting the basic concepts</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#intro-exercise-the-monty-hall-problem">Intro Exercise: The Monty Hall Problem</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scenario">Scenario</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question">Question</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayes-theorem">Bayes’ Theorem</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kolmogorov-axioms">Kolmogorov axioms</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Bayes’ theorem</a></li>
@@ -416,6 +421,9 @@
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -428,7 +436,7 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="revisiting-the-basic-concepts">
 <h1>Revisiting the basic concepts<a class="headerlink" href="#revisiting-the-basic-concepts" title="Link to this heading">#</a></h1>
-<p><em>Author: Jose A. Hernando, X. Cid Vidal</em>, February 2025</p>
+<p><em>Author: Jose A. Hernando, X. Cid Vidal</em>, January 2026</p>
 <p><em>Instituto Galego de Altas Enerxías. Universidade de Santiago de Compostela, Spain.</em></p>
 <p><a class="reference external" href="https://mybinder.org/v2/gh/xabiercidvidal/USC-TA/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
 <div class="cell docutils container">
@@ -439,7 +447,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Last Execution  Fri Feb 14 14:55:52 2025
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Last Execution  Wed Jan 21 12:24:52 2026
 </pre></div>
 </div>
 </div>
@@ -464,6 +472,25 @@
 </div>
 </div>
 </div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="intro-exercise-the-monty-hall-problem">
+<h1>Intro Exercise: The Monty Hall Problem<a class="headerlink" href="#intro-exercise-the-monty-hall-problem" title="Link to this heading">#</a></h1>
+<p>You are on a game show standing before three doors. Behind one door is a car; behind the others are goats.</p>
+<section id="scenario">
+<h2>Scenario<a class="headerlink" href="#scenario" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>You pick a door (for example, Door #3).</p></li>
+<li><p>The host, Monty Hall—who knows exactly where the car is—steps in. He opens one of the doors you <em>didn’t</em> pick to reveal a donkey (e.g., he opens Door #1).</p></li>
+<li><p>There are two closed doors remaining: your current pick and one other. Monty asks: <strong>“Do you want to switch to the remaining closed door?”</strong></p></li>
+</ol>
+<p><img alt="Monty Hall and the doors" src="https://www.coopertoons.com/education/montyhallproblem/montyanddoors.jpg" /></p>
+</section>
+<section id="question">
+<h2>Question<a class="headerlink" href="#question" title="Link to this heading">#</a></h2>
+<p>Intuitively, it seems like with two doors left, the odds are 50/50, so it doesn’t matter what you do.</p>
+<p><em>As a statistician, determine if this intuition is correct. Does switching your choice increase, decrease, or have no effect on your probability of winning the car?</em></p>
+<p><strong>Class exercise:</strong> Do a toy to determine whether it’s better to change or not, doing many pseudo-experiments.</p>
+</section>
 <section id="bayes-theorem">
 <h2>Bayes’ Theorem<a class="headerlink" href="#bayes-theorem" title="Link to this heading">#</a></h2>
 <section id="kolmogorov-axioms">
@@ -537,7 +564,7 @@ P(A|B) \, P(B) = P(B|A)\,P(A)
 \]</div>
 <p><strong>Class exercise:</strong> In a low prevalence population, the probability of an individual to have HIV+ is 1 in 1000. Consider a medical test of HIV.</p>
 <p>If the patient is HIV+, the test is positive in 99.8 % of the times (true-positive), but if the person is HIV-, the test can wrongly be positive 0.2 % of the times (false positive).</p>
-<p>After a test, a patient is diagnosed with HIV+, what is the probability that he has HIV +? Should the doctor repeat the test?</p>
+<p>After a test, a patient is diagnosed with HIV+, what is the probability that he is HIV +? Should the doctor repeat the test?</p>
 <div class="math notranslate nohighlight">
 \[
 p(H+ | +) = \frac{p(+ | H+) p(H+)}{p(+)} =  \frac{p(+ | H+) p(H+)}{p(+ | H+) p (H+) + p(+ | H-) p (H-)}
@@ -799,10 +826,10 @@ p(\mu | x)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mu mean : -0.021036395280118827 , mu std : 0.03162277660168379
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mu mean : 0.0059110231903804706 , mu std : 0.03162277660168379
 </pre></div>
 </div>
-<img alt="_images/c617d9b31c610a0e5d2c6b21bd4232157b7869c6c4ccfe1c219ffb939169ba0f.png" src="_images/c617d9b31c610a0e5d2c6b21bd4232157b7869c6c4ccfe1c219ffb939169ba0f.png" />
+<img alt="_images/452a02594ed96b1ec790179a9df6ff9c4087e92b5c94b1052903ef33aeea668b.png" src="_images/452a02594ed96b1ec790179a9df6ff9c4087e92b5c94b1052903ef33aeea668b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -815,10 +842,10 @@ p(\mu | x)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mu mean : -0.014499260128207039 , mu std : 0.03162277660168379
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mu mean : 0.013366604137842724 , mu std : 0.03162277660168379
 </pre></div>
 </div>
-<img alt="_images/bc98bd9a72a8273cfb16055335d69d2e1aaa67aee9690c626c0d77a8055cf5e8.png" src="_images/bc98bd9a72a8273cfb16055335d69d2e1aaa67aee9690c626c0d77a8055cf5e8.png" />
+<img alt="_images/787eb109b38e07246b7bd429982e5c6f8089815c9c5a760f100141e5f2ac925a.png" src="_images/787eb109b38e07246b7bd429982e5c6f8089815c9c5a760f100141e5f2ac925a.png" />
 </div>
 </div>
 </section>
@@ -870,7 +897,7 @@ p(\mu | x_0) = \frac{g( x_0 | \mu, \sigma = 1) \, \pi(\mu)}{ \int g(x_0 | \mu, \
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e8c940918ed5639a026b2be949a176b9bc8fa8c5fc054122170ade9b3fd672d7.png" src="_images/e8c940918ed5639a026b2be949a176b9bc8fa8c5fc054122170ade9b3fd672d7.png" />
+<img alt="_images/1fbec32a302aebf55050cd3fb1e3e29595cee7fb137ee038da6c55db3b21b212.png" src="_images/1fbec32a302aebf55050cd3fb1e3e29595cee7fb137ee038da6c55db3b21b212.png" />
 </div>
 </div>
 <p><strong>Class exercise:</strong> Show that the posterior of n measurements, <span class="math notranslate nohighlight">\(x\)</span>, normally distributed, <span class="math notranslate nohighlight">\(g(x | \mu, \sigma)\)</span>, with a flat prior on <span class="math notranslate nohighlight">\(\mu\)</span>, and known <span class="math notranslate nohighlight">\(\sigma\)</span>, is a gaussian with mean <span class="math notranslate nohighlight">\(\mu = \bar{x}\)</span>, the average of the <span class="math notranslate nohighlight">\(n\)</span> <span class="math notranslate nohighlight">\(x\)</span> measurements, and the sigma <span class="math notranslate nohighlight">\(\sigma/\sqrt{n}\)</span></p>
@@ -977,6 +1004,10 @@ p(\mu|x) = \frac{p(x|\mu) \, \pi(\mu)}{\sum p(x|\mu) \pi(\mu)}
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Revisiting the basic concepts</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#intro-exercise-the-monty-hall-problem">Intro Exercise: The Monty Hall Problem</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scenario">Scenario</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question">Question</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayes-theorem">Bayes’ Theorem</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kolmogorov-axioms">Kolmogorov axioms</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Bayes’ theorem</a></li>
@@ -994,6 +1025,9 @@ p(\mu|x) = \frac{p(x|\mu) \, \pi(\mu)}{\sum p(x|\mu) \pi(\mu)}
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>
