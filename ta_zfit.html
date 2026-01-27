@@ -1,0 +1,1054 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Workshop: Advanced Fitting with zfit &#8212; Statistics for Particle Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ta_zfit';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Statistics for Particle Physics - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="Statistics for Particle Physics - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ta_basic_concepts.html">Revisiting the basic concepts</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ta_hypothesis_test.html">Hypothesis testing, simple case</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ta_confidence_intervals.html">Confidence Intervals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ta_hypothesis_test_composite.html">Hypothesis testing, composite case</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercises.html">Exercises</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/xabiercidvidal/USC-TA/blob/master/docs/ta_zfit.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/xabiercidvidal/USC-TA" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/xabiercidvidal/USC-TA/issues/new?title=Issue%20on%20page%20%2Fta_zfit.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ta_zfit.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Workshop: Advanced Fitting with zfit</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-zfit">Why zfit?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agenda">Agenda</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-and-imports">0. Setup and Imports</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-building-blocks">1. The Building Blocks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-observable-space-zfit-space">1.1 The Observable Space (<code class="docutils literal notranslate"><span class="pre">zfit.Space</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-zfit-parameter">1.2 Parameters (<code class="docutils literal notranslate"><span class="pre">zfit.Parameter</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-density-functions-pdfs">1.3 Probability Density Functions (PDFs)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-data">1.4 Generating Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fit-unbinned-likelihood">2. The Fit (Unbinned Likelihood)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theory-recap">2.1 Theory Recap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-the-result">2.2 Analyzing the Result</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-best-practices">2.3 Visualization (Best Practices)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-improving-the-model">📝 Exercise 1: Improving the Model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extended-likelihoods-fitting-yields">3. Extended Likelihoods (Fitting Yields)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-uncertainty-scaling">📝 Exercise 2: Uncertainty Scaling</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constraints-systematics">4. Constraints (Systematics)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simultaneous-fits-signal-control-regions">5. Simultaneous Fits (Signal + Control Regions)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-shared-resolution">📝 Exercise 3: Shared Resolution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-fits">6. 2D Fits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-further-steps">Conclusion &amp; Further Steps</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="workshop-advanced-fitting-with-zfit">
+<h1>Workshop: Advanced Fitting with zfit<a class="headerlink" href="#workshop-advanced-fitting-with-zfit" title="Link to this heading">#</a></h1>
+<p><strong>Course:</strong> Statistics for Particle Physics<br />
+<strong>Duration:</strong> 2-3 Hours<br />
+<strong>Level:</strong> Advanced (Closing Session)</p>
+<hr class="docutils" />
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Welcome to the final exercise of the course. Over the last 11 hours, we have covered the theory of probabilities, PDFs, Likelihoods, and Confidence Intervals. Now, we will apply this knowledge using <strong>zfit</strong>.</p>
+<section id="why-zfit">
+<h3>Why zfit?<a class="headerlink" href="#why-zfit" title="Link to this heading">#</a></h3>
+<p>In High Energy Physics (HEP), we often deal with:</p>
+<ul class="simple">
+<li><p><strong>Complex Models:</strong> Sums of signals and backgrounds, convolutions, etc.</p></li>
+<li><p><strong>High Statistics:</strong> Millions of events.</p></li>
+<li><p><strong>Many Parameters:</strong> Systematics, nuisance parameters.</p></li>
+</ul>
+<p><strong>zfit</strong> is a Python library built on top of <strong>TensorFlow</strong>. It is designed to be:</p>
+<ul class="simple">
+<li><p><strong>Scalable:</strong> Runs on GPUs/CPUs efficiently.</p></li>
+<li><p><strong>Pythonic:</strong> Integrates with the Scikit-HEP ecosystem (<code class="docutils literal notranslate"><span class="pre">uproot</span></code>, <code class="docutils literal notranslate"><span class="pre">mplhep</span></code>, <code class="docutils literal notranslate"><span class="pre">awkward</span></code>).</p></li>
+<li><p><strong>Flexible:</strong> Allows custom PDFs and arbitrary loss functions.</p></li>
+</ul>
+</section>
+</section>
+<section id="agenda">
+<h2>Agenda<a class="headerlink" href="#agenda" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>The Basics:</strong> Spaces, Parameters, and PDFs.</p></li>
+<li><p><strong>The Fit:</strong> Unbinned Likelihoods and Minuit.</p></li>
+<li><p><strong>Visualization:</strong> Data, Models, and Pull Plots.</p></li>
+<li><p><strong>Extended Likelihoods:</strong> Fitting Yields.</p></li>
+<li><p><strong>Constraints:</strong> Handling Systematic Uncertainties.</p></li>
+<li><p><strong>Simultaneous Fits:</strong> Signal + Control Regions.</p></li>
+<li><p><strong>2D Fits:</strong> Correlations.</p></li>
+</ol>
+<section id="setup-and-imports">
+<h3>0. Setup and Imports<a class="headerlink" href="#setup-and-imports" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># need to install zfit mplhep</span>
+
+<span class="kn">import</span> <span class="nn">zfit</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">mplhep</span> <span class="k">as</span> <span class="nn">hep</span>
+
+<span class="c1"># Set HEP plotting style (optional but looks nice)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="n">hep</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">ROOT</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;zfit version: </span><span class="si">{</span><span class="n">zfit</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;numpy version: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/homebrew/Caskroom/miniconda/base/envs/jlab/lib/python3.13/site-packages/zfit/__init__.py:93: UserWarning: TensorFlow warnings are by default suppressed by zfit. In order to show them, set the environment variable ZFIT_DISABLE_TF_WARNINGS=0. In order to suppress the TensorFlow warnings AND this warning, set ZFIT_DISABLE_TF_WARNINGS=1.
+  warnings.warn(
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="the-building-blocks">
+<h2>1. The Building Blocks<a class="headerlink" href="#the-building-blocks" title="Link to this heading">#</a></h2>
+<p>In zfit, everything is an object. We need to define the “Universe” our physics lives in before we can do anything.</p>
+<section id="the-observable-space-zfit-space">
+<h3>1.1 The Observable Space (<code class="docutils literal notranslate"><span class="pre">zfit.Space</span></code>)<a class="headerlink" href="#the-observable-space-zfit-space" title="Link to this heading">#</a></h3>
+<p>The domain of definition for our PDF. If we fit a mass peak, this is the mass range.</p>
+<div class="math notranslate nohighlight">
+\[ \text{Observable} \in [\text{min}, \text{max}] \]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the B meson mass range</span>
+<span class="n">obs</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Space</span><span class="p">(</span><span class="s2">&quot;mass&quot;</span><span class="p">,</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">6000</span><span class="p">))</span> <span class="c1"># MeV</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="parameters-zfit-parameter">
+<h3>1.2 Parameters (<code class="docutils literal notranslate"><span class="pre">zfit.Parameter</span></code>)<a class="headerlink" href="#parameters-zfit-parameter" title="Link to this heading">#</a></h3>
+<p>Variables that the fitter can change (float) or that we keep constant (fix).</p>
+<p>Syntax: <code class="docutils literal notranslate"><span class="pre">zfit.Parameter(name,</span> <span class="pre">value,</span> <span class="pre">[lower,</span> <span class="pre">upper],</span> <span class="pre">[step_size])</span></code></p>
+<ul class="simple">
+<li><p>If limits are provided, the parameter is <strong>floating</strong> (fits can change it).</p></li>
+<li><p>If limits are <code class="docutils literal notranslate"><span class="pre">None</span></code> (or not provided), the parameter is <strong>fixed</strong>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Signal parameters (Gaussian)</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s2">&quot;mu&quot;</span><span class="p">,</span> <span class="mi">5279</span><span class="p">,</span> <span class="mi">5200</span><span class="p">,</span> <span class="mi">5350</span><span class="p">)</span>     <span class="c1"># Floating</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s2">&quot;sigma&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>     <span class="c1"># Floating</span>
+
+<span class="c1"># Background parameters (Exponential)</span>
+<span class="n">lam</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s2">&quot;lambda&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.002</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># Floating</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="probability-density-functions-pdfs">
+<h3>1.3 Probability Density Functions (PDFs)<a class="headerlink" href="#probability-density-functions-pdfs" title="Link to this heading">#</a></h3>
+<p>zfit provides standard shapes in <code class="docutils literal notranslate"><span class="pre">zfit.pdf</span></code> (Gauss, CrystalBall, Exponential, Voigt, etc.).</p>
+<p>We will build a simple <strong>Signal + Background</strong> model.</p>
+<div class="math notranslate nohighlight">
+\[ PDF_{total}(x) = f_{sig} \cdot G(x; \mu, \sigma) + (1 - f_{sig}) \cdot E(x; \lambda) \]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create component PDFs</span>
+<span class="n">signal_pdf</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">Gauss</span><span class="p">(</span><span class="n">mu</span><span class="o">=</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">sigma</span><span class="p">,</span> <span class="n">obs</span><span class="o">=</span><span class="n">obs</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Signal&quot;</span><span class="p">)</span>
+<span class="n">bkg_pdf</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">Exponential</span><span class="p">(</span><span class="n">lambda_</span><span class="o">=</span><span class="n">lam</span><span class="p">,</span> <span class="n">obs</span><span class="o">=</span><span class="n">obs</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Background&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create the combined model</span>
+<span class="n">frac</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s2">&quot;frac&quot;</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># 30% signal fraction guess</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">SumPDF</span><span class="p">([</span><span class="n">signal_pdf</span><span class="p">,</span> <span class="n">bkg_pdf</span><span class="p">],</span> <span class="n">fracs</span><span class="o">=</span><span class="n">frac</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="generating-data">
+<h3>1.4 Generating Data<a class="headerlink" href="#generating-data" title="Link to this heading">#</a></h3>
+<p>For this exercise, we will generate “Toy MC” data from the model itself. In a real analysis, you would load this from a ROOT file or Pandas DataFrame.</p>
+<p>Note: We can fix the parameters temporarily to generate “True” data, then randomize them before fitting.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set &quot;True&quot; values for generation</span>
+<span class="n">mu</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="mi">5280</span><span class="p">)</span>
+<span class="n">sigma</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">lam</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="o">-</span><span class="mf">0.003</span><span class="p">)</span>
+<span class="n">frac</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="c1"># Sample 5000 events</span>
+<span class="n">n_events</span> <span class="o">=</span> <span class="mi">5000</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n_events</span><span class="p">)</span>
+
+<span class="c1"># Convert to numpy for basic plotting</span>
+<span class="n">data_np</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Generated </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data_np</span><span class="p">)</span><span class="si">}</span><span class="s2"> events.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Simple check</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data_np</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="the-fit-unbinned-likelihood">
+<h2>2. The Fit (Unbinned Likelihood)<a class="headerlink" href="#the-fit-unbinned-likelihood" title="Link to this heading">#</a></h2>
+<section id="theory-recap">
+<h3>2.1 Theory Recap<a class="headerlink" href="#theory-recap" title="Link to this heading">#</a></h3>
+<p>We use the <strong>Unbinned Negative Log-Likelihood (NLL)</strong>.</p>
+<div class="math notranslate nohighlight">
+\[ -\ln \mathcal{L}(\theta) = - \sum_{i=1}^{N} \ln P(x_i; \theta) \]</div>
+<p>Minimizing this quantity yields the best estimators for parameters <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Randomize parameters so the fit has work to do</span>
+<span class="n">mu</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="mi">5250</span><span class="p">)</span>
+<span class="n">sigma</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">lam</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="o">-</span><span class="mf">0.001</span><span class="p">)</span>
+<span class="n">frac</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># 2. Define the Loss Function</span>
+<span class="n">nll</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">loss</span><span class="o">.</span><span class="n">UnbinnedNLL</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># 3. Define the Minimizer (Minuit)</span>
+<span class="n">minimizer</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">minimize</span><span class="o">.</span><span class="n">Minuit</span><span class="p">()</span>
+
+<span class="c1"># 4. Run the minimization</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">minimizer</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">nll</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="analyzing-the-result">
+<h3>2.2 Analyzing the Result<a class="headerlink" href="#analyzing-the-result" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">result</span></code> object contains the parameter values, validity checks, and can compute errors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fit Converged: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">converged</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fit Valid: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">valid</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Compute Hessian Errors (Parabolic approximation)</span>
+<span class="n">result</span><span class="o">.</span><span class="n">hesse</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualization-best-practices">
+<h3>2.3 Visualization (Best Practices)<a class="headerlink" href="#visualization-best-practices" title="Link to this heading">#</a></h3>
+<p>A fit is worthless if you don’t check it visually. In HEP, we almost always plot:</p>
+<ol class="arabic simple">
+<li><p><strong>Data</strong> (Error bars)</p></li>
+<li><p><strong>Model</strong> (Line)</p></li>
+<li><p><strong>Pulls</strong> (Residuals normalized by error): <span class="math notranslate nohighlight">\(\frac{N_{data} - N_{model}}{\sigma}\)</span></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_fit_with_pulls</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">obs</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+    <span class="c1"># Prepare Data</span>
+    <span class="n">data_np</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+    <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span> <span class="o">=</span> <span class="n">obs</span><span class="o">.</span><span class="n">limits</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    
+    <span class="c1"># Histogram the data</span>
+    <span class="n">counts</span><span class="p">,</span> <span class="n">edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">data_np</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">))</span>
+    <span class="n">centers</span> <span class="o">=</span> <span class="p">(</span><span class="n">edges</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">edges</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">yerr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+
+    <span class="c1"># Evaluate Model</span>
+    <span class="n">x_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+    <span class="n">y_pdf</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x_plot</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+    <span class="c1"># Scale PDF to data count</span>
+    <span class="n">scale</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_np</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">upper</span> <span class="o">-</span> <span class="n">lower</span><span class="p">)</span> <span class="o">/</span> <span class="n">bins</span>
+    <span class="n">y_model</span> <span class="o">=</span> <span class="n">y_pdf</span> <span class="o">*</span> <span class="n">scale</span>
+    
+    <span class="c1"># Evaluate Model at Bin Centers for Pulls</span>
+    <span class="n">y_model_at_centers</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">centers</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="o">*</span> <span class="n">scale</span>
+    <span class="n">pulls</span> <span class="o">=</span> <span class="p">(</span><span class="n">counts</span> <span class="o">-</span> <span class="n">y_model_at_centers</span><span class="p">)</span> <span class="o">/</span> <span class="n">yerr</span>
+
+    <span class="c1"># --- Plotting ---</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">gridspec_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;height_ratios&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]})</span>
+    
+    <span class="c1"># Main Plot</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">centers</span><span class="p">,</span> <span class="n">counts</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">yerr</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;ko&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Data&quot;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_plot</span><span class="p">,</span> <span class="n">y_model</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Total Fit&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Events&quot;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    
+    <span class="c1"># Pull Plot</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">centers</span><span class="p">,</span> <span class="n">pulls</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;ko&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">fill_between</span><span class="p">([</span><span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">],</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$2\sigma$&quot;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Pull&quot;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">obs</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> [MeV]&quot;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plot_fit_with_pulls</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">obs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-1-improving-the-model">
+<h3>📝 Exercise 1: Improving the Model<a class="headerlink" href="#exercise-1-improving-the-model" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Replace the <code class="docutils literal notranslate"><span class="pre">zfit.pdf.Gauss</span></code> signal with a <code class="docutils literal notranslate"><span class="pre">zfit.pdf.CrystalBall</span></code>.</p>
+<ul class="simple">
+<li><p>You will need two new parameters: <code class="docutils literal notranslate"><span class="pre">alpha</span></code> (try ~1.0) and <code class="docutils literal notranslate"><span class="pre">n</span></code> (try ~2.0).</p></li>
+</ul>
+</li>
+<li><p>Perform the fit again.</p></li>
+<li><p>Compare the standard deviation (<code class="docutils literal notranslate"><span class="pre">sigma</span></code>) obtained from the Gaussian fit vs the CB fit.</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="extended-likelihoods-fitting-yields">
+<h2>3. Extended Likelihoods (Fitting Yields)<a class="headerlink" href="#extended-likelihoods-fitting-yields" title="Link to this heading">#</a></h2>
+<p>So far, we fitted the <strong>fraction</strong> (<code class="docutils literal notranslate"><span class="pre">frac</span></code>) of signal. The total number of events was fixed to the observed number.</p>
+<p>In physics, we want to know the <strong>Yield</strong> (<span class="math notranslate nohighlight">\(N_{sig}\)</span>, <span class="math notranslate nohighlight">\(N_{bkg}\)</span>) and its uncertainty.
+We use the <strong>Extended Likelihood</strong>, which adds a Poisson term to the NLL:</p>
+<div class="math notranslate nohighlight">
+\[ -\ln \mathcal{L}_{ext} = -\sum \ln P(x_i) + (N_{exp} - N_{obs} \ln N_{exp}) \]</div>
+<p>In zfit, we just attach a yield parameter to the PDF.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Define Yield Parameters (Floating)</span>
+<span class="n">n_sig</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s2">&quot;n_sig&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+<span class="n">n_bkg</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s2">&quot;n_bkg&quot;</span><span class="p">,</span> <span class="mi">4000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+
+<span class="c1"># 2. Extend the PDFs</span>
+<span class="c1"># Note: We don&#39;t need &#39;frac&#39; anymore. The sum is determined by n_sig + n_bkg</span>
+<span class="n">signal_ext</span> <span class="o">=</span> <span class="n">signal_pdf</span><span class="o">.</span><span class="n">create_extended</span><span class="p">(</span><span class="n">n_sig</span><span class="p">)</span>
+<span class="n">bkg_ext</span> <span class="o">=</span> <span class="n">bkg_pdf</span><span class="o">.</span><span class="n">create_extended</span><span class="p">(</span><span class="n">n_bkg</span><span class="p">)</span>
+
+<span class="c1"># 3. Create Sum</span>
+<span class="n">model_ext</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">SumPDF</span><span class="p">([</span><span class="n">signal_ext</span><span class="p">,</span> <span class="n">bkg_ext</span><span class="p">])</span>
+
+<span class="c1"># 4. Loss (Note: ExtendedUnbinnedNLL)</span>
+<span class="n">nll_ext</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">loss</span><span class="o">.</span><span class="n">ExtendedUnbinnedNLL</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model_ext</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># 5. Fit</span>
+<span class="n">result_ext</span> <span class="o">=</span> <span class="n">minimizer</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">nll_ext</span><span class="p">)</span>
+<span class="n">result_ext</span><span class="o">.</span><span class="n">hesse</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result_ext</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="exercise-2-uncertainty-scaling">
+<h3>📝 Exercise 2: Uncertainty Scaling<a class="headerlink" href="#exercise-2-uncertainty-scaling" title="Link to this heading">#</a></h3>
+<p>In a simple counting experiment, the error on <span class="math notranslate nohighlight">\(N\)</span> is <span class="math notranslate nohighlight">\(\sqrt{N}\)</span>.</p>
+<ol class="arabic simple">
+<li><p>Check the error on <code class="docutils literal notranslate"><span class="pre">n_sig</span></code> from the fit output.</p></li>
+<li><p>Is it larger or smaller than <span class="math notranslate nohighlight">\(\sqrt{N_{sig}}\)</span>?</p></li>
+<li><p><strong>Thought experiment:</strong> Why is it different? (Hint: Does the background shape look like the signal?)</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="constraints-systematics">
+<h2>4. Constraints (Systematics)<a class="headerlink" href="#constraints-systematics" title="Link to this heading">#</a></h2>
+<p>Often, we know something about a parameter from an external source (e.g., the Jet Energy Scale is known to 1%). We can add this information as a <strong>Constraint</strong>.</p>
+<p>Mathematically, this multiplies the Likelihood by a Gaussian:
+$<span class="math notranslate nohighlight">\( \mathcal{L}_{total} = \mathcal{L}_{data} \times G(\theta; \mu_{ext}, \sigma_{ext}) \)</span>$</p>
+<p>Let’s assume we have a theoretical prediction for the background slope <code class="docutils literal notranslate"><span class="pre">lambda</span></code> = -0.003 +/- 0.0001.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Define the Constraint</span>
+<span class="c1"># We constraint the parameter &#39;lam&#39; to -0.003 with width 0.0001</span>
+<span class="n">constraint</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">constraint</span><span class="o">.</span><span class="n">GaussianConstraint</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="n">lam</span><span class="p">,</span> <span class="n">observation</span><span class="o">=-</span><span class="mf">0.003</span><span class="p">,</span> <span class="n">uncertainty</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">)</span>
+
+<span class="c1"># 2. Add to Loss</span>
+<span class="c1"># Constraints are just added to the likelihood</span>
+<span class="n">nll_constrained</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">loss</span><span class="o">.</span><span class="n">ExtendedUnbinnedNLL</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model_ext</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="n">constraint</span><span class="p">)</span>
+
+<span class="c1"># 3. Fit</span>
+<span class="n">result_c</span> <span class="o">=</span> <span class="n">minimizer</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">nll_constrained</span><span class="p">)</span>
+<span class="n">result_c</span><span class="o">.</span><span class="n">hesse</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fitted lambda without constraint: </span><span class="si">{</span><span class="n">result_ext</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="n">lam</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2"> +/- </span><span class="si">{</span><span class="n">result_ext</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="n">lam</span><span class="p">][</span><span class="s1">&#39;minuit_hesse&#39;</span><span class="p">][</span><span class="s1">&#39;error&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fitted lambda WITH constraint:    </span><span class="si">{</span><span class="n">result_c</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="n">lam</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2"> +/- </span><span class="si">{</span><span class="n">result_c</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="n">lam</span><span class="p">][</span><span class="s1">&#39;minuit_hesse&#39;</span><span class="p">][</span><span class="s1">&#39;error&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note how the error on <code class="docutils literal notranslate"><span class="pre">lambda</span></code> decreases, and this might propagate to improve the error on <code class="docutils literal notranslate"><span class="pre">n_sig</span></code>!</p>
+</section>
+<hr class="docutils" />
+<section id="simultaneous-fits-signal-control-regions">
+<h2>5. Simultaneous Fits (Signal + Control Regions)<a class="headerlink" href="#simultaneous-fits-signal-control-regions" title="Link to this heading">#</a></h2>
+<p>One of the most powerful techniques in HEP.
+Imagine we have:</p>
+<ol class="arabic simple">
+<li><p><strong>Signal Region (SR):</strong> Has Signal and Background.</p></li>
+<li><p><strong>Control Region (CR):</strong> Has <strong>only</strong> Background (e.g., sideband, or failing a cut).</p></li>
+</ol>
+<p>If the background shape is the same in both (e.g. same exponential slope <span class="math notranslate nohighlight">\(\lambda\)</span>), we can fit them <strong>simultaneously</strong> to constrain the background much better.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- 1. Setup Data ---</span>
+<span class="c1"># SR Data is &#39;data&#39; (already generated)</span>
+
+<span class="c1"># CR Data: Create a new dataset that is PURE background, but shares the same physics (same lambda)</span>
+<span class="c1"># Let&#39;s assume CR has 2000 events</span>
+<span class="n">obs_cr</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Space</span><span class="p">(</span><span class="s2">&quot;mass_cr&quot;</span><span class="p">,</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">6000</span><span class="p">))</span>
+<span class="n">bkg_cr_gen</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">Exponential</span><span class="p">(</span><span class="n">lambda_</span><span class="o">=-</span><span class="mf">0.003</span><span class="p">,</span> <span class="n">obs</span><span class="o">=</span><span class="n">obs_cr</span><span class="p">)</span> <span class="c1"># Use true lambda</span>
+<span class="n">data_cr</span> <span class="o">=</span> <span class="n">bkg_cr_gen</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
+
+<span class="c1"># --- 2. Setup Models ---</span>
+
+<span class="c1"># Shared Parameter (Slope)</span>
+<span class="n">lambda_shared</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s2">&quot;lambda_shared&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.002</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># SR Model (Sig + Bkg)</span>
+<span class="n">sig_sr</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">Gauss</span><span class="p">(</span><span class="n">mu</span><span class="o">=</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">sigma</span><span class="p">,</span> <span class="n">obs</span><span class="o">=</span><span class="n">obs</span><span class="p">)</span>
+<span class="n">bkg_sr</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">Exponential</span><span class="p">(</span><span class="n">lambda_</span><span class="o">=</span><span class="n">lambda_shared</span><span class="p">,</span> <span class="n">obs</span><span class="o">=</span><span class="n">obs</span><span class="p">)</span> <span class="c1"># Uses shared</span>
+<span class="n">model_sr</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">SumPDF</span><span class="p">([</span><span class="n">sig_sr</span><span class="p">,</span> <span class="n">bkg_sr</span><span class="p">],</span> <span class="n">fracs</span><span class="o">=</span><span class="n">frac</span><span class="p">)</span>
+
+<span class="c1"># CR Model (Bkg only)</span>
+<span class="n">model_cr</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">Exponential</span><span class="p">(</span><span class="n">lambda_</span><span class="o">=</span><span class="n">lambda_shared</span><span class="p">,</span> <span class="n">obs</span><span class="o">=</span><span class="n">obs_cr</span><span class="p">)</span> <span class="c1"># Uses shared</span>
+
+<span class="c1"># --- 3. Combined Loss ---</span>
+<span class="n">nll_sr</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">loss</span><span class="o">.</span><span class="n">UnbinnedNLL</span><span class="p">(</span><span class="n">model_sr</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="n">nll_cr</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">loss</span><span class="o">.</span><span class="n">UnbinnedNLL</span><span class="p">(</span><span class="n">model_cr</span><span class="p">,</span> <span class="n">data_cr</span><span class="p">)</span>
+
+<span class="n">simultaneous_nll</span> <span class="o">=</span> <span class="n">nll_sr</span> <span class="o">+</span> <span class="n">nll_cr</span>
+
+<span class="c1"># --- 4. Fit ---</span>
+<span class="n">result_sim</span> <span class="o">=</span> <span class="n">minimizer</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">simultaneous_nll</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result_sim</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="exercise-3-shared-resolution">
+<h3>📝 Exercise 3: Shared Resolution<a class="headerlink" href="#exercise-3-shared-resolution" title="Link to this heading">#</a></h3>
+<p>Imagine you have a <span class="math notranslate nohighlight">\(J/\psi \to \mu\mu\)</span> calibration channel.</p>
+<ol class="arabic simple">
+<li><p>Generate a calibration dataset (Pure Gaussian, mean=3100, sigma=25).</p></li>
+<li><p>Set up a simultaneous fit with your Signal Region.</p></li>
+<li><p>Share the <code class="docutils literal notranslate"><span class="pre">sigma</span></code> parameter between the Signal Region and the Calibration Channel.</p></li>
+<li><p>See how this constrains the width of your signal peak.</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="d-fits">
+<h2>6. 2D Fits<a class="headerlink" href="#d-fits" title="Link to this heading">#</a></h2>
+<p>Sometimes, Signal and Background overlap completely in Mass, but separate in another variable (e.g., Decay Time).</p>
+<p>If variables are uncorrelated: <span class="math notranslate nohighlight">\(PDF(x, y) = PDF(x) \times PDF(y)\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Define Spaces</span>
+<span class="n">mass</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Space</span><span class="p">(</span><span class="s2">&quot;mass&quot;</span><span class="p">,</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">6000</span><span class="p">))</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Space</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+
+<span class="c1"># 2. Parameters</span>
+<span class="n">tau_sig</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s2">&quot;tau_sig&quot;</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">)</span>
+<span class="n">tau_bkg</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s2">&quot;tau_bkg&quot;</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+
+<span class="c1"># 3. PDFs</span>
+<span class="c1"># Mass</span>
+<span class="n">sig_m</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">Gauss</span><span class="p">(</span><span class="n">mu</span><span class="o">=</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">sigma</span><span class="p">,</span> <span class="n">obs</span><span class="o">=</span><span class="n">mass</span><span class="p">)</span>
+<span class="n">bkg_m</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">Exponential</span><span class="p">(</span><span class="n">lambda_</span><span class="o">=</span><span class="n">lam</span><span class="p">,</span> <span class="n">obs</span><span class="o">=</span><span class="n">mass</span><span class="p">)</span>
+
+<span class="c1"># Time</span>
+<span class="n">sig_t</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">Exponential</span><span class="p">(</span><span class="n">lambda_</span><span class="o">=-</span><span class="mi">1</span><span class="o">/</span><span class="n">tau_sig</span><span class="p">,</span> <span class="n">obs</span><span class="o">=</span><span class="n">time</span><span class="p">)</span>
+<span class="n">bkg_t</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">Exponential</span><span class="p">(</span><span class="n">lambda_</span><span class="o">=-</span><span class="mi">1</span><span class="o">/</span><span class="n">tau_bkg</span><span class="p">,</span> <span class="n">obs</span><span class="o">=</span><span class="n">time</span><span class="p">)</span>
+
+<span class="c1"># 4. Product PDFs (2D)</span>
+<span class="n">sig_2d</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">ProductPDF</span><span class="p">([</span><span class="n">sig_m</span><span class="p">,</span> <span class="n">sig_t</span><span class="p">])</span>
+<span class="n">bkg_2d</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">ProductPDF</span><span class="p">([</span><span class="n">bkg_m</span><span class="p">,</span> <span class="n">bkg_t</span><span class="p">])</span>
+
+<span class="c1"># 5. Total Model</span>
+<span class="n">model_2d</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">SumPDF</span><span class="p">([</span><span class="n">sig_2d</span><span class="p">,</span> <span class="n">bkg_2d</span><span class="p">],</span> <span class="n">fracs</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># 6. Generate 2D Data</span>
+<span class="n">data_2d</span> <span class="o">=</span> <span class="n">model_2d</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+
+<span class="c1"># 7. Fit</span>
+<span class="n">nll_2d</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">loss</span><span class="o">.</span><span class="n">UnbinnedNLL</span><span class="p">(</span><span class="n">model_2d</span><span class="p">,</span> <span class="n">data_2d</span><span class="p">)</span>
+<span class="n">result_2d</span> <span class="o">=</span> <span class="n">minimizer</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">nll_2d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result_2d</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Quick visualization of 2D data</span>
+<span class="n">data_np_2d</span> <span class="o">=</span> <span class="n">data_2d</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist2d</span><span class="p">(</span><span class="n">data_np_2d</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data_np_2d</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Mass&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;2D Data Distribution&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="conclusion-further-steps">
+<h2>Conclusion &amp; Further Steps<a class="headerlink" href="#conclusion-further-steps" title="Link to this heading">#</a></h2>
+<p>In this session, we transitioned from basic Python to full HEP-style fitting.</p>
+<p><strong>Summary of Tools:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">zfit.Space</span></code>: Define your physics bounds.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zfit.Parameter</span></code>: Handle what floats and what is fixed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ExtendedUnbinnedNLL</span></code>: For fitting yields.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Simultaneous</span> <span class="pre">Fit</span></code>: Combine SR and CR.</p></li>
+</ul>
+<p><strong>Challenge:</strong>
+Try to implement a <strong>Conditional PDF</strong> where the width <span class="math notranslate nohighlight">\(\sigma\)</span> depends on the error of the event <span class="math notranslate nohighlight">\(\sigma = \sigma_{event} \times S_{scale}\)</span>.</p>
+<p>Good luck with your physics analysis!</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-zfit">Why zfit?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agenda">Agenda</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-and-imports">0. Setup and Imports</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-building-blocks">1. The Building Blocks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-observable-space-zfit-space">1.1 The Observable Space (<code class="docutils literal notranslate"><span class="pre">zfit.Space</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-zfit-parameter">1.2 Parameters (<code class="docutils literal notranslate"><span class="pre">zfit.Parameter</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-density-functions-pdfs">1.3 Probability Density Functions (PDFs)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-data">1.4 Generating Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fit-unbinned-likelihood">2. The Fit (Unbinned Likelihood)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theory-recap">2.1 Theory Recap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-the-result">2.2 Analyzing the Result</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-best-practices">2.3 Visualization (Best Practices)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-improving-the-model">📝 Exercise 1: Improving the Model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extended-likelihoods-fitting-yields">3. Extended Likelihoods (Fitting Yields)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-uncertainty-scaling">📝 Exercise 2: Uncertainty Scaling</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constraints-systematics">4. Constraints (Systematics)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simultaneous-fits-signal-control-regions">5. Simultaneous Fits (Signal + Control Regions)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-shared-resolution">📝 Exercise 3: Shared Resolution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-fits">6. 2D Fits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-further-steps">Conclusion &amp; Further Steps</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By José Ángel Hernando Morata, Xabier Cid Vidal
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright USC - J.A. Hernando, X. Cid Vidal - 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

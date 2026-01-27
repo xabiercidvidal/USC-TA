@@ -434,7 +434,7 @@
 </div>
 </div>
 </div>
-<p>**About **</p>
+<p><strong>About</strong></p>
 <p>These lectures are about statistical method for rare event searches in Particle Physics using Python.</p>
 <p>They cover Hypothesis Testing and Confidence Intervals. They are based on the excellent lectures on statistics by Prosper (<a class="reference external" href="https://indico.cern.ch/event/358542">lectures</a>, <a class="reference external" href="https://arxiv.org/pdf/1504.00945.pdf">pdf</a>), Cowan (<a class="reference external" href="http://indico.cern.ch/event/173726/">lectures</a>) and Cramer (<a class="reference external" href="https://indico.cern.ch/event/48425/">lectures</a>) given at CERN Academic Training.</p>
 <p>We will use the Python scientic toolkits, Matplotlib, Numpy, Scipy, that are distributed with Anaconda Python.</p>
@@ -451,7 +451,7 @@
 <p>In fact, <em>what does it mean discovery, observation, a limit, a confidence interval?</em></p>
 <p>And, <em>how do we compute them from data?</em></p>
 <p>These are the question we try to answer in these lectures.</p>
-<p>We will discovery that we need to cover three issues:</p>
+<p>We will find out that we need to cover three issues:</p>
 <ul class="simple">
 <li><p>Hypothesis Testing</p></li>
 <li><p>Confidence Interval</p></li>
@@ -459,13 +459,14 @@
 </ul>
 <p>They seem different but they are not!</p>
 <p>We start with <strong>simple hypothesis</strong>, <span class="math notranslate nohighlight">\(H_1\)</span> (i.e BSM) to be confronted with the current accepted hypothesis, <span class="math notranslate nohighlight">\(H_0\)</span>, (called null, i.e SM).</p>
-<p>Soon we realize that in general the alternative hypothesis depends on a <strong>strength parameter</strong> <span class="math notranslate nohighlight">\(\mu\)</span>, that is, <span class="math notranslate nohighlight">\(H_1(\mu)\)</span>. For example the half-lifetime of <span class="math notranslate nohighlight">\(\beta\beta0\nu\)</span> decay. This is called <strong>composite hypothesis</strong>.</p>
+<p>Soon we realize that in general the alternative hypothesis depends on a <strong>strength parameter</strong> <span class="math notranslate nohighlight">\(\mu\)</span>, that is, <span class="math notranslate nohighlight">\(H_1(\mu)\)</span>. For example the half-lifetime of a nuclear decay. This is called <strong>composite hypothesis</strong>.</p>
 <p>And then we are back to estimate the region of the parameter <span class="math notranslate nohighlight">\(\mu\)</span> “compatible” with data, <span class="math notranslate nohighlight">\(x\)</span>, in other words, to define some <strong>confidence interval</strong>, which in most cases implies to estimate the parameter, <span class="math notranslate nohighlight">\(\hat{\mu}\)</span>, that is <strong>regression</strong>.</p>
 <p>The starting point is a bifurcation: either we follow a <strong>Bayes</strong> or a <strong>Frequentist</strong> path.</p>
-<p>Be a Bayesian usually implies do <strong>integration</strong> (sometime complicated integrals!).</p>
-<p>Be a frequentist implies usually either do regression (fits!) or do <strong>simulations</strong>.
+<p>Being a Bayesian usually implies doing <strong>integrations</strong> (sometime complicated integrals!).</p>
+<p>Being a frequentist implies usually either doing regression (fits!) or doing <strong>simulations</strong>.
 But thanks to the current computer power, we can play the <strong>frequentist game</strong>!</p>
-<p>In this lectures we will use Python (in fact, scipy, numpy and mathplotlib) for our (mostly) frequentist journey!</p>
+<p>In these lectures we will use Python (in fact,  <em>scipy</em>,  <em>numpy</em> and  <em>mathplotlib</em>) for our (mostly) frequentist journey!</p>
+<p>On top of this, we will discuss how to interpret our data better. We will use the power of advance fitting to find out how to distinguish the different components present in our datasets (e.g., signal from background). For this, we will again make use of Python, and libraries such as <em>zfit</em>.</p>
 <p>But let’s start with refreshing some basic ideas about probability density functions, likelihoods and posterior probabilities.</p>
 </section>
 <hr class="docutils" />
@@ -476,6 +477,7 @@ But thanks to the current computer power, we can play the <strong>frequentist ga
 <li><p><a class="reference internal" href="ta_hypothesis_test.html"><span class="std std-doc">Simple hypothesis testings</span></a></p></li>
 <li><p><a class="reference internal" href="ta_confidence_intervals.html"><span class="std std-doc">Confidence Intervals</span></a></p></li>
 <li><p><a class="reference internal" href="ta_hypothesis_test_composite.html"><span class="std std-doc">Composite hypothesis testing</span></a></p></li>
+<li><p>Advanced fitting with zfit</p></li>
 </ul>
 </section>
 <hr class="docutils" />
