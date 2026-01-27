@@ -3,7 +3,7 @@
 ## Master en Física
 ## Técnicas de Analisis. Métodos Estadísticos
 ### author: J. A. Hernando, X. Cid Vidal
-### date  : February 2025
+### date  : January 2026
 
 
 This repository contains Python-Notebooks and Python code for the lectures
