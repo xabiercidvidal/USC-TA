@@ -435,7 +435,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Last Execution  Wed Jan 28 15:04:10 2026
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Last Execution  Thu Jan 29 15:46:33 2026
 </pre></div>
 </div>
 </div>
@@ -482,13 +482,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>observed data : [1.10122519]
-H0 p-value    : 0.13539933
-H1 p-value    : 0.00004834
-CLs           : 0.00005591 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>observed data : [0.60064585]
+H0 p-value    : 0.27403795
+H1 p-value    : 0.00000543
+CLs           : 0.00000748 
 </pre></div>
 </div>
-<img alt="_images/2109daf033c25b3127799b450132e59b8ae329672e59807fe69466badb016001.png" src="_images/2109daf033c25b3127799b450132e59b8ae329672e59807fe69466badb016001.png" />
+<img alt="_images/548aea0fb5b4188ec3126e77d1e6d2ffcf28e68bc7caa6f0fd3bc5b7fd6b6224.png" src="_images/548aea0fb5b4188ec3126e77d1e6d2ffcf28e68bc7caa6f0fd3bc5b7fd6b6224.png" />
 </div>
 </div>
 <p>The <span class="math notranslate nohighlight">\(x\)</span> axis in this case allows us to quantify the “distance” between hypotheses. To the left it is more <span class="math notranslate nohighlight">\(H_0\)</span>-like, to the right more <span class="math notranslate nohighlight">\(H_1\)</span>-like.</p>
@@ -557,19 +557,14 @@ and <span class="math notranslate nohighlight">\(H_1\)</span> again a gaussian d
              <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;$q(x|H_1)$&#39;</span><span class="p">,</span> <span class="n">histtype</span> <span class="o">=</span> <span class="s1">&#39;step&#39;</span><span class="p">);</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$q(x)$&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$g(q|x)$&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span> 
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q0s</span><span class="p">,</span> <span class="n">q1s</span> <span class="o">=</span> <span class="n">two_gaussian</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mf">1e6</span><span class="p">)</span>
+
+<span class="n">q0s</span><span class="p">,</span> <span class="n">q1s</span> <span class="o">=</span> <span class="n">two_gaussian</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mf">1e6</span><span class="p">)</span>
 <span class="n">plt_test_stats</span><span class="p">(</span><span class="n">q0s</span><span class="p">,</span> <span class="n">q1s</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2402c1cea639888e09f36b148a9ee685f5b2ce48ebff1c05cbc07836905e925d.png" src="_images/2402c1cea639888e09f36b148a9ee685f5b2ce48ebff1c05cbc07836905e925d.png" />
+<img alt="_images/df1f504822272b0933fac9c952fce60007f1baa2b42dae76cc321732e063dbdb.png" src="_images/df1f504822272b0933fac9c952fce60007f1baa2b42dae76cc321732e063dbdb.png" />
 </div>
 </div>
 <p><strong>Question:</strong> Consider that we measure <span class="math notranslate nohighlight">\(q(x) = -10\)</span>, what can you say about <span class="math notranslate nohighlight">\(H_1\)</span>? And if we measure <span class="math notranslate nohighlight">\(q(x) = 30\)</span>?</p>
@@ -588,13 +583,13 @@ and <span class="math notranslate nohighlight">\(H_1\)</span> again a gaussian d
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>observed data : 11
-H0 p-value    : 0.00029234
-H1 p-value    : 0.69677615
-CLs           : 0.69682589 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>observed data : 10
+H0 p-value    : 0.00110249
+H1 p-value    : 0.58303975
+CLs           : 0.58321024 
 </pre></div>
 </div>
-<img alt="_images/c0a558b3fdbcb480f532752705f1ad3a66fca43fdbc0fe4daf57575c5e5f2032.png" src="_images/c0a558b3fdbcb480f532752705f1ad3a66fca43fdbc0fe4daf57575c5e5f2032.png" />
+<img alt="_images/32133b81dc06129800e82953192cd731f2cff631905fbd10ad678a8fb84e490c.png" src="_images/32133b81dc06129800e82953192cd731f2cff631905fbd10ad678a8fb84e490c.png" />
 </div>
 </div>
 <p><strong>Class exercise</strong>: Consider now a poisson distribution with <span class="math notranslate nohighlight">\(\mu_0 = b\)</span> for <span class="math notranslate nohighlight">\(H_0\)</span> and  another poisson distribution with <span class="math notranslate nohighlight">\(\mu_1 = b + s\)</span> for <span class="math notranslate nohighlight">\(H_1\)</span>, consider <span class="math notranslate nohighlight">\(b=3, s=2\)</span>. Obtain the pdfs of the test-statistics, <span class="math notranslate nohighlight">\(g(q| H_0), \; g(q | H_1)\)</span>.</p>
@@ -620,7 +615,7 @@ Consider a <strong>hypothetical search for a new particle</strong> at the <stron
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/09fe2c13e462804f2df750a456723740885f49a9f9a46fdf60a99334b3052b1e.png" src="_images/09fe2c13e462804f2df750a456723740885f49a9f9a46fdf60a99334b3052b1e.png" />
+<img alt="_images/992d17294a4f17eb6a1296067c630c038d4958ee6d8d1e8cf5eaa2b5927f8f6b.png" src="_images/992d17294a4f17eb6a1296067c630c038d4958ee6d8d1e8cf5eaa2b5927f8f6b.png" />
 </div>
 </div>
 <p><strong>Class exercise</strong>: Consider a counting experiment with four independent bins. The background for <span class="math notranslate nohighlight">\(H_0\)</span> is poisson distributed in each bin with <span class="math notranslate nohighlight">\({\bf b} = (2, 1.5, 1, 0.5)\)</span> and <span class="math notranslate nohighlight">\(H_1\)</span> a signal, is also poisson distributed on top of the background <span class="math notranslate nohighlight">\({\bf b} + {\bf s}\)</span> with <span class="math notranslate nohighlight">\({\bf s} = (1, 3, 3, 1)\)</span>. Obtain the pdfs of the test-statistics <span class="math notranslate nohighlight">\(g(q|H_0), \; g(q |H_1)\)</span>.</p>
@@ -681,13 +676,13 @@ q(x) &lt; k
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>observed data : [-0.58352369]
-H0 p-value    : 0.72022959
-H1 p-value    : 0.00016950
-CLs           : 0.00060584 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>observed data : [-0.90524769]
+H0 p-value    : 0.81733291
+H1 p-value    : 0.00004706
+CLs           : 0.00025765 
 </pre></div>
 </div>
-<img alt="_images/d706618762a4930c78ced09a729dda511939a82aa1bab8f04bc77745acaf476b.png" src="_images/d706618762a4930c78ced09a729dda511939a82aa1bab8f04bc77745acaf476b.png" />
+<img alt="_images/b04cdb6adc307e40df93655822205ac1c265f0fee20065bef9db925de2befd1b.png" src="_images/b04cdb6adc307e40df93655822205ac1c265f0fee20065bef9db925de2befd1b.png" />
 </div>
 </div>
 <p>We call the RoC curve the efficiency (or power or <span class="math notranslate nohighlight">\(1 - \beta\)</span>), vs rejection (or 1-<span class="math notranslate nohighlight">\(\alpha\)</span>) of the background. This is usually the plot that shows the discrimination power of the test-statistics.</p>
@@ -709,7 +704,7 @@ CLs           : 0.00060584
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/dcae11207321dd67b07c2b549510ddb13fea5a5564306a4f01e3df1743e18c77.png" src="_images/dcae11207321dd67b07c2b549510ddb13fea5a5564306a4f01e3df1743e18c77.png" />
+<img alt="_images/15ff41789366209cd438079a687b75d158b893379907681521cb8283010c2cc6.png" src="_images/15ff41789366209cd438079a687b75d158b893379907681521cb8283010c2cc6.png" />
 </div>
 </div>
 </section>
@@ -860,10 +855,10 @@ CLs           : 0.66718373
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>test statistics q-value 1 -0.7644339286872333
-test statistics p-value 1 0.0595
+test statistics p-value 1 0.0586
 </pre></div>
 </div>
-<img alt="_images/d8ff779575642ccb089531a1dc4d47b21ddc0661ce91c27e874f540c4fa946c9.png" src="_images/d8ff779575642ccb089531a1dc4d47b21ddc0661ce91c27e874f540c4fa946c9.png" />
+<img alt="_images/30ff795ecb5f772b507deb74ece87a763e1cbaa31042ac91d874ee336319c347.png" src="_images/30ff795ecb5f772b507deb74ece87a763e1cbaa31042ac91d874ee336319c347.png" />
 </div>
 </div>
 <p>The <a class="reference external" href="https://arxiv.org/abs/hep-ex/9902006">CLs method</a> was developed to prevent these cases.</p>
@@ -903,7 +898,7 @@ CL_s \equiv \frac{CL_{s+b}}{CL_b} = \frac{\beta}{1-\alpha}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/49e7304e83a19e3b775cd04e58575a6272a806825806f554cfc4c25c17a56d81.png" src="_images/49e7304e83a19e3b775cd04e58575a6272a806825806f554cfc4c25c17a56d81.png" />
+<img alt="_images/94819e2db0f45f5983f1b22ffe6dcba144ca1fd541415b02caf5acdf26a9fb80.png" src="_images/94819e2db0f45f5983f1b22ffe6dcba144ca1fd541415b02caf5acdf26a9fb80.png" />
 </div>
 </div>
 <p>In the previous example, the <span class="math notranslate nohighlight">\(H_1\)</span> p-value was 0.06, but CLs value is 0.66! Therefore, we do not exclude <span class="math notranslate nohighlight">\(H_1\)</span>.</p>

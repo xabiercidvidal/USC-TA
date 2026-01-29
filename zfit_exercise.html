@@ -1,0 +1,1106 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Data generation &#8212; Statistics for Particle Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'zfit_exercise';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Statistics for Particle Physics - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="Statistics for Particle Physics - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ta_basic_concepts.html">Revisiting the basic concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ta_hypothesis_test.html">Hypothesis testing, simple case</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ta_confidence_intervals.html">Confidence Intervals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ta_hypothesis_test_composite.html">Hypothesis testing, composite case</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercises.html">Exercises</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/xabiercidvidal/USC-TA/blob/master/docs/zfit_exercise.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/xabiercidvidal/USC-TA" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/xabiercidvidal/USC-TA/issues/new?title=Issue%20on%20page%20%2Fzfit_exercise.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/zfit_exercise.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data generation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Data generation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise:</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-1-d-s-region">Sample 1:  <span class="math notranslate nohighlight">\(D_s^+\)</span> Region</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-2-d-region">Sample 2:  <span class="math notranslate nohighlight">\(D^+\)</span> Region</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tasks">Tasks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="data-generation">
+<h1>Data generation<a class="headerlink" href="#data-generation" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## common parameters and imports</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">zfit</span>
+<span class="kn">import</span> <span class="nn">mplhep</span> <span class="k">as</span> <span class="nn">hep</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="c1"># Set a seed for reproducibility (so every student gets the same data)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># --- Configuration ---</span>
+<span class="c1"># True Physics Parameters</span>
+<span class="n">BR_true</span> <span class="o">=</span> <span class="mf">5.8e-6</span> 
+<span class="n">alpha_Ds</span> <span class="o">=</span> <span class="mf">2.5e-9</span>
+<span class="n">alpha_Dp</span> <span class="o">=</span> <span class="mf">8.0e-9</span>
+
+<span class="c1"># Yields</span>
+<span class="n">N_sig_Ds</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">BR_true</span> <span class="o">/</span> <span class="n">alpha_Ds</span><span class="p">)</span> <span class="c1"># ~2320 events</span>
+<span class="n">N_sig_Dp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">BR_true</span> <span class="o">/</span> <span class="n">alpha_Dp</span><span class="p">)</span> <span class="c1"># ~725 events</span>
+
+<span class="c1"># Mass Parameters (MeV)</span>
+<span class="n">m_Ds</span> <span class="o">=</span> <span class="mf">1968.0</span>
+<span class="n">m_Dp</span> <span class="o">=</span> <span class="mf">1869.6</span>
+<span class="n">m_eta</span> <span class="o">=</span> <span class="mf">547.8</span>
+
+<span class="c1"># Resolution (sigma)</span>
+<span class="n">sigma_D</span> <span class="o">=</span> <span class="mf">15.0</span>
+<span class="n">sigma_eta</span> <span class="o">=</span> <span class="mf">10.0</span>
+
+<span class="c1"># Background Slopes (Exponential index)</span>
+<span class="n">slope_Ds_D</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.002</span>
+<span class="n">slope_Dp_D</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.003</span>
+<span class="n">slope_eta</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.005</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_Ds_sample</span><span class="p">(</span><span class="n">n_sig</span><span class="p">,</span> <span class="n">n_comb</span><span class="p">,</span> <span class="n">n_peaking</span><span class="p">):</span>
+    <span class="c1"># 1. Signal (Ds -&gt; eta pi): Gaussian(Ds) * Gaussian(eta)</span>
+    <span class="n">sig_mD</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">m_Ds</span><span class="p">,</span> <span class="n">sigma_D</span><span class="p">,</span> <span class="n">n_sig</span><span class="p">)</span>
+    <span class="n">sig_mEta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">m_eta</span><span class="p">,</span> <span class="n">sigma_eta</span><span class="p">,</span> <span class="n">n_sig</span><span class="p">)</span>
+    
+    <span class="c1"># 2. Combinatorial Bkg: Exponential(Ds) * Exponential(eta)</span>
+    <span class="n">bkg_mD</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">slope_Ds_D</span><span class="p">,</span> <span class="n">n_comb</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1800</span>
+    <span class="n">bkg_mD</span> <span class="o">=</span> <span class="n">bkg_mD</span><span class="p">[(</span><span class="n">bkg_mD</span> <span class="o">&gt;</span> <span class="mi">1800</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">bkg_mD</span> <span class="o">&lt;</span> <span class="mi">2100</span><span class="p">)][:</span><span class="n">n_comb</span><span class="p">]</span>
+    
+    <span class="n">bkg_mEta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">slope_eta</span><span class="p">,</span> <span class="n">n_comb</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="mi">500</span>
+    <span class="n">bkg_mEta</span> <span class="o">=</span> <span class="n">bkg_mEta</span><span class="p">[(</span><span class="n">bkg_mEta</span> <span class="o">&gt;</span> <span class="mi">500</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">bkg_mEta</span> <span class="o">&lt;</span> <span class="mi">600</span><span class="p">)][:</span><span class="n">n_comb</span><span class="p">]</span>
+    
+    <span class="c1"># 3. Peaking Bkg (Real eta, Fake Ds): Exponential(Ds) * Gaussian(eta)</span>
+    <span class="n">peak_mD</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">slope_Ds_D</span><span class="p">,</span> <span class="n">n_peaking</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1800</span>
+    <span class="n">peak_mD</span> <span class="o">=</span> <span class="n">peak_mD</span><span class="p">[(</span><span class="n">peak_mD</span> <span class="o">&gt;</span> <span class="mi">1800</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">peak_mD</span> <span class="o">&lt;</span> <span class="mi">2100</span><span class="p">)][:</span><span class="n">n_peaking</span><span class="p">]</span>
+    <span class="n">peak_mEta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">m_eta</span><span class="p">,</span> <span class="n">sigma_eta</span><span class="p">,</span> <span class="n">n_peaking</span><span class="p">)</span>
+    
+    <span class="c1"># Combine</span>
+    <span class="n">mD</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">sig_mD</span><span class="p">,</span> <span class="n">bkg_mD</span><span class="p">,</span> <span class="n">peak_mD</span><span class="p">])</span>
+    <span class="n">mEta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">sig_mEta</span><span class="p">,</span> <span class="n">bkg_mEta</span><span class="p">,</span> <span class="n">peak_mEta</span><span class="p">])</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;mass_D&quot;</span><span class="p">:</span> <span class="n">mD</span><span class="p">,</span> <span class="s2">&quot;mass_eta&quot;</span><span class="p">:</span> <span class="n">mEta</span><span class="p">})</span>
+    <span class="c1"># Shuffle</span>
+    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">generate_Dp_sample</span><span class="p">(</span><span class="n">n_sig</span><span class="p">,</span> <span class="n">n_comb</span><span class="p">,</span> <span class="n">n_peaking</span><span class="p">):</span>
+    <span class="c1"># 1. Signal (D+ -&gt; eta pi): Gaussian(Dp) * Gaussian(eta)</span>
+    <span class="n">sig_mD</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">m_Dp</span><span class="p">,</span> <span class="n">sigma_D</span><span class="p">,</span> <span class="n">n_sig</span><span class="p">)</span>
+    <span class="n">sig_mEta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">m_eta</span><span class="p">,</span> <span class="n">sigma_eta</span><span class="p">,</span> <span class="n">n_sig</span><span class="p">)</span>
+    
+    <span class="c1"># 2. Combinatorial Bkg: Exponential(Dp) * Exponential(eta)</span>
+    <span class="n">bkg_mD</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">slope_Dp_D</span><span class="p">,</span> <span class="n">n_comb</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1800</span>
+    <span class="n">bkg_mD</span> <span class="o">=</span> <span class="n">bkg_mD</span><span class="p">[(</span><span class="n">bkg_mD</span> <span class="o">&gt;</span> <span class="mi">1800</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">bkg_mD</span> <span class="o">&lt;</span> <span class="mi">2100</span><span class="p">)][:</span><span class="n">n_comb</span><span class="p">]</span>
+    
+    <span class="n">bkg_mEta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">slope_eta</span><span class="p">,</span> <span class="n">n_comb</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="mi">500</span>
+    <span class="n">bkg_mEta</span> <span class="o">=</span> <span class="n">bkg_mEta</span><span class="p">[(</span><span class="n">bkg_mEta</span> <span class="o">&gt;</span> <span class="mi">500</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">bkg_mEta</span> <span class="o">&lt;</span> <span class="mi">600</span><span class="p">)][:</span><span class="n">n_comb</span><span class="p">]</span>
+    
+    <span class="c1"># 3. Peaking Bkg (Real D+, Fake eta): Gaussian(Dp) * Exponential(eta)</span>
+    <span class="n">peak_mD</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">m_Dp</span><span class="p">,</span> <span class="n">sigma_D</span><span class="p">,</span> <span class="n">n_peaking</span><span class="p">)</span>
+    <span class="n">peak_mEta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">slope_eta</span><span class="p">,</span> <span class="n">n_peaking</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="mi">500</span>
+    <span class="n">peak_mEta</span> <span class="o">=</span> <span class="n">peak_mEta</span><span class="p">[(</span><span class="n">peak_mEta</span> <span class="o">&gt;</span> <span class="mi">500</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">peak_mEta</span> <span class="o">&lt;</span> <span class="mi">600</span><span class="p">)][:</span><span class="n">n_peaking</span><span class="p">]</span>
+    
+    <span class="c1"># Combine</span>
+    <span class="n">mD</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">sig_mD</span><span class="p">,</span> <span class="n">bkg_mD</span><span class="p">,</span> <span class="n">peak_mD</span><span class="p">])</span>
+    <span class="n">mEta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">sig_mEta</span><span class="p">,</span> <span class="n">bkg_mEta</span><span class="p">,</span> <span class="n">peak_mEta</span><span class="p">])</span>
+    
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;mass_D&quot;</span><span class="p">:</span> <span class="n">mD</span><span class="p">,</span> <span class="s2">&quot;mass_eta&quot;</span><span class="p">:</span> <span class="n">mEta</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Generate and Save</span>
+<span class="n">df_Ds</span> <span class="o">=</span> <span class="n">generate_Ds_sample</span><span class="p">(</span><span class="n">n_sig</span><span class="o">=</span><span class="n">N_sig_Ds</span><span class="p">,</span> <span class="n">n_comb</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">n_peaking</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">df_Dp</span> <span class="o">=</span> <span class="n">generate_Dp_sample</span><span class="p">(</span><span class="n">n_sig</span><span class="o">=</span><span class="n">N_sig_Dp</span><span class="p">,</span> <span class="n">n_comb</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">n_peaking</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+
+<span class="n">df_Ds</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;dataset_Ds.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df_Dp</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;dataset_Dp.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Datasets generated:</span><span class="se">\n</span><span class="s2">- dataset_Ds.csv (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df_Ds</span><span class="p">)</span><span class="si">}</span><span class="s2"> events)</span><span class="se">\n</span><span class="s2">- dataset_Dp.csv (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df_Dp</span><span class="p">)</span><span class="si">}</span><span class="s2"> events)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Datasets generated:
+- dataset_Ds.csv (5820 events)
+- dataset_Dp.csv (3125 events)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="exercise">
+<h1>Exercise:<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h1>
+<p>You are analyzing data from a high-energy physics experiment (like LHCb). You are studying the rare decay of charmed mesons into an <span class="math notranslate nohighlight">\(\eta\)</span> meson and a pion:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(D_s^+ \to \eta \pi^+\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(D^+ \to \eta \pi^+\)</span></p></li>
+</ol>
+<p>In both cases, the  meson is reconstructed via its dimuon decay mode: : <span class="math notranslate nohighlight">\(\eta \to \mu^+ \mu^-\)</span>.
+Your physics objective is to measure the branching ratio <span class="math notranslate nohighlight">\(\mathcal{B}(\eta \to \mu^+\mu^-)\)</span>.
+This branching ratio is a fundamental constant of nature and must be the <strong>same</strong> regardless of whether the <span class="math notranslate nohighlight">\(\eta\)</span> meson came from a  <span class="math notranslate nohighlight">\(D_s^+\)</span> or a <span class="math notranslate nohighlight">\(D^+\)</span>.</p>
+<p>You have two datasets: <code class="docutils literal notranslate"><span class="pre">dataset_Ds.csv</span></code> and <code class="docutils literal notranslate"><span class="pre">dataset_Dp.csv</span></code>.</p>
+<ul class="simple">
+<li><p><strong>Sample A (<span class="math notranslate nohighlight">\(D^+_s\)</span>):</strong> Events selected near the <span class="math notranslate nohighlight">\(D_s^+\)</span> mass.</p></li>
+<li><p><strong>Sample B (<span class="math notranslate nohighlight">\(D^+\)</span>):</strong> Events selected near the <span class="math notranslate nohighlight">\(D^+\)</span> mass.</p></li>
+</ul>
+<p>Instead of fitting <span class="math notranslate nohighlight">\(N_{sig}\)</span> independently and calculating the Branching Ratio (BR) offline, you will perform a Simultaneous Fit to both samples. You will parameterize the signal yield <span class="math notranslate nohighlight">\(N_{sig}\)</span> in the fit directly as a function of the physics parameter <span class="math notranslate nohighlight">\(\mathcal{B}(\eta \to \mu\mu)\)</span> and a normalization factor <span class="math notranslate nohighlight">\(\alpha\)</span> (which includes luminosity, cross-section, and efficiency).</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{B}(\eta \to \mu\mu) = N_{sig} \cdot \alpha \quad \Rightarrow \quad N_{sig}(\mathcal{B}) = \frac{\mathcal{B}}{\alpha}\]</div>
+<p>You are given the sensitivity factors <span class="math notranslate nohighlight">\(\alpha\)</span> for each channel:</p>
+<p><span class="math notranslate nohighlight">\(\alpha_{D_s} = 2.5 \times 10^{-5}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\alpha_{D^+} = 8.0 \times 10^{-5}\)</span></p>
+<p>You are dealing with a 2D problem. The observables are:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mass_D</span></code>: The invariant mass of the  <span class="math notranslate nohighlight">\(\mu\mu\pi\)</span> system.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mass_eta</span></code>: The invariant mass of the  <span class="math notranslate nohighlight">\(\mu\mu\)</span> system.</p></li>
+</ol>
+<p>This sample contains three components:</p>
+<section id="sample-1-d-s-region">
+<h2>Sample 1:  <span class="math notranslate nohighlight">\(D_s^+\)</span> Region<a class="headerlink" href="#sample-1-d-s-region" title="Link to this heading">#</a></h2>
+<p>This sample contains three components:</p>
+<ol class="arabic simple">
+<li><p><strong>Signal (<span class="math notranslate nohighlight">\(D^+_s \to \eta \pi\)</span>):</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mass_D</span></code>: Gaussian (Peak at <span class="math notranslate nohighlight">\(m_{D^+_s}\)</span>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mass_eta</span></code>: Gaussian (Peak at <span class="math notranslate nohighlight">\(m_\eta\)</span>).</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p><strong>Combinatorial Background:</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mass_D</span></code>: Exponential.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mass_eta</span></code>: Exponential.</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p><strong>Real <span class="math notranslate nohighlight">\(\eta\)</span> Background (Fake <span class="math notranslate nohighlight">\(D^+_s\)</span>)</strong>:
+Contains a real <span class="math notranslate nohighlight">\(\eta\)</span>, but combined with a random pion:</p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mass_D</span></code>: Exponential  (No <span class="math notranslate nohighlight">\(D^+_s\)</span> peak).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mass_eta</span></code>: Gaussian (Real <span class="math notranslate nohighlight">\(\eta\)</span> peak).</p></li>
+</ul>
+</section>
+<section id="sample-2-d-region">
+<h2>Sample 2:  <span class="math notranslate nohighlight">\(D^+\)</span> Region<a class="headerlink" href="#sample-2-d-region" title="Link to this heading">#</a></h2>
+<p>This sample contains three components:</p>
+<ol class="arabic simple">
+<li><p><strong>Signal (<span class="math notranslate nohighlight">\(D^+ \to \eta \pi\)</span>):</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mass_D</span></code>: Gaussian (Peak at <span class="math notranslate nohighlight">\(m_{D^+}\)</span>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mass_eta</span></code>: Gaussian (Peak at <span class="math notranslate nohighlight">\(m_\eta\)</span>).</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p><strong>Combinatorial Background:</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mass_D</span></code>: Exponential.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mass_eta</span></code>: Exponential.</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p><strong>Non-Resonant Background (Real <span class="math notranslate nohighlight">\(D^+\)</span>):</strong>
+Contains a real <span class="math notranslate nohighlight">\(D^+ \to \mu\mu\pi\)</span> decay, but the muons are not from an <span class="math notranslate nohighlight">\(\eta\)</span> meson.</p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mass_D</span></code>: Gaussian (Real <span class="math notranslate nohighlight">\(D^+\)</span> peak).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mass_eta</span></code>: Exponential (No <span class="math notranslate nohighlight">\(\eta\)</span> peak).</p></li>
+</ul>
+</section>
+<section id="tasks">
+<h2>Tasks<a class="headerlink" href="#tasks" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Model Building:</strong> Construct the 2D PDFs for all 6 components (3 for , 3 for ) using <code class="docutils literal notranslate"><span class="pre">zfit</span></code>. Try to discuss the <em>meaning</em> or <em>origin</em> of each of the components mentioned above.
+<em>Hint:</em> The Signal and the ``Real’’ background must share the same  mass shape parameters. The centers of the gaussians should be roughly the masses of the relevant particles. You can assume their widths to the be in the range of 5-20 MeV. The background slopes are small and negative, in the <span class="math notranslate nohighlight">\((-10^{-2},-10^{-3})\)</span> range.</p></li>
+<li><p><strong>Parameterization:</strong> Create a shared parameter <code class="docutils literal notranslate"><span class="pre">BR_eta_mumu</span></code>. Define the signal yields for both samples as composed parameters dependent on this BR.</p></li>
+<li><p><strong>Simultaneous Fit:</strong> Perform a simultaneous fit to both datasets.</p></li>
+<li><p><strong>Validation:</strong> Plot the projections of the fit (Mass  and Mass ) for both samples.</p></li>
+<li><p><strong>Result:</strong> Result: Report the fitted value of <span class="math notranslate nohighlight">\(\mathcal{B}(\eta \to \mu\mu)\)</span> and its uncertainty. Does it cover the true value?</p></li>
+<li><p><strong>Discuss:</strong> How does the precision you achieve in the BR compare to the current world best? How would you improve it? Is there any effect going into the BR uncertainty you are missing?</p></li>
+</ol>
+</section>
+<section id="analysis">
+<h2>Analysis<a class="headerlink" href="#analysis" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ==========================================</span>
+<span class="c1"># Import datasets</span>
+<span class="c1"># ==========================================</span>
+
+<span class="c1"># Define the Observable Spaces</span>
+<span class="n">obs_D</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Space</span><span class="p">(</span><span class="s2">&quot;mass_D&quot;</span><span class="p">,</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">1800</span><span class="p">,</span> <span class="mi">2100</span><span class="p">))</span>
+<span class="n">obs_eta</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Space</span><span class="p">(</span><span class="s2">&quot;mass_eta&quot;</span><span class="p">,</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">600</span><span class="p">))</span>
+<span class="n">obs_2D</span> <span class="o">=</span> <span class="n">obs_D</span> <span class="o">*</span> <span class="n">obs_eta</span>
+
+<span class="c1"># Convert to zfit Data</span>
+<span class="n">data_Ds</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Data</span><span class="o">.</span><span class="n">from_pandas</span><span class="p">(</span><span class="n">df_Ds</span><span class="p">,</span> <span class="n">obs</span><span class="o">=</span><span class="n">obs_2D</span><span class="p">)</span>
+<span class="n">data_Dp</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Data</span><span class="o">.</span><span class="n">from_pandas</span><span class="p">(</span><span class="n">df_Dp</span><span class="p">,</span> <span class="n">obs</span><span class="o">=</span><span class="n">obs_2D</span><span class="p">)</span>
+
+<span class="c1"># Convert to zfit Data</span>
+<span class="n">data_Ds</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Data</span><span class="o">.</span><span class="n">from_pandas</span><span class="p">(</span><span class="n">df_Ds</span><span class="p">,</span> <span class="n">obs</span><span class="o">=</span><span class="n">obs_2D</span><span class="p">)</span>
+<span class="n">data_Dp</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Data</span><span class="o">.</span><span class="n">from_pandas</span><span class="p">(</span><span class="n">df_Dp</span><span class="p">,</span> <span class="n">obs</span><span class="o">=</span><span class="n">obs_2D</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loaded Ds events: </span><span class="si">{</span><span class="n">data_Ds</span><span class="o">.</span><span class="n">n_events</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loaded D+ events: </span><span class="si">{</span><span class="n">data_Dp</span><span class="o">.</span><span class="n">n_events</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Set plotting style</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="n">hep</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">ROOT</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loaded Ds events: 5820
+Loaded D+ events: 3125
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ==========================================</span>
+<span class="c1"># Model Building</span>
+<span class="c1"># ==========================================</span>
+
+<span class="c1"># --- Shared Parameters ---</span>
+<span class="c1"># The Parameter of Interest: Branching Ratio</span>
+<span class="n">br_eta_mumu</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s2">&quot;BR_eta_mumu&quot;</span><span class="p">,</span> <span class="mf">6e-6</span><span class="p">,</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="mf">1e-5</span><span class="p">)</span>
+
+<span class="c1"># D mass shapes</span>
+<span class="n">mu_Ds</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s2">&quot;mu_Ds&quot;</span><span class="p">,</span> <span class="mi">1968</span><span class="p">,</span> <span class="mi">1950</span><span class="p">,</span> <span class="mi">1980</span><span class="p">)</span>
+<span class="n">sigma_Ds</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s2">&quot;sigma_Ds&quot;</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">lam_Ds_bkg</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s2">&quot;lam_Ds_bkg&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.002</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># D mass shapes</span>
+<span class="n">mu_Dp</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s2">&quot;mu_Dp&quot;</span><span class="p">,</span> <span class="mi">1870</span><span class="p">,</span> <span class="mi">1850</span><span class="p">,</span> <span class="mi">1890</span><span class="p">)</span>
+<span class="n">sigma_Dp</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s2">&quot;sigma_Dp&quot;</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">lam_Dp_bkg</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s2">&quot;lam_Dp_bkg&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.003</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">pdf_Dp_gauss</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">Gauss</span><span class="p">(</span><span class="n">mu</span><span class="o">=</span><span class="n">mu_Dp</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">sigma_Dp</span><span class="p">,</span> <span class="n">obs</span><span class="o">=</span><span class="n">obs_D</span><span class="p">)</span>
+<span class="n">pdf_Dp_exp</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">Exponential</span><span class="p">(</span><span class="n">lambda_</span><span class="o">=</span><span class="n">lam_Dp_bkg</span><span class="p">,</span> <span class="n">obs</span><span class="o">=</span><span class="n">obs_D</span><span class="p">)</span>
+
+<span class="n">pdf_Ds_gauss</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">Gauss</span><span class="p">(</span><span class="n">mu</span><span class="o">=</span><span class="n">mu_Ds</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">sigma_Ds</span><span class="p">,</span> <span class="n">obs</span><span class="o">=</span><span class="n">obs_D</span><span class="p">)</span>
+<span class="n">pdf_Ds_exp</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">Exponential</span><span class="p">(</span><span class="n">lambda_</span><span class="o">=</span><span class="n">lam_Ds_bkg</span><span class="p">,</span> <span class="n">obs</span><span class="o">=</span><span class="n">obs_D</span><span class="p">)</span>
+
+<span class="c1"># Shared Eta shape parameters (Resolution is detector driven, should be same)</span>
+<span class="n">mu_eta</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s2">&quot;mu_eta&quot;</span><span class="p">,</span> <span class="mi">548</span><span class="p">,</span> <span class="mi">540</span><span class="p">,</span> <span class="mi">560</span><span class="p">)</span>
+<span class="n">sigma_eta</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s2">&quot;sigma_eta&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># Define eta PDF (reused multiple times)</span>
+<span class="n">pdf_eta_gauss</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">Gauss</span><span class="p">(</span><span class="n">mu</span><span class="o">=</span><span class="n">mu_eta</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">sigma_eta</span><span class="p">,</span> <span class="n">obs</span><span class="o">=</span><span class="n">obs_eta</span><span class="p">)</span>
+<span class="n">pdf_eta_exp_Ds</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">Exponential</span><span class="p">(</span><span class="n">lambda_</span><span class="o">=</span><span class="n">zfit</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s2">&quot;lam_eta_Ds&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.005</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">obs</span><span class="o">=</span><span class="n">obs_eta</span><span class="p">)</span>
+<span class="n">pdf_eta_exp_Dp</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">Exponential</span><span class="p">(</span><span class="n">lambda_</span><span class="o">=</span><span class="n">zfit</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s2">&quot;lam_eta_Dp&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.005</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">obs</span><span class="o">=</span><span class="n">obs_eta</span><span class="p">)</span>
+
+<span class="c1"># --- Sample 1: Ds Model ---</span>
+
+<span class="c1"># 1. Define Components (Standard PDFs)</span>
+<span class="n">sig_Ds_2D</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">ProductPDF</span><span class="p">([</span><span class="n">pdf_Ds_gauss</span><span class="p">,</span> <span class="n">pdf_eta_gauss</span><span class="p">])</span>
+<span class="n">comb_Ds_2D</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">ProductPDF</span><span class="p">([</span><span class="n">pdf_Ds_exp</span><span class="p">,</span> <span class="n">pdf_eta_exp_Ds</span><span class="p">])</span>
+<span class="n">fakeDs_2D</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">ProductPDF</span><span class="p">([</span><span class="n">pdf_Ds_exp</span><span class="p">,</span> <span class="n">pdf_eta_gauss</span><span class="p">])</span>
+
+<span class="c1"># 2. Define Yield Parameters</span>
+<span class="c1"># Signal yield is a function of BR!</span>
+<span class="n">n_sig_Ds</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">ComposedParameter</span><span class="p">(</span><span class="s2">&quot;n_sig_Ds&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">br</span><span class="p">:</span> <span class="n">br</span> <span class="o">/</span> <span class="n">alpha_Ds</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">br_eta_mumu</span><span class="p">)</span>
+<span class="n">n_comb_Ds</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s2">&quot;n_comb_Ds&quot;</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+<span class="n">n_fakeDs</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s2">&quot;n_fakeDs&quot;</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
+
+<span class="c1"># 3. EXTEND the components individually</span>
+<span class="n">sig_Ds_ext</span> <span class="o">=</span> <span class="n">sig_Ds_2D</span><span class="o">.</span><span class="n">create_extended</span><span class="p">(</span><span class="n">n_sig_Ds</span><span class="p">)</span>
+<span class="n">comb_Ds_ext</span> <span class="o">=</span> <span class="n">comb_Ds_2D</span><span class="o">.</span><span class="n">create_extended</span><span class="p">(</span><span class="n">n_comb_Ds</span><span class="p">)</span>
+<span class="n">fakeDs_ext</span> <span class="o">=</span> <span class="n">fakeDs_2D</span><span class="o">.</span><span class="n">create_extended</span><span class="p">(</span><span class="n">n_fakeDs</span><span class="p">)</span>
+
+<span class="c1"># 4. Sum them (zfit automatically handles the yields)</span>
+<span class="n">model_Ds</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">SumPDF</span><span class="p">([</span><span class="n">sig_Ds_ext</span><span class="p">,</span> <span class="n">comb_Ds_ext</span><span class="p">,</span> <span class="n">fakeDs_ext</span><span class="p">])</span>
+
+
+<span class="c1"># --- Sample 2: D+ Model ---</span>
+
+<span class="c1"># 1. Define Components</span>
+<span class="n">sig_Dp_2D</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">ProductPDF</span><span class="p">([</span><span class="n">pdf_Dp_gauss</span><span class="p">,</span> <span class="n">pdf_eta_gauss</span><span class="p">])</span>
+<span class="n">comb_Dp_2D</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">ProductPDF</span><span class="p">([</span><span class="n">pdf_Dp_exp</span><span class="p">,</span> <span class="n">pdf_eta_exp_Dp</span><span class="p">])</span>
+<span class="n">fakeEta_2D</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">ProductPDF</span><span class="p">([</span><span class="n">pdf_Dp_gauss</span><span class="p">,</span> <span class="n">pdf_eta_exp_Dp</span><span class="p">])</span>
+
+<span class="c1"># 2. Define Yield Parameters</span>
+<span class="n">n_sig_Dp</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">ComposedParameter</span><span class="p">(</span><span class="s2">&quot;n_sig_Dp&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">br</span><span class="p">:</span> <span class="n">br</span> <span class="o">/</span> <span class="n">alpha_Dp</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">br_eta_mumu</span><span class="p">)</span>
+<span class="n">n_comb_Dp</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s2">&quot;n_comb_Dp&quot;</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+<span class="n">n_fakeEta</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s2">&quot;n_fakeEta&quot;</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
+
+<span class="c1"># 3. EXTEND the components individually</span>
+<span class="n">sig_Dp_ext</span> <span class="o">=</span> <span class="n">sig_Dp_2D</span><span class="o">.</span><span class="n">create_extended</span><span class="p">(</span><span class="n">n_sig_Dp</span><span class="p">)</span>
+<span class="n">comb_Dp_ext</span> <span class="o">=</span> <span class="n">comb_Dp_2D</span><span class="o">.</span><span class="n">create_extended</span><span class="p">(</span><span class="n">n_comb_Dp</span><span class="p">)</span>
+<span class="n">fakeEta_ext</span> <span class="o">=</span> <span class="n">fakeEta_2D</span><span class="o">.</span><span class="n">create_extended</span><span class="p">(</span><span class="n">n_fakeEta</span><span class="p">)</span>
+
+<span class="c1"># 4. Sum them</span>
+<span class="n">model_Dp</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">SumPDF</span><span class="p">([</span><span class="n">sig_Dp_ext</span><span class="p">,</span> <span class="n">comb_Dp_ext</span><span class="p">,</span> <span class="n">fakeEta_ext</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/rx/82jfsqxj6ms7ll1_lj0dmr5r0000gq/T/ipykernel_90885/694317539.py:48: UserWarning: As `copy` is not yet properly implemented, this may fails (for ProductPDF for example?). Thiswill be fixed in the future.
+  sig_Ds_ext = sig_Ds_2D.create_extended(n_sig_Ds)
+/var/folders/rx/82jfsqxj6ms7ll1_lj0dmr5r0000gq/T/ipykernel_90885/694317539.py:49: UserWarning: As `copy` is not yet properly implemented, this may fails (for ProductPDF for example?). Thiswill be fixed in the future.
+  comb_Ds_ext = comb_Ds_2D.create_extended(n_comb_Ds)
+/var/folders/rx/82jfsqxj6ms7ll1_lj0dmr5r0000gq/T/ipykernel_90885/694317539.py:50: UserWarning: As `copy` is not yet properly implemented, this may fails (for ProductPDF for example?). Thiswill be fixed in the future.
+  fakeDs_ext = fakeDs_2D.create_extended(n_fakeDs)
+/var/folders/rx/82jfsqxj6ms7ll1_lj0dmr5r0000gq/T/ipykernel_90885/694317539.py:69: UserWarning: As `copy` is not yet properly implemented, this may fails (for ProductPDF for example?). Thiswill be fixed in the future.
+  sig_Dp_ext = sig_Dp_2D.create_extended(n_sig_Dp)
+/var/folders/rx/82jfsqxj6ms7ll1_lj0dmr5r0000gq/T/ipykernel_90885/694317539.py:70: UserWarning: As `copy` is not yet properly implemented, this may fails (for ProductPDF for example?). Thiswill be fixed in the future.
+  comb_Dp_ext = comb_Dp_2D.create_extended(n_comb_Dp)
+/var/folders/rx/82jfsqxj6ms7ll1_lj0dmr5r0000gq/T/ipykernel_90885/694317539.py:71: UserWarning: As `copy` is not yet properly implemented, this may fails (for ProductPDF for example?). Thiswill be fixed in the future.
+  fakeEta_ext = fakeEta_2D.create_extended(n_fakeEta)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ==========================================</span>
+<span class="c1"># Simultaneous Fit</span>
+<span class="c1"># ==========================================</span>
+
+<span class="c1"># Create constraints (optional, e.g., if we knew alpha uncertainty)</span>
+<span class="c1"># Here we just assume alphas are exact constants</span>
+
+<span class="c1"># Create Simultaneous Loss</span>
+<span class="n">nll_Ds</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">loss</span><span class="o">.</span><span class="n">ExtendedUnbinnedNLL</span><span class="p">(</span><span class="n">model_Ds</span><span class="p">,</span> <span class="n">data_Ds</span><span class="p">)</span>
+<span class="n">nll_Dp</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">loss</span><span class="o">.</span><span class="n">ExtendedUnbinnedNLL</span><span class="p">(</span><span class="n">model_Dp</span><span class="p">,</span> <span class="n">data_Dp</span><span class="p">)</span>
+<span class="n">simul_nll</span> <span class="o">=</span> <span class="n">nll_Ds</span> <span class="o">+</span> <span class="n">nll_Dp</span>
+
+<span class="c1"># Minimizer</span>
+<span class="n">minimizer</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">minimize</span><span class="o">.</span><span class="n">Minuit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting Minimization...&quot;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">minimizer</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">simul_nll</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Converged: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">converged</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Valid: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">valid</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Error estimation</span>
+<span class="n">result</span><span class="o">.</span><span class="n">hesse</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Starting Minimization...
+Converged: True
+Valid: True
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&lt;zfit.Parameter &#39;BR_eta_mumu&#39; floating=True value=5.843e-06&gt;: {&#39;error&#39;: np.float64(1.285789206733119e-07),
+  &#39;cl&#39;: 0.68268949,
+  &#39;weightcorr&#39;: &lt;WeightCorr.FALSE: False&gt;},
+ &lt;zfit.Parameter &#39;n_comb_Ds&#39; floating=True value=2995&gt;: {&#39;error&#39;: np.float64(72.39653003040432),
+  &#39;cl&#39;: 0.68268949,
+  &#39;weightcorr&#39;: &lt;WeightCorr.FALSE: False&gt;},
+ &lt;zfit.Parameter &#39;n_fakeDs&#39; floating=True value=476.4&gt;: {&#39;error&#39;: np.float64(54.6105467876018),
+  &#39;cl&#39;: 0.68268949,
+  &#39;weightcorr&#39;: &lt;WeightCorr.FALSE: False&gt;},
+ &lt;zfit.Parameter &#39;mu_Ds&#39; floating=True value=1968&gt;: {&#39;error&#39;: np.float64(0.37880453868886993),
+  &#39;cl&#39;: 0.68268949,
+  &#39;weightcorr&#39;: &lt;WeightCorr.FALSE: False&gt;},
+ &lt;zfit.Parameter &#39;sigma_Ds&#39; floating=True value=15.1&gt;: {&#39;error&#39;: np.float64(0.3272761746359562),
+  &#39;cl&#39;: 0.68268949,
+  &#39;weightcorr&#39;: &lt;WeightCorr.FALSE: False&gt;},
+ &lt;zfit.Parameter &#39;mu_eta&#39; floating=True value=547.7&gt;: {&#39;error&#39;: np.float64(0.21668669056455242),
+  &#39;cl&#39;: 0.68268949,
+  &#39;weightcorr&#39;: &lt;WeightCorr.FALSE: False&gt;},
+ &lt;zfit.Parameter &#39;sigma_eta&#39; floating=True value=10.07&gt;: {&#39;error&#39;: np.float64(0.18428556533362817),
+  &#39;cl&#39;: 0.68268949,
+  &#39;weightcorr&#39;: &lt;WeightCorr.FALSE: False&gt;},
+ &lt;zfit.Parameter &#39;lam_Ds_bkg&#39; floating=True value=-0.001864&gt;: {&#39;error&#39;: np.float64(0.00020133039214838305),
+  &#39;cl&#39;: 0.68268949,
+  &#39;weightcorr&#39;: &lt;WeightCorr.FALSE: False&gt;},
+ &lt;zfit.Parameter &#39;lam_eta_Ds&#39; floating=True value=-0.005116&gt;: {&#39;error&#39;: np.float64(0.0006560148706026886),
+  &#39;cl&#39;: 0.68268949,
+  &#39;weightcorr&#39;: &lt;WeightCorr.FALSE: False&gt;},
+ &lt;zfit.Parameter &#39;n_comb_Dp&#39; floating=True value=2004&gt;: {&#39;error&#39;: np.float64(56.259983866174515),
+  &#39;cl&#39;: 0.68268949,
+  &#39;weightcorr&#39;: &lt;WeightCorr.FALSE: False&gt;},
+ &lt;zfit.Parameter &#39;n_fakeEta&#39; floating=True value=401.1&gt;: {&#39;error&#39;: np.float64(42.93602631018019),
+  &#39;cl&#39;: 0.68268949,
+  &#39;weightcorr&#39;: &lt;WeightCorr.FALSE: False&gt;},
+ &lt;zfit.Parameter &#39;mu_Dp&#39; floating=True value=1869&gt;: {&#39;error&#39;: np.float64(0.5947037903506792),
+  &#39;cl&#39;: 0.68268949,
+  &#39;weightcorr&#39;: &lt;WeightCorr.FALSE: False&gt;},
+ &lt;zfit.Parameter &#39;sigma_Dp&#39; floating=True value=14.49&gt;: {&#39;error&#39;: np.float64(0.5589732514585241),
+  &#39;cl&#39;: 0.68268949,
+  &#39;weightcorr&#39;: &lt;WeightCorr.FALSE: False&gt;},
+ &lt;zfit.Parameter &#39;lam_Dp_bkg&#39; floating=True value=-0.003702&gt;: {&#39;error&#39;: np.float64(0.0002980576594696255),
+  &#39;cl&#39;: 0.68268949,
+  &#39;weightcorr&#39;: &lt;WeightCorr.FALSE: False&gt;},
+ &lt;zfit.Parameter &#39;lam_eta_Dp&#39; floating=True value=-0.005003&gt;: {&#39;error&#39;: np.float64(0.000719834159418631),
+  &#39;cl&#39;: 0.68268949,
+  &#39;weightcorr&#39;: &lt;WeightCorr.FALSE: False&gt;}}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ==========================================</span>
+<span class="c1"># Results &amp; Plotting</span>
+<span class="c1"># ==========================================</span>
+
+<span class="n">br_val</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="n">br_eta_mumu</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">]</span>
+<span class="n">br_err</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="n">br_eta_mumu</span><span class="p">][</span><span class="s1">&#39;hesse&#39;</span><span class="p">][</span><span class="s1">&#39;error&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">40</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;True BR:   </span><span class="si">{</span><span class="n">BR_true</span><span class="si">:</span><span class="s2">.2e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fitted BR: </span><span class="si">{</span><span class="n">br_val</span><span class="si">:</span><span class="s2">.2e</span><span class="si">}</span><span class="s2"> +/- </span><span class="si">{</span><span class="n">br_err</span><span class="si">:</span><span class="s2">.2e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dev (sig): </span><span class="si">{</span><span class="p">(</span><span class="n">br_val</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">BR_true</span><span class="p">)</span><span class="o">/</span><span class="n">br_err</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> sigma&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">40</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># --- Plotting Function ---</span>
+<span class="k">def</span> <span class="nf">plot_projection</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">obs</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">40</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    
+    <span class="c1"># 1. Robustly extract limits</span>
+    <span class="c1"># obs.rect_limits returns (lower_array, upper_array)</span>
+    <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span> <span class="o">=</span> <span class="n">obs</span><span class="o">.</span><span class="n">rect_limits</span>
+    <span class="c1"># Convert to standard python floats to avoid numpy shape issues</span>
+    <span class="n">xmin</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">lower</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">xmax</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">upper</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">plot_range</span> <span class="o">=</span> <span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">)</span>
+
+    <span class="c1"># 2. Extract Data</span>
+    <span class="c1"># Use the observable name to access the column safely</span>
+    <span class="c1"># .numpy() returns shape (N, 1), so we flatten it to shape (N,)</span>
+    <span class="n">data_np</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">obs</span><span class="o">.</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+    <span class="c1"># 3. Histogram Data</span>
+    <span class="n">Y</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">data_np</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="n">plot_range</span><span class="p">)</span>
+    <span class="n">X_centers</span> <span class="o">=</span> <span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">X</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
+    <span class="n">err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">X_centers</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">err</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;k.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Data&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># 4. Model Projection</span>
+    <span class="n">x_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+    
+    <span class="c1"># Create projection on the specific observable</span>
+    <span class="n">model_proj</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">create_projection</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
+    <span class="n">y_pdf</span> <span class="o">=</span> <span class="n">model_proj</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x_plot</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+    
+    <span class="c1"># 5. Scale the PDF</span>
+    <span class="c1"># For extended fits, the pdf is normalized to 1, so we scale by Yield * BinWidth.</span>
+    <span class="c1"># We try to get the fitted yield from the model; fallback to data count if needed.</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Attempt to get the integral of the extended model</span>
+        <span class="n">total_yield</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_yield</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="c1"># Fallback if model structure is complex</span>
+        <span class="n">total_yield</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">n_events</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+
+    <span class="n">bin_width</span> <span class="o">=</span> <span class="p">(</span><span class="n">xmax</span> <span class="o">-</span> <span class="n">xmin</span><span class="p">)</span> <span class="o">/</span> <span class="n">bins</span>
+    <span class="n">y_plot</span> <span class="o">=</span> <span class="n">y_pdf</span> <span class="o">*</span> <span class="n">total_yield</span> <span class="o">*</span> <span class="n">bin_width</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_plot</span><span class="p">,</span> <span class="n">y_plot</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Total Fit&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">obs</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Events&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># Plot Projections</span>
+<span class="n">plot_projection</span><span class="p">(</span><span class="n">model_Ds</span><span class="p">,</span> <span class="n">data_Ds</span><span class="p">,</span> <span class="n">obs_D</span><span class="p">,</span> <span class="s2">&quot;Ds Sample: D Mass Projection&quot;</span><span class="p">)</span>
+<span class="n">plot_projection</span><span class="p">(</span><span class="n">model_Ds</span><span class="p">,</span> <span class="n">data_Ds</span><span class="p">,</span> <span class="n">obs_eta</span><span class="p">,</span> <span class="s2">&quot;Ds Sample: Eta Mass Projection&quot;</span><span class="p">)</span>
+
+<span class="n">plot_projection</span><span class="p">(</span><span class="n">model_Dp</span><span class="p">,</span> <span class="n">data_Dp</span><span class="p">,</span> <span class="n">obs_D</span><span class="p">,</span> <span class="s2">&quot;D+ Sample: D Mass Projection&quot;</span><span class="p">)</span>
+<span class="n">plot_projection</span><span class="p">(</span><span class="n">model_Dp</span><span class="p">,</span> <span class="n">data_Dp</span><span class="p">,</span> <span class="n">obs_eta</span><span class="p">,</span> <span class="s2">&quot;D+ Sample: Eta Mass Projection&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>========================================
+True BR:   5.80e-06
+Fitted BR: 5.84e-06 +/- 1.29e-07
+Dev (sig): 0.33 sigma
+========================================
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ObsIncompatibleError</span><span class="g g-Whitespace">                      </span>Traceback (most recent call last)
+<span class="nn">File ~/Library/Python/3.9/lib/python/site-packages/zfit/core/data.py:1111,</span> in <span class="ni">Data.__getitem__</span><span class="nt">(self, item)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1110</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1111</span>     <span class="n">value</span> <span class="o">=</span> <span class="n">getitem_obs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1112</span> <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">errorobs</span><span class="p">:</span>
+
+<span class="nn">File ~/Library/Python/3.9/lib/python/site-packages/zfit/core/data.py:1183,</span> in <span class="ni">getitem_obs</span><span class="nt">(self, item)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1182</span>     <span class="n">item</span> <span class="o">=</span> <span class="n">convert_to_obs_str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1183</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+<span class="nn">File ~/Library/Python/3.9/lib/python/site-packages/zfit/core/data.py:980,</span> in <span class="ni">Data.value</span><span class="nt">(self, obs, axis)</span>
+<span class="g g-Whitespace">    </span><span class="mi">979</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">980</span>     <span class="n">indices</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">space</span><span class="o">.</span><span class="n">with_obs</span><span class="p">(</span><span class="n">obs</span><span class="o">=</span><span class="n">obs</span><span class="p">)</span><span class="o">.</span><span class="n">axes</span>
+<span class="g g-Whitespace">    </span><span class="mi">981</span> <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span>
+
+<span class="nn">File ~/Library/Python/3.9/lib/python/site-packages/zfit/core/space.py:1936,</span> in <span class="ni">Space.with_obs</span><span class="nt">(self, obs, allow_superset, allow_subset)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1935</span> <span class="n">obs</span> <span class="o">=</span> <span class="n">_convert_obs_to_str</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1936</span> <span class="n">coords</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">with_obs</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">allow_superset</span><span class="o">=</span><span class="n">allow_superset</span><span class="p">,</span> <span class="n">allow_subset</span><span class="o">=</span><span class="n">allow_subset</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1937</span> <span class="n">binning</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">binning</span>
+
+<span class="nn">File ~/Library/Python/3.9/lib/python/site-packages/zfit/core/coordinates.py:142,</span> in <span class="ni">Coordinates.with_obs</span><span class="nt">(self, obs, allow_superset, allow_subset)</span>
+<span class="g g-Whitespace">    </span><span class="mi">141</span>     <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;The requested obs </span><span class="si">{</span><span class="n">obs</span><span class="si">}</span><span class="s2"> are not compatible with the current obs </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">obs</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">142</span>     <span class="k">raise</span> <span class="n">ObsIncompatibleError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">144</span> <span class="k">if</span> <span class="nb">frozenset</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">frozenset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obs</span><span class="p">):</span>
+
+<span class="ne">ObsIncompatibleError</span>: The requested obs (&#39;Space&#39;,) are not compatible with the current obs (&#39;mass_D&#39;, &#39;mass_eta&#39;)
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">RuntimeError</span><span class="g g-Whitespace">                              </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="n">line</span> <span class="mi">64</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span>     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">63</span> <span class="c1"># Plot Projections</span>
+<span class="ne">---&gt; </span><span class="mi">64</span> <span class="n">plot_projection</span><span class="p">(</span><span class="n">model_Ds</span><span class="p">,</span> <span class="n">data_Ds</span><span class="p">,</span> <span class="n">obs_D</span><span class="p">,</span> <span class="s2">&quot;Ds Sample: D Mass Projection&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">65</span> <span class="n">plot_projection</span><span class="p">(</span><span class="n">model_Ds</span><span class="p">,</span> <span class="n">data_Ds</span><span class="p">,</span> <span class="n">obs_eta</span><span class="p">,</span> <span class="s2">&quot;Ds Sample: Eta Mass Projection&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">67</span> <span class="n">plot_projection</span><span class="p">(</span><span class="n">model_Dp</span><span class="p">,</span> <span class="n">data_Dp</span><span class="p">,</span> <span class="n">obs_D</span><span class="p">,</span> <span class="s2">&quot;D+ Sample: D Mass Projection&quot;</span><span class="p">)</span>
+
+<span class="nn">Cell In[15], line 29,</span> in <span class="ni">plot_projection</span><span class="nt">(model, data, obs, title, bins)</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="n">plot_range</span> <span class="o">=</span> <span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="c1"># 2. Extract Data</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="c1"># Use the observable name to access the column safely</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="c1"># .numpy() returns shape (N, 1), so we flatten it to shape (N,)</span>
+<span class="ne">---&gt; </span><span class="mi">29</span> <span class="n">data_np</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">obs</span><span class="o">.</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span> <span class="c1"># 3. Histogram Data</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span> <span class="n">Y</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">data_np</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="n">plot_range</span><span class="p">)</span>
+
+<span class="nn">File ~/Library/Python/3.9/lib/python/site-packages/zfit/core/data.py:1118,</span> in <span class="ni">Data.__getitem__</span><span class="nt">(self, item)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1112</span> <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">errorobs</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1113</span>     <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1114</span>         <span class="sa">f</span><span class="s2">&quot;Failed to retrieve </span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2"> from data </span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">. This can be changed behavior (since zfit 0.11): data can&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1115</span>         <span class="sa">f</span><span class="s2">&quot; no longer be accessed numpy-like but instead the &#39;obs&#39; can be used, i.e. strings or spaces. This&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1116</span>         <span class="sa">f</span><span class="s2">&quot; resembles more closely the behavior of a pandas DataFrame.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1117</span>     <span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1118</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">errorobs</span>
+<span class="g g-Whitespace">   </span><span class="mi">1119</span> <span class="k">return</span> <span class="n">value</span>
+
+<span class="ne">RuntimeError</span>: Failed to retrieve Space from data zfit.Data: Data obs=(&#39;mass_D&#39;, &#39;mass_eta&#39;) array=[[1948.64883459  505.84774331]
+ <span class="p">[</span><span class="mf">1801.87606257</span>  <span class="mf">552.86804195</span><span class="p">]</span>
+ <span class="p">[</span><span class="mf">1969.01277722</span>  <span class="mf">556.33975977</span><span class="p">]</span>
+ <span class="o">...</span>
+ <span class="p">[</span><span class="mf">1958.25940443</span>  <span class="mf">551.5021189</span> <span class="p">]</span>
+ <span class="p">[</span><span class="mf">2051.10416549</span>  <span class="mf">527.25011039</span><span class="p">]</span>
+ <span class="p">[</span><span class="mf">1952.83044287</span>  <span class="mf">585.82124203</span><span class="p">]]</span><span class="o">.</span> <span class="n">This</span> <span class="n">can</span> <span class="n">be</span> <span class="n">changed</span> <span class="n">behavior</span> <span class="p">(</span><span class="n">since</span> <span class="n">zfit</span> <span class="mf">0.11</span><span class="p">):</span> <span class="n">data</span> <span class="n">can</span> <span class="n">no</span> <span class="n">longer</span> <span class="n">be</span> <span class="n">accessed</span> <span class="n">numpy</span><span class="o">-</span><span class="n">like</span> <span class="n">but</span> <span class="n">instead</span> <span class="n">the</span> <span class="s1">&#39;obs&#39;</span> <span class="n">can</span> <span class="n">be</span> <span class="n">used</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span> <span class="n">strings</span> <span class="ow">or</span> <span class="n">spaces</span><span class="o">.</span> <span class="n">This</span> <span class="n">resembles</span> <span class="n">more</span> <span class="n">closely</span> <span class="n">the</span> <span class="n">behavior</span> <span class="n">of</span> <span class="n">a</span> <span class="n">pandas</span> <span class="n">DataFrame</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 800x600 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "my-local-env"
+        },
+        kernelOptions: {
+            name: "my-local-env",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'my-local-env'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Data generation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise:</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-1-d-s-region">Sample 1:  <span class="math notranslate nohighlight">\(D_s^+\)</span> Region</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-2-d-region">Sample 2:  <span class="math notranslate nohighlight">\(D^+\)</span> Region</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tasks">Tasks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By José Ángel Hernando Morata, Xabier Cid Vidal
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright USC - J.A. Hernando, X. Cid Vidal - 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
