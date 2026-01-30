@@ -39,10 +39,7 @@ and bear in mind, for a dice with $\mu$ faces $p(x|\mu)$ will be 0 if $x>\mu$ or
 
 #### Exercises 2: Hypothesis testing (simple case)
 
-##### Exercise 2a:
-Consider an experiment with several independent channels that expects as background ${\bf b} = (2, 1.5, 1, 0.5)$ and as signal ${\bf s} = (1, 3, 3, 1)$. The measurement is $(2, 1, 1, 0)$. Compute the p-value of $H_1$.
-
-##### Exercise 2b: 
+##### Exercise 2a: 
 Consider a **hypothetical search for a new particle** at the **LHC**. Assume we are looking for a **new resonance (X) decaying into two photons ($\gamma\gamma$)** in a **100 fb$^{-1}$** dataset at **$(\sqrt{s} = 13$) TeV**. 
 **Determine**
 - **Signal Yield**: The predicted cross-section for $( pp \to X \to \gamma\gamma $) is **1 fb**, and the detector **acceptance times efficiency** is **50%**. Compute the expected number of signal events.
@@ -51,6 +48,10 @@ Consider a **hypothetical search for a new particle** at the **LHC**. Assume we 
 
 Analyze how changing the cross-section, background index or energy resolution affect the **signal-to-background ratio** and the **test statistics distributions**.
 
+##### Exercise 2b:
+Consider an experiment with several independent channels that expects as background ${\bf b} = (2, 1.5, 1, 0.5)$ and as signal ${\bf s} = (1, 3, 3, 1)$. The measurement is $(2, 1, 1, 0)$. Compute the p-value of $H_1$.
+
+
 
 **Choose at least 1 among:**
 
@@ -58,6 +59,16 @@ Analyze how changing the cross-section, background index or energy resolution af
 Consider the expected background events and signal events in bins of energy in the RoI of the KamLAND-Zen experiment in Fig 2-b) [PRL-117](https://arxiv.org/abs/1605.02889). 
 - Compute now the pdfs of $q$ for only background and 10 times the signal.
 - Compute the p-value of $H_0$.
+
+*Guide:* 
+
+From Fig 2-b) Period II we can extract the following number of background, signal and observed events.
+
+*b* = [4.0, 2.0, 1.6, 1.0, 0.8, 0.7, 0.6, 0.5, 0.5, 0.5, 0.6, 0.6, 0.8, 1.1]
+
+*s* = [0.2, 0.4, 0.5, 0.6, 0.5, 0.4, 0.2, 0.1, 0.1, 0.1, 0.0, 0.0, 0.0, 0.0]
+
+*x* = [4.0, 0.0, 2.0, 4.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 2.0, 2.0, 1.0, 0.0]
 
 ##### Exercise 2d:
 An experiment expects $(2, 1)$ background events in two bins, and a possible signal $(8, 9)$ on top. 

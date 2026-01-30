@@ -14,6 +14,7 @@ marker = 'o'
 
 def normal_likelihood(xs, isgaussll = False, ylog = False,mus = np.linspace(-3., 3., 100)):
 
+    ## this comes from the -2 log(e^(x-mu)/(2sigma)), with sigma=1
     def ll(mu, xs):
         dx = (mu-xs)
         return np.sum(dx*dx)
