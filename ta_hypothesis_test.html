@@ -721,7 +721,7 @@ CLs           : 0.00025765
 <p><strong>This is a convention!</strong> And statisticians like to discuss about it!</p>
 <p>Note that <em>discovery</em> means that we <em>falsify</em> a hypothesis, <span class="math notranslate nohighlight">\(H_0\)</span></p>
 <p><strong>Example</strong> Consider the gaussians in the next cell, move the alternative to <span class="math notranslate nohighlight">\(\mu = 5\)</span> and generate some events for <span class="math notranslate nohighlight">\(H_1\)</span> true. Have you discovered <span class="math notranslate nohighlight">\(H_1\)</span>?</p>
-<p><strong>Question</strong> What is the fraction of the events for which you could claim discovery? (depends on <span class="math notranslate nohighlight">\(\beta\)</span> value for which <span class="math notranslate nohighlight">\(\alpha\)</span> provides 5<span class="math notranslate nohighlight">\(\sigma\)</span>)</p>
+<p><strong>Question</strong> What is the fraction of cases for which you could claim discovery? (depends on <span class="math notranslate nohighlight">\(\beta\)</span> value for which <span class="math notranslate nohighlight">\(\alpha\)</span> provides 5<span class="math notranslate nohighlight">\(\sigma\)</span>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu0</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">mutrue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="kc">True</span>
@@ -910,7 +910,7 @@ CL_s \equiv \frac{CL_{s+b}}{CL_b} = \frac{\beta}{1-\alpha}
 </section>
 <section id="nuisance-parameters">
 <h2>Nuisance parameters<a class="headerlink" href="#nuisance-parameters" title="Link to this heading">#</a></h2>
-<p>Sometimes the pdf depends not only on <span class="math notranslate nohighlight">\(\mu\)</span>, but also on other parameters, <span class="math notranslate nohighlight">\(\nu\)</span> of no “physical interest”. There are called <strong>nuisance parameters</strong>.</p>
+<p>Sometimes the pdf depends not only on <span class="math notranslate nohighlight">\(\mu\)</span>, but also on other parameters, <span class="math notranslate nohighlight">\(\nu\)</span> of no “physical interest”. They are called <strong>nuisance parameters</strong>.</p>
 <p>The pdf <span class="math notranslate nohighlight">\(g(x \, | \, \mu, \nu)\)</span>, were <span class="math notranslate nohighlight">\(\mu\)</span> is the parameter of interest, and <span class="math notranslate nohighlight">\(\nu\)</span> the nuisance parameter.</p>
 <p>In some cases, we can marginalize the nuisance parameters. One possibility is use <a class="reference external" href="http://www.sciencedirect.com/science/article/pii/0168900292907945">the Cousins-Highland method</a> also known as a bayesian-frequentist hybrid method.</p>
 <p>If we know the pdf of the nuisance parameter: <span class="math notranslate nohighlight">\(\pi(\nu)\)</span>, we can marginalize its effect:</p>

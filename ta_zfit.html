@@ -399,14 +399,6 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-zfit">Why zfit?</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agenda">Agenda</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-and-imports">0. Setup and Imports</a></li>
-</ul>
-</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-building-blocks">1. The Building Blocks</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-observable-space-zfit-space">1.1 The Observable Space (<code class="docutils literal notranslate"><span class="pre">zfit.Space</span></code>)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-zfit-parameter">1.2 Parameters (<code class="docutils literal notranslate"><span class="pre">zfit.Parameter</span></code>)</a></li>
@@ -445,45 +437,30 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="workshop-advanced-fitting-with-zfit">
 <h1>Workshop: Advanced Fitting with zfit<a class="headerlink" href="#workshop-advanced-fitting-with-zfit" title="Link to this heading">#</a></h1>
-<p><strong>Course:</strong> Statistics for Particle Physics<br />
-<strong>Duration:</strong> 2-3 Hours<br />
-<strong>Level:</strong> Advanced (Closing Session)</p>
-<hr class="docutils" />
-<section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
-<p>Welcome to the final exercise of the course. Over the last 11 hours, we have covered the theory of probabilities, PDFs, Likelihoods, and Confidence Intervals. Now, we will apply this knowledge using <strong>zfit</strong>.</p>
-<section id="why-zfit">
-<h3>Why zfit?<a class="headerlink" href="#why-zfit" title="Link to this heading">#</a></h3>
-<p>In High Energy Physics (HEP), we often deal with:</p>
-<ul class="simple">
-<li><p><strong>Complex Models:</strong> Sums of signals and backgrounds, convolutions, etc.</p></li>
-<li><p><strong>High Statistics:</strong> Millions of events.</p></li>
-<li><p><strong>Many Parameters:</strong> Systematics, nuisance parameters.</p></li>
-</ul>
-<p><strong>zfit</strong> is a Python library built on top of <strong>TensorFlow</strong>. It is designed to be:</p>
-<ul class="simple">
-<li><p><strong>Scalable:</strong> Runs on GPUs/CPUs efficiently.</p></li>
-<li><p><strong>Pythonic:</strong> Integrates with the Scikit-HEP ecosystem (<code class="docutils literal notranslate"><span class="pre">uproot</span></code>, <code class="docutils literal notranslate"><span class="pre">mplhep</span></code>, <code class="docutils literal notranslate"><span class="pre">awkward</span></code>).</p></li>
-<li><p><strong>Flexible:</strong> Allows custom PDFs and arbitrary loss functions.</p></li>
-</ul>
-</section>
-</section>
-<section id="agenda">
-<h2>Agenda<a class="headerlink" href="#agenda" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p><strong>The Basics:</strong> Spaces, Parameters, and PDFs.</p></li>
-<li><p><strong>The Fit:</strong> Unbinned Likelihoods and Minuit.</p></li>
-<li><p><strong>Visualization:</strong> Data, Models, and Pull Plots.</p></li>
-<li><p><strong>Extended Likelihoods:</strong> Fitting Yields.</p></li>
-<li><p><strong>Constraints:</strong> Handling Systematic Uncertainties.</p></li>
-<li><p><strong>Simultaneous Fits:</strong> Signal + Control Regions.</p></li>
-<li><p><strong>2D Fits:</strong> Correlations.</p></li>
-</ol>
-<section id="setup-and-imports">
-<h3>0. Setup and Imports<a class="headerlink" href="#setup-and-imports" title="Link to this heading">#</a></h3>
+<p><em>Author: X. Cid Vidal</em>, February 2026</p>
+<p><em>Instituto Galego de Altas Enerxías. Universidade de Santiago de Compostela, Spain.</em></p>
+<p><a class="reference external" href="https://mybinder.org/v2/gh/xabiercidvidal/USC-TA/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39; Last Execution &#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">asctime</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Last Execution  Fri Jan 30 14:41:52 2026
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># need to install zfit mplhep</span>
+
+<span class="c1"># general imports</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="k">reload_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
 
 <span class="kn">import</span> <span class="nn">zfit</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -499,15 +476,16 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/homebrew/Caskroom/miniconda/base/envs/jlab/lib/python3.13/site-packages/zfit/__init__.py:93: UserWarning: TensorFlow warnings are by default suppressed by zfit. In order to show them, set the environment variable ZFIT_DISABLE_TF_WARNINGS=0. In order to suppress the TensorFlow warnings AND this warning, set ZFIT_DISABLE_TF_WARNINGS=1.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/Xabier/Library/Python/3.9/lib/python/site-packages/zfit/__init__.py:63: UserWarning: TensorFlow warnings are by default suppressed by zfit. In order to show them, set the environment variable ZFIT_DISABLE_TF_WARNINGS=0. In order to suppress the TensorFlow warnings AND this warning, set ZFIT_DISABLE_TF_WARNINGS=1.
   warnings.warn(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>zfit version: 0.26.0
+numpy version: 2.0.2
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-</section>
-<hr class="docutils" />
 <section id="the-building-blocks">
 <h2>1. The Building Blocks<a class="headerlink" href="#the-building-blocks" title="Link to this heading">#</a></h2>
 <p>In zfit, everything is an object. We need to define the “Universe” our physics lives in before we can do anything.</p>
@@ -925,16 +903,16 @@ Try to implement a <strong>Conditional PDF</strong> where the width <span class=
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "my-local-env"
         },
         kernelOptions: {
-            name: "python3",
+            name: "my-local-env",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'my-local-env'</script>
 
                 </article>
               
@@ -963,14 +941,6 @@ Try to implement a <strong>Conditional PDF</strong> where the width <span class=
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-zfit">Why zfit?</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agenda">Agenda</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-and-imports">0. Setup and Imports</a></li>
-</ul>
-</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-building-blocks">1. The Building Blocks</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-observable-space-zfit-space">1.1 The Observable Space (<code class="docutils literal notranslate"><span class="pre">zfit.Space</span></code>)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-zfit-parameter">1.2 Parameters (<code class="docutils literal notranslate"><span class="pre">zfit.Parameter</span></code>)</a></li>
