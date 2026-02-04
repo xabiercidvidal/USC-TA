@@ -435,7 +435,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Last Execution  Fri Feb 28 10:33:00 2025
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Last Execution  Tue Feb  3 13:38:56 2026
 </pre></div>
 </div>
 </div>
@@ -482,10 +482,10 @@
 <p><strong>Frequentists</strong> say a CI <strong>covers</strong> the true value at a given <span class="math notranslate nohighlight">\(\beta\)</span> CL. That means that if you repeat a large number of times, <span class="math notranslate nohighlight">\(m\)</span>, an experiment, and for each one you set a CI <span class="math notranslate nohighlight">\(\{\mathrm{CI}_i, \, i=1, \dots, m \}\)</span>, at least a fraction <span class="math notranslate nohighlight">\(\beta\)</span> of the CIs cover the true value.</p>
 <p>A frequentist needs to provide a method to <strong>construct the CI</strong>. The method should provide the correct <strong>coverage</strong>.</p>
 <p><strong>Bayesians</strong> talk about <strong>credible intervals</strong> (CI), which means that the probability that the true parameter is inside the CI is greater or equal to some <span class="math notranslate nohighlight">\(\beta\)</span> value.</p>
-<p>That sounds most like what you want, but unfortunately to get it, you need to accept some assumptions or some ‘reasonable’ priors.</p>
+<p>That sounds mostly like what you want, but unfortunately to get it, you need to accept some assumptions or some ‘reasonable’ priors.</p>
 <p>For a frequentist a CI indicates the limit in which the data instance <span class="math notranslate nohighlight">\(x\)</span>  is considered an <em>extreme</em> event with respect to the parameter <span class="math notranslate nohighlight">\(\mu\)</span> at a given <span class="math notranslate nohighlight">\(\beta\)</span> CL.</p>
 <p>But to indicate if <span class="math notranslate nohighlight">\(x\)</span> is an <em>extreme</em> event, we need to <strong>order</strong> data as <em>extreme</em> with respect to a given <span class="math notranslate nohighlight">\(\mu\)</span> value.</p>
-<p>In the following cells, we will use the <em>counting experiment</em> as an example.</p>
+<p>In the following cells, we will use a <em>counting experiment</em> as an example.</p>
 <p>In a counting experiment, you expect some known background, e.g., <span class="math notranslate nohighlight">\(b= 3\)</span> events in a kinematical window (for example in a range or energy or a band in an invariant mass), and an unknown signal with strength <span class="math notranslate nohighlight">\(\mu &gt;= 0\)</span>.</p>
 </section>
 <section id="classical-frequentist-ci">
@@ -606,7 +606,7 @@ coverage  96.95136243577515 %
 <p>In case we measure <span class="math notranslate nohighlight">\(x_0 = 3.2\)</span>, the CI is given by the values of <span class="math notranslate nohighlight">\(\mu\)</span> where the vertical line <span class="math notranslate nohighlight">\(x_0 = 3.2\)</span> meets the boundaries of the confidence belt.</p>
 <p><strong>Example</strong>: Construct the <em>confidence belt</em> CI at 90% and 68% CL considering a counting experiment with background <span class="math notranslate nohighlight">\(b\)</span> and unknown signal <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
 <p>In case the pdf is a poisson with mean <span class="math notranslate nohighlight">\(b + \mu\)</span>. We scan along <span class="math notranslate nohighlight">\(\mu\)</span> and for each <span class="math notranslate nohighlight">\(\mu\)</span> we obtain the interval <span class="math notranslate nohighlight">\([x_l(\mu), x_u(\mu)]\)</span> using the central interval at some confidence level (e.g. 90%).</p>
-<p>The we unify the border of the segments and we define the confident belt.</p>
+<p>Then we unify the border of the segments and we define the confident belt.</p>
 <ul class="simple">
 <li><p>Which are the <span class="math notranslate nohighlight">\(\mu\)</span> CI, for <span class="math notranslate nohighlight">\(b=3\)</span> and <span class="math notranslate nohighlight">\(x_0 = 10\)</span>?</p></li>
 </ul>
@@ -673,7 +673,9 @@ CI  (np.float64(3.907953976988494), np.float64(11.243621810905452))  at  0.68 CL
         <p>Robert Cousins</p>
     </div>
 </div><p>Historically, <a class="reference external" href="https://arxiv.org/abs/physics/9711021">Feldman and Cousins</a> encountered:</p>
-<p>First, one has the temptation of quoting a <strong>flip-flop</strong> result: if we do not observe a signal, we quote a 90% CL lower interval, if we get an observation, we quote a 90% central CI.  That is… you present your result depending on your actual observation. Sounds bad! <em>Biased</em> result</p>
+<ul class="simple">
+<li><p>First, one has the temptation of quoting a <strong>flip-flop</strong> result: if we do not observe a signal, we quote a 90% CL lower interval, if we get an observation, we quote a 90% central CI.  That is… you present your result depending on your actual observation. Sounds bad! <em>Biased</em> result</p></li>
+</ul>
 <p>In this example, data, <span class="math notranslate nohighlight">\(x\)</span>, follows a normal gaussian. At Z=3, the confidence belt passes from 90 % CL lower limit to 90% CL central limit. The belt has not the proper frequentist coverage.</p>
 <a class="reference internal image-reference" href="_images/CI_FC_flipflop.png"><img alt="_images/CI_FC_flipflop.png" src="_images/CI_FC_flipflop.png" style="width: 400px;" /></a>
 <p>We should decide what type of interval to quote before doing the measurement!</p>
@@ -693,8 +695,10 @@ CI  None  at  0.68 CL for b =  3  and x0 =  0
 <img alt="_images/a10ef4cc93323f7304702d62f6693d5c15c8103716255651faec70c76e34d9f1.png" src="_images/a10ef4cc93323f7304702d62f6693d5c15c8103716255651faec70c76e34d9f1.png" />
 </div>
 </div>
-<p>Second, <strong>there is no CI at 90% CL for the case <span class="math notranslate nohighlight">\(b=3\)</span> and <span class="math notranslate nohighlight">\(x_0= 0\)</span></strong>. (See the previous example) Imagine that NOMAD, expecting 3 background events, saw no signal, and had no result to quote!</p>
-<p>This was unacceptable! It was a posible result of the NOMAD experiment: having no result!</p>
+<ul class="simple">
+<li><p>Second, <strong>there is no CI at 90% CL for the case <span class="math notranslate nohighlight">\(b=3\)</span> and <span class="math notranslate nohighlight">\(x_0= 0\)</span></strong>. (See the previous example) Imagine that NOMAD, expecting 3 background events, saw no signal, and had no result to quote!</p></li>
+</ul>
+<p>It was unacceptable: This was a posible result of the NOMAD experiment: having no result!</p>
 <p>FC proposed a construction interval method (<strong>Feldman-Cousins</strong> method) that smoothly passes from lower to central intervals and avoids the problem of the no CI observed at <span class="math notranslate nohighlight">\(b=3, x_0 = 0\)</span>.</p>
 <p><strong>Exercise</strong>: Verify that the flip-flop problem has not the proper coverage. For this, set the flip-flop construction and test the coverture for <span class="math notranslate nohighlight">\(\mu_{true} = 3\)</span>.
 Why does the case <span class="math notranslate nohighlight">\(b=3\)</span> and <span class="math notranslate nohighlight">\(x_0 = 0\)</span> have no classical CI at 90% CL?</p>
@@ -707,7 +711,7 @@ t_\mu(x) =  \frac{\mathcal{L}( x | \mu)}{ \mathcal{L}(x | \hat{\mu}(x))}
 <p>The best-estimate <span class="math notranslate nohighlight">\(\hat{\mu}(x)\)</span> is the value of <span class="math notranslate nohighlight">\(\mu\)</span> that maximizes the likelihood <span class="math notranslate nohighlight">\(\mathcal{L}(x| \hat{\mu}(x))\)</span> for a given measurement <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <p>The values of <span class="math notranslate nohighlight">\(t_\mu\)</span>(x) vary between <span class="math notranslate nohighlight">\([0, 1]\)</span>.</p>
 <p>The <span class="math notranslate nohighlight">\(x\)</span> measurements with <span class="math notranslate nohighlight">\(t_\mu(x)\)</span> values approaching 1 are “likely” with respect to <span class="math notranslate nohighlight">\(\mu\)</span>. Those with values close to 0 are “unlikely”.</p>
-<p>The lower the <span class="math notranslate nohighlight">\(t_\mu(x)\)</span> value the most extreme a <span class="math notranslate nohighlight">\(x\)</span> measurement is.</p>
+<p>The lower the <span class="math notranslate nohighlight">\(t_\mu(x)\)</span> value the more extreme a <span class="math notranslate nohighlight">\(x\)</span> measurement is.</p>
 <p>For example, for a given <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(x\)</span>, if the best estimate <span class="math notranslate nohighlight">\(\hat{\mu}(x)\)</span> is close to <span class="math notranslate nohighlight">\(\mu\)</span>, both likelihoods are similar and the ratio, <span class="math notranslate nohighlight">\(t_\mu(x)\)</span>, is close to 1.</p>
 <p>Nevertheless, a given <span class="math notranslate nohighlight">\(x\)</span> may have a small likelihood, <span class="math notranslate nohighlight">\(\mathcal{L}(x | \mu)\)</span>, but the maximum likelihood for that <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(\mathcal{L}(x | \hat{\mu}(x))\)</span> may also be small, then <span class="math notranslate nohighlight">\(t_\mu(x)\)</span> is close to 1, and <span class="math notranslate nohighlight">\(x\)</span> can gain priority with respect to other <span class="math notranslate nohighlight">\(x\)</span>’s values for the same <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
 <p>That is the case for <span class="math notranslate nohighlight">\(x = 0\)</span> for <span class="math notranslate nohighlight">\(b = 3\)</span>. The problematic case discussed above which could cause having no result in the classical construction.</p>
@@ -927,7 +931,7 @@ t_\mu(n) = \frac{g(n | b + \mu)}{ g( n | b + \hat{\mu}(n))};{\rm~and~} q_\mu (x)
 </div>
 </div>
 </div>
-<p>In the next cell we plot in order of better <span class="math notranslate nohighlight">\(t_\mu(n)\)</span>, with its correspondent <span class="math notranslate nohighlight">\(g(n | b+\mu), \; t_\mu(n)\)</span> and the cumulative function, <span class="math notranslate nohighlight">\(\mathrm{cdf}(n | b+\mu)\)</span>.</p>
+<p>In the next cell we plot in order of better <span class="math notranslate nohighlight">\(t_\mu(n)\)</span>, with its corresponding <span class="math notranslate nohighlight">\(g(n | b+\mu), \; t_\mu(n)\)</span> and the cumulative function, <span class="math notranslate nohighlight">\(\mathrm{cdf}(n | b+\mu)\)</span>.</p>
 <p>The interval <span class="math notranslate nohighlight">\([n_l(\mu), n_u(\mu)]\)</span> is defined by the range of <span class="math notranslate nohighlight">\(n\)</span> values till the cdf surpassses a given <span class="math notranslate nohighlight">\(\beta\)</span> containment (the dashed line in the plot).</p>
 <p>For this case <span class="math notranslate nohighlight">\(b = 3, \, \mu = 0.5, \; \beta = 90\)</span> %.</p>
 <div class="cell docutils container">
@@ -1010,9 +1014,9 @@ t_\mu = -2 \ln \frac{\mathcal{L}(x | \mu)}{\mathcal{L}(x| \hat{\mu}(x))}
 \]</div>
 <p>There is no lower, central or upper integral. The ordering sets a unique interval</p>
 <p>In this case <span class="math notranslate nohighlight">\(\mu\)</span> is a vector. We scan a region of the vector space. For each point in that space we will compute the <span class="math notranslate nohighlight">\(t_\mu(x)\)</span> pdf, <span class="math notranslate nohighlight">\(g(t_\mu | \mu)\)</span>, and the p-value of the observed data <span class="math notranslate nohighlight">\(x_0\)</span>. We will select the region of <span class="math notranslate nohighlight">\(\mu\)</span>, as the confidence region, whose p-values are inside the <span class="math notranslate nohighlight">\(\beta\)</span> CL.</p>
-<p><strong>Example</strong>: Compute the distribution of <span class="math notranslate nohighlight">\(t_\mu(x)\)</span> for the case of <span class="math notranslate nohighlight">\(b=3\)</span> and <span class="math notranslate nohighlight">\(s=0.5\)</span> and <span class="math notranslate nohighlight">\(t_\mu\)</span> value for the observed data <span class="math notranslate nohighlight">\(x_0 = 0\)</span></p>
+<p><strong>Example</strong>: Compute the distribution of <span class="math notranslate nohighlight">\(t_\mu(x)\)</span> when <span class="math notranslate nohighlight">\(b=3\)</span> and <span class="math notranslate nohighlight">\(s=0.5\)</span> and the <span class="math notranslate nohighlight">\(t_\mu\)</span> value for the observed data <span class="math notranslate nohighlight">\(x_0 = 0\)</span></p>
 <p>This is how the computation works, from plt_tmus in htcint_examples.
-First the compute the <span class="math notranslate nohighlight">\(t_\mu(x_0)\)</span> and <span class="math notranslate nohighlight">\(t_\mu\)</span> (for pseudo-experiments).</p>
+First we compute the <span class="math notranslate nohighlight">\(t_\mu(x_0)\)</span> and <span class="math notranslate nohighlight">\(t_\mu\)</span> (from pseudo-experiments).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ht</span>   <span class="o">=</span> <span class="n">htcore</span><span class="o">.</span><span class="n">htcomposite</span><span class="p">(</span><span class="n">rv</span><span class="p">,</span> <span class="n">mu</span><span class="p">)</span>
 <span class="n">tmu0</span> <span class="o">=</span> <span class="n">ht</span><span class="o">.</span><span class="n">tmu</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">mu0</span><span class="p">)</span>
 <span class="n">xs</span>   <span class="o">=</span> <span class="n">rv</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">size</span><span class="p">)</span>
@@ -1081,6 +1085,22 @@ p(b + s | n) = \frac{p(n | b + s) \,\pi(s)}{\int_s p(n | b+s) \, \pi(s) \, \math
 p(b + s | n) \propto \frac{(b+s)^n e^{-(b+s)}}{n!} = \Gamma(b+s,n+1,1)
 \]</div>
 <p>where, <span class="math notranslate nohighlight">\(\Gamma(x, \alpha, \lambda)\)</span> is the gamma pdf.</p>
+<p><em>Short demonstration</em>: The general Gamma PDF for variable <span class="math notranslate nohighlight">\(x\)</span> with shape <span class="math notranslate nohighlight">\(\alpha\)</span> and rate <span class="math notranslate nohighlight">\(\lambda\)</span> is:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-157b481e-bfb8-46b1-a23f-fafbf53ae463">
+<span class="eqno">(1)<a class="headerlink" href="#equation-157b481e-bfb8-46b1-a23f-fafbf53ae463" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \Gamma(x , \alpha, \lambda) \propto x^{\alpha-1} e^{-\lambda x}
+\end{equation}\]</div>
+<p>Let the total rate be <span class="math notranslate nohighlight">\(x = b+s\)</span>. The probabilty expression becomes:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-242a0561-5c55-436b-b788-e5881378d30b">
+<span class="eqno">(2)<a class="headerlink" href="#equation-242a0561-5c55-436b-b788-e5881378d30b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    p(b + s | n)  \propto x^n e^{-x}
+\end{equation}\]</div>
+<p>Comparing both equations:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    \text{Exponent of } e: &amp; \quad -\lambda x = -x \implies \lambda = 1 \\
+    \text{Exponent of } x: &amp; \quad \alpha - 1 = n \implies \alpha = n + 1
+\end{align*}\]</div>
 <p>For the case <span class="math notranslate nohighlight">\(b=0\)</span>, the denominator (see above) <span class="math notranslate nohighlight">\(\int_s p(n |s) \, \pi(s) \, \mathrm{d}s =  1\)</span>, and given the numerator, computing the CI is reduced to:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1092,14 +1112,14 @@ p(b + s | n) \propto \frac{(b+s)^n e^{-(b+s)}}{n!} = \Gamma(b+s,n+1,1)
 \frac{\int_{0}^{s_u} \Gamma(b+s, n+1, 1) \, \mathrm{d}s}{\int_{0}^{\infty} \Gamma(b+s, n+1, 1) \, \mathrm{d}s} = \beta ;~~[{\rm equation~(1)}]
 \]</div>
 <p>Which can be computed with the change <span class="math notranslate nohighlight">\(u=s+b\)</span>.</p>
-<p><strong>Example:</strong> Compute the posterior probability of the signal <span class="math notranslate nohighlight">\(s\)</span> for an experiment that expects <span class="math notranslate nohighlight">\(b = 3\)</span> background events and measures <span class="math notranslate nohighlight">\(n_0 = 0\)</span> or <span class="math notranslate nohighlight">\(n_0 = 6\)</span>.</p>
+<p><strong>Example:</strong> Compute the posterior probability of the signal <span class="math notranslate nohighlight">\(s\)</span> for an experiment that expects <span class="math notranslate nohighlight">\(b = 3\)</span> background events and measures <span class="math notranslate nohighlight">\(n_0 = 0\)</span> or <span class="math notranslate nohighlight">\(n_0 = 10\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bayes_poisson_upper</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">nmax</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">nbins</span> <span class="o">=</span> <span class="mi">100</span><span class="p">):</span>
     <span class="n">ss</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="n">nmax</span><span class="p">,</span> <span class="n">nbins</span><span class="p">)</span>
     <span class="n">ds</span> <span class="o">=</span> <span class="n">ss</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">ss</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="c1">## compute the probabilities for each s,nobs pair, and normalize them (use denominator of equation (1) above)</span>
-    <span class="n">ys</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">stats</span><span class="o">.</span><span class="n">gamma</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="n">si</span><span class="p">,</span> <span class="n">x0</span> <span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">si</span> <span class="ow">in</span> <span class="n">ss</span><span class="p">])</span>
+    <span class="n">ys</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">stats</span><span class="o">.</span><span class="n">gamma</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="n">si</span><span class="p">,</span> <span class="n">x0</span> <span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">si</span> <span class="ow">in</span> <span class="n">ss</span><span class="p">])</span> <span class="c1"># use Riemann integral to simplify sum of (width * height)</span>
     <span class="n">norma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ys</span><span class="o">*</span><span class="n">ds</span><span class="p">);</span> <span class="n">ys</span> <span class="o">=</span> <span class="n">ys</span><span class="o">/</span><span class="n">norma</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;integral :&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ys</span><span class="p">)</span><span class="o">*</span><span class="n">ds</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ss</span><span class="p">,</span> <span class="n">ys</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">);</span>
@@ -1182,7 +1202,7 @@ CI  95 % CL : ( 2.4488977955911824 ,  15.422845691382765 )
 </div>
 </div>
 <p><strong>Class exercise:</strong> Compute the upper limit, <span class="math notranslate nohighlight">\(s_u\)</span>, using Bayes’ CI at 90% CL for different values of <span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(n\)</span> observations.</p>
-<p>Let’s go back to Equation (1) and the proposed change <span class="math notranslate nohighlight">\(u=s+b\)</span></p>
+<p>Let’s go back to Equation (1) and do the proposed change <span class="math notranslate nohighlight">\(u=s+b\)</span></p>
 <div class="math notranslate nohighlight">
 \[
 \frac{\int_{0}^{s_u} \Gamma(b+s, n+1, 1) \, \mathrm{d}s}{\int_{0}^{\infty} \Gamma(b+s, n+1, 1) \, \mathrm{d}s} = \beta
