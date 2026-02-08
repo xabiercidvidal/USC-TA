@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="./" >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Hypothesis testing, composite case &#8212; Statistics for Particle Physics</title>
   
@@ -14,62 +15,61 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="_static/doctools.js?v=9a2dae69"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js?v=f930bc37"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ta_hypothesis_test_composite';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Exercises" href="exercises.html" />
+    <link rel="next" title="Workshop: Advanced Fitting with zfit" href="ta_zfit.html" />
     <link rel="prev" title="Confidence Intervals" href="ta_confidence_intervals.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -77,16 +77,23 @@
 
   
   
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   
-  <div id="pst-scroll-pixel-helper"></div>
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
   
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
   
-  <dialog id="pst-search-dialog">
-    
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -94,6 +101,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -101,25 +109,16 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-
+</form></div>
+  </div>
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-    </header>
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
   
-
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      
-      
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -132,13 +131,9 @@
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
-
-  
-    
   
 
 <a class="navbar-brand logo" href="intro.html">
-  
   
   
   
@@ -148,19 +143,12 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="Statistics for Particle Physics - Home"/>
-    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="Statistics for Particle Physics - Home"/>
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -175,6 +163,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ta_hypothesis_test.html">Hypothesis testing, simple case</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ta_confidence_intervals.html">Confidence Intervals</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Hypothesis testing, composite case</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ta_zfit.html">Workshop: Advanced Fitting with zfit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="exercises.html">Exercises</a></li>
 </ul>
 
@@ -184,19 +173,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main" role="main">
+      <main id="main-content" class="bd-main">
         
         
 
@@ -205,14 +189,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article d-print-none">
+              <div class="bd-header-article">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -237,14 +221,14 @@
       
       <li><a href="https://colab.research.google.com/github/xabiercidvidal/USC-TA/blob/master/docs/ta_hypothesis_test_composite.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch on Colab"
+   title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img alt="Colab logo" src="_static/images/logo_colab.png">
+    <img src="_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -365,20 +349,26 @@
 </button>
 
 
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
-
-
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</button>
+</label>
 </div></div>
       
     </div>
@@ -419,10 +409,10 @@
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article">
+                <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="hypothesis-testing-composite-case">
-<h1>Hypothesis testing, composite case<a class="headerlink" href="#hypothesis-testing-composite-case" title="Link to this heading">#</a></h1>
+<h1>Hypothesis testing, composite case<a class="headerlink" href="#hypothesis-testing-composite-case" title="Permalink to this heading">#</a></h1>
 <p><em>Author: Jose A. Hernando, X. Cid Vidal</em>, February 2026</p>
 <p><em>Instituto Galego de Altas Enerxías. Universidade de Santiago de Compostela, Spain.</em></p>
 <p><a class="reference external" href="https://mybinder.org/v2/gh/xabiercidvidal/USC-TA/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
@@ -435,7 +425,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Last Execution  Tue Mar  4 15:52:43 2025
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Last Execution  Sat Feb  7 22:36:37 2026
 </pre></div>
 </div>
 </div>
@@ -472,7 +462,7 @@
 </div>
 </div>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
 <p>In this chapter we will discuss two related issues.</p>
 <p>How extreme is a measurement <span class="math notranslate nohighlight">\(x\)</span> with respect to a given parameter <span class="math notranslate nohighlight">\(\mu\)</span>, assuming we know <span class="math notranslate nohighlight">\(g(x |\mu)\)</span>?</p>
 <p><em>The response was given by FC!</em></p>
@@ -482,7 +472,7 @@
 <p>But we will see that there are cases where Wilks’ theorem allows us to treat the problem with <strong>an analitic approximation.</strong></p>
 </section>
 <section id="profile-likelihood-scan">
-<h2>Profile likelihood scan<a class="headerlink" href="#profile-likelihood-scan" title="Link to this heading">#</a></h2>
+<h2>Profile likelihood scan<a class="headerlink" href="#profile-likelihood-scan" title="Permalink to this heading">#</a></h2>
 <p>We try to solve the question: Given a measurement <span class="math notranslate nohighlight">\(x\)</span>, which is the CI that we set on a parameter <span class="math notranslate nohighlight">\(\mu\)</span>, knowing the pdf <span class="math notranslate nohighlight">\(g(x|\mu)\)</span>?</p>
 <p>Let’s first consider a simple example. The measurement follows a normal gaussian distribution with true <span class="math notranslate nohighlight">\(\mu=0\)</span> and sigma unity.</p>
 <div class="cell docutils container">
@@ -635,7 +625,7 @@ p-value mean : 0.5050538046072487 ; std * sqrt(12.) : 1.0161414002538056
 </div>
 <p><strong>Exercise</strong>: Consider the case of a poisson distribution with an unknown mean <span class="math notranslate nohighlight">\(\mu\)</span> and the null hypothesis <span class="math notranslate nohighlight">\(\mu_0\)</span>. Check for which values of <span class="math notranslate nohighlight">\(\mu\)</span>, <span class="math notranslate nohighlight">\(g(t_\mu | \mu)\)</span> follows a <span class="math notranslate nohighlight">\(\chi^2(1)\)</span> distribution.</p>
 <section id="the-p-value">
-<h3>the p-value<a class="headerlink" href="#the-p-value" title="Link to this heading">#</a></h3>
+<h3>the p-value<a class="headerlink" href="#the-p-value" title="Permalink to this heading">#</a></h3>
 <p>We are back to the construction of a CI of <span class="math notranslate nohighlight">\(\mu\)</span> at <span class="math notranslate nohighlight">\(\beta\)</span> CL given data <span class="math notranslate nohighlight">\(x_0\)</span>.</p>
 <p>In the “gaussian” regime, when Wilks’ theorem applies, we can use the relation between <span class="math notranslate nohighlight">\(t_\mu(x)\)</span> and its p-value, <span class="math notranslate nohighlight">\(p_\mu\)</span>, via the <span class="math notranslate nohighlight">\(\chi^2(1)\)</span> distribution. Since the <span class="math notranslate nohighlight">\(\chi^2(1)\)</span> distribution with 1 degree of freedom behaves like a squared normal variable
 <span class="math notranslate nohighlight">\(( Z^2 \sim \chi^2_1 )\)</span>, we can approximate <span class="math notranslate nohighlight">\(\sqrt{t_\mu(x)} \approx Z\)</span>, where <span class="math notranslate nohighlight">\(Z\)</span> follows a standard normal distribution. With this, the <span class="math notranslate nohighlight">\(p-\)</span>value becomes:</p>
@@ -706,7 +696,7 @@ p_\mu = 2 \, [1 - \Phi(\sqrt{t_\mu(x)})]~~{\rm(Eq.~1)}
 </section>
 </section>
 <section id="composite-testing">
-<h2>Composite testing<a class="headerlink" href="#composite-testing" title="Link to this heading">#</a></h2>
+<h2>Composite testing<a class="headerlink" href="#composite-testing" title="Permalink to this heading">#</a></h2>
 <p>Let’s return to our initial problem, how to test an alternative hypothesis (a composite one) that depends continuously on a parameter <span class="math notranslate nohighlight">\(\mu\)</span>, i.e. <span class="math notranslate nohighlight">\(H_\mu\)</span>, with respect to the default hypothesis <span class="math notranslate nohighlight">\(H_0\)</span>, where usually <span class="math notranslate nohighlight">\(\mu = 0\)</span> implies <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
 <p>See the folowing figure, it considers that <span class="math notranslate nohighlight">\(H_0\)</span> is a normal gaussian, and <span class="math notranslate nohighlight">\(H_\mu\)</span> a gaussian centered at <span class="math notranslate nohighlight">\(\mu\)</span> with sigma 3.</p>
 <p>You can explore and chaage <span class="math notranslate nohighlight">\(\mu\)</span>, get an experiment, a data <span class="math notranslate nohighlight">\(x\)</span>, and compute the p-values with respect to both hypotheses <span class="math notranslate nohighlight">\(H_0\)</span> and <span class="math notranslate nohighlight">\(H_\mu\)</span></p>
@@ -752,7 +742,7 @@ CLs           : 0.53618492
 </ul>
 <p>We define here the common test-statistics used in HEP to claim discovery or set CI for the strength parameter <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
 <section id="testing-the-null-hypothesis">
-<h3>Testing the null-hypothesis<a class="headerlink" href="#testing-the-null-hypothesis" title="Link to this heading">#</a></h3>
+<h3>Testing the null-hypothesis<a class="headerlink" href="#testing-the-null-hypothesis" title="Permalink to this heading">#</a></h3>
 <p>In same cases the strength parameter fulfills <span class="math notranslate nohighlight">\(\mu \ge \mu_0\)</span>. In consequence, we could say that the values of <span class="math notranslate nohighlight">\(\hat{\mu}(x) \lt \mu_0\)</span> do not challenge <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
 <p>We consider that data which prefers <span class="math notranslate nohighlight">\(\mu \le \mu_0\)</span> are by definition compatible with <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
 <p>If we define:</p>
@@ -826,7 +816,7 @@ CLs           : 0.12346116
 <p><strong>Exercise</strong> Verify that the <span class="math notranslate nohighlight">\(q_0\)</span> distribution is a ‘half’-<span class="math notranslate nohighlight">\(\chi^2\)</span>.</p>
 </section>
 <section id="testing-the-alternative-hypothesis">
-<h3>Testing the alternative hypothesis<a class="headerlink" href="#testing-the-alternative-hypothesis" title="Link to this heading">#</a></h3>
+<h3>Testing the alternative hypothesis<a class="headerlink" href="#testing-the-alternative-hypothesis" title="Permalink to this heading">#</a></h3>
 <p>To set an <strong>upper</strong> limit on the value of <span class="math notranslate nohighlight">\(\mu\)</span>, a <span class="math notranslate nohighlight">\(\mu\)</span> above <span class="math notranslate nohighlight">\(\hat{\mu}\)</span>  does not challege the alternative hypothesis.</p>
 <p>Given our data <span class="math notranslate nohighlight">\(x\)</span>, this implies that if <span class="math notranslate nohighlight">\(\mu \gt \hat{\mu}(x)\)</span>, we accept as valid the alternative hypothesis.</p>
 <p>With the likelihood-ratio:</p>
@@ -915,7 +905,7 @@ CLs           : 0.13384643
 </section>
 </section>
 <section id="nuisance-parameters">
-<h2>Nuisance parameters<a class="headerlink" href="#nuisance-parameters" title="Link to this heading">#</a></h2>
+<h2>Nuisance parameters<a class="headerlink" href="#nuisance-parameters" title="Permalink to this heading">#</a></h2>
 <p>Consider a counting experiment with a control region that is <span class="math notranslate nohighlight">\(\tau\)</span> times larger than the signal region. In both regions the expected background events is <span class="math notranslate nohighlight">\(\nu\)</span>, while in the signal region we expect <span class="math notranslate nohighlight">\(\nu + \mu\)</span> events.</p>
 <p><strong>Explore</strong> in the following toy the generation of some events, with different values of <span class="math notranslate nohighlight">\(\nu\)</span>, <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
 <p>We are interested on measuring <span class="math notranslate nohighlight">\(\mu\)</span> and estimating <span class="math notranslate nohighlight">\(\nu\)</span> from the control sample. <span class="math notranslate nohighlight">\(\nu\)</span> is a nuisance parameter, how can we treat it?</p>
@@ -1079,26 +1069,27 @@ central CI : [ 7.18476856 20.97012882]
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "my-local-env"
+            mode: "python"
         },
         kernelOptions: {
-            name: "my-local-env",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'my-local-env'</script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
 
               
               
-              
-              
-                <footer class="prev-next-footer d-print-none">
+                <footer class="bd-footer-article">
                   
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="ta_confidence_intervals.html"
@@ -1110,24 +1101,25 @@ central CI : [ 7.18476856 20.97012882]
       </div>
     </a>
     <a class="right-next"
-       href="exercises.html"
+       href="ta_zfit.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Exercises</p>
+        <p class="prev-next-title">Workshop: Advanced Fitting with zfit</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1167,7 +1159,6 @@ By José Ángel Hernando Morata, Xabier Cid Vidal
   
   <div class="footer-item">
     
-
   <p class="copyright">
     
       © Copyright USC - J.A. Hernando, X. Cid Vidal - 2026.
@@ -1194,8 +1185,8 @@ By José Ángel Hernando Morata, Xabier Cid Vidal
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>
