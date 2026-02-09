@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Exercises &#8212; Statistics for Particle Physics</title>
   
@@ -15,60 +14,61 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'exercises';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Workshop: Advanced Fitting with zfit" href="ta_zfit.html" />
+    <link rel="prev" title="Advanced Fitting with zfit" href="ta_zfit.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -76,23 +76,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+  <div id="pst-scroll-pixel-helper"></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -100,7 +93,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -108,16 +100,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -130,9 +131,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="intro.html">
+  
   
   
   
@@ -142,12 +147,19 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt="Statistics for Particle Physics - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="Statistics for Particle Physics - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -162,7 +174,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="ta_hypothesis_test.html">Hypothesis testing, simple case</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ta_confidence_intervals.html">Confidence Intervals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ta_hypothesis_test_composite.html">Hypothesis testing, composite case</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ta_zfit.html">Workshop: Advanced Fitting with zfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ta_zfit.html">Advanced Fitting with zfit</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Exercises</a></li>
 </ul>
 
@@ -172,14 +184,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -188,14 +205,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -317,26 +334,20 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -406,34 +417,34 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <!-- #region -->
 <section id="exercises">
-<h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h1>
+<h1>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h1>
 <p><strong>Do the following exercises.</strong></p>
 <section id="exercises-1-basic-concepts">
-<h2>Exercises 1: Basic concepts<a class="headerlink" href="#exercises-1-basic-concepts" title="Permalink to this heading">#</a></h2>
+<h2>Exercises 1: Basic concepts<a class="headerlink" href="#exercises-1-basic-concepts" title="Link to this heading">#</a></h2>
 <section id="exercise-1a">
-<h3>Exercise 1a:<a class="headerlink" href="#exercise-1a" title="Permalink to this heading">#</a></h3>
+<h3>Exercise 1a:<a class="headerlink" href="#exercise-1a" title="Link to this heading">#</a></h3>
 <p>A neutrino experiment has a problem with the DAQ, and 5% of the running time it does not observe interactions. The neutrinos are produced by a reactor nearby that operates 75% of the time. In this moment, the experiment does not observe neutrinos, what is the probability that the reactor is off?</p>
 <p><strong>Choose at least 1 among:</strong></p>
 </section>
 <section id="exercise-1b">
-<h3>Exercise 1b:<a class="headerlink" href="#exercise-1b" title="Permalink to this heading">#</a></h3>
+<h3>Exercise 1b:<a class="headerlink" href="#exercise-1b" title="Link to this heading">#</a></h3>
 <p>Check that from a “large” <span class="math notranslate nohighlight">\(\nu\)</span> the poisson distribution is equivalent to a gaussian distribution.</p>
 </section>
 <section id="exercise-1c">
-<h3>Exercise 1c:<a class="headerlink" href="#exercise-1c" title="Permalink to this heading">#</a></h3>
+<h3>Exercise 1c:<a class="headerlink" href="#exercise-1c" title="Link to this heading">#</a></h3>
 <p>Generate <span class="math notranslate nohighlight">\(m\)</span> datasets, each with <span class="math notranslate nohighlight">\(n\)</span> data, <span class="math notranslate nohighlight">\(x_i\)</span>, normally distributed, compute its distance squared <span class="math notranslate nohighlight">\(\chi^2 = \sum_{i=1}^n x^2_i\)</span>, what is the distribution of <span class="math notranslate nohighlight">\(\chi^2\)</span>?</p>
 </section>
 <section id="exercise-1d">
-<h3>Exercise 1d:<a class="headerlink" href="#exercise-1d" title="Permalink to this heading">#</a></h3>
+<h3>Exercise 1d:<a class="headerlink" href="#exercise-1d" title="Link to this heading">#</a></h3>
 <p>Generate <span class="math notranslate nohighlight">\(n\)</span> <span class="math notranslate nohighlight">\(x_i\)</span>-values, each one gaussianly distributed with mean <span class="math notranslate nohighlight">\(\mu_i\)</span> and sigma <span class="math notranslate nohighlight">\(\sigma_i\)</span>, show that the sum <span class="math notranslate nohighlight">\(\sum_i x_i\)</span> is gaussian distributed with mean, <span class="math notranslate nohighlight">\(\mu = \sum_i \mu_i\)</span>, and sigma <span class="math notranslate nohighlight">\(\sigma^2 = \sum_i \sigma^2_i\)</span>.</p>
 <p><strong>Choose at least 1 among:</strong></p>
 </section>
 <section id="exercise-1e">
-<h3>Exercise 1e:<a class="headerlink" href="#exercise-1e" title="Permalink to this heading">#</a></h3>
+<h3>Exercise 1e:<a class="headerlink" href="#exercise-1e" title="Link to this heading">#</a></h3>
 <p>Show that the posterior of a normal prior, <span class="math notranslate nohighlight">\(\pi(\mu | \mu_0, \sigma_{\mu_0})\)</span>,
 and a normal likelihood, <span class="math notranslate nohighlight">\(p(x |\mu, \sigma)\)</span>, for n-measurements, <span class="math notranslate nohighlight">\(x\)</span>, is a normal distribution with mean, <span class="math notranslate nohighlight">\(\mu'\)</span>, and sigma, <span class="math notranslate nohighlight">\(\sigma_{\mu'}\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -444,7 +455,7 @@ and a normal likelihood, <span class="math notranslate nohighlight">\(p(x |\mu, 
 \]</div>
 </section>
 <section id="exercise-1f">
-<h3>Exercise 1f:<a class="headerlink" href="#exercise-1f" title="Permalink to this heading">#</a></h3>
+<h3>Exercise 1f:<a class="headerlink" href="#exercise-1f" title="Link to this heading">#</a></h3>
 <p>There are several dices in a box, with 4, 6, 12 and 24 sides. We randomly pick one dice and we roll it four times. The outcomes are <span class="math notranslate nohighlight">\(\{1,4,5,2\}\)</span>. What is the posterior probability that the selected dice has 4, 6, 12 or 24 sides? What is the posterior probability if we roll it twice again and we get now 6 and 1?
 Use the posterior probability formula:
 $<span class="math notranslate nohighlight">\(
@@ -454,9 +465,9 @@ p(\mu|x) = \frac{p(x|\mu) \, \pi(\mu)}{\sum p(x|\mu) \pi(\mu)}
 </section>
 </section>
 <section id="exercises-2-hypothesis-testing-simple-case">
-<h2>Exercises 2: Hypothesis testing (simple case)<a class="headerlink" href="#exercises-2-hypothesis-testing-simple-case" title="Permalink to this heading">#</a></h2>
+<h2>Exercises 2: Hypothesis testing (simple case)<a class="headerlink" href="#exercises-2-hypothesis-testing-simple-case" title="Link to this heading">#</a></h2>
 <section id="exercise-2a">
-<h3>Exercise 2a:<a class="headerlink" href="#exercise-2a" title="Permalink to this heading">#</a></h3>
+<h3>Exercise 2a:<a class="headerlink" href="#exercise-2a" title="Link to this heading">#</a></h3>
 <p>Consider a <strong>hypothetical search for a new particle</strong> at the <strong>LHC</strong>. Assume we are looking for a <strong>new resonance (X) decaying into two photons (<span class="math notranslate nohighlight">\(\gamma\gamma\)</span>)</strong> in a <strong>100 fb<span class="math notranslate nohighlight">\(^{-1}\)</span></strong> dataset at <strong><span class="math notranslate nohighlight">\((\sqrt{s} = 13\)</span>) TeV</strong>.
 <strong>Determine</strong></p>
 <ul class="simple">
@@ -467,12 +478,12 @@ p(\mu|x) = \frac{p(x|\mu) \, \pi(\mu)}{\sum p(x|\mu) \pi(\mu)}
 <p>Analyze how changing the cross-section, background index or energy resolution affect the <strong>signal-to-background ratio</strong> and the <strong>test statistics distributions</strong>.</p>
 </section>
 <section id="exercise-2b">
-<h3>Exercise 2b:<a class="headerlink" href="#exercise-2b" title="Permalink to this heading">#</a></h3>
+<h3>Exercise 2b:<a class="headerlink" href="#exercise-2b" title="Link to this heading">#</a></h3>
 <p>Consider an experiment with several independent channels that expects as background <span class="math notranslate nohighlight">\({\bf b} = (2, 1.5, 1, 0.5)\)</span> and as signal <span class="math notranslate nohighlight">\({\bf s} = (1, 3, 3, 1)\)</span>. The measurement is <span class="math notranslate nohighlight">\((2, 1, 1, 0)\)</span>. Compute the p-value of <span class="math notranslate nohighlight">\(H_1\)</span>.</p>
 <p><strong>Choose at least 1 among:</strong></p>
 </section>
 <section id="exercise-2c">
-<h3>Exercise 2c:<a class="headerlink" href="#exercise-2c" title="Permalink to this heading">#</a></h3>
+<h3>Exercise 2c:<a class="headerlink" href="#exercise-2c" title="Link to this heading">#</a></h3>
 <p>Consider the expected background events and signal events in bins of energy in the RoI of the KamLAND-Zen experiment in Fig 2-b) <a class="reference external" href="https://arxiv.org/abs/1605.02889">PRL-117</a>.</p>
 <ul class="simple">
 <li><p>Compute now the pdfs of <span class="math notranslate nohighlight">\(q\)</span> for only background and 10 times the signal.</p></li>
@@ -485,7 +496,7 @@ p(\mu|x) = \frac{p(x|\mu) \, \pi(\mu)}{\sum p(x|\mu) \pi(\mu)}
 <p><em>x</em> = [4.0, 0.0, 2.0, 4.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 2.0, 2.0, 1.0, 0.0]</p>
 </section>
 <section id="exercise-2d">
-<h3>Exercise 2d:<a class="headerlink" href="#exercise-2d" title="Permalink to this heading">#</a></h3>
+<h3>Exercise 2d:<a class="headerlink" href="#exercise-2d" title="Link to this heading">#</a></h3>
 <p>An experiment expects <span class="math notranslate nohighlight">\((2, 1)\)</span> background events in two bins, and a possible signal <span class="math notranslate nohighlight">\((8, 9)\)</span> on top.</p>
 <ul class="simple">
 <li><p>If it observes <span class="math notranslate nohighlight">\((9, 9)\)</span>, can we claim an observation?</p></li>
@@ -495,47 +506,47 @@ p(\mu|x) = \frac{p(x|\mu) \, \pi(\mu)}{\sum p(x|\mu) \pi(\mu)}
 </section>
 </section>
 <section id="exercises-3-confidence-intervals">
-<h2>Exercises 3: Confidence intervals<a class="headerlink" href="#exercises-3-confidence-intervals" title="Permalink to this heading">#</a></h2>
+<h2>Exercises 3: Confidence intervals<a class="headerlink" href="#exercises-3-confidence-intervals" title="Link to this heading">#</a></h2>
 <section id="exercise-3a">
-<h3>Exercise 3a:<a class="headerlink" href="#exercise-3a" title="Permalink to this heading">#</a></h3>
+<h3>Exercise 3a:<a class="headerlink" href="#exercise-3a" title="Link to this heading">#</a></h3>
 <p>Use the classical construction of CI for the case of a gaussian with <span class="math notranslate nohighlight">\(\sigma= 1\)</span> and <span class="math notranslate nohighlight">\(\beta = 68\)</span> % CL.</p>
 <!-- #region -->
 <p><strong>Choose at least 2 among:</strong></p>
 </section>
 <section id="exercise-3b">
-<h3>Exercise 3b:<a class="headerlink" href="#exercise-3b" title="Permalink to this heading">#</a></h3>
+<h3>Exercise 3b:<a class="headerlink" href="#exercise-3b" title="Link to this heading">#</a></h3>
 <p>Verify that the flip-flop problem has not the proper coverage. For this, set the flip-flop construction and test the coverture for <span class="math notranslate nohighlight">\(\mu_{true} = 3\)</span>.
 Why the case <span class="math notranslate nohighlight">\(b=3\)</span> and <span class="math notranslate nohighlight">\(x_0 = 0\)</span> has no classical CI at 90% CL?</p>
 </section>
 <section id="exercise-3c">
-<h3>Exercise 3c:<a class="headerlink" href="#exercise-3c" title="Permalink to this heading">#</a></h3>
+<h3>Exercise 3c:<a class="headerlink" href="#exercise-3c" title="Link to this heading">#</a></h3>
 <p>FC is a frequentist method. Verify now that the FC construction guarantees <strong>coverage</strong> for some examples <span class="math notranslate nohighlight">\(b = 3, \mu_{true} = 0.5\)</span></p>
 </section>
 <section id="exercise-3d">
-<h3>Exercise 3d:<a class="headerlink" href="#exercise-3d" title="Permalink to this heading">#</a></h3>
+<h3>Exercise 3d:<a class="headerlink" href="#exercise-3d" title="Link to this heading">#</a></h3>
 <p>Compare the classical and frequentist intervals, where do they differ? Where are they are equal? Use as example the case <span class="math notranslate nohighlight">\(b=3\)</span>.</p>
 </section>
 </section>
 <section id="exercises-4-hypothesis-testing-composite-case">
-<h2>Exercises 4: Hypothesis testing (composite case)<a class="headerlink" href="#exercises-4-hypothesis-testing-composite-case" title="Permalink to this heading">#</a></h2>
+<h2>Exercises 4: Hypothesis testing (composite case)<a class="headerlink" href="#exercises-4-hypothesis-testing-composite-case" title="Link to this heading">#</a></h2>
 <section id="exercise-4a">
-<h3>Exercise 4a:<a class="headerlink" href="#exercise-4a" title="Permalink to this heading">#</a></h3>
+<h3>Exercise 4a:<a class="headerlink" href="#exercise-4a" title="Link to this heading">#</a></h3>
 <p>Verify that the <span class="math notranslate nohighlight">\(q_0\)</span> distribution is a ‘half’ <span class="math notranslate nohighlight">\(\chi^2\)</span>.</p>
 <p><strong>Choose at least 1 among:</strong></p>
 </section>
 <section id="exercise-4b">
-<h3>Exercise 4b:<a class="headerlink" href="#exercise-4b" title="Permalink to this heading">#</a></h3>
+<h3>Exercise 4b:<a class="headerlink" href="#exercise-4b" title="Link to this heading">#</a></h3>
 <p>Consider the case of a poisson distribution with an unknown mean <span class="math notranslate nohighlight">\(\mu\)</span> and the null hypothesis <span class="math notranslate nohighlight">\(\mu_0\)</span>. Check for which values of <span class="math notranslate nohighlight">\(\mu\)</span>, <span class="math notranslate nohighlight">\(g(t_\mu | \mu)\)</span> follows a <span class="math notranslate nohighlight">\(\chi^2(1)\)</span> distribution.</p>
 </section>
 <section id="exercise-4c">
-<h3>Exercise 4c:<a class="headerlink" href="#exercise-4c" title="Permalink to this heading">#</a></h3>
-<p>Consider an experiment with a gaussian distribution with mean <span class="math notranslate nohighlight">\(\mu\)</span> and sigma 1. Consider <span class="math notranslate nohighlight">\(\mu_{true} = \mu_0 = 0\)</span>. Obtain the distribution of the upper limits at 90 %CL.</p>
+<h3>Exercise 4c:<a class="headerlink" href="#exercise-4c" title="Link to this heading">#</a></h3>
+<p>Consider an experiment with a gaussian distribution with mean <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\sigma= 1\)</span>. Consider <span class="math notranslate nohighlight">\(\mu_{true} = \mu_0 = 0\)</span>. Obtain the distribution of the upper limits at 90 %CL.</p>
 </section>
 </section>
 <section id="exercises-5-fitting-with-zfit">
-<h2>Exercises 5: Fitting with zfit<a class="headerlink" href="#exercises-5-fitting-with-zfit" title="Permalink to this heading">#</a></h2>
+<h2>Exercises 5: Fitting with zfit<a class="headerlink" href="#exercises-5-fitting-with-zfit" title="Link to this heading">#</a></h2>
 <section id="exercise-5a">
-<h3>Exercise 5a:<a class="headerlink" href="#exercise-5a" title="Permalink to this heading">#</a></h3>
+<h3>Exercise 5a:<a class="headerlink" href="#exercise-5a" title="Link to this heading">#</a></h3>
 <p>You are analyzing data from a high-energy physics experiment (like LHCb). You are studying the rare decay of charmed mesons into an <span class="math notranslate nohighlight">\(\eta\)</span> meson and a pion:</p>
 <ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(D_s^+ \to \eta \pi^+\)</span></p></li>
@@ -544,7 +555,7 @@ Why the case <span class="math notranslate nohighlight">\(b=3\)</span> and <span
 <p>In both cases, the  meson is reconstructed via its dimuon decay mode: : <span class="math notranslate nohighlight">\(\eta \to \mu^+ \mu^-\)</span>.
 Your physics objective is to measure the branching ratio <span class="math notranslate nohighlight">\(\mathcal{B}(\eta \to \mu^+\mu^-)\)</span>.
 This branching ratio is a fundamental constant of nature and must be the <strong>same</strong> regardless of whether the <span class="math notranslate nohighlight">\(\eta\)</span> meson came from a  <span class="math notranslate nohighlight">\(D_s^+\)</span> or a <span class="math notranslate nohighlight">\(D^+\)</span>.</p>
-<p>You have two <a class="reference external" href="https://www.dropbox.com/scl/fi/xd5tn9444ggn307d7qzih/zfit_ex_datasets.zip?rlkey=vvfldbo1hjgaiapfhvtupolxr&amp;dl=1">datasets</a>: <code class="docutils literal notranslate"><span class="pre">dataset_Ds.csv</span></code> and <code class="docutils literal notranslate"><span class="pre">dataset_Dp.csv</span></code>.</p>
+<p>You have two <a class="reference external" href="https://www.dropbox.com/scl/fi/xd5tn9444ggn307d7qzih/zfit_ex_datasets.zip?rlkey=vvfldbo1hjgaiapfhvtupolxr&amp;amp;dl=1">datasets</a>: <code class="docutils literal notranslate"><span class="pre">dataset_Ds.csv</span></code> and <code class="docutils literal notranslate"><span class="pre">dataset_Dp.csv</span></code>.</p>
 <ul class="simple">
 <li><p><strong>Sample A (<span class="math notranslate nohighlight">\(D^+_s\)</span>):</strong> Events selected near the <span class="math notranslate nohighlight">\(D_s^+\)</span> mass.</p></li>
 <li><p><strong>Sample B (<span class="math notranslate nohighlight">\(D^+\)</span>):</strong> Events selected near the <span class="math notranslate nohighlight">\(D^+\)</span> mass.</p></li>
@@ -562,7 +573,7 @@ This branching ratio is a fundamental constant of nature and must be the <strong
 </ol>
 <p>This sample contains three components:</p>
 <section id="sample-1-d-s-region">
-<h4>Sample 1:  <span class="math notranslate nohighlight">\(D_s^+\)</span> Region<a class="headerlink" href="#sample-1-d-s-region" title="Permalink to this heading">#</a></h4>
+<h4>Sample 1:  <span class="math notranslate nohighlight">\(D_s^+\)</span> Region<a class="headerlink" href="#sample-1-d-s-region" title="Link to this heading">#</a></h4>
 <p>This sample contains three components:</p>
 <ol class="arabic simple">
 <li><p><strong>Signal (<span class="math notranslate nohighlight">\(D^+_s \to \eta \pi\)</span>):</strong></p></li>
@@ -588,7 +599,7 @@ Contains a real <span class="math notranslate nohighlight">\(\eta\)</span>, but 
 </ul>
 </section>
 <section id="sample-2-d-region">
-<h4>Sample 2:  <span class="math notranslate nohighlight">\(D^+\)</span> Region<a class="headerlink" href="#sample-2-d-region" title="Permalink to this heading">#</a></h4>
+<h4>Sample 2:  <span class="math notranslate nohighlight">\(D^+\)</span> Region<a class="headerlink" href="#sample-2-d-region" title="Link to this heading">#</a></h4>
 <p>This sample contains three components:</p>
 <ol class="arabic simple">
 <li><p><strong>Signal (<span class="math notranslate nohighlight">\(D^+ \to \eta \pi\)</span>):</strong></p></li>
@@ -614,7 +625,7 @@ Contains a real <span class="math notranslate nohighlight">\(D^+ \to \mu\mu\pi\)
 </ul>
 </section>
 <section id="tasks">
-<h4>Tasks<a class="headerlink" href="#tasks" title="Permalink to this heading">#</a></h4>
+<h4>Tasks<a class="headerlink" href="#tasks" title="Link to this heading">#</a></h4>
 <ol class="arabic simple">
 <li><p><strong>Model Building:</strong> Construct the 2D PDFs for all 6 components (3 for , 3 for ) using <code class="docutils literal notranslate"><span class="pre">zfit</span></code>. Try to discuss the <em>meaning</em> or <em>origin</em> of each of the components mentioned above. <em>Hint:</em> The Signal and the “Real” background must share the same  mass shape parameters. The centers of the gaussians should be roughly the masses of the relevant particles. You can assume their widths to the be in the range of 5-20 MeV. The background slopes are small and negative, in the <span class="math notranslate nohighlight">\((-10^{-2},-10^{-3})\)</span> range.</p></li>
 <li><p><strong>Parameterization:</strong> Create a shared parameter <code class="docutils literal notranslate"><span class="pre">BR_eta_mumu</span></code>. Define the signal yields for both samples as composed parameters dependent on this BR.</p></li>
@@ -627,7 +638,7 @@ Contains a real <span class="math notranslate nohighlight">\(D^+ \to \mu\mu\pi\)
 </section>
 </section>
 <section id="exercise-5b">
-<h3>Exercise 5b:<a class="headerlink" href="#exercise-5b" title="Permalink to this heading">#</a></h3>
+<h3>Exercise 5b:<a class="headerlink" href="#exercise-5b" title="Link to this heading">#</a></h3>
 <p>Uncertainty Scaling: Check the output of the “extended likelihood” example. In a simple counting experiment, the error on <span class="math notranslate nohighlight">\(N\)</span> is <span class="math notranslate nohighlight">\(\sqrt{N}\)</span>.</p>
 <ol class="arabic simple">
 <li><p>Check the error on <code class="docutils literal notranslate"><span class="pre">n_sig</span></code> from the fit output.</p></li>
@@ -636,7 +647,7 @@ Contains a real <span class="math notranslate nohighlight">\(D^+ \to \mu\mu\pi\)
 </ol>
 </section>
 <section id="exercise-5c">
-<h3>Exercise 5c:<a class="headerlink" href="#exercise-5c" title="Permalink to this heading">#</a></h3>
+<h3>Exercise 5c:<a class="headerlink" href="#exercise-5c" title="Link to this heading">#</a></h3>
 <p>Shared Resolution: Imagine you have a <span class="math notranslate nohighlight">\(J/\psi \to \mu\mu\)</span> calibration channel.</p>
 <ol class="arabic simple">
 <li><p>Generate a calibration dataset (Pure Gaussian, mean=3100, sigma=25).</p></li>
@@ -677,11 +688,10 @@ Contains a real <span class="math notranslate nohighlight">\(D^+ \to \mu\mu\pi\)
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="ta_zfit.html"
@@ -689,20 +699,19 @@ Contains a real <span class="math notranslate nohighlight">\(D^+ \to \mu\mu\pi\)
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Workshop: Advanced Fitting with zfit</p>
+        <p class="prev-next-title">Advanced Fitting with zfit</p>
       </div>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -771,6 +780,7 @@ By José Ángel Hernando Morata, Xabier Cid Vidal
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright USC - J.A. Hernando, X. Cid Vidal - 2026.
@@ -797,8 +807,8 @@ By José Ángel Hernando Morata, Xabier Cid Vidal
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

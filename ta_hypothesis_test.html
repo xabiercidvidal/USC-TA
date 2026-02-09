@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Hypothesis testing, simple case &#8212; Statistics for Particle Physics</title>
   
@@ -15,52 +14,52 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ta_hypothesis_test';</script>
@@ -70,6 +69,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="Revisiting the basic concepts" href="ta_basic_concepts.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -77,23 +77,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+  <div id="pst-scroll-pixel-helper"></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -101,7 +94,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -109,16 +101,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -131,9 +132,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="intro.html">
+  
   
   
   
@@ -143,12 +148,19 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt="Statistics for Particle Physics - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="Statistics for Particle Physics - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -163,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Hypothesis testing, simple case</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ta_confidence_intervals.html">Confidence Intervals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ta_hypothesis_test_composite.html">Hypothesis testing, composite case</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ta_zfit.html">Workshop: Advanced Fitting with zfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ta_zfit.html">Advanced Fitting with zfit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="exercises.html">Exercises</a></li>
 </ul>
 
@@ -173,14 +185,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -189,14 +206,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -221,14 +238,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://colab.research.google.com/github/xabiercidvidal/USC-TA/blob/master/docs/ta_hypothesis_test.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="_static/images/logo_colab.png">
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -349,26 +366,20 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -410,10 +421,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="hypothesis-testing-simple-case">
-<h1>Hypothesis testing, simple case<a class="headerlink" href="#hypothesis-testing-simple-case" title="Permalink to this heading">#</a></h1>
+<h1>Hypothesis testing, simple case<a class="headerlink" href="#hypothesis-testing-simple-case" title="Link to this heading">#</a></h1>
 <p><em>Author: Jose A. Hernando, X. Cid Vidal</em>, January 2026</p>
 <p><em>Instituto Galego de Altas Enerxías. Universidade de Santiago de Compostela, Spain.</em></p>
 <p><a class="reference external" href="https://mybinder.org/v2/gh/xabiercidvidal/USC-TA/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
@@ -454,7 +465,7 @@ document.write(`
 </div>
 </div>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p>The simple hypothesis testing involves a null hypothesis <span class="math notranslate nohighlight">\(H_0\)</span> (i.e the SM) and an alternative hypothesis <span class="math notranslate nohighlight">\(H_1\)</span> (i.e BSM Physics).</p>
 <p>Given a dataset, <span class="math notranslate nohighlight">\(x\)</span>, which of both hypotheses agrees better with data?</p>
 <p>Can we exclude <span class="math notranslate nohighlight">\(H_1\)</span>? At what level?</p>
@@ -489,7 +500,7 @@ CLs           : 0.00000748
 </ul>
 </section>
 <section id="test-statistics">
-<h2>Test statistics<a class="headerlink" href="#test-statistics" title="Permalink to this heading">#</a></h2>
+<h2>Test statistics<a class="headerlink" href="#test-statistics" title="Link to this heading">#</a></h2>
 <p>We need to <strong>order</strong> data, <span class="math notranslate nohighlight">\(x\)</span>, along the axis from <span class="math notranslate nohighlight">\(H_0\)</span> to <span class="math notranslate nohighlight">\(H_1\)</span>, to the left it is more <span class="math notranslate nohighlight">\(H_0\)</span>-like, to the right, more <span class="math notranslate nohighlight">\(H_1\)</span>-like.</p>
 <table style="border: 1px solid black; border-collapse: collapse;">
     <tr>
@@ -509,7 +520,7 @@ q(x) = -2 \log \, \frac{ \mathcal{L}(x \, | \, H_0)}{ \mathcal{L}(x \, | \, H_1)
 <p>In some cases we can do it analytically, but in others it is almost impossible.</p>
 <p>Nevertheless, we can do <strong>simulations</strong> and compute the <span class="math notranslate nohighlight">\(q\)</span> values and obtain its distribution for <em>all possible events</em> of the <span class="math notranslate nohighlight">\(H_0\)</span> type, <span class="math notranslate nohighlight">\(\{ x \}_0\)</span>, and <span class="math notranslate nohighlight">\(H_1\)</span>, <span class="math notranslate nohighlight">\(\{ x \}_1\)</span>.</p>
 <section id="gaussian-pdf-as-an-example">
-<h3>Gaussian pdf as an example<a class="headerlink" href="#gaussian-pdf-as-an-example" title="Permalink to this heading">#</a></h3>
+<h3>Gaussian pdf as an example<a class="headerlink" href="#gaussian-pdf-as-an-example" title="Link to this heading">#</a></h3>
 <p><strong>Example:</strong> Consider as <span class="math notranslate nohighlight">\(H_0\)</span> a gaussian distribution with mean <span class="math notranslate nohighlight">\(\mu_0\)</span> and <span class="math notranslate nohighlight">\(\sigma_0\)</span>;
 and <span class="math notranslate nohighlight">\(H_1\)</span> again a gaussian distribution with <span class="math notranslate nohighlight">\(\mu_1\)</span> and <span class="math notranslate nohighlight">\(\sigma_1\)</span>. Obtain the pdfs,  <span class="math notranslate nohighlight">\(g(q |H_0)\)</span> and <span class="math notranslate nohighlight">\(g(q|H_1)\)</span> for <span class="math notranslate nohighlight">\(\mu_0 = 0, \, \sigma_0 = 1, \, \mu_1 = 4, \, \sigma_1 = 2\)</span>.</p>
 <div class="cell docutils container">
@@ -561,7 +572,7 @@ and <span class="math notranslate nohighlight">\(H_1\)</span> again a gaussian d
 <p><strong>Question:</strong> Discuss what happens when the distributions overlap and when they do not.</p>
 </section>
 <section id="a-counting-experiment">
-<h3>A counting experiment<a class="headerlink" href="#a-counting-experiment" title="Permalink to this heading">#</a></h3>
+<h3>A counting experiment<a class="headerlink" href="#a-counting-experiment" title="Link to this heading">#</a></h3>
 <p>Experiments are sometimes called <strong>counting experiments</strong>, they search for a signal, expecting a given number of events <span class="math notranslate nohighlight">\(s\)</span>, over a background level, <span class="math notranslate nohighlight">\(b\)</span>. This is a first approximation for a Rare Event Search.</p>
 <p>The distribution of the data follows a poisson distribution with mean, <span class="math notranslate nohighlight">\(b\)</span>, in case only background is present; and a poission distribution with mean <span class="math notranslate nohighlight">\(b+s\)</span> in the presence of signal.</p>
 <p><strong>Explore</strong> in the following cell how the distributions change with <span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(s\)</span>, and how the result of the experiment changes depending on <span class="math notranslate nohighlight">\(data\)</span>.</p>
@@ -594,7 +605,7 @@ Consider a <strong>hypothetical search for a new particle</strong> at the <stron
 <p>Analyze how changing the cross-section, background index or energy resolution affect the <strong>signal-to-background ratio</strong> and the <strong>test statistics distributions</strong>.</p>
 </section>
 <section id="n-poisson-case">
-<h3>N-poisson case<a class="headerlink" href="#n-poisson-case" title="Permalink to this heading">#</a></h3>
+<h3>N-poisson case<a class="headerlink" href="#n-poisson-case" title="Link to this heading">#</a></h3>
 <p>Another case very common is a n-bin counting experiment. For example the first <span class="math notranslate nohighlight">\(B_s \to \mu^+ \mu^-\)</span> very rare <a class="reference external" href="https://arxiv.org/pdf/1110.2411">decay search</a> at LHCb. In every bin there is an expectation for the background and for the signal. If the bins are independent, each one is like a single-counting experiment.</p>
 <p><strong>Explore</strong>: In the following cell we are simulating one event for a n-bin counting experiment. Play with the background and the signal, and the number of bins.</p>
 <div class="cell docutils container">
@@ -634,7 +645,7 @@ Consider a <strong>hypothetical search for a new particle</strong> at the <stron
 </section>
 </section>
 <section id="significance-and-power">
-<h2>Significance and power<a class="headerlink" href="#significance-and-power" title="Permalink to this heading">#</a></h2>
+<h2>Significance and power<a class="headerlink" href="#significance-and-power" title="Link to this heading">#</a></h2>
 <p>We can classify events into <span class="math notranslate nohighlight">\(H_0\)</span> or <span class="math notranslate nohighlight">\(H_1\)</span> hypotheses using a threshold, <span class="math notranslate nohighlight">\(k\)</span>, on the test statistics:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -699,7 +710,7 @@ CLs           : 0.00025765
 </div>
 </section>
 <section id="discovery-and-rejection">
-<h2>Discovery and rejection<a class="headerlink" href="#discovery-and-rejection" title="Permalink to this heading">#</a></h2>
+<h2>Discovery and rejection<a class="headerlink" href="#discovery-and-rejection" title="Link to this heading">#</a></h2>
 <p>We claim:</p>
 <ul class="simple">
 <li><p><strong>discovery</strong> or <strong>observation</strong> of <span class="math notranslate nohighlight">\(H_1\)</span> if the <span class="math notranslate nohighlight">\(H_0\)</span> p-value (<span class="math notranslate nohighlight">\(\alpha\)</span>) is lower that <span class="math notranslate nohighlight">\(2.87 \times 10^{-7}\)</span>, which corresponds to <span class="math notranslate nohighlight">\(Z = 5\)</span>.</p></li>
@@ -811,7 +822,7 @@ CLs           : 0.50000014
 <p><strong>Exercise:</strong> An experiment expects <span class="math notranslate nohighlight">\((2, 1)\)</span> background events in two bins, and a possible signal <span class="math notranslate nohighlight">\((8, 9)\)</span> on top. It observes <span class="math notranslate nohighlight">\((9, 9)\)</span>, can claim observation? In case it observes <span class="math notranslate nohighlight">\((1, 1)\)</span>, can reject the signal at 95 % CL?</p>
 </section>
 <section id="the-cls-method">
-<h2>The CLs method<a class="headerlink" href="#the-cls-method" title="Permalink to this heading">#</a></h2>
+<h2>The CLs method<a class="headerlink" href="#the-cls-method" title="Link to this heading">#</a></h2>
 <p>In some cases the <span class="math notranslate nohighlight">\(H_1\)</span> hypothesis is ‘weak’ compared with <span class="math notranslate nohighlight">\(H_0\)</span> and the distributions of the test statistics <span class="math notranslate nohighlight">\(g(q \, | H_0)\)</span> and <span class="math notranslate nohighlight">\(g(q \, | \,H_1) \)</span> overlap.</p>
 <p><strong>Example</strong>: Consider <span class="math notranslate nohighlight">\(H_0\)</span> as a poisson of <span class="math notranslate nohighlight">\(b\)</span> expected events, <span class="math notranslate nohighlight">\(b=4\)</span>, and the signal <span class="math notranslate nohighlight">\(s=0.5\)</span> events.</p>
 <p><strong>Question</strong>: If we measure <span class="math notranslate nohighlight">\(n \, = \,1\)</span>, the p-value for <span class="math notranslate nohighlight">\(H_1\)</span> is <span class="math notranslate nohighlight">\(0.061\)</span>, below 10%. Do we exclude the signal at 90% CL?</p>
@@ -899,7 +910,7 @@ CL_s \equiv \frac{CL_{s+b}}{CL_b} = \frac{\beta}{1-\alpha}
 <p>The CLs method has been criticized as conservative, but has been and is frequenly used in HEP.</p>
 </section>
 <section id="nuisance-parameters">
-<h2>Nuisance parameters<a class="headerlink" href="#nuisance-parameters" title="Permalink to this heading">#</a></h2>
+<h2>Nuisance parameters<a class="headerlink" href="#nuisance-parameters" title="Link to this heading">#</a></h2>
 <p>Sometimes the pdf depends not only on <span class="math notranslate nohighlight">\(\mu\)</span>, but also on other parameters, <span class="math notranslate nohighlight">\(\nu\)</span> of no “physical interest”. They are called <strong>nuisance parameters</strong>.</p>
 <p>The pdf <span class="math notranslate nohighlight">\(g(x \, | \, \mu, \nu)\)</span>, were <span class="math notranslate nohighlight">\(\mu\)</span> is the parameter of interest, and <span class="math notranslate nohighlight">\(\nu\)</span> the nuisance parameter.</p>
 <p>In some cases, we can marginalize the nuisance parameters. One possibility is use <a class="reference external" href="http://www.sciencedirect.com/science/article/pii/0168900292907945">the Cousins-Highland method</a> also known as a bayesian-frequentist hybrid method.</p>
@@ -912,7 +923,7 @@ g(x \, | \, \mu) = \int g( x \, | \, \mu, \nu) \, \pi(\nu) \, \mathrm{d}\nu
 <p>Notice that this method is a hybrid: frequentist-bayesian.</p>
 </section>
 <section id="intro-to-composite-hypothesis">
-<h2>Intro to composite hypothesis<a class="headerlink" href="#intro-to-composite-hypothesis" title="Permalink to this heading">#</a></h2>
+<h2>Intro to composite hypothesis<a class="headerlink" href="#intro-to-composite-hypothesis" title="Link to this heading">#</a></h2>
 <p>Often the <span class="math notranslate nohighlight">\(H_1\)</span> hypothesis is not complete, it depends on several parameters.</p>
 <p>A typical example if searching for a new signal with an unkown cross-section or half-lifetime. We condense the unknown into a parameter, <span class="math notranslate nohighlight">\(\mu\)</span>, that quantifies the strength of the signal.</p>
 <p><span class="math notranslate nohighlight">\(H_1\)</span> depends now on <span class="math notranslate nohighlight">\(\mu\)</span>. When <span class="math notranslate nohighlight">\(\mu=0\)</span>, we recover the case <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
@@ -932,27 +943,26 @@ g(x \, | \, \mu) = \int g( x \, | \, \mu, \nu) \, \pi(\nu) \, \mathrm{d}\nu
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "my-local-env"
         },
         kernelOptions: {
-            name: "python3.12",
+            name: "my-local-env",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3.12'</script>
+    <script>kernelName = 'my-local-env'</script>
 
                 </article>
               
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="ta_basic_concepts.html"
@@ -972,17 +982,16 @@ g(x \, | \, \mu) = \int g( x \, | \, \mu, \nu) \, \pi(\nu) \, \mathrm{d}\nu
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1023,6 +1032,7 @@ By José Ángel Hernando Morata, Xabier Cid Vidal
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright USC - J.A. Hernando, X. Cid Vidal - 2026.
@@ -1049,8 +1059,8 @@ By José Ángel Hernando Morata, Xabier Cid Vidal
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
