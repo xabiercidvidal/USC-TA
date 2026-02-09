@@ -106,7 +106,7 @@ Verify that the $q_0$ distribution is a 'half' $\chi^2$.
  Consider the case of a poisson distribution with an unknown mean $\mu$ and the null hypothesis $\mu_0$. Check for which values of $\mu$, $g(t_\mu | \mu)$ follows a $\chi^2(1)$ distribution.
 
 ##### Exercise 4c:
-Consider an experiment with a gaussian distribution with mean $\mu$ and sigma 1. Consider $\mu_{true} = \mu_0 = 0$. Obtain the distribution of the upper limits at 90 %CL.
+Consider an experiment with a gaussian distribution with mean $\mu$ and $\sigma= 1$. Consider $\mu_{true} = \mu_0 = 0$. Obtain the distribution of the upper limits at 90 %CL.
 
 
 #### Exercises 5: Fitting with zfit
