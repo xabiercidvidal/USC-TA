@@ -104,7 +104,7 @@ def poisson_control_rvs(mu, nu, tau, nbins = None):
     hts = h0s + h1s
     plt.plot(zbins, h0s, color = h0color, ls='--', label = 'bkg')
     plt.plot(zbins, h1s, color = h1color, ls='-.', label = 'signal')
-    plt.plot(zbins, hts, color = h1color, ls='--', label = 'total');
+    plt.plot(zbins, hts, color = datacolor, ls='--', label = 'total');
     plt.xlabel('x'); plt.legend();
     return
 
