@@ -618,7 +618,7 @@ numpy version: 2.0.2
 <li><p><strong>Yield (<span class="math notranslate nohighlight">\(N_{sig}\)</span>):</strong> How many signal events we observed.</p></li>
 </ul>
 <p>To do this, we construct a <strong>Model</strong> (a mathematical function) that describes what we expect the data to look like, and we “fit” this model to the data to find the best parameters.</p>
-<p><em>Note a dataset is not fit, we fit a model!</em></p>
+<p><em>Note a dataset is not fitted, we fit a model to a dataset!</em></p>
 </section>
 <section id="signal-vs-background">
 <h3>Signal vs. Background<a class="headerlink" href="#signal-vs-background" title="Link to this heading">#</a></h3>
@@ -661,10 +661,13 @@ $<span class="math notranslate nohighlight">\(-\ln\mathcal{L}(\theta) = - \sum_{
 <h3>zfit (The Modern Python Alternative)<a class="headerlink" href="#zfit-the-modern-python-alternative" title="Link to this heading">#</a></h3>
 <p><strong>zfit</strong> is a pure Python library built on top of <strong>TensorFlow</strong>.</p>
 <ul class="simple">
-<li><p><strong>Pros:</strong></p></li>
+<li><p><strong>Pros:</strong></p>
+<ul>
 <li><p><strong>Pythonic:</strong> easy to extend and debug.</p></li>
 <li><p><strong>Scalable:</strong> Uses TensorFlow’s computational graph, allowing it to run on GPUs and handle millions of events efficiently.</p></li>
 <li><p><strong>Ecosystem:</strong> Integrates seamlessly with the “Scikit-HEP” stack (<code class="docutils literal notranslate"><span class="pre">uproot</span></code>, <code class="docutils literal notranslate"><span class="pre">awkward</span></code>, <code class="docutils literal notranslate"><span class="pre">mplhep</span></code>).</p></li>
+</ul>
+</li>
 <li><p><strong>Cons:</strong> Newer, so it has fewer legacy features than RooFit.</p></li>
 </ul>
 </section>
