@@ -952,6 +952,8 @@ lambda         -0.00295331  +/- 6.7e-05       False
 We use the <strong>Extended Likelihood</strong>, which adds a Poisson term to the NLL:</p>
 <div class="math notranslate nohighlight">
 \[ -\ln \mathcal{L}_{ext} = -\sum \ln P(x_i) + (N_{exp} - N_{obs} \ln N_{exp}) \]</div>
+<p>Where the Extended Likelihood (<span class="math notranslate nohighlight">\(\mathcal{L}_{ext}\)</span>) is defined as the product of the Poisson probability of observing <span class="math notranslate nohighlight">\(N_{obs}\)</span> events and the standard Shape likelihood: $<span class="math notranslate nohighlight">\(\mathcal{L}_{ext} = \underbrace{\frac{e^{-N_{exp}} (N_{exp})^{N_{obs}}}{N_{obs}!}}_{\text{Poisson Term (Yield)}} \times \underbrace{\prod_{i=1}^{N_{obs}} P(x_i)}_{\text{Product of Probabilities (Shape)}}\)</span>$</p>
+<p>Expanding the negative log likelihood of the first part:$<span class="math notranslate nohighlight">\(-\ln(\text{Poisson}) = - \left[ \ln(e^{-N_{exp}}) + \ln((N_{exp})^{N_{obs}}) - \ln(N_{obs}!) \right]\)</span>$$<span class="math notranslate nohighlight">\(= - \left[ -N_{exp} + N_{obs} \ln(N_{exp}) - \ln(N_{obs}!) \right]\)</span>$$<span class="math notranslate nohighlight">\(= N_{exp} - N_{obs} \ln(N_{exp}) + \ln(N_{obs}!)\)</span><span class="math notranslate nohighlight">\( And, since the term \)</span>\ln(N_{obs}!)<span class="math notranslate nohighlight">\( depends only on the data (\)</span>N_{obs}<span class="math notranslate nohighlight">\(), not on the parameter (\)</span>N_{exp}$), we can simply drop it.</p>
 <p>In zfit, we just attach a yield parameter to the PDF.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -989,7 +991,7 @@ lambda         -0.00295334  +/- 6.7e-05       False
 </div>
 </div>
 </div>
-<p><strong>Exercise</strong>: Uncertainty Scaling
+<p><strong>Exercise</strong>: Uncertainty Scaling.
 In a simple counting experiment, the error on <span class="math notranslate nohighlight">\(N\)</span> is <span class="math notranslate nohighlight">\(\sqrt{N}\)</span>.</p>
 <ol class="arabic simple">
 <li><p>Check the error on <code class="docutils literal notranslate"><span class="pre">n_sig</span></code> from the fit output.</p></li>
@@ -1035,7 +1037,7 @@ Note how the error on `lambda` decreases, and this might propagate to improve th
 </section>
 <section id="simultaneous-fits">
 <h2>Simultaneous Fits<a class="headerlink" href="#simultaneous-fits" title="Link to this heading">#</a></h2>
-<p>One of the most powerful techniques in HEP is to perform a simultaneous fit to Signal + <em>Control</em> Regions.
+<p>As we saw, one of the most powerful techniques in HEP is to perform a simultaneous fit to Signal + <em>Control</em> Regions.
 Imagine we have:</p>
 <ol class="arabic simple">
 <li><p><strong>Signal Region (SR):</strong> Has Signal and Background.</p></li>
@@ -1060,7 +1062,7 @@ Imagine we have:</p>
 
 <span class="c1"># SR Model (Sig + Bkg)</span>
 <span class="n">sig_sr</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">Gauss</span><span class="p">(</span><span class="n">mu</span><span class="o">=</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">sigma</span><span class="p">,</span> <span class="n">obs</span><span class="o">=</span><span class="n">obs</span><span class="p">)</span>
-<span class="n">bkg_sr</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">Exponential</span><span class="p">(</span><span class="n">lambda_</span><span class="o">=</span><span class="n">lambda_shared</span><span class="p">,</span> <span class="n">obs</span><span class="o">=</span><span class="n">obs</span><span class="p">)</span> <span class="c1"># Uses shared</span>
+<span class="n">bkg_sr</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">Exponential</span><span class="p">(</span><span class="n">lambda_</span><span class="o">=</span><span class="n">lambda_shared</span><span class="p">,</span> <span class="n">obs</span><span class="o">=</span><span class="n">obs</span><span class="p">)</span> <span class="c1"># Uses shared lambda</span>
 <span class="n">model_sr</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span><span class="n">SumPDF</span><span class="p">([</span><span class="n">sig_sr</span><span class="p">,</span> <span class="n">bkg_sr</span><span class="p">],</span> <span class="n">fracs</span><span class="o">=</span><span class="n">frac</span><span class="p">)</span>
 
 <span class="c1"># CR Model (Bkg only)</span>
@@ -1068,7 +1070,7 @@ Imagine we have:</p>
 
 <span class="c1"># --- 3. Combined Loss ---</span>
 <span class="n">nll_sr</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">loss</span><span class="o">.</span><span class="n">UnbinnedNLL</span><span class="p">(</span><span class="n">model_sr</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
-<span class="n">nll_cr</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">loss</span><span class="o">.</span><span class="n">UnbinnedNLL</span><span class="p">(</span><span class="n">model_cr</span><span class="p">,</span> <span class="n">data_cr</span><span class="p">)</span>
+<span class="n">nll_cr</span> <span class="o">=</span> <span class="n">zfit</span><span class="o">.</span><span class="n">loss</span><span class="o">.</span><span class="n">UnbinnedNLL</span><span class="p">(</span><span class="n">model_cr</span><span class="p">,</span> <span class="n">data_cr</span><span class="p">)</span> <span class="c1">## note different dataset!</span>
 
 <span class="n">simultaneous_nll</span> <span class="o">=</span> <span class="n">nll_sr</span> <span class="o">+</span> <span class="n">nll_cr</span>
 
