@@ -133,10 +133,9 @@ $$\mathcal{B}(\eta \to \mu\mu) = N_{sig} \cdot \alpha \quad \Rightarrow \quad N_
 
 You are given the sensitivity factors $\alpha$ for each channel:
 
-$\alpha_{D^+_s} = 2.5 \times 10^{-5}$
+$\alpha_{D^+_s} = 2.5 \times 10^{-9}$
 
-$\alpha_{D^+} = 8.0 \times 10^{-5}$
-
+$\alpha_{D^+} = 8.0 \times 10^{-9}$
 
 You are dealing with a 2D problem. The observables are:
 
